@@ -1,0 +1,4 @@
+<Customer CustomerID="">
+  <Extn ExtnGACC="" ExtnCustomerName="" ExtnUnitType="" ExtnAgency="" ExtnDepartment=""/>
+  <Consumer BillingAddressKey=""/>
+</Customer>

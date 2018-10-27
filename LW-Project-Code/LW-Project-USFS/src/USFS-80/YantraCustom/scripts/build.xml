@@ -1,0 +1,413 @@
+<?xml version="1.0" ?>
+<project name="8.0 Build Script For USFS" default="all" basedir=".">
+    <property file="build.properties" />
+	<property environment="env"/>
+	<path id="yantra.class.path">
+		<pathelement location="${env.JAVA_HOME}/lib/dt.jar" />
+		<pathelement location="${env.YFS_HOME}" />
+		<fileset dir="${env.YFS_HOME}/lib">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+	
+	<path id="implementation.class.path">
+		<fileset dir="${env.YFS_HOME}/jar/sscap/8.0">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.YFS_HOME}/jar/platform_afc/3000">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+	    <fileset dir="${env.YFS_HOME}/jar/WMS_Add-in/8.0_8.0">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.YFS_HOME}/jar/platform/1.0">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.YFS_HOME}/jar/log4j/1_2_12">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.YFS_HOME}/repository/eardata/platform/war/yfscommon">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.YFS_HOME}/repository/eardata/yantra/war/yfscommon">
+			<include name="**/checkstyle-all-4.4.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/repository/eardata/yantra/war/yfscommon">
+					<include name="**/ycmui.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/runtimes">
+							<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/lib">
+			<include name="**/j2ee.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/lib/WMQ/java/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		
+		<fileset dir="${env.WEBSPHERE_HOME}/java/jre/lib">
+							<include name="**/*.jar"/>
+				</fileset>
+	</path>
+
+	<path id="project.class.path">
+		<path refid="implementation.class.path" />
+	</path>
+
+	<target name="test" description="Variable Test">
+		<echo message="${env.YFS_HOME}" />
+		<echo message="${env.WEBSPHERE_HOME}"/>
+	</target>
+
+	<target name="all" description="Executes all the targets">
+		<echo>Deploying ICBS Build...</echo>
+		<antcall target="clean" />
+		<!--<antcall target="cvs-fetch" />-->
+		<!--<antcall target="checkstyle" />-->
+		<antcall target="build-jars" />
+		<antcall target="copy-files" />
+		<antcall target="copy-custom-code-jar" />
+		<antcall target="deploy-extensions" />
+		<!-- Start commenting below 2 lines for faster build -->
+		<antcall target="db-verify" />
+		<antcall target="alter-db" />
+		<!-- End fast build -->
+		<antcall target="build-ear" />
+		<antcall target="create-custom-report-views" />
+	</target>
+	
+	<!-- Cleans the custom code in YFS_HOME -->
+	<target name="clean" description="Deletes directories" >
+		<echo>Cleaning YFS_HOME extension directories</echo>
+		<!-- Delete directories -->
+		<delete dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<delete dir="${env.YFS_HOME}/extensions/global/entities"/>
+   		<delete dir="${env.YFS_HOME}/repository/entities/extensions"/>
+		<delete dir="${env.YFS_HOME}/resources/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/api/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/event/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/userexit/extn" />
+       	<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+   		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/resource/extn" />
+   		<delete dir="${env.YFS_HOME}/repository/datatypes/extn" />
+		<delete dir="${env.YFS_HOME}/repository/eardata/yantra/war/extn" /> 
+
+		<echo>Rebuilding YFS_HOME extension directories</echo>
+		<!-- Re-create directories -->
+		<mkdir dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/entities"/>
+		<mkdir dir="${env.YFS_HOME}/repository/entities/extensions" />
+    	<mkdir dir="${env.YFS_HOME}/resources/extn" />				
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/resource/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/api/extn" />	
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/event/extn" />				
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/userexit/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/eardata/yantra/war/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/datatypes/extn" />
+	</target>
+
+	<!-- Fetches the source files from the CVS and put it in the corresponding folders -->
+	<target name="cvs-fetch" description="Get Latest Source Files From CVS">
+        <echo>Fetching YantraCustom into ${cvs.project.name}/YantraCustom </echo>
+                <!-- Fetch the YantraCustom -->
+                <exec dir="${cvs.fetch.dir}" executable="cvs">
+                        <arg value="co" />
+                        <arg value="-r"/>
+                        <arg value="${cvs.branch}"/>
+                        <arg value="${cvs.project.name}/YantraCustom" />
+                </exec>
+
+        <echo>Fetching YantraExtension into ${cvs.project.name}/YantraExtension </echo>
+              <!-- Fetch the YantraExtension -->
+                <exec dir="${cvs.fetch.dir}" executable="cvs">
+                        <arg value="co" />
+                        <arg value="-r"/>
+                        <arg value="${cvs.branch}"/>
+                        <arg value="${cvs.project.name}/YantraExtension" />
+                </exec>
+	</target>
+
+  	<target name="build-jars" description="Make Jar">
+		<!-- Compile the java source files -->
+        	<delete dir="${project.yantracustom.dir}/dist/Foundation/classes" />
+        	<mkdir dir="${project.yantracustom.dir}/dist/Foundation/classes" />
+
+		<javac encoding="8859_1" classpathref="project.class.path" destdir="${project.yantracustom.dir}/dist/Foundation/classes" executable="${env.JAVA_HOME}/bin/javac">
+			<src path="${project.yantracustom.dir}/src">
+			</src>
+        	</javac>
+
+		<!-- Makes the project jar file -->
+		<!--Create version file -->    		
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>    	
+
+		<echo file="${project.yantracustom.dir}/dist/NWCGversion.txt">
+			Release Version: ${project.name} V ${release.version}
+			Release Date: ${NOW}
+		</echo>
+
+		<!--Copy the version.txt-->
+        <copy file="${project.yantracustom.dir}/dist/NWCGversion.txt" todir="${project.yantracustom.dir}/dist/Foundation/classes"/>
+
+        <jar destfile="${project.yantracustom.dir}/dist/Foundation/${project.name}.jar" basedir="${project.yantracustom.dir}/dist/Foundation/classes">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+                <section name="version-information">
+                    <attribute name="Version" value="${release.version}" />
+                    <attribute name="Date" value="${NOW}" />
+                </section>
+			</manifest>
+        </jar>
+   	</target>
+
+	<!--Copy project files-->
+	<target name="copy-files" description="Deploys the project files in the relevant folders of MCF Installation">
+	<echo>Copy the project specific repository to repository folder of Yantra</echo>
+		<!--Copy webpages-->
+		<echo>Copy the project specific jsps to /war folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/eardata/yantra/war">
+			<fileset dir="${project.yantraextn.dir}/webpages">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<echo>Copy the project specific jsps to /extensions/global/webpages folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/webpages">
+			<fileset dir="${project.yantraextn.dir}/webpages/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<!--Copy templates-->
+		<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/xapi/template/merged">
+			<fileset dir="${project.yantraextn.dir}/template">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<!--Copy Database-->
+		<echo>Copy the project specific database to /database folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/entities/extensions">
+			<fileset dir="${project.yantraextn.dir}/database/entities/extensions">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<echo>Copy the project specific database to /database folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/entities">
+			<fileset dir="${project.yantraextn.dir}/database/entities/extensions">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<echo>Copy the project specific resources to /resources/extn folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/resources/extn">
+			<fileset dir="${project.yantraextn.dir}/resources/extn">
+				<exclude name="**/CVS" />
+			</fileset>
+		</copy>
+
+		<echo>Copy the project specific extn to /WEB-INF folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/eardata/yantra/descriptors/websphere/WAR/WEB-INF">
+			<fileset dir="${project.yantraextn.dir}/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<echo>Copy the deployment descriptors to the /descriptors folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/eardata/yantra/descriptors/">
+			<fileset dir="${project.yantraextn.dir}/descriptors">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+
+		<!--Copy the version.txt from bin to webpages/extn required by the get_implementation_version.jsp -->
+		<antcall target="copy-version-txt" />
+
+    </target>
+
+	<target name="copy-version-txt">
+		<copy file="${env.YFS_HOME}/bin/version.txt" todir="${env.YFS_HOME}/extensions/global/webpages" failonerror="No"/>
+	</target>
+
+	<!--Copy the custom code jar nwcg_icbs_br2.jar to directory-->
+	<target name="copy-custom-code-jar" description="Copies the business release jar having custom code to the respective directory">
+		<!--Delete existing nwcg_icbs_br2.jar-->
+		<delete file="${env.YFS_HOME}/extensions/global/jars/${project.name}.jar"/>
+
+		<!-- Copying the nwcg_icbs_br2.jar in the extn folder -->
+		<copy file="${project.yantracustom.dir}/dist/Foundation/${project.name}.jar" todir="${env.YFS_HOME}/extensions/global/jars/"/>
+
+		<!-- Copy nwcg version file to display the nwcg version on the build-->
+		<copy file="${project.yantracustom.dir}/dist/NWCGversion.txt" todir="${env.YFS_HOME}/repository/eardata/yantra/war/extn" failonerror="No"/>
+	</target>
+
+	<target name="deploy-extensions" description="Deploys extensions on MCF app">		
+		<echo>Deploying extensions</echo>
+		<!--Generates properties files as configured in sandbox.cfg-->
+		<exec dir="${env.YFS_HOME}/bin" executable="${env.YFS_HOME}/bin/setupfiles.cmd" failonerror="true">
+		</exec>							
+
+		<!--Includes project jar in EAR classpath for APP-->
+		<exec executable="${env.YFS_HOME}/bin/install3rdParty.cmd" failonerror="true">
+			  <arg value="websphere"/>
+			  <arg value="61"/>
+			  <arg value="-j"/>
+			  <arg value="${env.YFS_HOME}/extensions/global/jars/${project.name}.jar"/>
+			  <arg value="-targetJVM"/>
+			  <arg value="APP"/>
+		</exec>					
+
+		<!--Includes project jar in EAR classpath for AGENT-->
+		<exec executable="${env.YFS_HOME}/bin/install3rdParty.cmd" failonerror="true">
+			  <arg value="websphere"/>
+			  <arg value="61"/>
+			  <arg value="-j"/>
+			   <arg value="${env.YFS_HOME}/extensions/global/jars/${project.name}.jar"/>
+			  <arg value="-targetJVM"/>
+			  <arg value="AGENT"/>
+		</exec>	
+
+		<!--Builds Enterprise-level resource extensions-->
+		<exec executable="${env.YFS_HOME}/bin/deployer.cmd" failonerror="true">
+			<arg value="-t"/>
+			<arg value="resourcejar"/>
+		</exec>
+
+		<!--Builds entities.jar (which replaced yfsdbextn.jar in 8.0)-->
+		<!-- Start commenting below 4 lines for faster build -->
+			<exec executable="${env.YFS_HOME}/bin/deployer.cmd" failonerror="true">
+				<arg value="-t"/>
+				<arg value="entitydeployer"/>
+			</exec>
+		<!-- End fast build -->
+		
+	</target>
+
+	<!--Runs dbverify and generates SQL scripts-->
+	<target name="db-verify" description="Runs DBVerify to generate the DDL scripts" unless="build.donotdbverify">
+        <echo>Running DBVerify</echo>
+		<java fork="true" classname="com.yantra.tools.dbverify.DbVerifyCommandLine">
+        	    <arg value="-b" />
+	            <arg value="${env.YFS_HOME}" />
+        	    <arg value="-u" />
+       		    <arg value="${db.build.user}" />
+  			<arg value="-p" />
+           	<arg value="${db.build.password}" />
+            <arg value="-d" />
+            <arg value="${db.build.jdbcdriver}" />
+            <arg value="-url" />
+            <arg value="${db.build.jdbcurl}" />
+            <arg value="-g" />
+            <arg value="Y" />
+            <arg value="-DT" />
+            <arg value="${env.YFS_HOME}/repository/datatypes/datatypes.xml" />
+            <classpath refid="yantra.class.path" />
+        </java>
+
+		<!--DBVerify would have generated the files in the directory in which the build is run from i.e. current directory. We shall move it to dist directory-->
+        <move todir="${project.yantracustom.dir}/dist">
+            <fileset dir=".">
+                <include name="*.sql" />
+            </fileset>
+        </move>
+    </target>
+
+	<!--Applies DBVerify scripts-->
+	<target name="alter-db" description="Alters default Yantra Tables and adds new tables to the build db" unless="build.donotalterdb">
+		<echo>Applying DBVerify SQLs</echo>
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_Sequence.sql" />
+		</exec>
+ 
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_IndexDrops.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TextIndexDrops.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TableDrops.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TableChanges.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_IndexAdds.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TextIndexAdds.sql" />
+		</exec> 
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TextIndexModify.sql" />
+		</exec>
+
+		<exec executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/dist/EFrame_TextIndexUpdates.sql" />
+		</exec>
+
+                <exec executable="sqlplus" failonerror="yes">
+                        <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+                        <arg value="@${project.yantracustom.dir}/dist/EFrame_UpdateQueries.sql" />
+                </exec>
+
+	</target>
+
+	<target name="build-ear" description="Builds EAR file for deployment">		
+		<echo>Building yantra.ear</echo>
+		<exec executable="${env.YFS_HOME}/bin/buildear.cmd">
+			<arg value="-Dappserver=websphere"/>
+			<arg value="-Dpackage=yantra"/>
+			<arg value="-Dnodocear=Y"/>
+			<arg value="-Ddevmode=true"/>							  
+			<arg value="-Dnowebservice=true"/>
+			<arg value="create-ear"/>							  
+		</exec>
+
+	</target>
+
+	<target name="create-custom-report-views">
+		<echo>Creating/Updating Cognos views in Build DB</echo>
+		<exec dir="${project.yantracustom.dir}/database/sql" executable="sqlplus" failonerror="yes">
+			<arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+			<arg value="@${project.yantracustom.dir}/database/sql/NWCG_view_custom.sql" />
+		</exec>
+	</target>
+	
+	<import file="update.xml"/>
+	<target name="runUpdate">
+		<antcall target="repackageJars"/>
+	</target>
+	
+</project>

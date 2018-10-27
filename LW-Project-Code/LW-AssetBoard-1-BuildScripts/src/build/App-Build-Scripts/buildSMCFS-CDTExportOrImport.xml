@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-CDTExportOrImport" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-CDTExportOrImport" description="Export or Import CDT">
+	</target>	
+	
+	<target name="cdt-from-source-to-xml" description="CDT EXPORT">
+		<echo>CDT EXPORT</echo>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="/home/wasuser/${cdt.folder}" />
+		</delete>
+		<mkdir dir="/home/wasuser/${cdt.folder}"/>
+		<exec executable="${cdtshell.file}">
+			<arg value="-Source" />
+			<arg value="${source.export}" />
+			<arg value="-SourcePassword" />
+			<arg value="${sourcePassword.export}" />
+			<arg value="-Target" />
+			<arg value="${target.export}" />
+			<arg value="-TargetPassword" />
+			<arg value="${targetPassword.export}" />
+		</exec>
+		<tstamp>
+			<format property="TIMESTAMP" pattern="MMMM-dd-yyyy-hh-mm-ss" offset="-7" unit="hour"/>
+		</tstamp>
+		<move file="/home/wasuser/${cdt.folder}" tofile="/home/wasuser/${cdt.folder}-${TIMESTAMP}"/>
+		<zip destfile="/home/wasuser/${cdt.folder}-${TIMESTAMP}.zip">
+			<zipfileset dir="/home/wasuser/${cdt.folder}-${TIMESTAMP}"/>
+		</zip>
+		<move file="/home/wasuser/${cdt.folder}-${TIMESTAMP}.zip" tofile="${zip.location}/${cdt.folder}.zip" />
+		<chmod file="${zip.location}/${cdt.folder}.zip" perm="ugo+rx" />
+	</target>
+	
+	<target name="cdt-from-xml-to-target" description="CDT IMPORT">
+		<echo>CDT IMPORT</echo>
+		<delete includeEmptyDirs="true" failonerror="false">
+			<fileset dir="/home/wasuser/${cdt.folder}" />
+		</delete>
+		<copy file="${zip.location}/${cdt.folder}.zip" todir="/home/wasuser" />
+		<unzip src="/home/wasuser/${cdt.folder}.zip" dest="/home/wasuser/${cdt.folder}"/>
+		<exec executable="${cdtshell.file}">
+			<arg value="-Source" />
+			<arg value="${source.import}" />
+			<arg value="-SourcePassword" />
+			<arg value="${sourcePassword.import}" />
+			<arg value="-Target" />
+			<arg value="${target.import}" />
+			<arg value="-TargetPassword" />
+			<arg value="${targetPassword.import}" />
+		</exec>
+		<tstamp>
+			<format property="TIMESTAMP" pattern="MMMM-dd-yyyy-hh-mm-ss" offset="-7" unit="hour"/>
+		</tstamp>
+		<move file="/home/wasuser/${cdt.folder}" tofile="/home/wasuser/${cdt.folder}-${TIMESTAMP}"/>		
+	</target>	
+</project>

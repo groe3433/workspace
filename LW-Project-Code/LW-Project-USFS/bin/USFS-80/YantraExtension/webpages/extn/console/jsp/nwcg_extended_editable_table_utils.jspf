@@ -1,0 +1,462 @@
+<%@ page import="java.util.*" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="com.yantra.yfc.dom.*" %>
+<%@ page import="com.yantra.yfc.util.*" %>
+<%! 
+	// this jos is lying here just because the OOB yantra JSPs doesnt have a NULL pointer check
+	YFCElement  eAPIOutputElem = null;
+	HashMap oMap = null;
+
+	void mergeDOM(String sNameSpace,YFCElement oNewLoopParentNode,YFCElement oExistingLoopParentNode,String sChildLoopParentNodeName,String sChildLoopXMLName,String sPKName,String sSecondaryKeyName,String sEntityKeyName,int iNumRowsToAdd,String sRootNodeDifference,String sChildLoopParentNodeDifference,String sChildLoopParentNodeDifferenceForKey) {
+
+		eAPIOutputElem = (YFCElement) request.getAttribute(sNameSpace); //Detail API Output
+
+		String sOperation = request.getParameter("userOperation");
+		YFCElement errors = (YFCElement)request.getAttribute("YFC_EXCEPTIONXML");
+
+		YFCElement originalAPIRoot = (YFCElement)request.getAttribute("OrigAPIOutput");
+		if (sRootNodeDifference != null) {
+			//System.out.println("sRootNodeDifference-->" + sRootNodeDifference);
+			originalAPIRoot = getPathDifferenceElement(originalAPIRoot,sRootNodeDifference);
+		}
+		oMap = createExistingRootNodeLineMap(originalAPIRoot,sChildLoopParentNodeName,sChildLoopXMLName,sPKName,sChildLoopParentNodeDifference); //eOrigAPIElem is defined and set in editable_util_header.jsp
+		//using eOrigAPIElem becos oExistingLoopParentNode gets overridden with the values change on the screen
+		if(oNewLoopParentNode != null) 
+			removeExistingDBRecordsFromDOM(oNewLoopParentNode,sChildLoopXMLName);
+		
+
+
+		if(equals(sOperation,"DELETE"))
+		{
+			appendNewlyAddedRows(oNewLoopParentNode,oExistingLoopParentNode,sChildLoopXMLName,sPKName); //Appends previously added rows
+			deleteRow(oExistingLoopParentNode,sChildLoopXMLName);
+		}
+		else
+		{
+			// the only change is this null pointer check
+			if(oExistingLoopParentNode != null)
+			{
+				boolean appendNewRows = !oExistingLoopParentNode.hasChildNodes();
+				if( equals(sOperation,"Y") || ! isVoid(errors))
+				{
+					appendNewlyAddedRows(oNewLoopParentNode,oExistingLoopParentNode,sChildLoopXMLName,sPKName); //Appends previously added rows
+					copyAddRows(oExistingLoopParentNode,sChildLoopXMLName,sPKName,sSecondaryKeyName,sEntityKeyName,sChildLoopParentNodeDifferenceForKey);
+				}
+				if(isVoid(errors)){
+					appendBlankTemplateNodes(oExistingLoopParentNode,sChildLoopXMLName,sEntityKeyName,iNumRowsToAdd);
+				}else if(appendNewRows){
+					if(iNumRowsToAdd > oExistingLoopParentNode.getChildNodes().getLength())
+					{
+						appendBlankTemplateNodes(oExistingLoopParentNode, sChildLoopXMLName, sEntityKeyName, (iNumRowsToAdd - oExistingLoopParentNode.getChildNodes().getLength()));
+					}
+				}
+			}
+		}
+
+     }
+	 %>
+
+	 <%!
+		void deleteRow(YFCElement oNewLoopParentNode,String sChildLoopXMLName)
+		{
+			Iterator  oChildList = oNewLoopParentNode.getChildren();
+			for (Iterator i = oChildList; oChildList.hasNext();) 
+			{
+				YFCElement oChild= (YFCElement) oChildList.next();
+				if( equals(oChild.getNodeName(),sChildLoopXMLName) )
+				{
+					if(!isVoid(oChild.getAttribute("DeleteRow")) )
+						oNewLoopParentNode.removeChild(oChild);
+				} //End IF
+			} //End FOR
+		}
+	 %>
+
+	 <%!
+			void removeExistingDBRecordsFromDOM(YFCElement oNewLoopParentNode,String sChildLoopXMLName)
+			{
+				String[] sortAttrMap = {"YFC_NODE_NUMBER"};
+				Iterator  oChildList = oNewLoopParentNode.getChildren();
+				for (Iterator i = oChildList; oChildList.hasNext();) 
+				{
+					YFCElement oChild= (YFCElement) oChildList.next();
+					if( equals(oChild.getNodeName(),sChildLoopXMLName) )
+					{
+						if(isVoid(oChild.getAttribute("Action")) )
+							oNewLoopParentNode.removeChild(oChild);
+					}
+				}
+				oNewLoopParentNode.sortChildren(sortAttrMap,true,true);
+			}
+	 %>
+
+	 <%!
+
+	 void appendBlankTemplateNodes(YFCElement parentNode,String sChildLoopXMLName,String sEntityKeyName,int iNumRowsToAdd)
+	 {
+		 if(!isVoid(getEntityKeys(sEntityKeyName)) || parentNode == null)
+			return ;
+
+		 String sOperation = request.getParameter("userOperation");
+
+		 int numExistingChildNodes = 0;
+		 if(!isVoid(request.getParameter("numRowsToAdd")))
+			 iNumRowsToAdd = (int)getDoubleFromLocalizedString(getLocale(),request.getParameter("numRowsToAdd"));
+
+
+		for ( int i =0 ; i < iNumRowsToAdd; i++ ) 
+		 {
+			YFCElement blankTemplateRow = parentNode.getOwnerDocument().createElement(sChildLoopXMLName);
+			parentNode.appendChild(blankTemplateRow);
+		 }
+	 }
+%>
+	
+	 <%!
+
+	 void copyAddRows(YFCElement parentNode,String sChildLoopXMLName,String sPKName, String sSKName, String sEntityKeyName,String sChildLoopParentNodeDifferenceForKey)
+	 {
+		 String sVal = "";
+		 YFCElement oChild = null;
+		 int  iNumRowsToAdd = (int)getDoubleFromLocalizedString(getLocale(),request.getParameter("numRowsToAdd"));
+		 YFCElement keys = getEntityKeys(sEntityKeyName);
+
+		 if(keys != null)
+		 {
+			 for (Iterator i = keys.getChildren(); i.hasNext();) 
+			{
+				YFCElement oKey= (YFCElement) i.next();
+				if (sChildLoopParentNodeDifferenceForKey != null) {
+					oKey = getPathDifferenceElement(oKey,sChildLoopParentNodeDifferenceForKey);
+				}
+				 if(oMap.containsKey(oKey.getAttribute(sPKName)) && oMap != null)
+				 {
+					oChild = (YFCElement)oMap.get(oKey.getAttribute(sPKName));
+
+					for ( int ctr =0 ; ctr < iNumRowsToAdd; ctr++ ) 
+					{
+						YFCElement oNewNode = (YFCElement)oChild.cloneNode(true);
+						oNewNode.setAttribute(sPKName,"");
+						oNewNode.setAttribute(sSKName,"");
+						parentNode.appendChild(oNewNode);
+					} //End FOR
+				} //End IF
+			} //End IF
+		 }//End For
+	 }
+
+	 %>
+
+	 <%!
+
+		YFCElement getEntityKeys(String sEntityKeyName)
+		{
+			YFCElement retVal = null;
+			if(isVoid(request.getParameterValues(sEntityKeyName)))
+				return null;
+			//String sKeyStr = URLDecoder.decode(request.getParameter(sEntityKeyName));
+			String[] sKeys = request.getParameterValues(sEntityKeyName);
+			if(!isVoid(sKeys))
+			{
+				YFCDocument oOutDoc = YFCDocument.createDocument("Keys");
+				YFCElement root = oOutDoc.getDocumentElement();
+				if (sKeys!=null && sKeys.length>0) {
+					for (int i=0;i<sKeys.length;i++)
+					{
+						retVal = YFCDocument.getDocumentFor(URLDecoder.decode(sKeys[i])).getDocumentElement();
+						root.importNode(retVal);
+					}
+				}
+
+				return root;
+			}
+			else
+				return retVal;
+		}
+	 %>
+
+	 <%!
+
+	 HashMap createExistingRootNodeLineMap(YFCElement parentNode,String sChildLoopParentXMLName,String sChildLoopXMLName,String sPKName,String sChildLoopParentNodeDifference)
+	 {
+		 HashMap oRootNodeLineMap = new HashMap();
+		 if(parentNode != null) {
+			YFCElement oChildNodes = parentNode.getChildElement(sChildLoopParentXMLName);
+			if(oChildNodes == null)
+				return oRootNodeLineMap;
+
+			if (sChildLoopParentNodeDifference != null) {
+				//System.out.println("In createExistingRootNodeLineMap sChildLoopParentNodeDifference-->" + sChildLoopParentNodeDifference);
+				oChildNodes = getPathDifferenceElement(parentNode,sChildLoopParentNodeDifference).getChildElement(sChildLoopParentXMLName);
+			}
+			Iterator  oChildList = oChildNodes.getChildren();
+			for (Iterator i = oChildList; oChildList.hasNext();) 
+			{
+				YFCElement oChild= (YFCElement) oChildList.next();
+				if( equals(oChild.getNodeName(),sChildLoopXMLName) )
+				{
+					if( !isVoid(oChild.getAttribute(sPKName)))
+					{
+						oRootNodeLineMap.put(oChild.getAttribute(sPKName),oChild);
+					}
+				} //End IF
+			} //End FOR
+		} //End IF
+		return oRootNodeLineMap;
+	 }
+
+	 %>
+
+	 <%!
+
+	 void appendNewlyAddedRows(YFCElement oNewLoopParentNode,YFCElement oExistingLoopParentNode,String sChildLoopXMLName,String sPKName)
+	 {
+		 if(oNewLoopParentNode != null)
+			{
+	 			Iterator  oChildList = oNewLoopParentNode.getChildren();
+				for (Iterator i = oChildList; oChildList.hasNext();) 
+				{
+					YFCElement oChild= (YFCElement) oChildList.next();
+					if( equals(oChild.getNodeName(),sChildLoopXMLName) )
+					{
+						if( isVoid(oChild.getAttribute(sPKName)) )
+						{
+							//New row was added.Append row to DOM
+							oExistingLoopParentNode.importNode(oChild);
+						}
+					} // End IF
+				} //End FOR
+			} //End IF
+	 }
+
+%>
+
+
+	<%!
+
+	//beware, this is a recursive function.
+	//This will fix the bug for order detail screen that getTextOptions does not look at request.getParameter()
+	 void mergeRequestAndAPIOutput(YFCElement apiElem, YFCElement requestElem, Map uniqueKeyMap) {
+
+	 if(apiElem == null || requestElem == null)
+		 return;
+
+	 apiElem.setAttributes(requestElem.getAttributes());
+
+	 
+
+		YFCElement loopElem = null;
+		YFCElement reqLoopElem = null;
+		 for (Iterator i = apiElem.getChildren(); i.hasNext();) {
+			loopElem = (YFCElement) i.next();
+			reqLoopElem = getCorrespondingReqElem(loopElem, requestElem,(String) uniqueKeyMap.get(loopElem.getTagName()));
+			if (reqLoopElem != null ) 
+				mergeRequestAndAPIOutput(loopElem, reqLoopElem, uniqueKeyMap);
+		 } //End FOR
+	 }
+ %>
+
+
+ 
+	 <%!
+		//Based on the api output element, this method gets the corresponding element from the request by comparing the unique key.
+	 YFCElement getCorrespondingReqElem(YFCElement loopElem, YFCElement requestElem, String keyAttrName) {
+		 if (requestElem == null || loopElem == null) 
+			return null;
+
+		 YFCElement reqLoopElem = null;
+		 boolean matchingElemFound = false;
+		 String reqKeyValue = null;
+		 String givenKeyValue = null;
+
+		 for (Iterator i = requestElem.getChildren(); i.hasNext(); ) {
+			reqLoopElem = (YFCElement)i.next();
+			if (reqLoopElem.getTagName().equals(loopElem.getTagName())) {
+				//Matching element found, now match keys
+				if (isVoid(keyAttrName)) {
+					matchingElemFound = true;
+					break;
+				}
+				else {
+					reqKeyValue = reqLoopElem.getAttribute(keyAttrName);
+					givenKeyValue  = loopElem.getAttribute(keyAttrName);
+					
+					if (equals(reqKeyValue, givenKeyValue)) {
+						matchingElemFound = true;
+						break;
+					}
+				}
+			}
+		 }
+
+		if (matchingElemFound == true) 
+			return reqLoopElem;
+		else 
+			return null;
+ }
+
+	 %>
+
+
+<%! 
+	HashMap oMapGeneral = null;
+
+	void mergeDOMGeneral(String sNameSpace,YFCElement oNewLoopParentNode,YFCElement oExistingLoopParentNode,String sParentXMLName,String sChildLoopXMLName,String sPKName,String sEntityKeyName,String sSecondUniqueKeyAttribute) {
+
+		eAPIOutputElem = (YFCElement) request.getAttribute(sNameSpace); //Detail API Output
+
+		//System.out.println("eAPIOutputElem in mergeDOMShipment-----> " + eAPIOutputElem);
+		String sOperation = request.getParameter("userOperation");
+		YFCElement errors = (YFCElement)request.getAttribute("YFC_EXCEPTIONXML");
+		if (errors != null) {
+			//System.out.println("sOperation ---> " + sOperation + " errors--------> " + ((YFCElement)request.getAttribute("YFC_EXCEPTIONXML")).toString());
+		}
+		YFCElement originalAPIRoot = (YFCElement)request.getAttribute("OrigAPIOutput");
+		if (originalAPIRoot != null)
+			//System.out.println("originalAPIRoot----->" + originalAPIRoot.toString());
+		oMapGeneral = createExistingLineMap(originalAPIRoot,sParentXMLName,sChildLoopXMLName,sPKName); //eOrigAPIElem is defined and set in Shipment_detail_header_include.jspf
+		//using eOrigAPIElem becos oExistingLoopParentNode gets overridden with the values change on the screen
+		if(oNewLoopParentNode != null) {
+			//System.out.println("oNewShipmentLines BEFORE removeing the old ones---> " + oNewLoopParentNode.toString());
+			removeExistingDBRecordsFromDOM(oNewLoopParentNode,sChildLoopXMLName);
+			//System.out.println("oNewShipmentLines after removeing the old ones---> " + oNewLoopParentNode.toString());
+		}
+
+		if(equals(sOperation,"DELETE"))
+		{
+			appendNewlyAddedRows(oNewLoopParentNode,oExistingLoopParentNode,sChildLoopXMLName,sPKName); //Appends previously added rows
+			deleteRow(oExistingLoopParentNode,sChildLoopXMLName);
+		}
+		else
+		{
+			if( equals(sOperation,"Y") || ! isVoid(errors))
+			{
+				appendNewlyAddedRows(oNewLoopParentNode,oExistingLoopParentNode,sChildLoopXMLName,sPKName); //Appends previously added rows
+				//System.out.println("oExistingLoopParentNode after adding the new lines---> "+ oExistingLoopParentNode.toString());
+				copyAddRowsGeneral(oExistingLoopParentNode,sChildLoopXMLName,sPKName,sEntityKeyName,sSecondUniqueKeyAttribute);
+				//System.out.println("oExistingLoopParentNode after adding sEntityKeyName-->" + oExistingLoopParentNode.toString());
+			}
+			appendBlankTemplateNodesGeneral(oExistingLoopParentNode,sChildLoopXMLName,sEntityKeyName);
+		}
+
+     }
+	 %>
+
+	 <%!
+
+	 HashMap createExistingLineMap(YFCElement parentNode,String sParentXMLName,String sChildLoopXMLName,String sPKName)
+	 {
+		 HashMap oLineMap = new HashMap();
+		 if(parentNode != null)
+		{
+			 YFCElement oLines = parentNode.getChildElement(sParentXMLName);
+			 if (oLines != null) {
+				Iterator  oChildList = oLines.getChildren();
+				for (Iterator i = oChildList; oChildList.hasNext();) 
+				{
+					YFCElement oChild= (YFCElement) oChildList.next();
+					if( equals(oChild.getNodeName(),sChildLoopXMLName) )
+					{
+						if( !isVoid(oChild.getAttribute(sPKName)))
+						{
+							oLineMap.put(oChild.getAttribute(sPKName),oChild);
+							//System.out.println("The child getting added to map is-->" + oChild.toString());
+						}
+					} //End IF
+				} //End FOR
+			} //END IF
+		} //End IF
+		return oLineMap;
+	 }
+
+	 %>
+
+	 <%!
+
+	 void appendBlankTemplateNodesGeneral(YFCElement parentNode,String sChildLoopXMLName,String sEntityKeyName)
+	 {
+		 if(!isVoid(getEntityKeys(sEntityKeyName)) || parentNode == null)
+			return ;
+
+		 String sOperation = request.getParameter("userOperation");
+		 //System.out.println("sOpertation --->" + sOperation);
+
+		 int  iNumRowsToAdd = 0;
+		 int numExistingLines = 0;
+		 if(!isVoid(request.getParameter("numRowsToAdd")))
+			 iNumRowsToAdd = (int)getDoubleFromLocalizedString(getLocale(),request.getParameter("numRowsToAdd"));
+
+		 if(!equals(sOperation,"Y") && (oMapGeneral == null || oMapGeneral.size() <=0) )
+			iNumRowsToAdd = 9;
+		 if (oMapGeneral != null) {
+			//System.out.println("oMapGeneral is not null");
+			 if (oMapGeneral.size() > 0) {
+				//System.out.println("oMapGeneral size is greater than 0");
+			 }
+		 } else {
+			//System.out.println("oMapGeneral is null");
+		 }
+		//System.out.println("iNumRowsToAdd-->" + iNumRowsToAdd);
+		for ( int i =0 ; i < iNumRowsToAdd; i++ ) 
+		 {
+			//System.out.println("Appending 9 blank rows");
+			YFCElement blankTemplateRow = parentNode.getOwnerDocument().createElement(sChildLoopXMLName);
+			parentNode.appendChild(blankTemplateRow);
+		 }
+	 }
+%>
+	 <%!
+
+	 void copyAddRowsGeneral(YFCElement parentNode,String sChildLoopXMLName,String sPKName, String sEntityKeyName,String sSecondUniqueKeyAttribute)
+	 {
+		 String sVal = "";
+		 YFCElement oChild = null;
+		 int  iNumRowsToAdd = (int)getDoubleFromLocalizedString(getLocale(),request.getParameter("numRowsToAdd"));
+		 //System.out.println("Number of rows to add " + iNumRowsToAdd);
+		 YFCElement keys = getEntityKeys(sEntityKeyName);
+
+		 if(keys != null)
+		 {
+			 //System.out.println("EntityKeys ---> " + keys.toString());
+			 for (Iterator i = keys.getChildren(); i.hasNext();) 
+			{
+				YFCElement oKey= (YFCElement) i.next();
+				 if(oMapGeneral.containsKey(oKey.getAttribute(sPKName)) && oMapGeneral != null)
+				 {
+					oChild = (YFCElement)oMapGeneral.get(oKey.getAttribute(sPKName));
+
+					for ( int ctr =0 ; ctr < iNumRowsToAdd; ctr++ ) 
+					{
+						YFCElement oNewNode = (YFCElement)oChild.cloneNode(true);
+						oNewNode.setAttribute(sPKName,"");
+						oNewNode.setAttribute(sSecondUniqueKeyAttribute,"");
+						parentNode.appendChild(oNewNode);
+					} //End FOR
+				} //End IF
+			} //End IF
+		 }//End For
+	 }
+
+	 %>
+<%!
+
+	YFCElement getPathDifferenceElement(YFCElement root,String sPathDifference) {
+		YFCElement retVal = root;
+		if (!isVoid(sPathDifference) && root != null) {
+			StringTokenizer st = new StringTokenizer(sPathDifference,"/");
+			while (st.hasMoreTokens()) {
+				String nextToken = st.nextToken();
+				if (retVal.getChildElement(nextToken) != null) {
+					retVal = retVal.getChildElement(nextToken);
+				}
+			}
+		}
+		/*if (retVal != null) 
+			System.out.println("The Return Value is -->" + retVal.toString());*/
+		return retVal;
+	}
+
+%>
+
+
+

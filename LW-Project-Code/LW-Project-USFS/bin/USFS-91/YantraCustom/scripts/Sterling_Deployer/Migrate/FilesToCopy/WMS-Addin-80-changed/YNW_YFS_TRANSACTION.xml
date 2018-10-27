@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_TransactionList>
+    <!-- Records Added for Blind Order-->
+    <!-- Records Added for Blind Return-->
+    <!--  Added for ARE   -->
+    <!-- Added for ARE Purge and Upload -->
+    <!-- New transaction added for Pack Verify -->
+    <Transaction Tranid="YNWPalletShrinkWrap.5001.ex"
+        TransactionKey="2005062320524573125" Trantype="SYSTEM"/>
+    <Transaction Tranid="YNWConsolidateToSortLoc.5001.ex"
+        TransactionKey="2005062411391676608" Trantype="SYSTEM"/>
+    <Transaction Tranid="WEIGH_COMPLETED.5001.ex"
+        TransactionKey="2005062413070178064" Trantype="SYSTEM"/>
+    <!-- February 7, 2014 - WMS Migration target upgrade-transaction-tables was failing on this Transaction -->
+    <!--Transaction Tranid="CREATE_SECOND_TASKS.3001.ex"
+        TransactionKey="2005070817285944888" Trantype="SYSTEM"/-->
+    <Transaction Tranid="PUTAWAY_COMPLETE.0005.ex"
+        TransactionKey="2005102810563721552" Trantype="SYSTEM"/>
+    <Transaction Tranid="PROCESS_WO_ARE.7001.ex"
+        TransactionKey="2006011916165167089" Trantype="SYSTEM"/>
+    <Transaction Tranid="PROCESS_SHIPMENT_ARE.0001.ex"
+        TransactionKey="2006011916274067143" Trantype="SYSTEM"/>
+    <Transaction Tranid="PROCESS_RECEIPT_ARE.0005.ex"
+        TransactionKey="2006011916374767283" Trantype="SYSTEM"/>
+    <Transaction Tranid="PROCESS_COUNT_ARE.3001.ex"
+        TransactionKey="2006011917082567471" Trantype="SYSTEM"/>
+    <Transaction Tranid="YNW_PURGE_ARE_ACTIVITY.2001.ex"
+        TransactionKey="2006020210164435692" Trantype="SYSTEM"/>
+    <Transaction Tranid="YNW_UPLOAD_ARE.2001.ex"
+        TransactionKey="2006020210211835704" Trantype="SYSTEM"/>
+    <Transaction TimeTriggered="Y" Tranid="CREATE_RECOUNT_TASKS.ex"
+        TransactionKey="2007060415064235020" Trantype="SYSTEM"/>
+    <Transaction Tranid="DYNAMIC_VELOCITY_CALC"
+        TransactionKey="DYNAMIC_VELOCITY_CALC" Trantype="SYSTEM"/>
+    <Transaction Tranid="VERIFY_PACK" TransactionKey="VERIFY_PACK" Trantype="SYSTEM"/>
+    <Transaction Tranid="CREATE_SHMNT_INVOICE.0010"
+        TransactionKey="YNW050418304955738" Trantype="SYSTEM"/>
+    <Transaction Tranid="RECEIPT_CLOSURE_LISTENER.0010"
+        TransactionKey="YNW050418305055762" Trantype="SYSTEM"/>
+    <Transaction Tranid="CLOSE_PRE_RECEIPT.0010"
+        TransactionKey="YNW050418305255795" Trantype="SYSTEM"/>
+    <Transaction Tranid="CREATE_SHMNT_INVOICE.0011"
+        TransactionKey="YNW150418304955738" Trantype="SYSTEM"/>
+    <Transaction Tranid="RECEIPT_CLOSURE_LISTENER.0011"
+        TransactionKey="YNW150418305055762" Trantype="SYSTEM"/>
+    <Transaction Tranid="CLOSE_PRE_RECEIPT.0011"
+        TransactionKey="YNW150418305255795" Trantype="SYSTEM"/>
+    <Transaction Tranid="LOCN_MASS_MAINT.2003.ex"
+        TransactionKey="YNW_LOCN_MASS_MAINT" Trantype="SYSTEM"/>
+    <Transaction Tranid="Process_Pack_And_Hold.0001.ex"
+        TransactionKey="YNW_Process_PAndH" Trantype="SYSTEM"/>
+</YFS_TransactionList>

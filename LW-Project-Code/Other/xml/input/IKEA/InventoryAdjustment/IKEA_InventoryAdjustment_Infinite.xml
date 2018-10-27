@@ -1,0 +1,4 @@
+
+<Items>
+	<Item AdjustmentType="${Item.AdjustmentType}" Availability="${Item.InfiniteAvailability}" ItemID="${Item.ItemID}" OrganizationCode="${Item.SupplierOrganization}" UnitOfMeasure="${Item.UOM}" ShipNode="${Item.ShipNode}" SupplyType="${Item.SupplyType}"/>
+</Items>

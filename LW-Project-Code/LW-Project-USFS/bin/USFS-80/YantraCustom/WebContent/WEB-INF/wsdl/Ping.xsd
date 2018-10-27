@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns="http://nwcg.gov/services/ross/common_types/1.1" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" attributeFormDefault="unqualified" elementFormDefault="unqualified" jaxb:extensionBindingPrefixes="xjc" jaxb:version="1.0" targetNamespace="http://nwcg.gov/services/ross/common_types/1.1" version="1.1">
+	<xs:annotation>
+		<xs:documentation>Common ROSS Datatypes that may be used in more than one Service or Message</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>JAXB extensions</xs:documentation>
+		<xs:appinfo>
+			<jaxb:globalBindings generateIsSetMethod="true">
+	     </jaxb:globalBindings>
+		</xs:appinfo>
+	</xs:annotation>
+
+	<xs:element name="ServicePingReq">
+		<xs:annotation>
+			<xs:documentation>Empty message used to ping ESB Soap Processor</xs:documentation>
+		</xs:annotation>
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="ServicePingResp">
+		<xs:annotation>
+			<xs:documentation>Response message containing only timestamp</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Timestamp" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

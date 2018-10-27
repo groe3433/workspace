@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Calendar CalendarDescription="${Calendar.CalendarDescription}"
+    CalendarId="${Calendar.CalendarId}"
+            OrganizationCode="${Calendar.OrganizationCode}">
+<EffectivePeriods>
+<EffectivePeriod
+            EffectiveFromDate="${Calendar.EffectivePeriods.EffectivePeriod.EffectiveFromDate}"
+                    EffectiveToDate="${Calendar.EffectivePeriods.EffectivePeriod.EffectiveToDate}">
+<Shifts>
+<Shift
+                    FridayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.FridayValid}"
+                    MondayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.MondayValid}"
+                    SaturdayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SaturdayValid}"
+                    ShiftEndTime="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftEndTime}"
+                    ShiftName="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftName}"
+                    ShiftStartTime="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftStartTime}"
+                    ShiftType="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftType}"
+                    SundayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SundayValid}"
+                    ThursdayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ThursdayValid}"
+                    TuesdayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.TuesdayValid}" WednesdayValid="${Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.WednesdayValid}"/>
+</Shifts>
+</EffectivePeriod>
+</EffectivePeriods>
+<CalendarDayExceptions/>
+</Calendar>

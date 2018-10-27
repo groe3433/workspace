@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name = "BuildScripts" default="all-unpack" basedir=".">
+
+	<property file = "unpackTOG.properties" />
+
+	<target name="all-unpack" description="all unpacking targets">
+		<echo>Unpacking Agent Zip Contents and Restarting Agents</echo>
+		<antcall target = "unpack-agent-zip" />
+		<antcall target = "delete-agent-zip" />
+		<antcall target = "copyCustomerOverrides" />
+		<antcall target = "copyTOGJar" />
+		<antcall target = "copyResourcesJar" />
+		<antcall target = "copyEntitiesJar" />
+		<antcall target = "copyReportScripts" />
+	</target>	
+	
+	<target name="unpack-agent-zip" description="unpack agent zip">		
+		<echo>unpack agent zip</echo>
+		<delete dir="${zip.location}/${zip.folder}" />
+		<unzip src="${zip.location}/${zip.folder}.zip" dest="${zip.location}/${zip.folder}"/>
+		<chmod perm="775">
+			<fileset dir="${zip.location}/${zip.folder}"/>
+		</chmod>
+	</target>
+	
+	<target name="copyCustomerOverrides" description="Copy customer_overrides.properties from Agent Zip Folder">
+		<echo>Copy customer_overrides.properties</echo>
+		<copy file="${zip.location}/${zip.folder}/${agent.zip.file1}" todir="${agent.zip.file1.LocationToCopy}" />
+	</target>	
+			
+	<target name="copyTOGJar" description="Copy TOG.jar from Agent Zip Folder">
+		<echo>Copy TOG.jar</echo>
+		<copy file="${zip.location}/${zip.folder}/${agent.zip.file2}" todir="${agent.zip.file2.LocationToCopy}" />
+	</target>				
+	
+	<target name="copyResourcesJar" description="Copy resources.jar from Agent Zip Folder">
+		<echo>Copy resources.jar</echo>
+		<copy file="${zip.location}/${zip.folder}/${agent.zip.file3}" todir="${agent.zip.file3.LocationToCopy}" />
+	</target>	
+	
+	<target name="copyEntitiesJar" description="Copy entities.jar from Agent Zip Folder">
+		<echo>Copy entities.jar</echo>
+		<copy file="${zip.location}/${zip.folder}/${agent.zip.file4}" todir="${agent.zip.file4.LocationToCopy}" />
+	</target>
+	
+	<target name="copyReportScripts" description="Copy Report Scripts from Agent Zip Folder">
+		<echo>Copy Report Scripts</echo>
+		<delete dir="${Sterling.home}/${BackOrdersDetail.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersDetail.Scripts}/${BackOrdersDetail.script1}" todir="${Sterling.home}/${BackOrdersDetail.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersDetail.Scripts}/${BackOrdersDetail.script2}" todir="${Sterling.home}/${BackOrdersDetail.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersDetail.Scripts}/${BackOrdersDetail.script3}" todir="${Sterling.home}/${BackOrdersDetail.Scripts}" />
+		<delete dir="${Sterling.home}/${BackOrdersSummary.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersSummary.Scripts}/${BackOrdersSummary.script1}" todir="${Sterling.home}/${BackOrdersSummary.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersSummary.Scripts}/${BackOrdersSummary.script2}" todir="${Sterling.home}/${BackOrdersSummary.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${BackOrdersSummary.Scripts}/${BackOrdersSummary.script3}" todir="${Sterling.home}/${BackOrdersSummary.Scripts}" />
+		<delete dir="${Sterling.home}/${OpenOrder.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${OpenOrder.Scripts}/${OpenOrder.script1}" todir="${Sterling.home}/${OpenOrder.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrder.Scripts}/${OpenOrder.script2}" todir="${Sterling.home}/${OpenOrder.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrder.Scripts}/${OpenOrder.script3}" todir="${Sterling.home}/${OpenOrder.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrder.Scripts}/${OpenOrder.script4}" todir="${Sterling.home}/${OpenOrder.Scripts}" />
+		<delete dir="${Sterling.home}/${OpenOrderDetail.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${OpenOrderDetail.Scripts}/${OpenOrderDetail.script1}" todir="${Sterling.home}/${OpenOrderDetail.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrderDetail.Scripts}/${OpenOrderDetail.script2}" todir="${Sterling.home}/${OpenOrderDetail.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrderDetail.Scripts}/${OpenOrderDetail.script3}" todir="${Sterling.home}/${OpenOrderDetail.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OpenOrderDetail.Scripts}/${OpenOrderDetail.script4}" todir="${Sterling.home}/${OpenOrderDetail.Scripts}" />
+		<delete dir="${Sterling.home}/${OrderReconciliation.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${OrderReconciliation.Scripts}/${OrderReconciliation.script1}" todir="${Sterling.home}/${OrderReconciliation.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OrderReconciliation.Scripts}/${OrderReconciliation.script2}" todir="${Sterling.home}/${OrderReconciliation.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${OrderReconciliation.Scripts}/${OrderReconciliation.script3}" todir="${Sterling.home}/${OrderReconciliation.Scripts}" />
+		<delete dir="${Sterling.home}/${ItemSubstitution.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${ItemSubstitution.Scripts}/${ItemSubstitution.script1}" todir="${Sterling.home}/${ItemSubstitution.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${ItemSubstitution.Scripts}/${ItemSubstitution.script2}" todir="${Sterling.home}/${ItemSubstitution.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${ItemSubstitution.Scripts}/${ItemSubstitution.script3}" todir="${Sterling.home}/${ItemSubstitution.Scripts}" />		
+		<delete dir="${Sterling.home}/${CommonReportFiles.Scripts}"/>
+		<copy file="${zip.location}/${zip.folder}/${CommonReportFiles.Scripts}/${CommonReportFiles.script1}" todir="${Sterling.home}/${CommonReportFiles.Scripts}" />
+		<copy file="${zip.location}/${zip.folder}/${CommonReportFiles.Scripts}/${CommonReportFiles.script2}" todir="${Sterling.home}/${CommonReportFiles.Scripts}" />
+		<delete file="${Sterling.home}/${OMSExtracts.home}/${OMSExtracts.script1}"/>
+		<delete file="${Sterling.home}/${OMSExtracts.home}/${OMSExtracts.script2}"/>
+		<delete file="${Sterling.home}/${OMSExtracts.home}/${OMSExtracts.script3}"/>
+		<delete file="${Sterling.home}/${OMSExtracts.home}/${OMSExtracts.script4}"/>
+		<copy file="${zip.location}/${zip.folder}/${OMSExtracts.home}/${OMSExtracts.script1}" todir="${Sterling.home}/${OMSExtracts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${OMSExtracts.home}/${OMSExtracts.script2}" todir="${Sterling.home}/${OMSExtracts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${OMSExtracts.home}/${OMSExtracts.script3}" todir="${Sterling.home}/${OMSExtracts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${OMSExtracts.home}/${OMSExtracts.script4}" todir="${Sterling.home}/${OMSExtracts.home}" />
+		<delete file="${Sterling.home}/${TriggerAgent.home}/${TriggerAgent.script1}"/>
+		<delete file="${Sterling.home}/${TriggerAgent.home}/${TriggerAgent.script2}"/>
+		<copy file="${zip.location}/${zip.folder}/${TriggerAgent.home}/${TriggerAgent.script1}" todir="${Sterling.home}/${TriggerAgent.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TriggerAgent.home}/${TriggerAgent.script2}" todir="${Sterling.home}/${TriggerAgent.home}" />
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script1}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script2}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script3}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script4}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script5}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script6}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script7}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script8}"/>
+		<delete file="${Sterling.home}/${CustomAgents.home}/${CustomAgents.script9}"/>
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script1}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script2}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script3}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script4}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script5}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script6}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script7}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script8}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<copy file="${zip.location}/${zip.folder}/${CustomAgents.home}/${CustomAgents.script9}" todir="${Sterling.home}/${CustomAgents.home}" />
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script1}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script2}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script3}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script4}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script5}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script6}"/>
+		<delete file="${Sterling.home}/${Purges.home}/${Purges.script7}"/>
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script1}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script2}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script3}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script4}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script5}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script6}" todir="${Sterling.home}/${Purges.home}" />
+		<copy file="${zip.location}/${zip.folder}/${Purges.home}/${Purges.script7}" todir="${Sterling.home}/${Purges.home}" />
+		<delete file="${Sterling.home}/${TOGCommonScripts.home}/${TOGCommonScripts.script1}"/>
+		<delete file="${Sterling.home}/${TOGCommonScripts.home}/${TOGCommonScripts.script2}"/>
+		<delete file="${Sterling.home}/${TOGCommonScripts.home}/${TOGCommonScripts.script3}"/>
+		<delete file="${Sterling.home}/${TOGCommonScripts.home}/${TOGCommonScripts.script4}"/>
+		<delete file="${Sterling.home}/${TOGCommonScripts.home}/${TOGCommonScripts.script5}"/>		
+		<copy file="${zip.location}/${zip.folder}/${TOGCommonScripts.home}/${TOGCommonScripts.script1}" todir="${Sterling.home}/${TOGCommonScripts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGCommonScripts.home}/${TOGCommonScripts.script2}" todir="${Sterling.home}/${TOGCommonScripts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGCommonScripts.home}/${TOGCommonScripts.script3}" todir="${Sterling.home}/${TOGCommonScripts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGCommonScripts.home}/${TOGCommonScripts.script4}" todir="${Sterling.home}/${TOGCommonScripts.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGCommonScripts.home}/${TOGCommonScripts.script5}" todir="${Sterling.home}/${TOGCommonScripts.home}" />		
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script1}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script2}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script3}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script4}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script5}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script6}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script7}"/>
+		<delete file="${Sterling.home}/${TOGSystemStats.home}/${TOGSystemStats.script8}"/>		
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script1}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script2}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script3}" todir="${Sterling.home}/${TOGSystemStats.home}" />		
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script4}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script5}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script6}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script7}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<copy file="${zip.location}/${zip.folder}/${TOGSystemStats.home}/${TOGSystemStats.script8}" todir="${Sterling.home}/${TOGSystemStats.home}" />
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${OMSExtracts.home}"/>
+		</chmod>
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${TriggerAgent.home}"/>
+		</chmod>
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${Purges.home}"/>
+		</chmod>
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${CustomAgents.home}"/>
+		</chmod>
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${TOGCommonScripts.home}"/>
+		</chmod>		
+		<chmod perm="775">
+			<fileset dir="${Sterling.home}/${TOGSystemStats.home}"/>
+		</chmod>			
+	</target>	
+	
+	<target name="delete-agent-zip" description="delete agent zip">	
+		<echo>delete agent zip</echo>
+		<delete file="${zip.location}/${zip.folder}.zip" />
+	</target>	
+</project>

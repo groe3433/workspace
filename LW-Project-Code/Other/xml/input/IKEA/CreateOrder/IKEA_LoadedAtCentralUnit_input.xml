@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Shipment ReceivingNode="${Shipment.ReceivingNode}"
+    ShipAdviceNo="${Shipment.ShipAdviceNo}"
+    ShipNode="${Shipment.ShipNode}"
+    ShipmentNo="${Shipment.ShipmentNo}">
+   <ShipmentLines>
+      <ShipmentLine
+            PrimeLineNo="${Shipment.ShipmentLines.ShipmentLine.1.PrimeLineNo}"
+            Quantity="${Shipment.ShipmentLines.ShipmentLine.1.Quantity}" SubLineNo="${Shipment.ShipmentLines.ShipmentLine.1.SubLineNo}"/>
+   </ShipmentLines>
+</Shipment>

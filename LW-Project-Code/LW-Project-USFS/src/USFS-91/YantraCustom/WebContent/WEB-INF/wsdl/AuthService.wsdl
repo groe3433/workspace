@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="AuthService" targetNamespace="http://nwcg.gov/services/icbs/auth/wsdl/1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nwcg.gov/services/icbs/auth/wsdl/1.1" xmlns:ns1="http://nwcg.gov/services/ross/common_types/1.1" xmlns:ns2="http://nwcg.gov/services/ross/common_types/1.1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="AuthService_schema1.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="AuthUserResponse">
+    <part name="body" element="ns1:AuthUserResp"/>
+  </message>
+  <message name="AuthUser">
+    <part name="body" element="ns1:AuthUserReq"/>
+  </message>
+  <portType name="AuthInterface">
+    <operation name="AuthUser">
+      <input message="tns:AuthUser"/>
+      <output message="tns:AuthUserResponse"/>
+    </operation>
+  </portType>
+  <binding name="AuthPortBinding" type="tns:AuthInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="AuthUser">
+      <soap:operation soapAction="AuthUser"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AuthService">
+    <port name="AuthPort" binding="tns:AuthPortBinding">
+      <soap:address location="http://BOSWXL20006664A.sci.local:9080/ICBSRAuth/AuthService"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-UDCDeploymentJar" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-UDCDeploymentJar" description="build deployment jar for UDC">
+	</target>	
+	
+	<target name="createUDCDeploymentJar" description="builds deployment.jar for IBM CoC">
+		<tstamp>
+			<format property="TOG_TIMESTAMP" pattern="MMMM-dd-yyyy-hh-mm-ss" offset="-7" unit="hour"/>
+		</tstamp>		
+		<mkdir dir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}" />
+
+		<!--Copy descriptor.xml to /generic -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/descriptor.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}" />
+
+		<!--Copy crontab.txt to /generic -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/crontab.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic" />
+		
+		<!--Copy customer_overrides.properties to /generic/properties -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/properties/customer_overrides.properties" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/properties" />
+
+		<!--Copy TOG.jar to /jars -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}/${project.name}.jar" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/jars" />
+		
+		<!-- CDT EXPORT for MC :: Copy ydkprefs.xml to /specific/[env]/resources/ydkresources -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/MC/ydkprefs.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/mc/resources/ydkresources" />
+		<!-- CDT EXPORT for MC :: Copy cdtshell.sh to /specific/[env]/bin -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/MC/cdtshell.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/mc/bin" />
+		
+		<!-- CDT IMPORT for DEV, QA, Preprod, and Prod :: Copy ydkprefs.xml to /specific/[env]/resources/ydkresources -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/DEV/ydkprefs.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/dev/resources/ydkresources" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/QA/ydkprefs.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa/resources/ydkresources" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/Preprod/ydkprefs.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod/resources/ydkresources" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/PROD/ydkprefs.xml" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod/resources/ydkresources" />
+		<!-- CDT IMPORT for DEV, QA, Preprod, and Prod :: Copy cdtshell.sh to /specific/[env]/bin -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/DEV/cdtshell.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/dev/bin" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/QA/cdtshell.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa/bin" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/Preprod/cdtshell.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod/bin" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/PROD/cdtshell.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod/bin" />
+
+		<!-- Copy Custom webpages to /generic/extensions/webpages -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/webpages">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/webpages" />
+		</copy>
+			
+		<!-- Copy Custom entities to /generic/extensions/global/entities -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/entities">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/entities" />
+		</copy>	
+		
+		<!-- Copy Custom resources to /generic/extensions/global/resources -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/resources">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/resources" />
+		</copy>
+
+		<!-- Copy Custom resources to /generic/extensions/global/template/api -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/template/api">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/api" />
+		</copy>		
+
+		<!-- Copy Custom resources to /generic/extensions/global/template/resource -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/template/resource">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/resource">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>	
+
+		<!-- Copy Custom resources to /generic/extensions/global/template/event -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/template/event">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/event" />
+		</copy>			
+
+		<!-- Copy Custom resources to /generic/extensions/global/etc -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/extensions/global/etc">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/etc" /> 
+		</copy>			
+
+		<!-- Copy Custom resources to /generic/repository/eardata/platform/war/css -->
+		<copy todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/repository/eardata/platform/war/css">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/resource"> 
+				<include name="**/*.css"/>
+			</fileset>
+		</copy>		
+		
+		<!-- Copy Custom Folder Scripts to /generic/TOGOMSExtracts -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-EmailBackOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-EmailBackOrderSummaryReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-CallOpenOrderProcedure.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-EmailOpenOrderReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-GenerateOpenOrdersReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-GenerateOpenOrdersReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-CallOpenOrderDetailProcedure.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-EmailOpenOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-EmailOrderReconciliationReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-OrderReconciliation.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-RetrieveAndProcessFile.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-EmailItemSubstitutionReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Common-Report/TOG-Email-Greeting.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/CommonReportFiles" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Common-Report/temp.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts/CommonReportFiles" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/decryptReportFile.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/cleanArchivedReports.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/uploadFileToB2B.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/downloadFileFromB2B.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGOMSExtracts" />
+
+		<!-- Copy Custom Folder Scripts to /generic/TOGCustomAgentScripts -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerReleaseAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleBOAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/getAgentStatus.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/processCompleted.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/scheduleAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/startAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/TOG-RunSQL.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/checkAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/restartHealthMonitorAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/restartTOGAgents.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/rotateAgentLogs.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/startAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/startHealthMonitorAgentServer.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/stopAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/MANUAL_AGENT_RESTART.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/purgeOldAgentLogFolders.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/closeOrder.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/closeShipment.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/inventoryAuditPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/inventoryPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/orderPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/shipmentPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/supplyItemPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCustomAgentScripts/TOGPurges" />
+
+		<!-- Copy Custom Folder Scripts to /generic/TOGCommonScripts -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/TOGEmailDLs.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/dos2unix4scripts.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/dos2unix4lists.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/setupScripts.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/udcDeploymentIndicator.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/TOG-Job-Scheduler.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGCommonScripts" />
+		
+		<!-- Copy Custom Folder Scripts to /generic/TOGSystemStats -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-ErrorList.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-ErrorList.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderCount.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderCount.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderLineStats.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderLineStats.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-SQLMonitor.sh" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-SQLMonitor.sql" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/generic/TOGSystemStats" />
+		
+		<!-- Copy UDC Agent Registration Files to /specific/ENVNAME  -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/DEV/dusjc01togdomall01.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/dev" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/DEV/dusjc01togdomall01.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/dev" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/MC/dusjc01togdomall02.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/mc" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/MC/dusjc01togdomall02.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/mc" />		
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/QA/qusjc01togagtapp01.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa" />		
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/QA/qusjc01togagtapp01.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/QA/qusjc01togagtapp02.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa" />		
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/QA/qusjc01togagtapp02.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/qa" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/Preprod/suwdc01togagtapp01.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/Preprod/suwdc01togagtapp01.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/Preprod/suwdc01togagtapp02.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/Preprod/suwdc01togagtapp02.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/preprod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/PROD/pudal09togagtapp01.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/PROD/pudal09togagtapp01.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod" />		
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/PROD/pudal09togagtapp02.agent.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/Agent-Build-Scripts/UDC-Agent-Registration/PROD/pudal09togagtapp02.integration.txt" todir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}/specific/prod" />		
+		
+		<jar destfile="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}.jar">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}"/>
+		</jar>
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-UCD-Deployment-${TOG_TIMESTAMP}.jar" todir="${zip.location}" />
+		<chmod file="${zip.location}/TOG-UCD-Deployment-${TOG_TIMESTAMP}.jar" perm="ugo+rx" />
+	</target>
+</project>

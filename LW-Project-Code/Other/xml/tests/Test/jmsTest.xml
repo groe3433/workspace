@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " Active="Y" Name="JmsTest"
+	Description="
+	1. JMS Send - Send message to Queue
+	2. JSM Receive - Listen to the Queue until the message is found - Validate the Transaction ID is CREATE_SHMNT_INVOICE.0001
+	">
+	<p:Tags>
+		<p:Tag Name="Example"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		  <p:Sequence Number="1" Delay="5">
+			<p1:Queue Name="SOM_CONSL_ADDNL_INV_AGENT_QUEUE" Type="QUEUE_SEND" JmsServer="WL_JMS"></p1:Queue>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="OrderList.xml" Location="resources/xml/input/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>
+<!--		  <p:Sequence Number="2" Delay="5">
+			<p1:Queue Name="SOM_CONSL_ADDNL_INV_AGENT_QUEUE" Type="QUEUE_RECEIVE" JmsServer="WL_JMS">
+				<p1:XPaths>
+					<p1:XPath XPath="/Order/@attr1" Match="1234"></p1:XPath>
+				</p1:XPaths>
+			</p1:Queue>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expected="1234" Path="/Order/@attr1"></p1:Validate>
+			</p1:Validations>
+
+		</p:Sequence>
+-->	</p:Steps>
+	<p:Parameters />
+</p:TestCase>
+

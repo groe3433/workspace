@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_CreateCDCNoLocaleCode_UT_014" Description="Create CDC with no locale code.">
+	<p:Steps>
+		<!-- add the organization -->
+		<p:Sequence Number="1">
+			<p1:Api Name="createOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_createOrganization_CDC_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+				<p1:Parameter Key="Organization.LocaleCode" Type="INPUT" Value="InvalidLocale"/>
+			</p1:Parameters>
+			<p1:Validations>
+			<p1:Validate ValidationType="XPATH" Expected="YFS10376" Path="//@ErrorCode"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="CDC.269-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+  </p:Parameters>
+</p:TestCase>

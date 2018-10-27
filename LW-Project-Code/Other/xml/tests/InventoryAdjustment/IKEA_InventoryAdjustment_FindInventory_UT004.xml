@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " 
+			Active="Y" Name="IKEA_InventoryAdjustment_FindInventory_UT004" Description="Find inventory for an item - CDC">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateCDC_Component"></p1:Component>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Component Name="IKEA_Inventory_AdjustInventory_Component"></p1:Component>
+		</p:Sequence>
+		<p:Sequence Number="3">
+			<p1:Api Name="findInventory"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_findInventory_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expected="${Promise.PromiseLines.PromiseLine.RequiredQty}" Path="//@RequiredQty"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>
+	</p:Steps>
+	<p:Parameters>
+		<p:GeneratedParameter Prefix="CDC-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+		<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+		<p:Parameter Key="Organization.Calendar.2.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+		<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+		<p:Parameter Key="Organization.Calendar.2.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+		<p:Parameter Key="Item.ItemID" Type="INPUT" Value="ART00140326" /> 
+				
+		<p:Parameter Key="Promise.OrganizationCode" Type="INPUT" Value="IKEA_GB"/>
+		<p:Parameter Key="Promise.PromiseLines.PromiseLine.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}" />
+		<p:Parameter Key="Promise.PromiseLines.PromiseLine.ItemID" Type="INPUT" Value="${Item.ItemID}" />
+		
+		<p:Parameter Key="Item.Quantity" Type="INPUT" Value="100" /> 
+		<p:Parameter Key="Item.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}" /> 
+		<p:Parameter Key="InventorySupply.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}" />  
+		<p:Parameter Key="InventorySupply.OrganizationCode"  Type="INPUT" Value="${Organization.ParentOrganizationCode}"/>
+		<p:Parameter Key="InventorySupply.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+		<p:Parameter Key="InventorySupply.ItemID"  Type="INPUT" Value="${Item.ItemID}"/>
+		<p:Parameter Key="InventorySupply.ProductClass" Type="INPUT" Value="NEW" />
+		<p:Parameter Key="InventorySupply.UnitOfMeasure" Type="INPUT" Value="Piece" />
+		<p:Parameter Key="InventorySupply.SupplyType" Type="INPUT" Value="ONHAND" />
+		<p:DateParameter Type = "INPUT"  Key="Promise.ReqStartDate" DateFormat="yyyy-MM-dd'T'HH:mm:ss" DaysOffset="1"/>
+	</p:Parameters>
+</p:TestCase>

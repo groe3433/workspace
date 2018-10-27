@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (http://www.altova.com) by Todd Pepin (Lockheed Martin Info Technology) -->
+<xs:schema xmlns="http://nwcg.gov/services/ross/resource_order_notification/1.1" xmlns:ron="http://nwcg.gov/services/ross/resource_order_notification/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>****************  Release 2.6 Resource Order Notification Message Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="AddIncidentAviationHazardNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an Aviation Hazard is added to an incident</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAviationHazard" type="nwcg:IncidentAviationHazardReturnType">
+					<xs:annotation>
+						<xs:documentation>The IncidentAviation Hazard that was added in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddIncidentDocumentationNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when a user documentation entry is added to an incident </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Identifies the Incident the documentation was added to</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Documentation" type="nwcg:DocumentationReturnType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Include all the user documentation entries assicoated with the incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddIncidentRadioFrequencyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when a Radio Frequency is added to an incident in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequency" type="nwcg:IncidentRadioFrequencyReturnType">
+					<xs:annotation>
+						<xs:documentation>The radio frequency data that was added</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an incident is created in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Information about the incident that was created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateResourceRequestNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when a resource request is created in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Incident data for the resource request that was created in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequest" type="nwcg:ResourceRequestPendingReturnType">
+					<xs:annotation>
+						<xs:documentation>Resource Request that was created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteIncidentAviationHazardNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an aviation hazard is removed from an incident in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAviationHazard" type="nwcg:IncidentAviationHazardReturnType">
+					<xs:annotation>
+						<xs:documentation>The incident aviation hazard that was deleted in ROSS, or removed from the incident in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteIncidentRadioFrequencyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when a Radio Frequency associated with an incident is deleted in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequency" type="nwcg:IncidentRadioFrequencyReturnType">
+					<xs:annotation>
+						<xs:documentation>The incident radio frequency that was deleted in ROSS</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverNotificationReq">
+		<xs:annotation>
+			<xs:documentation>Notification Message for Deliver Notification operation - This request message is sent to external systems to attempt delivery of a  notification </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotifiedSystem" type="nwcg:ApplicationSystemType"/>
+				<xs:choice>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" processContents="lax" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource Order Notificaiton namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_notification/1.1" processContents="lax" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource Notification namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/security_notification/1.1" processContents="lax" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Security Notification namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverNotificationResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Deliver Notificaiton operation - returned by external system to indicate successful receipt of operation results</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>ReturnCode of 0 indicates external system successfully received posted results</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetNotificationsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Operation Results operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SystemOfOrigin" type="nwcg:ApplicationSystemType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="MaxRecordsToReturn" type="xs:integer" default="25" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Identifies the maximum number od records to be returned with each request for notifications. Default is 25.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetNotificationsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Operation Results operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NotificationMessages" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="NotificationMessage" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:choice>
+										<xs:any namespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" processContents="lax">
+											<xs:annotation>
+												<xs:documentation>Any valid response message from a Resource Order Notification.  Will not be present if results are not yet available for retieval.</xs:documentation>
+											</xs:annotation>
+										</xs:any>
+										<xs:any namespace="http://nwcg.gov/services/ross/resource_notification/1.1" processContents="lax">
+											<xs:annotation>
+												<xs:documentation>Any valid response message from a Resource Notification.  Will not be present if results are not yet available for retieval.</xs:documentation>
+											</xs:annotation>
+										</xs:any>
+										<xs:any namespace="http://nwcg.gov/services/ross/security_notification/1.1" processContents="lax" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>Any valid response message from the Security Notification namespace.</xs:documentation>
+											</xs:annotation>
+										</xs:any>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResourceRequestReassignNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Messeage when a resource is reassigned in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType"/>
+				<xs:element name="ReassignFromRequest" type="nwcg:CompositeResourceRequestKeyType"/>
+				<xs:element name="ReassignToIncident" type="nwcg:IncidentReturnType"/>
+				<xs:element name="ReassignToRequest" type="nwcg:ResourceRequestCreateType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResourceRequestOperationNotification" type="nwcg:ResourceRequestOperationNotificationType">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an operation occrred on a resource request.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MergeIncidentNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when two incidents are merged in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SourceIncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data for the incident that was closed due to the merge (source incident)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SourceIncident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Full Incident Data for the Source Incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DestinationIncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data for the surviving/destination incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DestinationIncident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Full Incident Data for the Destination Incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PlaceResourceRequestNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when a request is placed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Incident Data provided on resource request operation notifications.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequest" type="nwcg:ResourceRequestPendingReturnType">
+					<xs:annotation>
+						<xs:documentation>Resource Request that was placed</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DispatchUnitFromAndTo" type="nwcg:DispatchUnitFromAndTo">
+					<xs:annotation>
+						<xs:documentation>Dispatch unit that the request was placed from in ROSS and the dispatch unit the request was place to in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TransferIncidentNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an incident is transferred from one dispatch unit to another in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Transferred incident information</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DispatchFromAndTo" type="nwcg:DispatchUnitFromAndTo">
+					<xs:annotation>
+						<xs:documentation>The unit IDs of the dispatch units that the incident transfer occurred between. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentAviationHazardDetailsNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an attribute of an inicident aviation hazard is modified in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentNotificationData" type="nwcg:IncidentUpdateNotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Fields provided with every incident update notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAviationHazardKey" type="nwcg:CompositeIncidentAviationHazardKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data indicating which aviation hazard was updated in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpdatedData" type="nwcg:IncidentAviationHazardNotificationType">
+					<xs:annotation>
+						<xs:documentation>Attribute values that changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentDetailsNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an incident detail changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentNotificationData" type="nwcg:IncidentUpdateNotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Fields provided with every incident update notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpdatedData" type="nwcg:IncidentDetailsNotificationType">
+					<xs:annotation>
+						<xs:documentation>Attribute values that changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentRadioFrequencyKeyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an attribute of the natural key of an incident frequency changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentNotificationData" type="nwcg:IncidentUpdateNotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Fields provided with every incident update notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OldIncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType">
+					<xs:annotation>
+						<xs:documentation>Incident Radio Frequency Key value prior to the update</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewIncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType">
+					<xs:annotation>
+						<xs:documentation>Incident Radio Frequency Key value after the update</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentRadioFrequencyDetailsNotification">
+		<xs:annotation>
+			<xs:documentation>Notification Message when an incident frequency changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentNotificationData" type="nwcg:IncidentUpdateNotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Fields provided with every incident update notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information indicating which Incident Radio Frequency changed</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpdatedData" type="nwcg:IncidentRadioFrequencyNotificationType">
+					<xs:annotation>
+						<xs:documentation>Attribute values that changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentKeyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when an incident number has changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OldIncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Original Incident Key that has been changed</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewIncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>New Incident Key for the incident that was renumbered.  This could happen if the incident was rehosted, or the year value or the initial date time was changed.  Also, the incident can be renumbered due to an updateIncidentNumber operation call across the services interface.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when a triggering incident attribute changes, or a triggering incident entity changes</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Information about the incident that was updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateResourceRequestDetailsNotification">
+		<xs:annotation>
+			<xs:documentation>Notification when a Resource Request is updated in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Request Key that identifies the resource request that was updated in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SystemOfOrigin" type="nwcg:ApplicationSystemType">
+					<xs:annotation>
+						<xs:documentation>Application system that created the resource request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpdatedData" type="nwcg:ResourceRequestDetailsNotificationType">
+					<xs:annotation>
+						<xs:documentation>Attribute values that changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

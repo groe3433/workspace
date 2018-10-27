@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEASuite-UserManagement" active="Y" description="Test Suite containing the test case for the IKEA Pilot -  User management">
+	<Tests>
+
+				<Test testFile="UserManagement/IKEA_UserManagement_createUser.xml"/>
+
+	</Tests>
+</Suite>

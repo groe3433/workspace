@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AAConfig>
+   <services>
+      <service serviceGroup="INCIDENT" isSync="FALSE" isNotification="FALSE" handlerClass="com.nwcg.icbs.yantra.handler.NWCGMessageHandler" type="IB" requiresAuth="TRUE">
+			CreateIncidentAndRequestReq
+	</service>
+      <service serviceGroup="INCIDENT" isSync="FALSE" isNotification="FALSE" type="OB" requiresAuth="TRUE">
+			GetIncidentReq
+	</service>
+      <service serviceGroup="INCIDENT" isSync="TRUE" isNotification="FALSE" type="IB" handlerClass="com.nwcg.icbs.yantra.handler.NWCGOBAuthMessageHandler" requiresAuth="FALSE">
+			GetIncidentReq
+	</service>
+      <service serviceGroup="INCIDENT" isSync="FALSE" isNotification="FALSE" type="OB" requiresAuth="TRUE">
+			GetIncidentReq
+	</service>
+   </services>
+   <properties>
+      <property name="TIME_KEY_PERMISSIBLE_TIME" value="3600000"/>
+      <property name="HASH_KEY" value="10"/>
+   </properties>
+   <templates>
+      <template name="SDF_OUTBOUND_MESSAGE_SAMPLE_FILENAME" value="C:\\rdemon\\consult\\sdf_xml\\nwcg_outbound_message_sample.xml"/>
+   </templates>
+   <SDFServices>
+      <SDFService name="SDF_CREATE_OB_MESSAGE_NAME" value="NWCGCreateOBMessage"/>
+   </SDFServices>
+</AAConfig>

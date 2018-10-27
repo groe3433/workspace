@@ -1,0 +1,10 @@
+<OrderLine ReleaseNo="" DerivedFromOrderLineKey="" DerivedFromOrderHeaderKey="" OrderedQty="" OrderLineKey="" ReshipParentLineKey="" PrimeLineNo="" ReturnableQty="" SubLineNo="" GiftFlag="" >
+<LinePriceInfo IsLinePriceForInformationOnly=""  InvoicedLineTotal="" InvoicedPricingQty="" IsPriceLocked="" LineTotal="" PricingUOM=""  UnitPrice=""/>
+<ItemDetails ItemID="" UnitOfMeasure="" />
+<Instructions>
+<Instruction InstructionText="" />
+</Instructions>
+<OrderStatuses>
+<OrderStatus StatusQty="" Status="" />
+</OrderStatuses>
+</OrderLine>

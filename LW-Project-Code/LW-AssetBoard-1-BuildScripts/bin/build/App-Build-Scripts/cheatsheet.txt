@@ -1,0 +1,17 @@
+##################################################################
+#### Cheatsheet of available ant commands for our TOG Project #### 
+################################################################## 
+#
+#### Build. 
+# ./buildSMCFS.sh all-linux
+#
+#### restart smcfs application server(s)
+# ./buildSMCFS.sh restartSMCFS
+#
+#### CDT EXPORT (assuming you have the current check-out folder and have run the build)
+# ./buildSMCFS.sh cdt-from-source-to-xml
+#       -- (Targets: cdt-from-source-to-xml)
+#
+#### CDT IMPORT (assuming you have the current check-out folder and have run the build)
+# ./buildSMCFS.sh cdt-from-xml-to-target
+#       -- (Targets: cdt-from-xml-to-target)

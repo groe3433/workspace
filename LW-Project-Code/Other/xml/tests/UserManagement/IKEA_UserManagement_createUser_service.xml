@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " Active="Y" Name="IKEA_UserManagement_createUser"
+	Description="
+	1. JMS Send - Send message to Queue
+	2. 
+	">
+	<p:Tags>
+		<p:Tag Name="UserManagement"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		<p:Sequence Number="1" Delay="0">
+			<p1:Component Name="IKEA_UserManagement_createUser_service"></p1:Component>
+		</p:Sequence>
+	</p:Steps>
+	<p:Parameters>
+		<p:GeneratedParameter Key="User.Loginid" Type="INPUT" Prefix="IKEA" Suffix="TESTUSER"/>
+		<p:GeneratedParameter Key="User.Loginid.2" Type="INPUT" Prefix="IKEA" Suffix="TESTUSER"/>
+		<p:GeneratedParameter Key="User.Loginid.3" Type="INPUT" Prefix="IKEA" Suffix="TESTUSER"/>
+		<p:Parameter Key="Users.SystemName" Type="INPUT" Value="CDS"/>
+    		<p:Parameter Key="Users.User.TemplateLoginid" Type="INPUT" Value="SuperUser"/>
+    		<p:Parameter Key="Users.User.DataSecurityGroupId" Type="INPUT" Value="Global"/>
+    		<p:Parameter Key="Users.UserGroupLists.UserGroupList.UsergroupId" Type="INPUT" Value="Retail.ISOMUserCDOS"/>
+    		<p:Parameter Key="Users.UserGroupLists.UserGroupList.UsergroupId.2" Type="INPUT" Value="Retail.ISOMReportAdmin"/>
+    		<p:Parameter Key="Users.User.TemplateLoginid.1" Type="INPUT" Value="SuperUser"/>
+    		<p:Parameter Key="Users.User.DataSecurityGroupId.1" Type="INPUT" Value="Global"/>
+    		<p:Parameter Key="Users.User.TemplateLoginid.2" Type="INPUT" Value="SuperUser"/>
+    		<p:Parameter Key="Users.User.DataSecurityGroupId.2" Type="INPUT" Value="Global"/>
+	</p:Parameters>
+</p:TestCase>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NWCGIncidentOrder AdditionalInfo="" Agency="" CostCenter="" CustomerId="" CustomerName="" CustomerPONo="" DateStarted="" DateClosed="" FunctionalArea="" GACC="" GeographicCoordinateLongitude="" GeographicCoordinateLatitude="" ICBSFiscalYear="" IncidentBlmAcctCode="" IncidentFsAcctCode="" IncidentHost="" IncidentLocked="" IncidentKey="" IncidentName="" IncidentNo="" IncidentId="" IncidentOtherAcctCode="" IncidentSource="" IncidentTeamName="" IncidentTeamType="" IncidentType="" IsActive="" IsComplexIndicator="" IsCostShared="" IsOtherOrder="" IsSuppressive="" LastUpdatedFromROSS="" LockReason="" OtherOrderType="" OverrideCode="" PersonInfoBillToKey="" PersonInfoDeliverToKey="" PersonInfoShipToKey="" PhoneNo="" PrimaryCacheId="" RegisterInterestInROSS="" ReplacedIncidentNo="" ReplacedIncidentYear="" ReplacedIncidentNo2="" ReplacedIncidentYear2="" ReplacedIncidentNo3="" ReplacedIncidentYear3=""  RequestNoBlockEnd="" RequestNoBlockStart="" ROSSDispatchID="" ROSSFinancialCode="" ROSSFinancialFiscalYear="" ROSSIncidentStatus="" ShipInstrState="" ShipInstrCity="" ShippingInstructions="" UnitType="" WBS="" Year="">
+<YFSPersonInfoShipTo/>
+<YFSPersonInfoBillTo/>
+<YFSPersonInfoDeliverTo/>
+</NWCGIncidentOrder>

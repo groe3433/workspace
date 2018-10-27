@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.common.address.capture.AddressCaptureExtnBundle" screenId="extn.common.address.capture.AddressCaptureExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_Country_FilteringSelect_label"
+            bundleKey="Country_Region" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_Country"/>
+        <BundleEntry bundleEntryId="txtAddressLine1_TextField_label"
+            bundleKey="extn_Address_Line1" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="txtAddressLine1"/>
+        <BundleEntry bundleEntryId="txtAddressLine2_TextField_label"
+            bundleKey="AddressLine2" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="txtAddressLine2"/>
+        <BundleEntry bundleEntryId="txtZipCode_TextField_label"
+            bundleKey="extn_Zip_Postal_Code" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="txtZipCode"/>
+        <BundleEntry bundleEntryId="txtEmailAddress_TextField_label"
+            bundleKey="extn_E_Mail" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="txtEmailAddress"/>
+        <BundleEntry bundleEntryId="extn_Companyname_TextField_label"
+            bundleKey="extn_Company_Name"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_Companyname"/>
+        <BundleEntry bundleEntryId="txtState_TextField_label"
+            bundleKey="State" bundleValueFn="_scBundle" property="label"
+            type="WIDGET" uId="txtState"/>
+    </BundleEntries>
+</ScreenBundle>

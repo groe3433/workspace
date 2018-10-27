@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--This behavior is used sort columns rows in a table.  -->
+<public:component lightWeight="false" >
+
+<PUBLIC:ATTACH EVENT="ondetach" ONEVENT="cleanup()" />
+<public:attach 	event="oncontentready" onevent="init();" />
+<public:attach 	event="ondocumentready" onevent="fireRowsChanged(element);" />
+
+<script language=jscript>
+
+if (element.tagName == 'TABLE')
+{
+        element.attachEvent("onfilterchange", onRowsChanged );
+}
+else
+{
+	alert("Error: tableAct not attached to a table element");
+}
+var tbody=null;					
+var theadrow=null;
+var tableContextPopup;
+var sortRowContextMenu;
+var exportRowContextMenu;
+
+var reverse = false;
+var lastclick = -1;	// stores the object of our last used object
+
+////////////////////////////////////////////////////////////////////////////////////
+function fireRowsChanged(oTable) {
+    if (oTable) {
+		oTable.fireEvent("onfilterchange");
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+function onRowsChanged() {
+	var suppressRowColoring = element.getAttribute("SuppressRowColoring");
+
+	if (suppressRowColoring == null || suppressRowColoring != "true") {
+	    reComputeColors();
+	}
+	else {
+		var suppressBorder = element.getAttribute("SuppressBorder");
+		if (suppressBorder == null || suppressBorder != "true") {
+		    applyBorders();
+		}
+	}
+    return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+function reComputeColors() {
+
+    if (!tbody)
+        return;
+	
+    var existingClass = '';
+    for (var i=0;i<tbody.rows.length;i++) {
+
+	if ((existingClass == null) || (existingClass == '') || (existingClass == 'oddrow')) {
+		tbody.rows(i).className = "evenrow";
+		if(i+1 < tbody.rows.length){
+			if(!isNaN(tbody.rows(i+1).getAttribute("BypassRowColoring")) && tbody.rows(i+1).getAttribute("BypassRowColoring") != " " && tbody.rows(i+1).getAttribute("BypassRowColoring") != "true"){
+				existingClass = "evenrow";
+			}else{
+				existingClass = "oddrow";
+			}
+		}
+
+        } else {
+                tbody.rows(i).className = "oddrow";
+		if(i+1 < tbody.rows.length){
+			if(!isNaN(tbody.rows(i+1).getAttribute("BypassRowColoring")) && tbody.rows(i+1).getAttribute("BypassRowColoring") != " " && tbody.rows(i+1).getAttribute("BypassRowColoring") != "true"){
+				existingClass = "oddrow";
+			}else{
+				existingClass = "evenrow";
+			}
+		}
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////
+function applyBorders() {
+
+    if (!tbody)
+        return;
+
+    for (var i=0;i<tbody.rows.length;i++){
+		for (var j=0;j<tbody.rows(i).cells.length; j++) {
+			tbody.rows(i).cells(j).style.borderBottom = "1px solid #EAEAF6";
+			if (j < tbody.rows(i).cells.length - 1) {
+				tbody.rows(i).cells(j).style.borderRight = "1px solid #EAEAF6";
+			}
+		}
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+function cleanup()
+{
+	element.detachEvent("onfilterchange", onRowsChanged );
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+function init() {
+
+	// get TBODY - take the first TBODY for the table to sort
+	
+	var tblBody = element.getAttribute("BodyTable");
+	
+	if (tblBody)
+	    tbody = tblBody.tBodies(0);
+	else
+	    tbody = element.tBodies(0);
+	
+	if (!tbody) return;
+	
+	//Get THEAD  
+	var thead = element.tHead;
+	
+	if (!thead)  return;
+	
+	cellCollection = thead.getElementsByTagName("TD");
+
+	if (cellCollection == null) return;
+
+	var clickCell = null;
+
+	element.cellSpacing =0;
+
+	//following loop searches all chilldren cells n level deep and sets look of hand or auto 
+
+	for (var j = 0; j<cellCollection.length; j++) {
+		clickCell = cellCollection[j];
+		clickCell.runtimeStyle.cursor = "auto";
+		if (tbody.rows.length <= getyfcMaxSortingRecords ()) {
+
+			if(paginatedList) {
+				var orderBy = clickCell.getAttribute('orderBy')
+				if(orderBy != null && trim(orderBy) != "") {
+					if(orderBy == currentOrderBy) {
+						if(currentSortDirection == "DESC") {
+							clickCell.innerHTML=clickCell.innerHTML+'&#8595;';
+							clickCell.setAttribute("sortDirection","ASC");
+						}
+						else {
+							clickCell.innerHTML=clickCell.innerHTML+'&#8593;';
+							clickCell.setAttribute("sortDirection","DESC");
+						}
+					}
+				clickCell.runtimeStyle.cursor = "hand";
+			}
+			}
+			else {
+				if ((clickCell.sortable == null) || (clickCell.sortable != "no")) {
+					clickCell.runtimeStyle.cursor = "hand";
+			}
+		}
+		}
+	}
+
+
+	theadrow = thead.children[0]; //Assume just one Head row will be sortable.
+	
+	if (theadrow.tagName != "TR") return;
+	
+	clickCell = null;
+	
+	for (var i=0; i < theadrow.children.length; i++) 
+	{
+		clickCell = theadrow.children[i];
+
+		if (tbody.rows.length <= getyfcMaxSortingRecords() ) {
+
+			if(paginatedList) {
+				var orderBy = clickCell.getAttribute('orderBy')
+				if(orderBy != null && trim(orderBy) != "") {
+					clickCell.selectIndex = i;
+					clickCell.attachEvent("onclick", doClick);
+				}
+			}
+			else {
+
+			if ((clickCell.sortable == null) || (clickCell.sortable != "no")) {
+				clickCell.selectIndex = i;
+				clickCell.attachEvent("onclick", doClick);
+			}
+			}
+			clickCell.attachEvent("ondragleave", getExportData);
+			clickCell.attachEvent("oncontextmenu", displayCustomContextMenu);
+		}
+	}
+	
+        changeFooterNames(element.tFoot);
+	defaultRows();
+}
+
+function displayCustomContextMenu(e) {
+	var obj = e.srcElement;	
+	
+	var ctrlKeyPressed = e.ctrlKey;
+	if (ctrlKeyPressed || obj == null) {
+		return;
+	}
+
+	if (obj.tagName != "TD") {
+		obj = getParentObject(obj, "TD");
+	}
+	
+	// clear 'CurrentlyClickedHeader' if already exist.
+	var prevObj = window.document.all("CurrentlyClickedHeader");
+	if(prevObj != null)	{
+		prevObj.setAttribute("id", obj.getAttribute("OrigId"));
+	}
+
+	var origId = obj.getAttribute("id");
+	obj.setAttribute("id","CurrentlyClickedHeader");
+	obj.setAttribute("OrigId",origId);
+
+	createDiv(e);	
+	
+	obj.setAttribute("window", tableContextPopup);
+
+	//get properties to position the contextmenu
+	var x = e.clientX;
+	var y = e.clientY;
+	var top = window.screenTop;
+	var left = window.screenLeft;
+
+	var popupSize = 0;
+
+	if ((obj.sortable == null) || (obj.sortable != "no")) {
+		//sortRowContextMenu.style.display = '';
+		popupSize = 32;
+	}
+	else {
+		//sortRowContextMenu.style.display = 'none';
+		popupSize = 16;
+	}
+
+	tableContextPopup.show(x + left, y + top, 130, popupSize);
+
+
+	e.returnValue = false;	
+}
+
+function createDiv(e) {	
+	var obj = e.srcElement;
+	var divExists = obj.ownerDocument.getElementById("customContextMenu");
+	if (!divExists) {
+		var hiddenDiv = document.createElement("<div id='customContextMenu' style='position:absolute;border:1px;width:100%'></div>");
+		var containerForm= window.document.all("containerform");
+		containerForm.insertBefore(hiddenDiv);
+		var contextMenu = window.document.all("customContextMenu");
+		var table = document.createElement("<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"200%\"></table>");
+		contextMenu.appendChild(table);		
+		addContextMenuOptions("export", table, Export_Table_Data);
+		addContextMenuOptions("sort", table, Sort_Column);
+
+		var oPopup = window.createPopup();
+		tableContextPopup = oPopup;
+		var oPopupBody = oPopup.document.body;
+		var scriptObj = oPopup.document.createElement("<script language=\"javascript\" src=\"../yfcscripts/popup.js\"><\/script>");	
+		oPopup.document.appendChild(scriptObj);
+
+		var currentStyleSheet = yfcGetCurrentStyleSheet();
+		var styleSheetObj = oPopup.document.createElement("<link rel=\'stylesheet\' href=\'../css/" + currentStyleSheet + "\' type=\'text/css\'>");
+		oPopup.document.appendChild(styleSheetObj);
+		oPopupBody.innerHTML = contextMenu.outerHTML;
+		hiddenDiv.setAttribute("window", oPopup);
+	}
+	else {
+		tableContextPopup = divExists.getAttribute("window");
+	}
+
+}
+
+function addContextMenuOptions (tableAction, table, menuOptionText) {	
+	var contextMenu = window.document.all("customContextMenu");	
+	var subRow = document.createElement("<tr></tr>");
+	table.appendChild(subRow);
+	var subCol = document.createElement("<td class=\"menulevel1norm\" onmouseover=\"this.className=\'menulevel1hl\'\" onmouseout=\"this.className=\'menulevel1norm\'\"></td>");
+	subRow.appendChild(subCol);
+	subCol.innerText = menuOptionText;
+	if (tableAction == "export") {
+		tableRowContextMenu = subRow;
+		subCol.innerHTML = subCol.innerHTML + '&nbsp;' + '&#8594;' ;
+		subCol.onclick = "setTableAction('export')";
+	} else if (tableAction == "sort") {
+		sortRowContextMenu = subRow;
+		subCol.innerHTML = subCol.innerHTML + '&nbsp;' + '&#8595;' + '&#8593;' ;
+		subCol.onclick = "setTableAction('sort')";
+	}
+}
+
+function getExportData(e) {
+	var clickObject = e.srcElement;
+	if (clickObject.tagName != "TD") {
+		clickObject = getParentObject(clickObject, "TD");
+	}
+	var commaDelimText = "";
+	var theadrow = clickObject.parentNode;		
+	var columnHeaders = "<tr>";
+	for (var i=0; i < theadrow.children.length;i++) {				
+		clickCell = theadrow.children[i];
+		columnHeaders = columnHeaders + "<td>"
+		var className = clickCell.className;
+		var innerText = clickCell.innerText;
+		if (className != "checkboxheader") {
+			if ((i+1) == theadrow.children.length) {
+				columnHeaders = columnHeaders + innerText + "\n";
+			} else {
+				columnHeaders = columnHeaders + innerText + "\t";
+			}columnHeaders = columnHeaders + "</td>"
+		}
+	}columnHeaders = columnHeaders + "</tr>"			
+	commaDelimText = columnHeaders;
+	var thead = theadrow.parentNode;
+	var table = thead.parentNode;
+	var tbodyelem = table.getElementsByTagName("tbody");
+	var tbodyrows = tbodyelem[0].getElementsByTagName("tr");
+	for (var j=0; j < tbodyrows.length;j++) {
+		var rowVals = "<tr>";
+		currow = tbodyrows[j];
+		var columns = currow.getElementsByTagName("td");
+		for (var k=0; k < columns.length;k++) {
+			curcolumn = columns[k];
+			rowVals = rowVals + "<td>"
+			var className = curcolumn.className;
+			var innerText = curcolumn.innerText;
+			if (className != "checkboxcolumn") {	
+				if ((k+1) == columns.length) {
+					rowVals = rowVals + innerText ;
+				} else {
+					rowVals = rowVals + innerText ;
+				}
+			}rowVals = rowVals + "</td>"			
+		}rowVals = rowVals + "</tr>"
+		commaDelimText = commaDelimText + rowVals;
+	}
+	
+	commaDelimText = "<table cellpadding=0 cellspacing=10 border=1>" + commaDelimText +"</table>"
+	//var features = "dialogHeight:750px;dialogWidth:1110px;dialogLeft:0px;dialogTop:0px;scroll:no;resizable:yes;help:no;status:no;edge:sunken;unadorned:yes";
+	//var tableDataWindow = window.showModelessDialog("../yfc/source.jsp",myObject,features);
+	var win = window.open("../yfc/source.jsp",null,"directories=no,fullscreen= no,height = 750,width = 1100,scrollbars=yes,left =0,menubar=no,top=0,location=no,toolbar=no,status=no,resizable=yes");
+	win.document.write(commaDelimText);
+	e.returnValue = false;
+}
+
+function CreateExcelSheet(e) {
+	if (window.ActiveXObject){ 
+
+		var  xlApp = new ActiveXObject("Excel.Application");  
+		var xlBook = xlApp.Workbooks.Add(); 
+
+		xlBook.worksheets("Sheet1").activate; 
+		var XlSheet = xlBook.activeSheet; 
+
+		var clickObject = e.srcElement;
+		if (clickObject.tagName != "TD") {
+			clickObject = getParentObject(clickObject, "TD");
+		}
+		var theadrow = clickObject.parentNode;		
+		for (var i=0; i < theadrow.children.length;i++) {				
+			clickCell = theadrow.children[i];
+			var className = clickCell.className;
+			var innerText = clickCell.innerText;
+			if (className != "checkboxheader") {
+				XlSheet.Cells(1, i+1).Value = innerText;
+			}
+		}		
+		var thead = theadrow.parentNode;
+		var table = thead.parentNode;
+		var tbodyelem = table.getElementsByTagName("tbody");
+		var tbodyrows = tbodyelem[0].getElementsByTagName("tr");
+		for (var j=0; j < tbodyrows.length;j++) {
+			var rowVals = "";
+			currow = tbodyrows[j];
+			var columns = currow.getElementsByTagName("td");
+			for (var k=0; k < columns.length;k++) {
+				curcolumn = columns[k];
+				var className = curcolumn.className;
+				var innerText = curcolumn.innerText;
+				if (className != "checkboxcolumn") {	
+					XlSheet.Cells(j + 2, k +1).Value = innerText;
+				}				
+			}
+		}
+		XlSheet.columns.autofit;  
+	}
+	xlApp.visible = true;  
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//If there are no rows in the table, then based on the initial rows parameter, add some empty lines.
+////////////////////////////////////////////////////////////////////////////////////
+function defaultRows() {
+    var initialRows = element.getAttribute("initialRows");
+    
+	if ((initialRows) && (initialRows > 0)) {
+	    if ((!tbody.rows) || (tbody.rows.length == 0)) {
+		    templateRow = getTemplateRow(element.tFoot);
+			addLines(tbody, templateRow, null, initialRows);
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+// doClick handler
+////////////////////////////////////////////////////////////////////////////////////
+function doClick(e) 
+{
+	var clickObject = e.srcElement;
+	if(paginatedList) {
+		yfcGoOrderBy(clickObject.getAttribute("orderBy"), clickObject.getAttribute("sortDirection"));		
+		return;
+	}
+	
+	if(tbody.rows.length > getyfcMaxSortingRecords()){
+	    input_box=false;
+	} else if(tbody.rows.length > getyfcMaxSortingRecordsWithoutWarning()){
+	    input_box=confirm(YFCMSG114);
+	}else{
+	    input_box=true;	
+	}
+	if (input_box==true){
+	   document.body.runtimeStyle.cursor="wait";
+	   while (clickObject.tagName != "TD") {
+		clickObject = clickObject.parentElement;
+	   }
+	   // clear the sort images in the head
+	   var td = theadrow.cells;
+	   for(var x = 0; x < td.length; x++) {
+	 if (x == lastclick)	{
+		td[x].innerHTML = td[x].innerHTML.substr(0,td[x].innerHTML.length-1);
+	 }
+	}
+
+	if(lastclick == clickObject.selectIndex)
+	{
+	if(reverse == false)	{
+		clickObject.innerHTML=clickObject.innerHTML+'&#8595;';
+			reverse = true;			
+		}
+	else {
+		clickObject.innerHTML=clickObject.innerHTML+'&#8593;';
+	    reverse = false;
+	}
+	}
+	else
+	{
+		reverse = false;
+		clickObject.innerHTML=clickObject.innerHTML+'&#8593;';
+		lastclick = clickObject.selectIndex;
+	}
+
+	insertionSort(tbody, tbody.rows.length-1,  reverse, clickObject.selectIndex);
+	    element.fireEvent("onfilterchange");
+	  }else{		
+		//Do nothing
+	  }
+}
+
+function insertionSort(t, iRowEnd, fReverse, iColumn)
+{
+	var iRowInsertRow, iRowWalkRow, current, insert, isNumeric, currClass, outerLoopMultiCopy;
+	
+	outerLoopMultiCopy = false;
+	
+	if ((t.rows) && (t.rows.length > 2))
+		currClass = t.rows(1).cells(iColumn).className;
+	
+	if ((currClass) && (currClass == "numerictablecolumn")) {
+		isNumeric = true;
+	}
+	else {
+		isNumeric = false;
+	}
+
+    for ( iRowInsert = 0 ; iRowInsert < iRowEnd ; iRowInsert++ )
+    {
+		if(!isNaN(t.rows[iRowInsert].getAttribute("BypassRowColoring")) && t.rows[iRowInsert].getAttribute("BypassRowColoring") != " " && t.rows[iRowInsert].getAttribute("BypassRowColoring") != "true")
+		{
+			
+			if(iRowInsert < iRowEnd){
+				if(!isNaN(t.rows[iRowInsert+1].getAttribute("BypassRowColoring")) && t.rows[iRowInsert+1].getAttribute("BypassRowColoring") != " " && t.rows[iRowInsert+1].getAttribute("BypassRowColoring") != "true"){
+					outerLoopMultiCopy = false;
+				}else{
+					outerLoopMultiCopy = true;
+				}
+			}else{
+				outerLoopMultiCopy = false;
+			}
+			try {
+				  if(t.rows[iRowInsert].cells[iColumn].sortValue)
+				  {
+					 textRowInsert = t.rows[iRowInsert].cells[iColumn].sortValue;
+					 isNumeric = true;
+				  }
+				  else
+				  {
+					 textRowInsert = t.rows[iRowInsert].cells[iColumn].innerText;
+				   }
+			} catch (ex) {
+				textRowInsert = "";
+			}
+			
+			for ( iRowWalk = 0; iRowWalk <= iRowInsert ; iRowWalk++ )
+			{
+				if(!isNaN(t.rows[iRowWalk].getAttribute("BypassRowColoring")) && t.rows[iRowWalk].getAttribute("BypassRowColoring") != " " && t.rows[iRowWalk].getAttribute("BypassRowColoring") != "true")
+				{
+					try 
+					{
+						 if(t.rows[iRowWalk].cells[iColumn].sortValue)
+						 {
+							textRowCurrent = t.rows[iRowWalk].cells[iColumn].sortValue;
+							isNumeric = true;
+						 }
+						 else
+							textRowCurrent = t.rows[iRowWalk].cells[iColumn].innerText;
+					} 
+					catch (ex) 
+					{
+						textRowCurrent = "";
+					}
+
+					current = textRowCurrent;
+					insert  = textRowInsert;
+
+					if ((isNumeric == true)  && (insert != " ") && (current != " ") && !isNaN(current) && !isNaN(insert) )
+					{
+						try {
+							current = eval(current);
+							insert = eval(insert);
+						}
+						catch (ex) {
+							//current = current.toLowerCase();
+							//insert = insert.toLowerCase();
+						}
+					}
+
+					var myCondition = ((!fReverse && (insert < current)) || (fReverse && (insert > current)) ) && (iRowInsert != iRowWalk);
+					if (myCondition)
+					{
+						if(outerLoopMultiCopy == false)
+						{
+							eRowInsert = t.rows[iRowInsert];
+							eRowWalk = t.rows[iRowWalk];
+							t.insertBefore(eRowInsert, eRowWalk);
+						}
+						else
+						{
+							eRowInsert = t.rows[iRowInsert];
+							eRowWalk = t.rows[iRowWalk];
+							t.insertBefore(eRowInsert, eRowWalk);
+
+							eRowInsertPlusOne = t.rows[iRowInsert+1];
+							eRowWalkPlusOne = t.rows[iRowWalk+1];
+							t.insertBefore(eRowInsertPlusOne, eRowWalkPlusOne);
+						}
+						
+						iRowWalk = iRowInsert; // done
+					}
+				}// end of inner parenttr
+			}
+		}// end of parenttr
+    
+		if(outerLoopMultiCopy == true){
+			if(iRowInsert < iRowEnd)
+				iRowInsert++;
+		}
+    }
+}
+
+function changeFooterNames(footer) {
+
+	if (!footer)
+		return;
+		
+    if (footer.rows && footer.rows.length > 0) {
+        processFooterInputs(footer.rows(0).getElementsByTagName("input"));
+        processFooterInputs(footer.rows(0).getElementsByTagName("select"));
+        processFooterInputs(footer.rows(0).getElementsByTagName("textarea"));
+    }
+}
+
+function processFooterInputs(inputs) {
+    var name ;
+
+    for (var i = 0; i < inputs.length; i ++){
+        name = inputs.item(i).name;
+        if (name) {
+            inputs.item(i).setAttribute("yName", name);
+            inputs.item(i).name = "";
+        }
+    }
+}
+
+function getyfcMaxSortingRecords () {
+    var maxSortRows = element.getAttribute("yfcMaxSortingRecords");
+    if(isVoid(maxSortRows)){
+	return 250;
+    }
+    return maxSortRows;
+}
+
+function getyfcMaxSortingRecordsWithoutWarning() {
+    var maxSortRowsWithoutWarning = element.getAttribute("yfcMaxSortingRecordsWithoutWarning");
+    if(isVoid(maxSortRowsWithoutWarning)){
+	return 250;
+    }
+    return maxSortRowsWithoutWarning;
+}
+
+// Returns true if value only contains spaces
+function isVoid(val){
+   if(val==null){
+	return true;
+   }
+   for(var i=0;i<val.length;i++) {
+      if ((val.charAt(i)!=' ')&&(val.charAt(i)!="\t")&&(val.charAt(i)!="\n")&&(val.charAt(i)!="\r")){
+	return false;
+      }
+   }
+   return true;
+}
+
+
+</script>
+</public:component>

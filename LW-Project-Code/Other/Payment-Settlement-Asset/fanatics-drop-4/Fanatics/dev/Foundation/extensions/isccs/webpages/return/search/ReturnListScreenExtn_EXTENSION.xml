@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnListScreenExtn"
+        extnPackage="extn.return.search"
+        originalScreen="isccs.return.search.ReturnListScreen"
+        originalScreenPackage="isccs.return.search" type="diffrential"/>
+</ExtensionMetaData>

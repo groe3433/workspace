@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM Call Center for Commerce (5725-P82)
+  (C) Copyright IBM Corp. 2013 All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wizards>	
+	<wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.reviseShipDate.wizards.reviseShipDate.ReviseShipDateWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true" screenId="extn.reviseShipDate.ReviseShipDate"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+    <wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.emails.wizards.emails.EmailsWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true" screenId="extn.emails.Emails"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+	<wizard
+        flowController="com.sterlingcommerce.ui.web.platform.wizard.SCUIDefaultWizardController"
+        id="extn.manageInstruction.wizards.manageInstruction.ManageInstructionWizard" independentPages="false">
+        <wizardEntities>
+            <wizardEntity category="Cat1" id="Page1"
+                impl="/platform/jsps/dojo/xapiajaxsuccesshandler.jsp"
+                last="true" screenId="extn.manageInstruction.ManageInstruction"
+                start="true" type="PAGE"/>
+        </wizardEntities>
+    </wizard>
+</wizards>

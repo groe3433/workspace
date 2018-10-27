@@ -1,0 +1,11 @@
+<YantraHostList>
+<YantraHost name='QA'
+URL='icbs-qa.nwcg.gov' securemode='loginonly' 
+secureURL='icbs-qa.nwcg.gov' contextRoot='/smcfs' />
+<YantraHost name='Training'
+URL='icbs-trng.nwcg.gov' securemode='loginonly' 
+secureURL='icbs-trn.nwcg.gov' contextRoot='/smcfs' />
+<YantraHost name='Production'
+URL='icbs-prod.nwcg.gov' securemode='loginonly' 
+secureURL='icbs-prod.nwcg.gov' contextRoot='/smcfs' />
+</YantraHostList>

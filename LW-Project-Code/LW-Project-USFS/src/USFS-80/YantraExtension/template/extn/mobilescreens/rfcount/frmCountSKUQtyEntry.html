@@ -1,0 +1,256 @@
+<html>
+    <body>
+        <form name="frmCountSKUQtyEntry" target="/console/rfcount.ppc">
+            <table border="1">
+                <tr>
+                    <td>
+                        <table border="0" width="300">
+                            <tr>
+                                <td>
+                                    <input col="7"
+                                    inputbinding="xml:/RecordCountResult/@TaskType"
+                                    outputbinding="xml:/RecordCountResult/@TaskType"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/RecordCountResult/@TaskType"
+                                    type="text" validate="false"/>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/RecentLPN/@LastScannedLPN"
+                                    mandatory="false"
+                                    name="txtLastScannedLpn"
+                                    outputbinding="xml:/RecentLPN/@LastScannedLPN"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/RecentLPN/@LastScannedLPN"
+                                    type="hidden" validate="true"/>
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    <input col="1" name="txtCountContext"
+                                    inputbinding="xml:/Count/@CurrentContext"
+                                    outputbinding="xml:/Count/@CurrentContext"
+                                    size="20" subtype="ProtectedText"
+                                    tag="binding=xml:/Count/@CurrentContext"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/Inventory/@DisplayItemId"
+                                    mandatory="false"
+                                    name="txtItemId"
+                                    outputbinding="xml:/Inventory/@DisplayItemId"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/Inventory/@DisplayItemId"
+                                    type="text" validate="false"/>
+									<input col="1"
+                                    inputbinding="xml:/Inventory/@DisplayItemDescription"
+                                    name="txtDispItemDesc"
+                                    outputbinding="xml:/Inventory/@DisplayItemDescription"
+                                    size="20"
+                                    subtype="Hidden"
+                                    tag="binding=xml:/Inventory/@DisplayItemDescription"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/Inventory/@UnitOfMeasure"
+                                    mandatory="false" name="txtUOM"
+                                    outputbinding="xml:/Inventory/@UnitOfMeasure"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/Inventory/@UnitOfMeasure"
+									type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/Inventory/@ItemID"
+                                    mandatory="false"
+                                    name="txtSuggItemId"
+                                    outputbinding="xml:/Inventory/@ItemID"
+                                    size="20"
+                                    subtype="Hidden"
+                                    tag="binding=xml:/Inventory/@ItemID"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" name="lblPClass"
+                                    size="15" subtype="Hidden"
+                                    tag="binding=lblPClass"
+                                    type="hidden" validate="false" value="Mobile_Product_Class"/>
+                                    <input col="16"
+                                    inputbinding="xml:/CurrentTask/@ProductClass"
+                                    mandatory="false"
+                                    name="txtPClass"
+                                    outputbinding="xml:/CurrentTask/@ProductClass"
+                                    size="5" subtype="Hidden"
+                                    tag="binding=xml:/CurrentTask/@ProductClass"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" mandatory="false"
+                                    name="lblUOM" size="9"
+                                    subtype="Label"
+                                    tag="binding=lblUOM" type="text"
+                                    validate="false" value="Mobile_UOM"/>
+                                    <input col="11" mandatory="false"
+                                    name="lblQty" size="9"
+                                    subtype="Label"
+                                    tag="binding=lblQty" type="text"
+                                    validate="true" value="Mobile_Quantity"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/Item/AlternateUOMList/AlternateUOM/@UnitOfMeasure"
+                                    mandatory="false" name="lblOUom"
+                                    outputbinding="xml:/Item/AlternateUOMList/AlternateUOM/@UnitOfMeasure"
+                                    size="9" subtype="Hidden"
+                                    tag="binding=xml:/Item/AlternateUOMList/AlternateUOM/@UnitOfMeasure"
+                                    type="hidden" validate="false" value="Op_UOM1"/>
+                                    <input col="11"
+                                    inputbinding="xml:/Inventory/@TranQuantity"
+                                    mandatory="false" name="txtOUom"
+                                    outputbinding="xml:/Inventory/@TranQuantity"
+                                    size="9" subtype="Hidden"
+                                    tag="binding=xml:/Inventory/@TranQuantity"
+                                    type="hidden" validate="true"/>
+                                    <input col="11"
+                                    inputbinding="xml:/Inventory/@UOMQuantity"
+                                    mandatory="false"
+                                    name="txtOUomQty"
+                                    outputbinding="xml:/Inventory/@UOMQuantity"
+                                    size="9" subtype="Hidden"
+                                    tag="binding=xml:/Inventory/@UOMQuantity"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/ItemList/Item/@UnitOfMeasure"
+                                    mandatory="false"
+                                    name="lblInvUom"
+                                    outputbinding="xml:/Inventory/@UnitOfMeasure"
+                                    size="9" subtype="Label"
+                                    tag="binding=xml:/ItemList/Inventory/@UnitOfMeasure"
+                                    type="text" validate="false" value=""/>
+                                    <input col="11"
+                                    inputbinding="xml:/Inventory/@InventoryQuantity"
+                                    mandatory="false" name="txtIUom"
+                                    outputbinding="xml:/Inventory/@InventoryQuantity"
+                                    size="9" subtype="Text"
+                                    tag="binding=xml:/Inventory/@InventoryQuantity"
+                                    type="text" validate="true"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" mandatory="false"
+                                    name="lblTotal" size="20"
+                                    subtype="Label"
+                                    tag="binding=lblTotal"
+                                    type="text" validate="false" value="Mobile_Total"/>
+								</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/Inventory/@CountQuantity"
+                                    mandatory="false"
+                                    name="txtCountQty"
+                                    outputbinding="xml:/Inventory/@CountQuantity"
+                                    size="9" subtype="ProtectedText"
+                                    tag="binding=xml:/Inventory/@CountQuantity"
+                                    type="text" validate="false"/>
+                                    <input col="11"
+                                    inputbinding="xml:/ItemList/Item/@UnitOfMeasure"
+                                    mandatory="false"
+                                    name="txtInvUOM"
+                                    outputbinding="xml:/Inventory/@UnitOfMeasure"
+                                    size="9"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/ItemList/Item/@UnitOfMeasure"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F3"
+                                    mandatory="false" name="Go"
+                                    size="3" subtype="Command"
+                                    type="button"
+                                    url="/console/rfcount.ppc?action=frmRecordCount"
+                                    validate="false" value="Mobile_Go"/>
+									<input col="5" hotkey="F8"
+                                    mandatory="false"
+                                    name="Complete" size="8"
+                                    subtype="Command" type="button"
+                                    url="/console/rfcount.ppc?action=frmProceedWithRecordCount"
+                                    validate="false" value="Mobile_Done"/>
+									<input col="13" hotkey="F9"
+                                    mandatory="false" name="action2"
+                                    size="4"
+                                    subtype="CommandNextView"
+                                    type="button" validate="false" value="Info"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F7"
+                                    mandatory="false" name="Rescan"
+                                    size="15" subtype="Hidden"
+                                    type="hidden"
+                                    url="/console/rfcount.ppc?action=frmRescanSerial"
+                                    validate="false" value="Rescan_Serial"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+					<td>
+						<table>
+							<tr/>                                
+                            <tr>
+                                <td>
+                                    <input col="1" mandatory="false"
+                                    name="lblItemDesc" size="20"
+                                    subtype="Label"
+                                    tag="binding=lblItemDesc"
+                                    type="text" validate="false" value="Mobile_Item_Description"/>
+                                </td>
+                            </tr>
+                            <tr>
+								<td>
+                                    <input col="1"
+                                    inputbinding="xml:/Inventory/@DisplayItemDescription"
+                                    name="txtItemDesc"
+                                    outputbinding="xml:/Inventory/@DisplayItemDescription"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/Inventory/@DisplayItemDescription"
+                                    type="text" validate="false"/>
+                                </td>                      
+                            </tr>
+							<tr/>
+							<tr/>
+							<tr/>
+							<tr/>
+							<tr/>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F9"
+                                    mandatory="false" name="action2"
+                                    size="10"
+                                    subtype="CommandNextView"
+                                    type="button" validate="false" value="Prev_View"/>
+                                </td>
+                            </tr>
+						</table>
+					</td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

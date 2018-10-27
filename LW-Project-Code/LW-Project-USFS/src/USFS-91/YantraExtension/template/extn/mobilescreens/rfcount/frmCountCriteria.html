@@ -1,0 +1,227 @@
+<html>
+    <body>
+        <form name="frmCountCriteria" target="/console/rfcount.ppc">
+            <table border="1">
+                <tr>
+                    <td>
+                        <table border="0" width="300">
+                            <tr>
+                                <td>
+                                    <input col="7"
+                                    inputbinding="xml:/RecordCountResult1/@TaskType"
+                                    outputbinding="xml:/RecordCountResult/@TaskType"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/RecordCountResult/@TaskType"
+                                    type="text" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/RecordCountResult/@Node"
+                                    mandatory="false"
+                                    outputbinding="xml:/RecordCountResult/@Node"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/RecordCountResult/@Node"
+                                    type="hidden" validate="false"/>
+									<input col="1"
+                                    inputbinding="xml:/Enterprise/@EnterpriseCode"
+                                    mandatory="false"
+                                    outputbinding="xml:/Enterprise/@EnterpriseCode"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/Enterprise/@EnterpriseCode"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/@TaskKey"
+                                    name="txtTaskKey"
+                                    outputbinding="xml:/Task/@TaskKey"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@TaskKey"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/TaskType/@ActivityGroupId"
+                                    name="txtActivityGroup"
+                                    outputbinding="xml:/Task/@ActivityGroupId"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@ActivityGroupId"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/@TaskId"
+                                    name="txtTaskId"
+                                    outputbinding="xml:/CountTask/@TaskId"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/CountTask/@TaskId"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/@SourceLocationId"
+                                    name="txtSugLocnId"
+                                    outputbinding="xml:/TaskList/Task/@SourceLocationId"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/@SourceLocationId"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/Location1/@BarCodeData"
+                                    mandatory="false"
+                                    name="txtLocationId"
+                                    outputbinding="xml:/Location/@BarCodeData"
+                                    size="20" subtype="Text"
+                                    tag="binding=xml:/Location/@BarCodeData"
+                                    type="text" validate="true"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>									
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/Inventory/@ItemId"
+                                    name="txtItemId"
+                                    outputbinding="xml:/TaskList/Task/Inventory/@ItemId"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/Inventory/@ItemId"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/@ItemClassification2"
+                                    name="txtItemClass2"
+                                    outputbinding="xml:/TaskList/Task/@ItemClassification2"
+                                    size="20"
+                                    subtype="hidden"
+                                    tag="binding=xml:/TaskList/Task/@ItemClassification2"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/@ItemClassification3"
+                                    name="txtItemClass3"
+                                    outputbinding="xml:/TaskList/Task/@ItemClassification3"
+                                    size="20"
+                                    subtype="hidden"
+                                    tag="binding=xml:/TaskList/Task/@ItemClassification3"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    <input col="1" mandatory="false"
+                                    name="lblPalletId" size="20"
+                                    subtype="Label"
+                                    tag="binding=lblPalletId"
+                                    type="text" validate="false" value="Mobile_Pallet/Case"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/Inventory/@SourcePalletId"
+                                    name="txtSuggestedLpn"
+                                    outputbinding="xml:/TaskList/Task/Inventory/@SourcePalletId"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/Inventory/@SourcePalletId"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/ParentLPN1/@BarCodeData"
+                                    mandatory="false"
+                                    name="txtPalletId"
+                                    outputbinding="xml:/ParentLPN/@BarCodeData"
+                                    size="20" subtype="Text"
+                                    tag="binding=xml:/ParentLPN/@BarCodeData"
+                                    type="text" validate="true"/>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/RecentLPN/@LastScannedLPN"
+                                    mandatory="false"
+                                    name="txtLastScannedLpn"
+                                    outputbinding="xml:/RecentLPN/@LastScannedLPN"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/RecentLPN/@LastScannedLPN"
+                                    type="hidden" validate="true"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F3" name="Go"
+                                    size="3" subtype="Command"
+                                    tag=" " type="button"
+                                    url="/console/rfcount.ppc?action=frmCountCriteriaUpdGo"
+                                    validate="false" value="Mobile_Go"/>
+                                    <input col="4" hotkey="F8"
+                                    name="Skip" size="4"
+                                    subtype="Command" tag=" "
+                                    type="button"
+                                    url="/console/rfcount.ppc?action=frmCountSkipTask"
+                                    validate="false" value="Mobile_Skip"/>
+                                    <input col="8" hotkey="F7"
+                                    name="Empty" size="6"
+                                    subtype="Command" tag=" "
+                                    type="button"
+                                    url="/console/rfcount.ppc?action=frmCountRecordSummary"
+                                    validate="false" value="Mobile_Empty"/>
+									<input col="13" hotkey="F9"
+                                    mandatory="false" name="action2"
+                                    size="4"
+                                    subtype="CommandNextView"
+                                    type="button" validate="false" value="Info"/>
+                                </td>
+							</tr>
+                        </table>
+                    </td>
+					<td>
+						<table>
+							<tr/>                                
+                            <tr>
+                                <td>
+                                    <input col="1" mandatory="false"
+                                    name="lblItemDesc" size="20"
+                                    subtype="Label"
+                                    tag="binding=lblItemDesc"
+                                    type="text" validate="false" value="Mobile_Item_Description"/>
+                                </td>
+                            </tr>
+                            <tr>
+								<td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList1/Task/Inventory/@DisplayItemDescription"
+                                    name="txtItemDesc"
+                                    outputbinding="xml:/TaskList/Task/Inventory/@DisplayItemDescription"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/Inventory/@DisplayItemDescription"
+                                    type="text" validate="false"/>
+                                </td>                      
+                            </tr>
+							<tr/>
+							<tr/>
+							<tr/>
+							<tr/>
+							<tr/>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F9"
+                                    mandatory="false" name="action2"
+                                    size="10"
+                                    subtype="CommandNextView"
+                                    type="button" validate="false" value="Prev_View"/>
+                                </td>
+                            </tr>
+						</table>
+					</td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

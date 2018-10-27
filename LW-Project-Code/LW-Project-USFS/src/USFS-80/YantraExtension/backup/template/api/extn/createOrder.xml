@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Order BuyerOrganizationCode="" CancelOrderOnBackorder="" CreatedByNode="" Createts="" Createuserid="" CustCustPONo="" DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" OrderComplete="" OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OrderPurpose="" OrderType="" OriginalTotalAmount="" ReceivingNode="" ReqDeliveryDate="" ReqShipDate="" SellerOrganizationCode="" ShipNode="" ShipToID="" ShipToKey="" SourcingClassification="" Status="" >
+
+<OrderLines TotalNumberOfRecords="">
+<OrderLine ItemGroupCode="" KitCode="" LineSeqNo="" LineType="" OrderHeaderKey="" OrderLineKey="" OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty="" PipelineKey="" ReceivingNode="" RemainingQty="" ShipNode="" ShipToID="" ShipToKey="" SourceFromOrganization="" Status="" >
+
+<Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="" UnitOfMeasure="">
+</Item>
+
+<KitLines NumberOfKitLines="">
+<KitLine ComponentQty="" CustomerItem="" CustomerItemDesc="" ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight="" ItemWeightUOM="" KitQty="" ProductClass="" SupplierItem="" SupplierItemDesc="" UnitOfMeasure="">
+<KitLineTranQuantity ComponentQty="" KitQty="" TransactionalUOM="" />
+</KitLine>
+</KitLines>
+
+  </OrderLine>
+  </OrderLines>
+<Extn />
+  </Order>

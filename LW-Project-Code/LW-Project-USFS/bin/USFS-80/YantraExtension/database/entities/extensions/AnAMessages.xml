@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid XML Studio 1.0.7.0 (http://www.liquid-technologies.com) -->
+<DBSchema>
+	<Entities>
+		<Entity ApiNeeded="Y" AuditRequired="N" Description="NWCG Inbound Messages" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_INBOUND_MESSAGE">
+			<!-- AuditRequired="N" is set after reviewing YFS_AUDIT records.  Updated Jeri.  Modified on 12/27/2013 --> <!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="MESSSAGE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="MessageKey" Description="Inbound Message Key - auto generated" />
+				<Attribute ColumnName="DISTRIBUTION_ID" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="DistributionID" Description="Distribution ID Assigned by ESB unique per message" />
+				<Attribute ColumnName="MESSAGE" DataType="CLOB" DefaultValue="' '" Nullable="false" XMLName="Message" Description="Column to store Start or intermediate Message" />
+				<Attribute ColumnName="SYSTEM_NAME" DataType="Text-25" Nullable="false" Size="25" Type="VARCHAR2" XMLName="SystemName" Description="System with/from which we are posting/receiving the message" />
+				<Attribute ColumnName="MESSAGE_TYPE" DataType="Text-15" Nullable="false" Size="15" Type="VARCHAR2" XMLName="MessageType" Description="Type of message" />
+				<Attribute ColumnName="MESSAGE_NAME" DataType="Text-50" Nullable="false" Size="50" Type="VARCHAR2" XMLName="MessageName" Description="Name of message" />
+				<Attribute ColumnName="MESSAGE_STATUS" DataType="Text-50" Nullable="false" Size="50" Type="VARCHAR2" XMLName="MessageStatus" Description="Current Status of the message" />
+				<Attribute ColumnName="LATEST_INBOUND" DataType="Flag" Nullable="false" Type="BOOLEAN" XMLName="LatestInbound" Description="Flag to store if the message posted/received is inbound or outbound message. This is different from the table name, the table name represents the initiating message while this column represents the latest intermediate message status for example the last message was inbound or outbound" />
+				<Attribute ColumnName="ENTITY_KEY" DataType="Key" Nullable="true" Size="24" Type="CHAR" XMLName="EntityKey" Description="Represents Incident Key or Catalog Key as of now"/>
+				<Attribute ColumnName="ENTITY_NAME" DataType="Text-25" Nullable="true" Size="25" Type="VARCHAR2" XMLName="EntityName" Description="Represents INCIDENT or CATALOG as of now" />
+				<Attribute ColumnName="ENTITY_VALUE" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="EntityValue" Description="Represents IncidentNumber-Year or Item ID" />
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description="" />
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_IB_MSG_KEY">
+				<Attribute ColumnName="MESSSAGE_KEY" />
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="NWCG_IB_MSG_I2" Unique="False">
+					<Column Name="DISTRIBUTION_ID"/>
+				</Index>
+				<Index Name="NWCG_IB_MSG_I3" Unique="False">
+					<Column Name="ENTITY_VALUE"/>
+				</Index>
+			</Indices>			
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="N" Description="NWCG Outbound Messages" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_OUTBOUND_MESSAGE">
+			<!-- AuditRequired="N" is set after reviewing YFS_AUDIT records.  Updated Jeri.  Modified on 12/27/2013 --> <!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="MESSSAGE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="MessageKey" Description="Outbound Message Key - auto generated" />
+				<Attribute ColumnName="DISTRIBUTION_ID" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="DistributionID" Description="Distribution ID Assigned by ESB unique per message" />
+				<Attribute ColumnName="MESSAGE" DataType="CLOB" DefaultValue="' '" Nullable="false" XMLName="Message" Description="Column to store Start or intermediate Message" />
+				<Attribute ColumnName="SYSTEM_NAME" DataType="Text-25" Nullable="false" Size="25" Type="VARCHAR2" XMLName="SystemName" Description="System with/from which we are posting/receiving the message" />
+				<Attribute ColumnName="MESSAGE_TYPE" DataType="Text-15" Nullable="false" Size="15" Type="VARCHAR2" XMLName="MessageType" Description="Type of message" />
+				<Attribute ColumnName="MESSAGE_NAME" DataType="Text-50" Nullable="false" Size="50" Type="VARCHAR2" XMLName="MessageName" Description="Name of message" />
+				<Attribute ColumnName="MESSAGE_STATUS" DataType="Text-50" Nullable="false" Size="50" Type="VARCHAR2" XMLName="MessageStatus" Description="Current Status of the message" />
+				<Attribute ColumnName="LATEST_INBOUND" DataType="Flag" Nullable="false" Type="BOOLEAN" XMLName="LatestInbound" Description="Flag to store if the message posted/received is inbound or outbound message. This is different from the table name, the table name represents the initiating message while this column represents the latest intermediate message status for example the last message was inbound or outbound" />
+				<Attribute ColumnName="ENTITY_KEY" DataType="Key" Nullable="true" Size="24" Type="CHAR" XMLName="EntityKey" Description="Represents Incident Key or Catalog Key as of now"/>
+				<Attribute ColumnName="ENTITY_NAME" DataType="Text-25" Nullable="true" Size="25" Type="VARCHAR2" XMLName="EntityName" Description="Represents INCIDENT or CATALOG as of now" />
+				<Attribute ColumnName="ENTITY_VALUE" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="EntityValue" Description="Represents IncidentNumber-Year or Item ID" />
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description="" />
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_OB_MSG_KEY">
+				<Attribute ColumnName="MESSSAGE_KEY" />
+			</PrimaryKey>
+			<Indices>
+				<Index Name="NWCG_OB_MSG_I2" Unique="False">
+					<Column Name="DISTRIBUTION_ID"/>
+				</Index>
+				<Index Name="NWCG_OB_MSG_I3" Unique="False">
+					<Column Name="ENTITY_VALUE"/>
+				</Index>
+			</Indices>			
+		</Entity>
+	</Entities>
+</DBSchema>

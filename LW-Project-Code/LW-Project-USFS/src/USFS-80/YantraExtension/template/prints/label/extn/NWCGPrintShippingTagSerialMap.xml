@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text"
+		LabelFieldName="issueNo" Binding=
+		"/Shipment/@OrderNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="date" Binding=
+		"/Shipment/@CurrentDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="reqNo" Binding=
+		"/Shipment/ShipmentSerials/ShipmentSerial/@SerialItemReqNo" RepeatingElement="ShipmentSerial" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="itemId" Binding=
+		"/Shipment/ShipmentSerials/ShipmentSerial/@SerialItem" RepeatingElement="ShipmentSerial" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="desc" Binding=
+		"/Shipment/ShipmentSerials/ShipmentSerial/@SerialItemDesc" RepeatingElement="ShipmentSerial" Sequence="N"/>
+	<LabelField DataType="Text"
+		LabelFieldName="trackableId" Binding=
+		"/Shipment/ShipmentSerials/ShipmentSerial/@SerialNo" RepeatingElement="ShipmentSerial" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="qty" Binding=
+		"/Shipment/ShipmentSerials/ShipmentSerial/@Qty" RepeatingElement="ShipmentSerial" Sequence="N"/>
+	<RepeatingFields>
+	    <RepeatingField LabelFieldName="itemId" MaxFirstPage="30" MaxLastPage="30" MaxMidPage="30"/>
+		<RepeatingField LabelFieldName="reqNo" MaxFirstPage="30" MaxLastPage="30" MaxMidPage="30"/>
+		<RepeatingField LabelFieldName="desc" MaxFirstPage="30" MaxLastPage="30" MaxMidPage="30"/>
+		<RepeatingField LabelFieldName="trackableId" MaxFirstPage="30" MaxLastPage="30" MaxMidPage="30"/>
+	    <RepeatingField LabelFieldName="qty" MaxFirstPage="30" MaxLastPage="30" MaxMidPage="30"/>
+    </RepeatingFields>
+</LabelFieldMap>
+

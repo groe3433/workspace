@@ -1,0 +1,2427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mashups>
+    <mashup id="businessCard_getCustomerDetails">
+        <API Name="getCustomerDetails">
+            <Input>
+                <Customer CustomerID=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrganizationCode=""/>
+            </Input>
+            <Template>
+                <Customer CustomerID="" CustomerKey="" CustomerType="" OrganizationCode="">
+                    <BuyerOrganization OrganizationName=""/>
+                    <CustomerContactList>
+                        <CustomerContact/>
+                    </CustomerContactList>
+                    <Extn ExtnAccountBalance="" ExtnFancashBalance=""/>
+                </Customer>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="storefrontBrowsing_getOrderDetails">
+        <API Name="getOrderDetails">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrderHeaderKey=""/>
+            </Input>
+            <Template>
+                <Order OrderHeaderKey="">
+                    <OrderLines TotalNumberOfRecords=""/>
+                    <CustomAttributes CustomerOrderNo=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="orderSummary_getCompleteOrderDetails">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order
+                    ApplicationCode="xml:ApplicationInfo:/ApplicationInfo@ApplicationCode"
+                    ApplicationVersion="xml:ApplicationInfo:/ApplicationInfo@ApplicationVersion"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" EnterpriseCode=""
+                    IgnorePendingChange="Y"
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" OrderNo=""/>
+            </Input>
+            <Template>
+                <Order BillToID="" BuyerUserID="" CarrierServiceCode=""
+                    CreatorOrganizationCode="" CustomerContactID=""
+                    CustomerFirstName="" CustomerLastName=""
+                    DisplayStatusDescription="" DocumentType=""
+                    EnterpriseCode="" EntryType="" ExchangeType=""
+                    HasPendingChanges="" HoldFlag=""
+                    MaxOrderStatusDesc="" MultipleStatusesExist=""
+                    OrderDate="" OrderHeaderKey="" OrderNo=""
+                    OverallStatus="" ReturnOrderHeaderKeyForExchange=""
+                    SellerOrganizationCode="" ShipToKey="" Status="" SupportLevel="">
+                    <ReturnOrders>
+                        <ReturnOrder BillToID=""
+                            BuyerOrganizationCode="" BuyerUserId=""
+                            CustomerContactID="" CustomerEMailID=""
+                            CustomerFirstName="" CustomerLastName=""
+                            CustomerPONo="" CustomerPhoneNo=""
+                            CustomerZipCode=""
+                            DisplayStatusDescription="" DocumentType=""
+                            DraftOrderFlag="" EnterpriseCode=""
+                            EntryType="" HoldFlag=""
+                            MaxOrderStatusDesc=""
+                            MultipleStatusesExist="" OrderDate=""
+                            OrderHeaderKey="" OrderName="" OrderNo=""
+                            OverallStatus="" SellerOrganizationCode=""
+                            Status="" TaxExemptFlag=""
+                            TaxExemptionCertificate="" isHistory="">
+                            <PriceInfo Currency="" TotalAmount=""/>
+                            <OverallTotals GrandExchangeTotal=""
+                                GrandRefundTotal="" GrandTotal=""
+                                PendingRefundAmount="" RefundedAmount=""/>
+                            <PersonInfoBillTo AddressLine1=""/>
+                            <ExchangeOrders>
+                                <ExchangeOrder BillToID=""
+                                    BuyerOrganizationCode=""
+                                    BuyerUserId="" CustomerContactID=""
+                                    CustomerEMailID=""
+                                    CustomerFirstName=""
+                                    CustomerLastName="" CustomerPONo=""
+                                    CustomerPhoneNo=""
+                                    CustomerZipCode="" DocumentType=""
+                                    DraftOrderFlag="" EnterpriseCode=""
+                                    EntryType="" ExchangeType=""
+                                    MaxOrderStatusDesc=""
+                                    MultipleStatusesExist=""
+                                    OrderHeaderKey="" OrderName=""
+                                    OrderNo="" OverallStatus=""
+                                    SellerOrganizationCode="" Status=""
+                                    TaxExemptFlag=""
+                                    TaxExemptionCertificate="" isHistory="">
+                                    <PriceInfo Currency="" TotalAmount=""/>
+                                    <PersonInfoBillTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                </ExchangeOrder>
+                            </ExchangeOrders>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </ReturnOrder>
+                    </ReturnOrders>
+                    <CustomAttributes IsMRLFeeWaived="" MRLFeeWaiverReason=""/>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <OverallTotals GrandTotal="" OrderHeaderKey=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <OrderHoldTypes>
+                        <OrderHoldType HoldType="" Status=""/>
+                    </OrderHoldTypes>
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="OrderSummaryLines_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType=""
+                    CallingOrganizationCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DisplayTransactionPrice="Y" ItemGroupCode="DS"
+                    ItemGroupCodeQryType="NE" MaximumRecords="" OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine DeliveryMethod="" ExpectedEndDate=""
+                        ExpectedStartDate="" GiftFlag="" GiftWrap=""
+                        GroupSequenceNumber="" HasNotes=""
+                        HasReturnLines="" HoldFlag="" IsBundleParent=""
+                        IsOpenBox="" IsPickupAllowed=""
+                        IsPriceMatched="" IsShippingAllowed=""
+                        ItemGroupCode="" LineType="" MarkForKey=""
+                        MaxLineStatusDesc="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderHeaderKey=""
+                        OrderLineKey="" OrderedQty="" OverallStatus=""
+                        PrimeLineNo="" ReshippedQty=""
+                        ShippedQuantity="" Status="">
+                        <ItemDetails>
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <Item UnitOfMeasure=""/>
+                        <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                        <TrackingInfoList>
+                            <TrackingInfo TrackingNo="" TrackingUrl=""/>
+                        </TrackingInfoList>
+                        <OrderDates>
+							<OrderDate ActualDate="" CommittedDate=""
+								DateTypeId="" ExpectedDate=""
+								OrderHeaderKey="" OrderLineKey=""
+								OrderReleaseKey="" RequestedDate=""/>
+						</OrderDates>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                        <ShipmentLines>
+                            <ShipmentLine ShipmentKey="">
+                                <Shipment ActualShipmentDate="" ShipNode=""/>
+                            </ShipmentLine>
+                        </ShipmentLines>
+                        <CustomAttributes RevisedShipDateReason=""/>
+                    </OrderLine>
+                    <ParentOrderLineRelationships>
+                        <OrderLineRelationship ParentOrderLineKey=""/>
+                    </ParentOrderLineRelationships>
+                    <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+<mashup id="pricingSummary_getCompleteOrderDetails">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order
+                    ApplicationCode="xml:ApplicationInfo:/ApplicationInfo@ApplicationCode"
+                    ApplicationVersion="xml:ApplicationInfo:/ApplicationInfo@ApplicationVersion"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" EnterpriseCode=""
+                    IgnorePendingChange="Y"
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" OrderNo="">
+                    <Modifications>
+                        <Modification ModificationType="PRICE"/>
+                    </Modifications>
+                </Order>
+            </Input>
+            <Template>
+                <Order BillToID="" BuyerUserID="" CarrierServiceCode=""
+                    CreatorOrganizationCode="" CustomerContactID=""
+                    CustomerFirstName="" CustomerLastName=""
+                    DisplayStatusDescription="" DocumentType=""
+                    EnterpriseCode="" EntryType="" ExchangeType=""
+                    HasPendingChanges="" HoldFlag=""
+                    MaxOrderStatusDesc="" MultipleStatusesExist=""
+                    OrderDate="" OrderHeaderKey="" OrderNo=""
+                    OverallStatus="" ReturnOrderHeaderKeyForExchange=""
+                    SellerOrganizationCode="" ShipToKey="" Status="" SupportLevel="">
+                    <ReturnOrders>
+                        <ReturnOrder BillToID=""
+                            BuyerOrganizationCode="" BuyerUserId=""
+                            CustomerContactID="" CustomerEMailID=""
+                            CustomerFirstName="" CustomerLastName=""
+                            CustomerPONo="" CustomerPhoneNo=""
+                            CustomerZipCode=""
+                            DisplayStatusDescription="" DocumentType=""
+                            DraftOrderFlag="" EnterpriseCode=""
+                            EntryType="" HoldFlag=""
+                            MaxOrderStatusDesc=""
+                            MultipleStatusesExist="" OrderDate=""
+                            OrderHeaderKey="" OrderName="" OrderNo=""
+                            OverallStatus="" SellerOrganizationCode=""
+                            Status="" TaxExemptFlag=""
+                            TaxExemptionCertificate="" isHistory="">
+                            <PriceInfo Currency="" TotalAmount=""/>
+                            <OverallTotals GrandExchangeTotal=""
+                                GrandRefundTotal="" GrandTotal=""
+                                PendingRefundAmount="" RefundedAmount=""/>
+                            <PersonInfoBillTo AddressLine1=""/>
+                            <ExchangeOrders>
+                                <ExchangeOrder BillToID=""
+                                    BuyerOrganizationCode=""
+                                    BuyerUserId="" CustomerContactID=""
+                                    CustomerEMailID=""
+                                    CustomerFirstName=""
+                                    CustomerLastName="" CustomerPONo=""
+                                    CustomerPhoneNo=""
+                                    CustomerZipCode="" DocumentType=""
+                                    DraftOrderFlag="" EnterpriseCode=""
+                                    EntryType="" ExchangeType=""
+                                    MaxOrderStatusDesc=""
+                                    MultipleStatusesExist=""
+                                    OrderHeaderKey="" OrderName=""
+                                    OrderNo="" OverallStatus=""
+                                    SellerOrganizationCode="" Status=""
+                                    TaxExemptFlag=""
+                                    TaxExemptionCertificate="" isHistory="">
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                    <PriceInfo Currency="" TotalAmount=""/>
+                                    <PersonInfoBillTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                </ExchangeOrder>
+                            </ExchangeOrders>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </ReturnOrder>
+                    </ReturnOrders>
+                    <HeaderTaxes>
+                        <HeaderTax Tax="" TaxName=""/>
+                    </HeaderTaxes>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <OverallTotals AdjustedSubtotalWithoutTaxes=""
+                        EnterpriseCode=""
+                        GrandAdjustmentsWithoutTotalShipping=""
+                        GrandDeliveryCharges="" GrandShippingTotal=""
+                        GrandTax="" GrandTotal="" HdrShippingCharges=""
+                        HdrTotal="" HeaderAdjustmentWithoutShipping=""
+                        LineSubTotal="" SubtotalWithoutTaxes=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <Modifications>
+                        <Modification/>
+                    </Modifications>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <HeaderCharges>
+                        <HeaderCharge ChargeAmount="" ChargeCategory=""
+                            ChargeName="" IsManual="" IsDiscount=""/>
+                    </HeaderCharges>
+                    <Awards>
+                        <Award ChargeCategory="" ChargeName="" Description=""/>
+                    </Awards>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="cancelOrder_getCompleteOrderDetails">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey">
+                    <Modifications>
+                        <Modification ModificationType="CANCEL"/>
+                    </Modifications>
+                </Order>
+            </Input>
+            <Template>
+                <Order DocumentType="" EnterpriseCode=""
+                    OrderHeaderKey="" OrderNo="">
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <ExchangeOrders>
+                        <ExchangeOrder DocumentType="" DraftOrderFlag=""
+                            EnterpriseCode="" ExchangeType=""
+                            OrderHeaderKey="" OrderNo=""
+                            OverallStatus="" Status=""/>
+                    </ExchangeOrders>
+                    <PriceInfo Currency=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="orderList_getOrderList">
+        <API Name="getOrderList">
+            <Input>
+                <Order ApplyQueryTimeout="Y" BillToID=""
+                    CallingOrganizationCode="" CustomerEMailID=""
+                    CustomerEMailIDQryType="" CustomerFirstName=""
+                    CustomerLastName="" CustomerPONo=""
+                    CustomerPhoneNo="" CustomerZipCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" DraftOrderFlag="" EnterpriseCode=""
+                    FromOrderDate="" IgnoreOrdering="N"
+                    MaximumRecords="" OrderDate=""
+                    OrderDateQryType="DATERANGE" OrderName=""
+                    OrderNameQryType="" OrderNo="" QueryTimeout=""
+                    ReadFromHistory="" TaxExemptFlag=""
+                    TaxExemptionCertificate="" ToOrderDate="">
+                    <OrderHoldType HoldType="" Status="" StatusQryType=""/>
+                    <OrderLine>
+                        <OrderHoldType HoldType="" Status="" StatusQryType=""/>
+                    </OrderLine>
+                    <OrderBy>
+                        <Attribute Desc="Y" Name="OrderDate"/>
+                    </OrderBy>
+                </Order>
+            </Input>
+            <Template>
+                <OrderList TotalNumberOfRecords="">
+                    <Order BillToID="" BuyerOrganizationCode=""
+                        BuyerUserId="" CustomerContactID=""
+                        CustomerEMailID="" CustomerFirstName=""
+                        CustomerLastName="" CustomerPONo=""
+                        CustomerPhoneNo="" CustomerZipCode=""
+                        DisplayStatusDescription="" DocumentType=""
+                        DraftOrderFlag="" EnterpriseCode="" EntryType=""
+                        HoldFlag="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderDate=""
+                        OrderHeaderKey="" OrderName="" OrderNo=""
+                        OverallStatus="" SellerOrganizationCode=""
+                        Status="" TaxExemptFlag=""
+                        TaxExemptionCertificate="" isHistory="">
+                        <OrderDates>
+                            <OrderDate ActualDate="" CommittedDate=""
+                                DateTypeId="" ExpectedDate=""
+                                OrderHeaderKey="" OrderLineKey=""
+                                OrderReleaseKey="" RequestedDate=""/>
+                        </OrderDates>
+                        <PriceInfo Currency="" TotalAmount=""/>
+                        <PersonInfoBillTo AddressLine1="" EMailID="" />
+                        <CustomAttributes CustomerOrderNo="" FraudStatus=""/>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" City="" Company=""
+                            Country="" CountryDesc="" DayPhone=""
+                            Department="" EMailID="" EveningPhone=""
+                            FirstName="" IsAddressVerified=""
+                            IsCommercialAddress="" LastName=""
+                            MiddleName="" MobilePhone="" PersonID=""
+                            PersonInfoKey="" State="" Suffix="" Title=""
+                            TitleDesc="" ZipCode="" isHistory=""/>
+                    </Order>
+                </OrderList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="ShipmentTracking_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    ItemGroupCode="PROD" MaximumRecords=""
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" OrderLineKey="">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine GiftFlag="" GroupSequenceNumber=""
+                        HasNotes="" HasReturnLines="" HoldFlag=""
+                        IsBundleParent="" IsOpenBox=""
+                        IsPickupAllowed="" IsPriceMatched=""
+                        IsShippingAllowed="" ItemGroupCode=""
+                        MaxLineStatus="" MaxLineStatusDesc=""
+                        MaxOrderStatusDesc="" MultipleStatusesExist=""
+                        OrderLineKey="" OverallStatus="" PrimeLineNo=""
+                        ReshippedQty="" Status="">
+                        <ItemDetails>
+                            <PrimaryInformation
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                    </OrderLine>
+                    <Order EnterpriseCode="" HoldFlag=""
+                        OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="fsshippingScreen_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine DeliveryMethod=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    MaximumRecords="" OrderHeaderKey="" ShipToKey=""
+                    ShipToKeyQryType="" Status="" StatusQryType="">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Modifications>
+                        <Modification ModificationType="SHIP_NODE"/>
+                        <Modification ModificationType="CHANGE_DELIVERY_METHOD"/>
+                        <Modification ModificationType="SHIPTO"/>
+                        <Modification ModificationType="MARKFOR"/>
+                        <Modification ModificationType="CHANGE_BUNDLE_PARENT"/>
+                        <Modification ModificationType="CARRIER_SERVICE_CODE"/>
+                        <Modification ModificationType="REQ_SHIP_DATE"/>
+                    </Modifications>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine AvailableQty="" CanDeleteOnUI=""
+                        CarrierServiceCode="" Createts=""
+                        DeliveryMethod="" EarliestShipDate=""
+                        GiftFlag="" GiftWrap="" GroupSequenceNumber=""
+                        HasNonCancellableChainedLines=""
+                        IsBundleParent="" IsCancelAllowed=""
+                        ItemGroupCode="" MaxLineStatus="" Modifyts=""
+                        NoOfInteractions="" Node="" OrderLineKey=""
+                        OrderedQty="" OverallStatus="" PrimeLineNo=""
+                        ShipNode="" ShipToKey="" Status="">
+                        <ChildOrderLineRelationships>
+                            <OrderLineRelationship ChildOrderLineKey=""
+                                OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                <ChildLine OrderLineKey="" OrderedQty="" PrimeLineNo=""/>
+                            </OrderLineRelationship>
+                        </ChildOrderLineRelationships>
+                        <Order EnterpriseCode=""/>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" City="" Company=""
+                            Country="" CountryDesc="" DayPhone=""
+                            Department="" EMailID="" EveningPhone=""
+                            FirstName="" IsAddressVerified=""
+                            IsCommercialAddress="" LastName=""
+                            MiddleName="" MobilePhone="" PersonID=""
+                            PersonInfoKey="" State="" Suffix="" Title=""
+                            TitleDesc="" ZipCode="" isHistory=""/>
+                        <ItemDetails UnitOfMeasure="">
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation=""
+                                IsParcelShippingAllowed=""
+                                IsPickupAllowed="" IsShippingAllowed=""
+                                KitCode="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <OrderDates>
+                            <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                            <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                            <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                            <OrderDate ExpectedDate="" DateTypeId="REVISED_SHIP_DATE"/>
+                        </OrderDates>
+                        <PersonInfoMarkFor DayPhone="" FirstName="" LastName=""/>
+                        <OrderLineTranQuantity AvailableQty=""
+                            BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                        <Item ItemID="" UnitOfMeasure=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                        <Modifications>
+                            <Modification ModificationAllowed="" ModificationType=""/>
+                        </Modifications>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                    </OrderLine>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="cancelOrder_cancelOrderAPI">
+        <API Name="cancelOrder">
+            <Input>
+                <Order Action=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    EnterpriseCode="" MaximumRecords=""
+                    ModificationReasonCode="" OrderHeaderKey="" OrderNo="">
+                    <OrderLines>
+                        <OrderLine Action="" OrderLineKey=""
+                            OrderedQty="" PrimeLineNo=""
+                            QuantityToCancel="" SubLineNo="" TransactionalLineId=""/>
+                    </OrderLines>
+                    <Notes>
+                        <Note NoteText="Required"/>
+                    </Notes>
+                </Order>
+            </Input>
+            <Template>
+                <Order DocumentType="" OrderHeaderKey=""/>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="OrderPricingSummaryLines_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    EnterpriseCode="" MaximumRecords=""
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey"
+                    OrderedQty="0" OrderedQtyQryType="GT">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                    <Modifications>
+                        <Modification ModificationType="PRICE"/>
+                    </Modifications>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine GiftFlag="" GroupSequenceNumber=""
+                        HasNotes="" HasReturnLines=""
+                        IsBundleComponent="" IsBundleParent=""
+                        IsOpenBox="" IsPickupAllowed=""
+                        IsPriceMatched="" IsShippingAllowed=""
+                        ItemGroupCode="" OrderHeaderKey=""
+                        OrderLineKey="" ParentOrderLineKey=""
+                        PrimeLineNo="" ReshippedQty="">
+                        <Order DocumentType="" EnterpriseCode="">
+                            <PriceInfo Currency="" TotalAmount=""/>
+                        </Order>
+                        <LineCharges>
+                            <LineCharge ChargeCategory="" ChargeName=""
+                                ChargePerLine="" ChargePerUnit="" IsManual="" IsDiscount=""/>
+                        </LineCharges>
+                        <ItemDetails>
+                            <PrimaryInformation BundlePricingStrategy=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <PriceInfo Currency="" TotalAmount=""/>
+                        <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LineAdjustments>
+                            <LineAdjustment AdjustmentAmount="" Description=""/>
+                        </LineAdjustments>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <Modifications>
+                            <Modification/>
+                        </Modifications>
+                        <LineTaxes>
+                            <LineTax Tax="" TaxName=""/>
+                        </LineTaxes>
+                        <LineOverallTotals DisplayExtendedPrice=""
+                            DisplayLineTotalWithoutTaxes=""
+                            DisplayUnitPrice="" LineTotal=""/>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                    </OrderLine>
+                    <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="returnFSDetails_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType="ISNULL"
+                    DeliveryMethod=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    LineType="" LineTypeQryType="" MaximumRecords=""
+                    OrderHeaderKey="" PersonInfoKey=""
+                    PersonInfoKeyQryType="" ShipNode="" ShipToKey=""
+                    Status="" StatusQryType="">
+                    <Modifications>
+                        <Modification ModificationType="SHIP_NODE"/>
+                        <Modification ModificationType="SHIPTO"/>
+                        <Modification ModificationType="CHANGE_DELIVERY_METHOD"/>
+                    </Modifications>
+                    <ComplexQuery>
+                        <Or>
+                            <Exp Name="" QryType="" Value=""/>
+                            <Exp Name="" QryType="" Value=""/>
+                        </Or>
+                    </ComplexQuery>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine CanDeleteOnUI="" Createts=""
+                        DeliveryMethod="" EarliestShipDate=""
+                        GiftFlag="" GiftWrap="" GroupSequenceNumber=""
+                        HasNonCancellableChainedLines=""
+                        IsBundleParent="" IsCancelAllowed=""
+                        IsCustomerKeepAllowed="" IsReturnNodeFound=""
+                        IsReturnToStoreAllowed=""
+                        IsSchedulePickupAllowed="" ItemGroupCode=""
+                        MaxLineStatus="" Modifyts="" OrderLineKey=""
+                        OrderedQty="" OverallStatus="" PrimeLineNo=""
+                        ShipNode="" Status="">
+                        <Order EnterpriseCode="" OrderHeaderKey=""/>
+                        <ItemDetails UnitOfMeasure="">
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation=""
+                                IsParcelShippingAllowed=""
+                                IsPickupAllowed="" IsShippingAllowed=""
+                                KitCode="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <OrderDates>
+                            <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                            <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                            <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                            <OrderDate ExpectedDate="" DateTypeId="REVISED_SHIP_DATE"/>
+                        </OrderDates>
+                        <PersonInfoMarkFor DayPhone="" FirstName="" LastName=""/>
+                        <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                        <Item ItemID="" UnitOfMeasure=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                        <Modifications>
+                            <Modification ModificationAllowed="" ModificationType=""/>
+                        </Modifications>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" AddressLine3=""
+                            AddressLine4="" AddressLine5=""
+                            AddressLine6="" AlternateEmailID=""
+                            Beeper="" City="" Company="" Country=""
+                            CountryDesc="" Createprogid="" Createts=""
+                            Createuserid="" DayFaxNo="" DayPhone=""
+                            Department="" EMailID="" EnterpriseCode=""
+                            EveningFaxNo="" EveningPhone="" FirstName=""
+                            HttpUrl="" IsAddressVerified=""
+                            IsCommercialAddress="" JobTitle=""
+                            LastName="" Lockid="" MiddleName=""
+                            MobilePhone="" Modifyprogid="" Modifyts=""
+                            Modifyuserid="" OtherPhone="" PersonID=""
+                            PersonInfoKey="" PreferredShipAddress=""
+                            ShortZipCode="" State="" Suffix=""
+                            TaxGeoCode="" Title="" TitleDesc=""
+                            UseCount="" VerificationStatus="" ZipCode="" isHistory=""/>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                    </OrderLine>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="createReturn_getReturnFulfillmentSummaryDetails">
+        <API Name="getFulfillmentSummaryDetails">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" EnterpriseCode="" IsLargeOrder=""
+                    OrderHeaderKey="" OrderLineTypeForCustomerKeep="Credit">
+                    <Modifications>
+                        <Modification ModificationType="SHIP_NODE"/>
+                        <Modification ModificationType="SHIPTO"/>
+                    </Modifications>
+                    <OrderLines>
+                        <OrderLine BundleParentOrderLineKey="" BundleParentOrderLineKeyQryType="ISNULL">
+                            <Modifications>
+                                <Modification ModificationType="SHIP_NODE"/>
+                                <Modification ModificationType="CHANGE_DELIVERY_METHOD"/>
+                                <Modification ModificationType="SHIPTO"/>
+                            </Modifications>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Input>
+            <Template>
+                <Order DocumentType="" DraftOrderFlag=""
+                    EnterpriseCode="" IsLargeOrder="" MaxOrderStatus=""
+                    MinOrderStatus="" OrderHeaderKey="" OrderName=""
+                    OrderNo="" ShipToKey="">
+                    <CustomerKeepGroup TotalLineList="">
+                        <OrderLines>
+                            <OrderLine CanDeleteOnUI="" Createts=""
+                                DeliveryMethod="" EarliestShipDate=""
+                                GiftFlag="" GiftWrap=""
+                                GroupSequenceNumber=""
+                                HasNonCancellableChainedLines=""
+                                IsBundleParent="" IsCancelAllowed=""
+                                IsCustomerKeepAllowed=""
+                                IsReturnNodeFound=""
+                                IsReturnToStoreAllowed=""
+                                IsSchedulePickupAllowed=""
+                                ItemGroupCode="" MaxLineStatus=""
+                                Modifyts="" OrderLineKey=""
+                                OrderedQty="" OverallStatus=""
+                                PrimeLineNo="" ShipNode="" Status="">
+                                <BundleParentLine OrderLineKey=""/>
+                                <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    AddressLine3="" AddressLine4=""
+                                    AddressLine5="" AddressLine6=""
+                                    AlternateEmailID="" Beeper=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" Createprogid=""
+                                    Createts="" Createuserid=""
+                                    DayFaxNo="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EnterpriseCode="" EveningFaxNo=""
+                                    EveningPhone="" FirstName=""
+                                    HttpUrl="" IsAddressVerified=""
+                                    IsCommercialAddress="" JobTitle=""
+                                    LastName="" Lockid="" MiddleName=""
+                                    MobilePhone="" Modifyprogid=""
+                                    Modifyts="" Modifyuserid=""
+                                    OtherPhone="" PersonID=""
+                                    PersonInfoKey=""
+                                    PreferredShipAddress=""
+                                    ShortZipCode="" State="" Suffix=""
+                                    TaxGeoCode="" Title="" TitleDesc=""
+                                    UseCount="" VerificationStatus=""
+                                    ZipCode="" isHistory=""/>
+                                <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                </ItemDetails>
+                                <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                </OrderDates>
+                                <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                <OrderLineTranQuantity AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                <Item ItemID="" UnitOfMeasure=""/>
+                                <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                </ParentOrderLineRelationships>
+                                <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                <Modifications>
+                                    <Modification ModificationAllowed="" ModificationType=""/>
+                                </Modifications>
+                                <LineOverallTotals DisplayUnitPrice=""/>
+                            </OrderLine>
+                        </OrderLines>
+                    </CustomerKeepGroup>
+                    <PickupGroups>
+                        <PickupGroup IsOrderHeaderAddress="" ShipToKey="">
+                            <OrderLines>
+                                <OrderLine CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    IsCustomerKeepAllowed=""
+                                    IsReturnNodeFound=""
+                                    IsReturnToStoreAllowed=""
+                                    IsSchedulePickupAllowed=""
+                                    ItemGroupCode="" MaxLineStatus=""
+                                    Modifyts="" OrderLineKey=""
+                                    OrderedQty="" OverallStatus=""
+                                    PrimeLineNo="" ShipNode="" Status="">
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    AddressLine3="" AddressLine4=""
+                                    AddressLine5="" AddressLine6=""
+                                    AlternateEmailID="" Beeper=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" Createprogid=""
+                                    Createts="" Createuserid=""
+                                    DayFaxNo="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EnterpriseCode=""
+                                    EveningFaxNo="" EveningPhone=""
+                                    FirstName="" HttpUrl=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    JobTitle="" LastName=""
+                                    Lockid="" MiddleName=""
+                                    MobilePhone="" Modifyprogid=""
+                                    Modifyts="" Modifyuserid=""
+                                    OtherPhone="" PersonID=""
+                                    PersonInfoKey=""
+                                    PreferredShipAddress=""
+                                    ShortZipCode="" State=""
+                                    Suffix="" TaxGeoCode="" Title=""
+                                    TitleDesc="" UseCount=""
+                                    VerificationStatus="" ZipCode="" isHistory=""/>
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                    </ItemDetails>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </PickupGroup>
+                    </PickupGroups>
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" AddressLine3="" AddressLine4=""
+                        AddressLine5="" AddressLine6=""
+                        AlternateEmailID="" Beeper="" City="" Company=""
+                        Country="" CountryDesc="" Createprogid=""
+                        Createts="" Createuserid="" DayFaxNo=""
+                        DayPhone="" Department="" EMailID=""
+                        EnterpriseCode="" EveningFaxNo=""
+                        EveningPhone="" FirstName="" HttpUrl=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        JobTitle="" LastName="" Lockid="" MiddleName=""
+                        MobilePhone="" Modifyprogid="" Modifyts=""
+                        Modifyuserid="" OtherPhone="" PersonID=""
+                        PersonInfoKey="" PreferredShipAddress=""
+                        ShortZipCode="" State="" Suffix="" TaxGeoCode=""
+                        Title="" TitleDesc="" UseCount=""
+                        VerificationStatus="" ZipCode="" isHistory=""/>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" AddressLine3="" AddressLine4=""
+                        AddressLine5="" AddressLine6=""
+                        AlternateEmailID="" Beeper="" City="" Company=""
+                        Country="" CountryDesc="" Createprogid=""
+                        Createts="" Createuserid="" DayFaxNo=""
+                        DayPhone="" Department="" EMailID=""
+                        EnterpriseCode="" EveningFaxNo=""
+                        EveningPhone="" FirstName="" HttpUrl=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        JobTitle="" LastName="" Lockid="" MiddleName=""
+                        MobilePhone="" Modifyprogid="" Modifyts=""
+                        Modifyuserid="" OtherPhone="" PersonID=""
+                        PersonInfoKey="" PreferredShipAddress=""
+                        ShortZipCode="" State="" Suffix="" TaxGeoCode=""
+                        Title="" TitleDesc="" UseCount=""
+                        VerificationStatus="" ZipCode="" isHistory=""/>
+                    <ShippingGroups>
+                        <ShippingGroup>
+                            <OrderLines>
+                                <OrderLine CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    IsCustomerKeepAllowed=""
+                                    IsReturnNodeFound=""
+                                    IsReturnToStoreAllowed=""
+                                    IsSchedulePickupAllowed=""
+                                    ItemGroupCode="" MaxLineStatus=""
+                                    Modifyts="" OrderLineKey=""
+                                    OrderedQty="" OverallStatus=""
+                                    PrimeLineNo="" ShipNode="" Status="">
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    AddressLine3="" AddressLine4=""
+                                    AddressLine5="" AddressLine6=""
+                                    AlternateEmailID="" Beeper=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" Createprogid=""
+                                    Createts="" Createuserid=""
+                                    DayFaxNo="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EnterpriseCode=""
+                                    EveningFaxNo="" EveningPhone=""
+                                    FirstName="" HttpUrl=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    JobTitle="" LastName=""
+                                    Lockid="" MiddleName=""
+                                    MobilePhone="" Modifyprogid=""
+                                    Modifyts="" Modifyuserid=""
+                                    OtherPhone="" PersonID=""
+                                    PersonInfoKey=""
+                                    PreferredShipAddress=""
+                                    ShortZipCode="" State=""
+                                    Suffix="" TaxGeoCode="" Title=""
+                                    TitleDesc="" UseCount=""
+                                    VerificationStatus="" ZipCode="" isHistory=""/>
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed=""
+                                    KitCode="" ShortDescription=""/>
+                                    </ItemDetails>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <ShipNode Description="" Node="" ShipNode="">
+                                <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress="" LastName=""
+                                    MiddleName="" MobilePhone=""
+                                    PersonID="" PersonInfoKey=""
+                                    State="" Suffix="" Title=""
+                                    TitleDesc="" ZipCode="" isHistory=""/>
+                            </ShipNode>
+                        </ShippingGroup>
+                    </ShippingGroups>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="returnList_getOrderList">
+        <API Name="getOrderList">
+            <Input>
+                <Order ApplyQueryTimeout="Y" BillToID=""
+                    CustomerEMailID="" CustomerEMailIDQryType=""
+                    CustomerFirstName="" CustomerLastName=""
+                    CustomerPhoneNo="" CustomerZipCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType=" " DraftOrderFlag="" EnterpriseCode=""
+                    FromOrderDate="" IgnoreOrdering="N"
+                    MaximumRecords="" OrderDateQryType="DATERANGE"
+                    OrderName="" OrderNameQryType="" OrderNo=""
+                    OrganizationCode="" QueryTimeout=""
+                    ReadFromHistory="" ToOrderDate="">
+                    <OrderLine>
+                        <DerivedFrom OrderHeaderKey="" OrderNo=""/>
+                    </OrderLine>
+                    <OrderBy>
+                        <Attribute Desc="Y" Name="OrderDate"/>
+                    </OrderBy>
+                    <PaymentMethod DisplayCreditCardNo=""/>
+                    <CustomAttributes CustomerOrderNo=""/>
+                </Order>
+            </Input>
+            <Template>
+                <OrderList>
+                    <Order BillToID="" BuyerOrganizationCode=""
+                        BuyerUserId="" CustomerContactID=""
+                        CustomerEMailID="" CustomerFirstName=""
+                        CustomerLastName="" CustomerPONo=""
+                        CustomerPhoneNo="" CustomerZipCode=""
+                        DisplayStatusDescription="" DocumentType=""
+                        DraftOrderFlag="" EnterpriseCode="" EntryType=""
+                        HoldFlag="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderDate=""
+                        OrderHeaderKey="" OrderName="" OrderNo=""
+                        OverallStatus="" SellerOrganizationCode=""
+                        Status="" TaxExemptFlag=""
+                        TaxExemptionCertificate="" isHistory="">
+                        <PriceInfo Currency="" TotalAmount=""/>
+                        <PersonInfoBillTo AddressLine1=""/>
+                        <ExchangeOrders>
+                            <ExchangeOrder DocumentType=""
+                                OrderHeaderKey="" OrderNo=""/>
+                        </ExchangeOrders>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" City="" Company=""
+                            Country="" CountryDesc="" DayPhone=""
+                            Department="" EMailID="" EveningPhone=""
+                            FirstName="" IsAddressVerified=""
+                            IsCommercialAddress="" LastName=""
+                            MiddleName="" MobilePhone="" PersonID=""
+                            PersonInfoKey="" State="" Suffix="" Title=""
+                            TitleDesc="" ZipCode="" isHistory=""/>
+                    </Order>
+                </OrderList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="ReturnOrderLines_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DisplayTransactionPrice="Y" EnterpriseCode=""
+                    ItemGroupCode="DS" ItemGroupCodeQryType="NE"
+                    MaximumRecords=""
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey"
+                    ReshipParentLineKey="" ReshipParentLineKeyQryType="" SellerOrganizationCode="">
+                    <AppContextInfo Channel="Call Center"/>
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine Action="" Dummy="" GiftFlag=""
+                        GroupSequenceNumber="" HasNotes=""
+                        HasReturnLines="" IsBundleParent="" IsOpenBox=""
+                        IsPriceMatched="" ItemGroupCode=""
+                        MaxLineStatusDesc="" OrderHeaderKey=""
+                        OrderLineKey="" OrderedQty="" ReqDeliveryDate=""
+                        ReshippedQty="" ReturnReason="" ReturnableQty=""
+                        ShippedQuantity="" TransactionalUOM="">
+                        <Order DocumentType="" DraftOrderFlag="" EnterpriseCode="">
+                            <PriceInfo Currency="" TotalAmount=""/>
+                        </Order>
+                        <Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+                        <DerivedFromOrderLine OrderHeaderKey=""
+                            OrderLineKey="" OrderedQty="" ReturnableQty=""/>
+                        <ReturnOrderLines>
+                            <OrderLine DeliveryDate="" GiftFlag=""
+                                OrderHeaderKey="" OrderLineKey=""
+                                OrderedQty="" ReturnReason="" ReturnReasonDesc=""/>
+                        </ReturnOrderLines>
+                        <ReturnPolicyViolations HasViolations="" ReturnPolicyViolation="">
+                            <NonApprovalTransactionViolationList>
+                                <TransactionViolation ApprovalRuleID=""
+                                    MessageCode="" Status=""
+                                    TransactionInfoID="" ValidationID=""/>
+                            </NonApprovalTransactionViolationList>
+                            <TransactionApproverList>
+                                <TransactionApprover TransactionApproverKey="">
+                                    <TransactionApprovalStatusList>
+                                    <TransactionApprovalStatus
+                                    IsMandatory="" Status="" TransactionApprovalStatusKey="">
+                                    <TransactionViolation
+                                    ApprovalRuleID=""
+                                    MessageCode="" Status=""
+                                    TransactionInfoID="" ValidationID=""/>
+                                    </TransactionApprovalStatus>
+                                    </TransactionApprovalStatusList>
+                                </TransactionApprover>
+                            </TransactionApproverList>
+                        </ReturnPolicyViolations>
+                        <ItemDetails>
+                            <PrimaryInformation
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" IsReturnable="" ShortDescription=""/>
+                        </ItemDetails>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                        <OrderLine ReturnableQty=""/>
+                        <Notes Note=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <BundleParentLine OrderLineKey=""/>
+                    </OrderLine>
+                    <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+                <OrderLine/>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="ReturnSummaryLines_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType=""
+                    CallingOrganizationCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DisplayTransactionPrice="Y" ItemGroupCode="DS"
+                    ItemGroupCodeQryType="NE" MaximumRecords="" OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine DeliveryMethod="" GiftFlag=""
+                        GroupSequenceNumber="" HasNotes=""
+                        HasReturnLines="" HoldFlag="" IsBundleParent=""
+                        IsOpenBox="" IsPickupAllowed=""
+                        IsPriceMatched="" IsShippingAllowed=""
+                        ItemGroupCode="" LineType=""
+                        MaxLineStatusDesc="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderHeaderKey=""
+                        OrderLineKey="" OrderedQty="" OverallStatus=""
+                        PrimeLineNo="" ReshippedQty="" ReturnReason=""
+                        ShippedQuantity="" Status="">
+                        <Order OrderNo=""/>
+                        <ItemDetails>
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <Item UnitOfMeasure=""/>
+                        <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <DerivedFromOrder BillToID=""
+                            BuyerOrganizationCode="" BuyerUserId=""
+                            CustomerContactID="" CustomerEMailID=""
+                            CustomerFirstName="" CustomerLastName=""
+                            CustomerPONo="" CustomerPhoneNo=""
+                            CustomerZipCode="" DocumentType=""
+                            DraftOrderFlag="" EnterpriseCode=""
+                            EntryType="" MaxOrderStatusDesc=""
+                            OrderHeaderKey="" OrderName="" OrderNo=""
+                            SellerOrganizationCode="" TaxExemptFlag=""
+                            TaxExemptionCertificate="" isHistory="">
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                            <PriceInfo Currency="" TotalAmount=""/>
+                            <PersonInfoBillTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </DerivedFromOrder>
+                        <CustomAttributes ActualDispositionCode=""/>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                    </OrderLine>
+                    <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="CancelOrderListScreen_getCompleteOrderLineList">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine BundleParentOrderLineKey=""
+                    BundleParentOrderLineKeyQryType="ISNULL"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DisplayTransactionPrice="Y" ItemGroupCode="DS"
+                    ItemGroupCodeQryType="NE" MaximumRecords=""
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" StatusModificationType="CANCEL">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="PrimeLineNo"/>
+                        <Attribute Desc="N" Name="GroupSequenceNumber"/>
+                    </OrderBy>
+                    <Order
+                        EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                        OrderNo="xml:scControllerInput:/Order/@OrderNo" SellerOrganizationCode="xml:scControllerInput:/Order/@SellerOrganizationCode"/>
+                    <Modifications>
+                        <Modification ModificationType="CANCEL"/>
+                    </Modifications>
+                </OrderLine>
+            </Input>
+            <Template>
+                <OrderLineList>
+                    <OrderLine AvailableQtyForCancelAndStopDelivery=""
+                        CancelQuantity="" CancelRelatedLines=""
+                        ChildOrderLineRelationships="" DeliveryMethod=""
+                        EnterpriseCode="" GiftFlag="" GiftWrap=""
+                        GroupSequenceNumber="" HasNotes=""
+                        HasReturnLines="" HoldFlag="" InvoicedQty=""
+                        IsBundleParent="" IsOpenBox=""
+                        IsPickupAllowed="" IsPriceMatched=""
+                        IsShippingAllowed="" ItemGroupCode=""
+                        LineType="" MaxLineStatus=""
+                        MaxLineStatusDesc="" MaxOrderStatusDesc=""
+                        ModificationQty="" MultipleStatusesExist=""
+                        OrderHeaderKey="" OrderLineKey=""
+                        OrderLineTranQuantity="" OrderedQty=""
+                        OverallStatus="" PrimeLineNo="" ReshippedQty=""
+                        Status="" TransactionalUOM="">
+                        <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                            <PriceInfo Currency=""/>
+                        </Order>
+                        <ItemDetails ItemGroupCode="" ItemID="" UnitOfMeasure="">
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLabel="" ImageLocation=""
+                                KitCode="" ShortDescription=""/>
+                        </ItemDetails>
+                        <BundleParentLine OrderLineKey=""/>
+                        <OrderLineTranQuantity
+                            AvailableQtyForCancelAndStopDelivery=""
+                            ModificationQty="" OrderedQty="" TransactionalUOM=""/>
+                        <ParentOrderLineRelationships>
+                            <OrderLineRelationship ParentOrderLineKey=""/>
+                        </ParentOrderLineRelationships>
+                        <ChildOrderLineRelationships>
+                            <OrderLineRelationship ChildOrderLineKey="" RelationshipType=""/>
+                        </ChildOrderLineRelationships>
+                        <LinePriceInfo IsLinePriceForInformationOnly="" IsPriceLocked=""/>
+                        <Modifications>
+                            <Modification ModificationAllowed="" ModificationType="CANCEL"/>
+                        </Modifications>
+                        <LineOverallTotals DisplayUnitPrice=""/>
+                        <StopDeliveryRequestDetails TotalNumberOfRecords=""/>
+                    </OrderLine>
+                    <Order EnterpriseCode="" OrderHeaderKey="" SellerOrganizationCode="">
+                        <PriceInfo Currency=""/>
+                    </Order>
+                </OrderLineList>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="fulfillmentSummary_modifyFulfillmentOptions">
+        <API Name="modifyFulfillmentOptions">
+            <Input>
+                <Order Action="MODIFY" AllocationRuleID=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="xml:scControllerInput:/Order/@DocumentType"
+                    EnterpriseCode="" OptimizationType=""
+                    OrderHeaderKey="" OrderName="" ValidateItems="Y">
+                    <OrderLines>
+                        <OrderLine Action="" CancelComponentLines=""
+                            CancelRelatedLines="" CarrierServiceCode=""
+                            DeliveryMethod="" EarliestShipDate=""
+                            IsBundleParent="" MarkForKey=""
+                            OrderLineKey="" PrimeLineNo=""
+                            ReqShipDate="" ShipNode="">
+                            <ItemDetails>
+                                <PrimaryInformation BundleFulfillmentMode=""/>
+                            </ItemDetails>
+                            <OrderDates>
+                                <OrderDate ActualDate=""
+                                    CommittedDate="" DateTypeId=""/>
+                            </OrderDates>
+                            <PersonInfoMarkFor DayPhone="" FirstName=""
+                                LastName="" MobilePhone=""/>
+                            <PersonInfoShipTo AVSMode="" AddressID=""
+                                AddressLine1="" AddressLine2=""
+                                AddressLine3="" AddressLine4=""
+                                AddressLine5="" AddressLine6=""
+                                AlternateEmailID="" Beeper="" City=""
+                                Company="" Country="" CountryDesc=""
+                                Createprogid="" Createts=""
+                                Createuserid="" DayFaxNo="" DayPhone=""
+                                Department="" EMailID=""
+                                EnterpriseCode="" EveningFaxNo=""
+                                EveningPhone="" FirstName="" HttpUrl=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" JobTitle=""
+                                LastName="" Latitude="" Lockid=""
+                                Longitude="" MiddleName=""
+                                MobilePhone="" Modifyprogid=""
+                                Modifyts="" Modifyuserid=""
+                                OtherPhone="" PersonID=""
+                                PersonInfoKey="" ShortZipCode=""
+                                State="" Suffix="" TaxGeoCode=""
+                                Title="" TitleDesc="" UseCount=""
+                                ZipCode="" isHistory=""/>
+                            <OrderLineTranQuantity OrderedQty=""/>
+                        </OrderLine>
+                    </OrderLines>
+                    <CustomAttributes OverrideShippingCharge=""/>
+                </Order>
+            </Input>
+            <Template>
+                <Order AllocationRuleID="" BillToID="" DraftOrderFlag=""
+                    MaxOrderStatus="" MinOrderStatus=""
+                    OptimizationType="" OrderHeaderKey="" OrderName="" OrderNo="">
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <OverallTotals GrandTotal=""/>
+                    <OrderLines TotalNumberOfRecords=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="fulfillmentSummary_behavior_getFulfillmentSummaryDetails">
+        <API Name="getFulfillmentSummaryDetails">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" EnterpriseCode="" IsLargeOrder="" OrderHeaderKey="">
+                    <Modifications>
+                        <Modification ModificationType="RULE_ID"/>
+                        <Modification ModificationType="SHIP_NODE"/>
+                        <Modification ModificationType="SHIPTO"/>
+                        <Modification ModificationType="MARKFOR"/>
+                        <Modification ModificationType="CARRIER_SERVICE_CODE"/>
+                        <Modification ModificationType="REQ_SHIP_DATE"/>
+                    </Modifications>
+                    <OrderLines>
+                        <OrderLine>
+                            <Modifications>
+                                <Modification ModificationType="SHIP_NODE"/>
+                                <Modification ModificationType="CHANGE_DELIVERY_METHOD"/>
+                                <Modification ModificationType="SHIPTO"/>
+                                <Modification ModificationType="MARKFOR"/>
+                                <Modification ModificationType="CHANGE_BUNDLE_PARENT"/>
+                                <Modification ModificationType="CARRIER_SERVICE_CODE"/>
+                                <Modification ModificationType="REQ_SHIP_DATE"/>
+                            </Modifications>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Input>
+            <Template>
+                <Order AllocationRuleID="" DocumentType=""
+                    DraftOrderFlag="" EnterpriseCode=""
+                    MaxOrderStatus="" MinOrderStatus=""
+                    OptimizationType="" OrderHeaderKey="" OrderName="">
+                    <PickupGroups>
+                        <PickupGroup>
+                            <OrderLines>
+                                <OrderLine AvailableQty=""
+                                    CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    ItemGroupCode="" MarkForKey=""
+                                    MaxLineStatus="" Modifyts=""
+                                    OrderLineKey="" OrderedQty=""
+                                    OverallStatus="" PrimeLineNo=""
+                                    ReqShipDate="" RequiredQty=""
+                                    ShipNode="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <Shipnode Description="" ShipNode="">
+                                <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                            </Shipnode>
+                        </PickupGroup>
+                    </PickupGroups>
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <OrderDates>
+                        <OrderDate ActualDate="" DateTypeId="LastModified"/>
+                    </OrderDates>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <UnavailableLines>
+                        <PickupLinesWithNoShipnode>
+                            <PickupGroup>
+                                <OrderLines>
+                                    <OrderLine AvailableQty=""
+                                    CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap=""
+                                    GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent=""
+                                    IsCancelAllowed=""
+                                    ItemGroupCode="" MarkForKey=""
+                                    MaxLineStatus="" Modifyts=""
+                                    OrderLineKey="" OrderedQty=""
+                                    OverallStatus="" PrimeLineNo=""
+                                    ReqShipDate="" RequiredQty=""
+                                    ShipNode="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID=""
+                                    ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName="" MobilePhone=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty=""
+                                    OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine
+                                    OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine
+                                    OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                    </OrderLine>
+                                </OrderLines>
+                                <Shipnode Description="" ShipNode="">
+                                    <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                                </Shipnode>
+                            </PickupGroup>
+                        </PickupLinesWithNoShipnode>
+                        <ShippingLines>
+                            <OrderLine CanDeleteOnUI="" Createts=""
+                                DeliveryMethod="" EarliestShipDate=""
+                                GiftFlag="" GiftWrap=""
+                                GroupSequenceNumber=""
+                                HasNonCancellableChainedLines=""
+                                IsBundleParent="" IsCancelAllowed=""
+                                ItemGroupCode="" MaxLineStatus=""
+                                Modifyts="" NoOfInteractions=""
+                                OrderLineKey="" OrderedQty=""
+                                OverallStatus="" PrimeLineNo=""
+                                ShipNode="" Status="" UnavailableQty="">
+                                <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                </ItemDetails>
+                                <BundleParentLine OrderLineKey=""/>
+                                <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                </OrderDates>
+                                <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                <OrderLineTranQuantity AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                <Item ItemID="" UnitOfMeasure=""/>
+                                <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                </ChildOrderLineRelationships>
+                                <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                </ParentOrderLineRelationships>
+                                <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                <Modifications>
+                                    <Modification ModificationAllowed="" ModificationType=""/>
+                                </Modifications>
+                                <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress="" LastName=""
+                                    MiddleName="" MobilePhone=""
+                                    PersonID="" PersonInfoKey=""
+                                    State="" Suffix="" Title=""
+                                    TitleDesc="" ZipCode="" isHistory=""/>
+                                <LineOverallTotals DisplayUnitPrice=""/>
+                            </OrderLine>
+                        </ShippingLines>
+                        <PickupLines>
+                            <OrderLine CanDeleteOnUI="" Createts=""
+                                DeliveryMethod="" EarliestShipDate=""
+                                GiftFlag="" GiftWrap=""
+                                GroupSequenceNumber=""
+                                HasNonCancellableChainedLines=""
+                                IsBundleParent="" IsCancelAllowed=""
+                                ItemGroupCode="" MarkForKey=""
+                                MaxLineStatus="" Modifyts=""
+                                OrderLineKey="" OrderedQty=""
+                                OverallStatus="" PrimeLineNo=""
+                                ReqShipDate="" ShipNode="" Status="" UnavailableQty="">
+                                <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                </ItemDetails>
+                                <BundleParentLine OrderLineKey=""/>
+                                <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                </OrderDates>
+                                <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                <OrderLineTranQuantity AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                <Item ItemID="" UnitOfMeasure=""/>
+                                <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                </ChildOrderLineRelationships>
+                                <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                </ParentOrderLineRelationships>
+                                <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                <Modifications>
+                                    <Modification ModificationAllowed="" ModificationType=""/>
+                                </Modifications>
+                                <LineOverallTotals DisplayUnitPrice=""/>
+                                <Shipnode Description="" ShipNode=""
+                                    ShipNodeAddressKey="" ShippingNode="">
+                                    <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                                </Shipnode>
+                            </OrderLine>
+                        </PickupLines>
+                    </UnavailableLines>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <ShippingGroups>
+                        <ShippingGroup CarrierServiceCode=""
+                            CarrierServiceDesc=""
+                            ExpectedDeliveryEndDate=""
+                            ExpectedDeliveryStartDate="" Node="" ShipToKey="">
+                            <OrderLines>
+                                <OrderLine AvailableQty=""
+                                    CanDeleteOnUI=""
+                                    CarrierServiceCode="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    ItemGroupCode="" MaxLineStatus=""
+                                    Modifyts="" NoOfInteractions=""
+                                    Node="" OrderLineKey=""
+                                    OrderedQty="" OverallStatus=""
+                                    PrimeLineNo="" ShipNode=""
+                                    ShipToKey="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed=""
+                                    KitCode="" ShortDescription=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </ShippingGroup>
+                    </ShippingGroups>
+                    <CustomAttributes OverrideShippingCharge=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="fulfillmentSummary_getFulfillmentSummaryDetails">
+        <API Name="getFulfillmentSummaryDetails">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="xml:scControllerInput:/Order/@DocumentType"
+                    EnterpriseCode="xml:scControllerInput:/Order/@EnterpriseCode"
+                    IsLargeOrder="" OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey">
+                    <Modifications>
+                        <Modification ModificationType="RULE_ID"/>
+                        <Modification ModificationType="SHIP_NODE"/>
+                        <Modification ModificationType="SHIPTO"/>
+                        <Modification ModificationType="MARKFOR"/>
+                        <Modification ModificationType="CARRIER_SERVICE_CODE"/>
+                        <Modification ModificationType="REQ_SHIP_DATE"/>
+                    </Modifications>
+                    <OrderLines>
+                        <OrderLine>
+                            <Modifications>
+                                <Modification ModificationType="SHIP_NODE"/>
+                                <Modification ModificationType="CHANGE_DELIVERY_METHOD"/>
+                                <Modification ModificationType="SHIPTO"/>
+                                <Modification ModificationType="MARKFOR"/>
+                                <Modification ModificationType="CHANGE_BUNDLE_PARENT"/>
+                                <Modification ModificationType="CARRIER_SERVICE_CODE"/>
+                                <Modification ModificationType="REQ_SHIP_DATE"/>
+                            </Modifications>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Input>
+            <Template>
+                <Order AllocationRuleID="" DocumentType=""
+                    DraftOrderFlag="" EnterpriseCode="" IsLargeOrder=""
+                    MaxOrderStatus="" MinOrderStatus=""
+                    OptimizationType="" OrderHeaderKey="" OrderName="">
+                    <PickupGroups>
+                        <PickupGroup>
+                            <OrderLines>
+                                <OrderLine AvailableQty=""
+                                    CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    ItemGroupCode="" MarkForKey=""
+                                    MaxLineStatus="" Modifyts=""
+                                    OrderLineKey="" OrderedQty=""
+                                    OverallStatus="" PrimeLineNo=""
+                                    ReqShipDate="" RequiredQty=""
+                                    ShipNode="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName="" MobilePhone=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <Shipnode Description="" ShipNode="">
+                                <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                            </Shipnode>
+                        </PickupGroup>
+                    </PickupGroups>
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <OrderDates>
+                        <OrderDate ActualDate="" DateTypeId="LastModified"/>
+                    </OrderDates>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <UnavailableLines>
+                        <PickupLinesWithNoShipnode>
+                            <PickupGroup>
+                                <OrderLines>
+                                    <OrderLine AvailableQty=""
+                                    CanDeleteOnUI="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap=""
+                                    GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent=""
+                                    IsCancelAllowed=""
+                                    ItemGroupCode="" MarkForKey=""
+                                    MaxLineStatus="" Modifyts=""
+                                    OrderLineKey="" OrderedQty=""
+                                    OverallStatus="" PrimeLineNo=""
+                                    ReqShipDate="" RequiredQty=""
+                                    ShipNode="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID=""
+                                    ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName="" MobilePhone=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty=""
+                                    OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine
+                                    OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine
+                                    OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                    </OrderLine>
+                                </OrderLines>
+                                <Shipnode Description="" ShipNode="">
+                                    <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                                </Shipnode>
+                            </PickupGroup>
+                        </PickupLinesWithNoShipnode>
+                        <ShippingLines>
+                            <OrderLine CanDeleteOnUI="" Createts=""
+                                DeliveryMethod="" EarliestShipDate=""
+                                GiftFlag="" GiftWrap=""
+                                GroupSequenceNumber=""
+                                HasNonCancellableChainedLines=""
+                                IsBundleParent="" IsCancelAllowed=""
+                                ItemGroupCode="" MaxLineStatus=""
+                                Modifyts="" NoOfInteractions=""
+                                OrderLineKey="" OrderedQty=""
+                                OverallStatus="" PrimeLineNo=""
+                                ShipNode="" Status="" UnavailableQty="">
+                                <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                </ItemDetails>
+                                <BundleParentLine OrderLineKey=""/>
+                                <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                </OrderDates>
+                                <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                <OrderLineTranQuantity AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                <Item ItemID="" UnitOfMeasure=""/>
+                                <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                </ChildOrderLineRelationships>
+                                <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                </ParentOrderLineRelationships>
+                                <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                <Modifications>
+                                    <Modification ModificationAllowed="" ModificationType=""/>
+                                </Modifications>
+                                <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress="" LastName=""
+                                    MiddleName="" MobilePhone=""
+                                    PersonID="" PersonInfoKey=""
+                                    State="" Suffix="" Title=""
+                                    TitleDesc="" ZipCode="" isHistory=""/>
+                                <LineOverallTotals DisplayUnitPrice=""/>
+                            </OrderLine>
+                        </ShippingLines>
+                        <PickupLines>
+                            <OrderLine CanDeleteOnUI="" Createts=""
+                                DeliveryMethod="" EarliestShipDate=""
+                                GiftFlag="" GiftWrap=""
+                                GroupSequenceNumber=""
+                                HasNonCancellableChainedLines=""
+                                IsBundleParent="" IsCancelAllowed=""
+                                ItemGroupCode="" MarkForKey=""
+                                MaxLineStatus="" Modifyts=""
+                                OrderLineKey="" OrderedQty=""
+                                OverallStatus="" PrimeLineNo=""
+                                ReqShipDate="" ShipNode="" Status="" UnavailableQty="">
+                                <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed="" KitCode=""/>
+                                </ItemDetails>
+                                <BundleParentLine OrderLineKey=""/>
+                                <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                </OrderDates>
+                                <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                <OrderLineTranQuantity AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                <Item ItemID="" UnitOfMeasure=""/>
+                                <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                </ChildOrderLineRelationships>
+                                <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                </ParentOrderLineRelationships>
+                                <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                <Modifications>
+                                    <Modification ModificationAllowed="" ModificationType=""/>
+                                </Modifications>
+                                <LineOverallTotals DisplayUnitPrice=""/>
+                                <Shipnode Description="" ShipNode=""
+                                    ShipNodeAddressKey="" ShippingNode="">
+                                    <ShipNodePersonInfo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Country="" FirstName=""
+                                    LastName="" State="" ZipCode=""/>
+                                </Shipnode>
+                            </OrderLine>
+                        </PickupLines>
+                    </UnavailableLines>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <ShippingGroups>
+                        <ShippingGroup CarrierServiceCode=""
+                            CarrierServiceDesc=""
+                            ExpectedDeliveryEndDate=""
+                            ExpectedDeliveryStartDate="" Node="" ShipToKey="">
+                            <OrderLines>
+                                <OrderLine AvailableQty=""
+                                    CanDeleteOnUI=""
+                                    CarrierServiceCode="" Createts=""
+                                    DeliveryMethod=""
+                                    EarliestShipDate="" GiftFlag=""
+                                    GiftWrap="" GroupSequenceNumber=""
+                                    HasNonCancellableChainedLines=""
+                                    IsBundleParent="" IsCancelAllowed=""
+                                    ItemGroupCode="" MaxLineStatus=""
+                                    Modifyts="" NoOfInteractions=""
+                                    Node="" OrderLineKey=""
+                                    OrderedQty="" OverallStatus=""
+                                    PrimeLineNo="" ShipNode=""
+                                    ShipToKey="" Status="">
+                                    <ItemDetails UnitOfMeasure="">
+                                    <PrimaryInformation
+                                    BundleFulfillmentMode=""
+                                    ExtendedDisplayDescription=""
+                                    ImageID="" ImageLocation=""
+                                    IsParcelShippingAllowed=""
+                                    IsPickupAllowed=""
+                                    IsShippingAllowed=""
+                                    KitCode="" ShortDescription=""/>
+                                    </ItemDetails>
+                                    <BundleParentLine OrderLineKey=""/>
+                                    <OrderDates>
+                                    <OrderDate ActualDate="" DateTypeId="YCD_FTC_FIRST_PROMISE_DATE"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MIN_DELIVERY"/>
+                                    <OrderDate CommittedDate="" DateTypeId="MAX_DELIVERY"/>
+                                    </OrderDates>
+                                    <PersonInfoMarkFor DayPhone=""
+                                    FirstName="" LastName=""/>
+                                    <OrderLineTranQuantity
+                                    AvailableQty=""
+                                    BackorderedQty="" OrderedQty="" TransactionalUOM=""/>
+                                    <Item ItemID="" UnitOfMeasure=""/>
+                                    <ChildOrderLineRelationships>
+                                    <OrderLineRelationship
+                                    ChildOrderLineKey=""
+                                    OrderLineRelationshipKey="" ParentOrderLineKey="">
+                                    <ParentLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    <ChildLine OrderLineKey=""
+                                    OrderedQty="" PrimeLineNo=""/>
+                                    </OrderLineRelationship>
+                                    </ChildOrderLineRelationships>
+                                    <ParentOrderLineRelationships>
+                                    <OrderLineRelationship ParentOrderLineKey=""/>
+                                    </ParentOrderLineRelationships>
+                                    <LinePriceInfo IsLinePriceForInformationOnly=""/>
+                                    <Modifications>
+                                    <Modification
+                                    ModificationAllowed="" ModificationType=""/>
+                                    </Modifications>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                    <LineOverallTotals DisplayUnitPrice=""/>
+                                </OrderLine>
+                            </OrderLines>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </ShippingGroup>
+                    </ShippingGroups>
+                    <CustomAttributes OverrideShippingCharge=""/>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+    <mashup id="fulfillmentSummary_getCarrierServiceOptionsForOrdering">
+        <API Name="getCarrierServiceOptionsForOrdering">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrderHeaderKey="">
+                    <OrderLines>
+                        <OrderLine EarliestShipDate=""
+                            IsParcelShippingAllowed="" ItemID=""
+                            OrderLineKey="" ShipNode="">
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2=""
+                                AddressLine3="" AddressLine4=""
+                                AddressLine5="" AddressLine6=""
+                                AlternateEmailID="" Beeper="" City=""
+                                Company="" Country="" DayFaxNo=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningFaxNo="" EveningPhone=""
+                                FirstName="" IsCommercialAddress=""
+                                JobTitle="" LastName="" MiddleName=""
+                                MobilePhone="" OtherPhone="" PersonID=""
+                                State="" Suffix="" TaxGeoCode=""
+                                Title="" ZipCode=""/>
+                        </OrderLine>
+                    </OrderLines>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" AddressLine3="" AddressLine4=""
+                        AddressLine5="" AddressLine6=""
+                        AlternateEmailID="" Beeper="" City="" Company=""
+                        Country="" DayFaxNo="" DayPhone="" Department=""
+                        EMailID="" EveningFaxNo="" EveningPhone=""
+                        FirstName="" IsCommercialAddress="" JobTitle=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        OtherPhone="" PersonID="" State="" Suffix=""
+                        TaxGeoCode="" Title="" ZipCode=""/>
+                    <CustomAttributes OverrideShippingCharge=""/>
+                </Order>
+            </Input>
+            <Template>
+                <Order OrderHeaderKey="">
+                    <OrderLines>
+                        <OrderLine CarrierServiceCode="">
+                            <CarrierServiceList>
+                                <CarrierService CarrierServiceCode=""
+                                    CarrierServiceDesc="" CarrierType=""
+                                    Currency="" DeliveryEndDate=""
+                                    DeliveryStartDate=""
+                                    OrganizationCode="" Price=""/>
+                            </CarrierServiceList>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Template>
+        </API>
+    </mashup>
+	<mashup description="Gets the PersonInfo for the key passed"
+        id="getOrderShipToMashup_getPersonInfoList">
+       <API Name="getPersonInfoList">
+           <Input>
+               <PersonInfo
+                   DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                   MaximumRecords="" PersonInfoKey=""/>
+           </Input>
+           <Template>
+               <PersonInfoList>
+                   <PersonInfo AddressID="" AddressLine1=""
+                       AddressLine2="" City="" Country="" DayPhone=""
+                       EMailID="" EveningPhone="" FirstName=""
+                       LastName="" MobilePhone="" PersonInfoKey=""
+                       State="" Title="" ZipCode="" Company=""/>
+               </PersonInfoList>
+           </Template>
+       </API>
+   </mashup>
+   <mashup id="orderPortletList_getOrderList">
+        <API FlowName="GetOrderListService">
+            <Input>
+                <Order BillToID="" CallingOrganizationCode=""
+                    CustomerEMailID="" CustomerEMailIDQryType=""
+                    CustomerFirstName="" CustomerLastName=""
+                    CustomerPONo="" CustomerPhoneNo=""
+                    CustomerZipCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" DraftOrderFlag="" EnterpriseCode="FANATICS_WEB"
+                    FromOrderDate="" IgnoreOrdering="N"
+                    MaximumRecords="" OrderDateQryType="DATERANGE"
+                    OrderName="" OrderNameQryType="" OrderNo=""
+                    QueryTimeout="" ReadFromHistory="" TaxExemptFlag=""
+                    TaxExemptionCertificate="" ToOrderDate="">
+                    <OrderBy>
+                        <Attribute Desc="Y" Name="OrderDate"/>
+                    </OrderBy>
+                    <OrderHoldType HoldType="" Status="" StatusQryType=""/>
+                    <CustomAttributes CustomerOrderNo=""/>
+                </Order>
+            </Input>
+            <Template>
+                <OrderList>
+                    <Order BillToID="" BuyerOrganizationCode=""
+                        BuyerUserId="" CustomerContactID=""
+                        CustomerEMailID="" CustomerFirstName=""
+                        CustomerLastName="" CustomerPONo=""
+                        CustomerPhoneNo="" CustomerZipCode=""
+                        DisplayStatusDescription="" DocumentType=""
+                        DraftOrderFlag="" EnterpriseCode="" EntryType=""
+                        HoldFlag="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderDate=""
+                        OrderHeaderKey="" OrderName="" OrderNo=""
+                        OverallStatus="" SellerOrganizationCode=""
+                        Status="" TaxExemptFlag=""
+                        TaxExemptionCertificate="" isHistory="">
+                        <PriceInfo Currency="" TotalAmount=""/>
+                        <PersonInfoBillTo AddressLine1=""/>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" City="" Company=""
+                            Country="" CountryDesc="" DayPhone=""
+                            Department="" EMailID="" EveningPhone=""
+                            FirstName="" IsAddressVerified=""
+                            IsCommercialAddress="" LastName=""
+                            MiddleName="" MobilePhone="" PersonID=""
+                            PersonInfoKey="" State="" Suffix="" Title=""
+                            TitleDesc="" ZipCode="" isHistory=""/>
+                    </Order>
+                </OrderList>
+            </Template>
+        </API>
+    </mashup>
+</mashups>

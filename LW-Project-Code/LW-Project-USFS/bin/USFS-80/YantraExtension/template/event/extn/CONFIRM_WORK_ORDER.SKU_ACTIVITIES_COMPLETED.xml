@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkOrder ApptStatus="" ApptStatusDescription="" CaseId=""
+    DocumentType="" EnterpriseCode="" ExecutionBy=""
+    ExecutionDuration="" ExecutionStartTime="" FinishNoLaterThan=""
+    InvUpdateActivityCode="" ItemID="" LastExecutionSuccess=""
+    NextAlertTs="" NodeKey="" NumOfAttempts="" OpenWorkOrderFlag=""
+    OrderLineKey="" PalletId="" PipeLineKey="" PreCallStatus=""
+    PreCallStatusDescription="" Priority="" ProductClass=""
+    PromisedApptEndDate="" PromisedApptStartDate="" Purpose=""
+    QuantityAllocated="" QuantityCompleted="" QuantityReleased=""
+    QuantityRemoved="" QuantityRequested="" ReasonCode=""
+    ReasonCodeDescription="" ReasonText="" Segment="" SegmentType=""
+    SerialNo="" ServiceItemDescription="" ServiceItemGroupCode=""
+    ServiceItemID="" ServiceUom="" ShipByDate="" ShipmentKey=""
+    ShipmentNo="" StartNoEarlierThan="" Status="" StatusDate=""
+    StatusDescription="" Uom="" WorkOrderKey="" WorkOrderNo="">
+    <WorkOrderActivityDtl ActivityCode="" ActivityLocationId=""
+        CaseId="" PalletId="" QuantityBeingConfirmed="" SerialNo="" ShipByDate="">
+        <WorkOrderTag BatchNo="" LotAttribute1="" LotAttribute2=""
+            LotAttribute3="" LotKeyReference="" LotNumber=""
+            ManufacturingDate="" RevisionNo="" WorkOrderKey="" WorkOrderTagKey=""/>
+        <SerialDetail SecondarySerial1="" SecondarySerial2=""
+            SecondarySerial3="" SecondarySerial4="" SecondarySerial5=""
+            SecondarySerial6="" SecondarySerial7="" SecondarySerial8=""
+            SecondarySerial9="" SerialNo=""/>
+        <WorkOrderComponents>
+            <WorkOrderComponent ComponentQuantity="" ItemID=""
+                ProductClass="" Quantity="" Segment="" SegmentType=""
+                SerialNo="" ShipByDate="" Uom=""
+                WorkOrderComponentKey="" WorkOrderKey="">
+                <SerialDetail SecondarySerial1="" SecondarySerial2=""
+                    SecondarySerial3="" SecondarySerial4=""
+                    SecondarySerial5="" SecondarySerial6=""
+                    SecondarySerial7="" SecondarySerial8=""
+                    SecondarySerial9="" SerialNo=""/>
+                <WorkOrderComponentTag BatchNo="" LotAttribute1=""
+                    LotAttribute2="" LotAttribute3="" LotKeyReference=""
+                    LotNumber="" ManufacturingDate="" RevisionNo=""
+                    WorkOrderComponentKey="" WorkOrderComponentTagKey=""/>
+            </WorkOrderComponent>
+        </WorkOrderComponents>
+        <Extn/>
+    </WorkOrderActivityDtl>
+    <Extn/>
+</WorkOrder>

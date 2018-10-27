@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="date" Binding="/Shipment/@CurrentDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="issueNo" Binding="/Shipment/Order/@OrderNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="shipmentNo" Binding="/Shipment/@ShipmentNo" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="shipToPersonID" Binding="/Shipment/Order/Extn/@ExtnCustomerName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine1" Binding="/Shipment/Order/ShipToAddress/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine2" Binding="/Shipment/Order/ShipToAddress/@AddressLine2" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="shipToAddrLine3" Binding="/Shipment/Order/ShipToAddress/@AddressLine3" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToCity" Binding="/Shipment/Order/ShipToAddress/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToState" Binding="/Shipment/Order/ShipToAddress/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToZipCode" Binding="/Shipment/Order/ShipToAddress/@ZipCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToFirstName" Binding="/Shipment/Order/ShipToAddress/@FirstName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToLastName" Binding="/Shipment/Order/ShipToAddress/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToContactPh" Binding="/Shipment/Order/ShipToAddress/@DayPhone" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="orgName" Binding="/Shipment/FromAddress/@Company" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine1" Binding="/Shipment/FromAddress/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine2" Binding="/Shipment/FromAddress/@AddressLine2" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="orgAddrLine3" Binding="/Shipment/FromAddress/@AddressLine3" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgCity" Binding="/Shipment/FromAddress/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgState" Binding="/Shipment/FromAddress/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgZipCode" Binding="/Shipment/FromAddress/@ZipCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgFirstName" Binding="/Shipment/FromAddress/@FirstName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgLastName" Binding="/Shipment/FromAddress/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgContactPh" Binding="/Shipment/FromAddress/@DayPhone" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="orgURL" Binding="/Shipment/FromAddress/@HttpUrl" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="orderNumber" Binding="/Shipment/Order/Extn/@ExtnIncidentNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="incidentName" Binding="/Shipment/Order/Extn/@ExtnIncidentName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="year" Binding="/Shipment/Order/Extn/@ExtnIncidentYear" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipAcctCode" Binding="/Shipment/Extn/@ExtnShipAcctCode" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="totalshipCost" Binding="/Shipment/@TotalActualCharge" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalissueCost" Binding="/Shipment/Order/OverallTotals/@GrandTotal" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="transportationMode" Binding="/Shipment/@ScacAndService" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="carrier" Binding="/Shipment/@SCAC" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipmentPieces" Binding="/Shipment/Extn/@ExtnShipmentPieces" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalWt" Binding="/Shipment/@TotalWeight" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="totalWtUom" Binding="/Shipment/@TotalWeightUOM" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalCubes" Binding="/Shipment/@TotalVolume" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="totCubesUom" Binding="/Shipment/@TotalVolumeUOM" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="estDepDate" Binding="/Shipment/Extn/@ExtnEstimatedDepartDate" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="estArriveDate" Binding="/Shipment/Extn/@ExtnEstimatedArrivalDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipDate" Binding="/Shipment/@ActualShipmentDate" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="estDelDate" Binding="/Shipment/@ExpectedDeliveryDate" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="trackingNo" Binding="/Shipment/Extn/@ExtnTrackingNumbers" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="trailerNo" Binding="/Shipment/@TrailerNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="sealNo" Binding="/Shipment/@SealNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="proNo" Binding="/Shipment/@ProNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="driverName" Binding="/Shipment/Extn/@ExtnDriversName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="vehicleId" Binding="/Shipment/Extn/@ExtnVehicleId" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="instructionText" Binding="/Shipment/Order/@InstructionText" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="noteText" Binding="/Shipment/Order/@NoteText" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="RequestNumbers" Binding="/Shipment/Order/@ReqNoText" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="ItemsShipped" Binding="/Shipment/Order/@AllItemText" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="ItemsBackOrdered" Binding="/Shipment/Order/@BackOrderItemText" RepeatingElement="" Sequence="N"/>
+	<!-- CR 70 kjs -->
+	<LabelField DataType="Text" LabelFieldName="ItemsForwardOrdered" Binding="/Shipment/Order/@ForwardOrderItemText" RepeatingElement="" Sequence="N"/>
+	<!-- end of cr 70 -->
+	<LabelField DataType="Text" LabelFieldName="ItemsCancelled" Binding="/Shipment/Order/@CancelledItemText" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="saoverrideCode" Binding="/Shipment/Order/Extn/@ExtnSAOverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="bolNumber" Binding="/Shipment/@BolNo" RepeatingElement="" Sequence="N"/>
+</LabelFieldMap>

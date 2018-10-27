@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order AllocationRuleID="" BillToID="" BuyerOrganizationCode=""
+    DocumentType="" DraftOrderFlag="" DriverDate="" EnterpriseCode=""
+    ExchangeType="" HasDeliveryLines="" HasProductLines=""
+    HasServiceLines="" HoldFlag="" MaxOrderStatus="" MaxOrderStatusDesc=""
+    MultipleStatusesExist="" OrderDate="" OrderHeaderKey="" OrderNo=""
+    OrderType="" ReqDeliveryDate="" ReqShipDate=""
+    ReturnOrderHeaderKeyForExchange="" SaleVoided=""
+    ScacAndServiceKey="" SellerOrganizationCode="" ShipNode="" Status="" isHistory="" ReceivingNode="" ShipToKey="">
+    <Extn/>
+    <PriceInfo Currency=""/>
+    <OverallTotals/>
+    <ReturnOrdersForExchange/>
+    <ReturnOrderForExchange DocumentType="" EnterpriseCode=""
+        OrderHeaderKey="" OrderNo=""/>
+    <Instructions NumberOfInstructions="">
+        <Instruction InstructionType=""/>
+    </Instructions>
+    <Notes NumberOfNotes="">
+        <Note NotesKey=""/>
+    </Notes>
+    <OrderHoldTypes TotalNumberOfRecords="">
+        <OrderHoldType HoldType=""/>
+    </OrderHoldTypes>
+    <AllowedModifications/>
+    <PersonInfoShipTo/>
+    <PersonInfoBillTo/>    
+    <PriceInfo/>
+    <PaymentMethods>
+        <PaymentMethod PaymentType=""/>
+    </PaymentMethods>
+    <ChargeTransactionDetails>
+        <ChargeTransactionDetail>
+            <PaymentMethod TotalRefundedAmount=""/>
+        </ChargeTransactionDetail>
+    </ChargeTransactionDetails>
+    <AdditionalAddresses>
+        <AdditionalAddress>
+            <PersonInfo/>
+        </AdditionalAddress>
+    </AdditionalAddresses>
+	<OrderDates>
+		<OrderDate/>
+	</OrderDates>
+<!-- Begin CR830 01252013 -->
+    <OrderLines>
+	   <OrderLine OrderLineKey="" OrderHeaderKey="">
+		  <Extn ExtnRequestNo=""/>
+		  <Instructions>
+		     <Instruction InstructionText="" InstructionType=""/>
+		  </Instructions>
+	   </OrderLine>
+	</OrderLines>
+<!-- End CR830 01252013 -->
+</Order>

@@ -1,0 +1,10 @@
+<CustomConditionAttributes>
+	<ProcessType Name="ORDER_FULFILLMENT">
+		<NWCG Id="NWCG" DisplayName="NWCG Attributes" DataType="String">
+			<ExtnUTFQty Id="ExtnUTFQty" DisplayName="UTF Qty" DataType="Quantity" Type="Leaf"/>
+			<ExtnBackorderedQty Id="ExtnBackorderedQty" DisplayName="Backordered Qty" DataType="Quantity" Type="Leaf"/>
+			<ExtnFwdQty Id="ExtnFwdQty" DisplayName="Forwarded Qty" DataType="Quantity" Type="Leaf"/>
+			<ExtnSystemOfOrigin Id="ExtnSystemOfOrigin" DisplayName="System Of Origin" DataType="String" Type="Leaf"/>
+		</NWCG>
+	</ProcessType>
+</CustomConditionAttributes>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Order Action="${Order.Action}" DocumentType="${Order.DocumentType}"
+    EnterpriseCode="${Order.EnterpriseCode}"
+            OrderNo="${Order.OrderNo}">
+    <OrderLines>
+        
+        <OrderLine
+            Action="${Order.OrderLines.OrderLine.2.Action}"
+            DeliveryMethod="${Order.OrderLines.OrderLine.2.DeliveryMethod}"
+            FulfillmentType="${Order.OrderLines.OrderLine.2.FulfillmentType}"
+            ItemGroupCode="${Order.OrderLines.OrderLine.2.ItemGroupCode}"
+            LevelOfService="${Order.OrderLines.OrderLine.2.LevelOfService}"
+            LineType="${Order.OrderLines.OrderLine.2.LineType}"
+            MaxLineStatus="${Order.OrderLines.OrderLine.2.MaxLineStatus}"
+            MergeNode="${Order.OrderLines.OrderLine.2.MergeNode}"
+            MinLineStatus="${Order.OrderLines.OrderLine.2.MinLineStatus}"
+            OrderedQty="${Order.OrderLines.OrderLine.2.OrderedQty}"
+            PrimeLineNo="${Order.OrderLines.OrderLine.2.PrimeLineNo}"
+            ProcureFromNode="${Order.OrderLines.OrderLine.2.ProcureFromNode}"
+            ReqDeliveryDate="${Order.OrderLines.OrderLine.2.ReqDeliveryDate}"
+            ShipNode="${Order.OrderLines.OrderLine.2.ShipNode}"
+                SubLineNo="${Order.OrderLines.OrderLine.2.SubLineNo}">
+            <Item
+                ItemDesc="${Order.OrderLines.OrderLine.2.Item.ItemDesc}"
+                ItemID="${Order.OrderLines.OrderLine.2.Item.ItemID}"
+                UnitOfMeasure="${Order.OrderLines.OrderLine.2.Item.UnitOfMeasure}"/>
+            <Extn
+                AppointmentConfirmed="${Order.OrderLines.OrderLine.2.Extn.AppointmentConfirmed}"
+                DeliveryValue="${Order.OrderLines.OrderLine.2.Extn.DeliveryValue}"
+                DeviationCodePrice="${Order.OrderLines.OrderLine.2.Extn.DeviationCodePrice}"
+                Group="${Order.OrderLines.OrderLine.2.Extn.Group}"
+                GroupNo="${Order.OrderLines.OrderLine.2.Extn.GroupNo}"
+                GroupSeqNo="${Order.OrderLines.OrderLine.2.Extn.GroupSeqNo}"
+                HasExceptionQty="${Order.OrderLines.OrderLine.2.Extn.HasExceptionQty}"
+                OtherCode="${Order.OrderLines.OrderLine.2.Extn.OtherCode}"
+                SalesItemSeqNo="${Order.OrderLines.OrderLine.2.Extn.SalesItemSeqNo}"/>
+            <LinePriceInfo
+                IsPriceLocked="${Order.OrderLines.OrderLine.2.LinePriceInfo.IsPriceLocked}"
+                RetailPrice="${Order.OrderLines.OrderLine.2.LinePriceInfo.RetailPrice}" UnitPrice="${Order.OrderLines.OrderLine.2.LinePriceInfo.UnitPrice}"/>
+        </OrderLine>
+    </OrderLines>
+  </Order>

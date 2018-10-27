@@ -1,0 +1,11 @@
+<Shipments>
+<Shipment ShipmentKey="">
+<ShipmentLines>
+<ShipmentLine ShipmentLineKey="">
+<ShipmentTagSerials>
+<ShipmentTagSerial SerialNo=""/>
+</ShipmentTagSerials>
+</ShipmentLine>
+</ShipmentLines>
+</Shipment>
+</Shipments>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<OrderRelease CarrierAccountNo="" CarrierServiceCode="" Currency=""
+    CustomerPoNo="" DeliveryCode="" Division="" EnterpriseCode=""
+    FOB="" HoldFlag="" HoldReasonCode="" MarkForKey=""
+    MaxOrderReleaseStatus="" MaxOrderReleaseStatusDesc="" MergeNode=""
+    MinOrderReleaseStatus="" MinOrderReleaseStatusDesc=""
+    NotificationReference="" NotificationType=""
+    NotifyAfterShipmentFlag="" OrderDate="" OrderHeaderKey=""
+    OrderName="" OrderReleaseKey="" OrderType="" OtherCharges=""
+    PacklistType="" PersonalizeCode="" PickListNo="" PriorityCode=""
+    Purpose="" ReceivingNode="" ReleaseNo="" ReleaseSeqNo=""
+    ReqCancelDate="" ReqDeliveryDate="" ReqShipDate=""
+    SCAC="" SalesOrderNo="" ScacAndService="" ScacAndServiceKey=""
+    ShipAdviceNo="" ShipCompleteFlag="" ShipLineComplete="" ShipNode=""
+    ShipNodeClass="" ShipOrderComplete="" ShipToId="" ShipToKey=""
+    Status="" SupplierCode="" SupplierName="" TaxpayerId="" isHistory="">
+    <Order EnterpriseCode="" OrderHeaderKey="" DocumentType="" OrderNo="">
+    	<Instructions>
+        	<Instruction InstructionText="" InstructionType="" SequenceNo=""/>
+    	</Instructions>
+		<CustomAttributes CustomerOrderNo="" PriorityCode="" ReleaseControlNbr=""/>
+    </Order>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PersonInfoMarkFor AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <OrderLine PrimeLineNo="" SubLineNo="">
+    <ItemDetails>
+	<Extn ExtnShipAlone=""/>
+    </ItemDetails>
+        <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+            CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
+            ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+            ItemWeightUOM="" ManufacturerItem="" ManufacturerItemDesc=""
+            ManufacturerName="" NMFCClass="" NMFCCode=""
+            NMFCDescription="" ProductClass="" ProductLine=""
+            ScheduleBCode="" SupplierItem="" SupplierItemDesc=""
+            TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure="">            
+	</Item>
+        <OrderStatuses>
+            <OrderStatus  
+                OrderHeaderKey="" OrderLineKey=""
+                OrderLineScheduleKey="" OrderReleaseKey=""
+                OrderReleaseStatusKey="" PipelineKey="" Status=""
+                StatusDate="" StatusDescription="" StatusQty=""
+                StatusReason="" TotalQuantity=""/>
+        </OrderStatuses>
+        <OrderDates>
+            <OrderDate CommittedDate="" DateTypeId="" />
+        </OrderDates>
+    </OrderLine>
+</OrderRelease>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="cacheId" Binding="/Item/@CacheID" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="itemID" Binding="/Item/@ItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="Barc0001" Binding="/Item/@ItemID" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="globalitemID" Binding="/Item/@GlobalItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shortDesc" Binding="/Item/Extn/@ExtnReportDesc" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="extDesc" Binding="/Item/PrimaryInformation/@ExtendedDescription" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wt" Binding="/Item/@ItemWeight" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtUom" Binding="/Item/PrimaryInformation/@UnitWeightUOM" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="pkUom" Binding="/Item/@UnitOfMeasure" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="stdPack" Binding="/Item/@StandardPack" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="trackID" Binding="/Item/@TrackableID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="note" Binding="/Item/@Note" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="expDate" Binding="/Item/@ExpiryDate" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="dlt" Binding="/Item/@DateLastTested" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="Barc0002" Binding="/Item/@TrackableID" RepeatingElement="" Sequence="N"/>
+</LabelFieldMap>

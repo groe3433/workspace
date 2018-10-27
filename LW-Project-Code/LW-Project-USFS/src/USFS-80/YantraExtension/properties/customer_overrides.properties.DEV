@@ -1,0 +1,6 @@
+#yfs.yfs.htmlencoding.triggers=<,>,)
+#dbclassCache.YFS_RESOURCE.objects=25000
+#dbclassCache.YFS_RESOURCE_PERMISSION.objects=90000
+yfs.yfs.uidev.refreshResources=Y
+yfs.yantra.document.isnamespaceaware=Y
+yfs.yfs.config.java.plugin.codebase=http://java.sun.com/update/1.7.0/jinstall-7u4-windows-i586.cab

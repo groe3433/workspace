@@ -1,0 +1,66 @@
+yfs.yfs.htmlencoding.triggers=<,>,)
+dbclassCache.YFS_RESOURCE.objects=25000
+dbclassCache.YFS_RESOURCE_PERMISSION.objects=90000
+yfs.analytics.reportnet.url=https://fam.nwcg.gov/cognos8/cgi-bin/cognos.cgi
+yfs.analytics.namespace=sscap
+yfs.yfs.loftware.tcpip.sockets=Y
+yfs.yfs.displayTaskInfoDetails=Y
+yfs.yfs.console.login.error.showDetail=Y
+yfs.yfs.default.inventorystatus.for.newinventory=RFI
+yfs.yfs.ui.MaxRecords=600
+yfs.yfs.install.localecode=en_US_CST
+yfs.yfs.deposit.units.separately.for.tasktypes=PICK0007,PICK0009,PICK0010,PICK0011,RF AdhocMv,PICK0005,PICK0006,Retrieval,VAS-RETR01,VAS-RETR02,MOVE-0001,MOVE-0002,MOVE-0003
+yfs.yfs.gridLayout.maximumRecords=50
+yfs.yfs.config.java.plugin.codebase=http://java.sun.com/update/1.6.0/jinstall-6u30-windows-i586.cab
+yfs.yfs.jms.session.disable.pooling=N
+
+yfs.yfs.dblogin.datasource.name=yfs80_datasource_p
+jdbcService.oraclePool.datasource=yfs80_datasource_p
+yfs.yantra.document.isnamespaceaware=Y
+
+# # # # #
+# The class that will be invoked for user authentication.
+# Uncomment and change the following only if you *DO NOT* want to use application authentication.
+# Refer to the javadocs for the YFSAuthenticator interface for information about how to write your
+# own implementation for this class.
+# If you want to use the default implementation for LDAP authentication,
+# uncomment the property and set it to com.yantra.yfs.util.YFSLdapAuthenticator
+# yfs.security.authenticator
+# # # # #
+
+yfs.yfs.security.authenticator=com.nwcg.icbs.yantra.api.ldap.NWCGLdapAuthenticator
+
+# # # # #
+# LDAP Configuration...
+# yfs.security.ldap.factory - The LDAP context factory classname as specified in your LDAP Server configuration.
+# yfs.security.ldap.url     - The URL for accessing your LDAP Server as specified in your LDAP Server configuration.
+# yfs.security.ldap.ou      - The value specified for the organizational unit in your LDAP Server configuration.
+# yfs.security.ldap.o       - The value specified for the organization in your LDAP Server configuration.
+# Uncomment and change the following properties only if you use the default LDAP authentication implementation.
+
+yfs.yfs.security.ldap.factory=com.sun.jndi.ldap.LdapCtxFactory
+yfs.yfs.security.ldap.url=ldaps://cable.nwcg.gov:636
+yfs.yfs.security.ldap.ou=people
+yfs.yfs.security.ldap.o=dc=nwcg,dc=gov
+
+########## MQ Settings #############
+yfs.yfs.agent.override.providerurl=corbaloc::umbriel.nwcg.gov:10000
+yfs.yfs.agent.override.qcf=TRN_QCF
+yfs.yfs.queue.nwcg.agent=NWCG_AGENT
+yfs.yfs.queue.nwcg.purge=NWCG_PURGE
+yfs.yfs.queue.nwcg.count.task=NWCG_COUNT_TASK
+yfs.yfs.queue.nwcg.trackable.inventory=NWCG_TRACKABLE_INVENTORY
+yfs.yfs.queue.nwcg.recalculate.location.dimensions=NWCG_RECALC_LOCN_DIMENSIONS
+yfs.yfs.queue.nwcg.delv.op=NWCG_DELV_OP
+yfs.yfs.queue.nwcg.billing.transaction=NWCG_BILLING_TRANSACTION
+yfs.yfs.queue.nwcg.catalog=NWCG_CATALOG
+yfs.yfs.queue.nwcg.outbound=NWCG_OB
+yfs.yfs.queue.nwcg.inbound=NWCG_IB
+yfs.yfs.queue.nwcg.internal=NWCG_INTERNAL
+yfs.yfs.queue.nwcg.outbound.1=NWCG_OB_1
+yfs.yfs.queue.nwcg.billing.return=NWCG_BILLING_RETURNS
+yfs.yfs.queue.nwcg.count.task1=NWCG_COUNT_TASK1
+yfs.yfs.queue.nwcg.count.task2=NWCG_COUNT_TASK2
+yfs.yfs.queue.nwcg.count.task3=NWCG_COUNT_TASK3
+yfs.yfs.queue.nwcg.inventory.alert=NWCG_INVENTORY_ALERT
+yfs.yfs.queue.nwcg.monitor-NWCG_MONITOR

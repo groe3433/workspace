@@ -1,0 +1,248 @@
+<Organization AccountWithHub="" ActivateFlag="" AssignedColonyId="" AuthorityType="" BillingAddressKey="" CapacityOrganizationCode="" CatalogOrganizationCode="" ContactAddressKey="" CorporateAddressKey="" CreatorOrganizationKey="" CustomerMaintainedExternally="" CustomerMasterOrganizationCode="" DunsNumber="" InheritOrgConfig="" InventoryKeptExternally="" InventoryOrganizationCode="" InventoryPublished="" IsHubOrganization="" IsLegalEntity="" IsSourcingKept="" IsTemplate="" IssuingAuthority="" ItemXrefRule="" LocaleCode="" OrganizationCode="" OrganizationKey="" OrganizationName="" OrganizationSuffix="" ParentOrganizationCode="" PasswordPolicyKey="" PaymentProcessingReqd="" PricingOrganizationCode="" PrimaryEnterpriseKey="" PrimarySicCode="" PrimaryUrl="" ResourceIdentifier="" StoreConfigOrganizationCode="" SupplyDemandKeptExternally="" SupplyKeptExternally="" TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction="" TaxpayerId="" XrefAliasType="" XrefOrganizationCode="">
+<CorporatePersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<BillingPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+−
+<!--
+ Node element is template controlled by passing this under the Organization element and not the SubOrganization element 
+-->
+−
+<Node AcceptanceRequired="" ActivateFlag="" AllowGiftWrap="" CanShipToAllNodes="" CanShipToOtherAddresses="" ContactAddressKey="" CurrentBolNumber="" DefaultDeclaredValue="" Description="" ExportLicenseExpDate="" ExportLicenseNo="" ExportTaxpayerId="" GLN="" GenerateBolNumber="" IdentifiedByParentAs="" InterfaceSubType="" InterfaceType="" InventoryTracked="" Inventorytype="" IsItemBasedAllocationAllowed="" Latitude="" Localecode="" Longitude="" MaintainInventoryCost="" NodeOrgCode="" NodeType="" OwnerKey="" OwnerType="" PicklistType="" ReceiptProcessingTime="" ReceiptProcessingTimeForForwarding="" ReceivingNode="" RequireTransferAcceptance="" ReturnCenterFlag="" ReturnsNode="" ShipNode="" ShipNodeAddressKey="" ShipNodeClass="" ShipnodeKey="" ShipnodeType="" ShippingNode="" SupplierKey="" ThreePlNode="" TimeDiff="">
+<ShipNodePersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<ReceivingCalendar CalendarDescription="" CalendarId="" CalendarKey=""/>
+<ShippingCalendar CalendarDescription="" CalendarId="" CalendarKey=""/>
+−
+<CanShipToNodeTypes>
+<CanShipToNodeType NodeTypeID=""/>
+</CanShipToNodeTypes>
+−
+<NodeCarrierServicePickupScheduleList>
+<NodeCarrierServicePickupSchedule CarrierServiceCode="" EffectiveFromDate="" EffectiveToDate="" FridayPickupTime="" MondayPickupTime="" NodeServicePickupDowKey="" SaturdayPickupTime="" ShipnodeKey="" SundayPickupTime="" ThursdayPickupTime="" TuesdayPickupTime="" WednesdayPickupTime=""/>
+</NodeCarrierServicePickupScheduleList>
+−
+<NodeCarrierServicePickupOverrideList>
+<NodeCarrierServicePickupOverride CanPickup="" CarrierServiceCode="" NodeServicePickupOverrideKey="" OverrideDate="" PickupTime="" ShipnodeKey=""/>
+</NodeCarrierServicePickupOverrideList>
+</Node>
+−
+<OrgProtocolList>
+−
+<OrgProtocol OrgProtocolKey="" OrganizationKey="" Password="" ProtocolKey="" ServerIp="" ServerPort="" UserId="">
+−
+<OrgProtocolReferenceList>
+<OrgProtocolReference Name="" OrgProtocolKey="" OrgProtocolReferenceKey="" Value=""/>
+</OrgProtocolReferenceList>
+</OrgProtocol>
+</OrgProtocolList>
+−
+<UserList>
+−
+<User Activateflag="" BillingaddressKey="" BusinessKey="" ChangePassNext="" ContactaddressKey="" CreatorOrganizationKey="" Imagefile="" Localecode="" Loginid="" Longdesc="" MenuId="" NoteKey="" OrganizationKey="" ParentUserKey="" Password="" PasswordPolicyKey="" PreferenceKey="" Pwdlastchangedon="" SessionTimeout="" SuperUser="" Theme="" UserKey="" UsergroupKey="" Username="" Usertype="">
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<BillingPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+−
+<QueueSubscriptionList>
+<QueueSubscription QueueKey="" QueueSubscriptionKey="" UserKey=""/>
+</QueueSubscriptionList>
+−
+<UserGroupLists>
+<UserGroupList UserGroupListKey="" UserKey="" UsergroupKey=""/>
+</UserGroupLists>
+−
+<UserDelegateList>
+<UserDelegate ActiveFlag="" DelegateUserID="" DelegationPurpose="" EffectiveEndDate="" EffectiveStartDate="" IsPrimaryDelegate="" UserDelegateKey="" UserID=""/>
+</UserDelegateList>
+</User>
+</UserList>
+−
+<RelatedOrgList>
+<OrgEnterprise EnterpriseOrganizationKey="" OrgEnterpriseKey="" OrganizationKey=""/>
+</RelatedOrgList>
+−
+<EnterpriseOrgList>
+<OrgEnterprise EnterpriseOrganizationKey="" OrgEnterpriseKey="" OrganizationKey=""/>
+</EnterpriseOrgList>
+−
+<UserGroups>
+−
+<UserGroup BusinessKey="" GroupType="" OwnerKey="" OwnerType="" TemplateGroup="" UsergroupDescription="" UsergroupId="" UsergroupKey="" UsergroupName="">
+−
+<ResourcePermissionList>
+<ResourcePermission ActivateFlag="" ResourceKey="" ResourcePermissionKey="" UsergroupKey=""/>
+</ResourcePermissionList>
+−
+<UserGroupLists>
+<UserGroupList UserGroupListKey="" UserKey="" UsergroupKey=""/>
+</UserGroupLists>
+</UserGroup>
+</UserGroups>
+<Enterprise Activateflag="" BillingaddressKey="" CommercialContactKey="" ContactaddressKey="" CorporateaddressKey="" EnterpriseKey="" Enterprisecode="" Enterprisename="" Latitude="" LegalContactKey="" Localecode="" Logoimagefile="" Longdesc="" Longitude="" NoteKey="" TaxpayerId="" UseDefaultDistribution="" UseDefaultOrderStatusRules=""/>
+−
+<OrgDocumentList>
+<OrgDocument BackupProtocolKey="" DocumentFormatKey="" OrgDocumentKey="" OrganizationKey="" ProtocolKey="" RoleDocumentKey="" VariantReference1="" VariantReference2="" VariantReference3="" VariantReference4="" VariantReference5=""/>
+</OrgDocumentList>
+−
+<OrgRoleList>
+<OrgRole OrganizationKey="" RoleKey=""/>
+</OrgRoleList>
+<LegalEntity CatalogOrganizationCode="" InventoryOrganizationCode="" IsHubOrganization="" IsLegalEntity="" OrganizationCode="" OrganizationKey="" OrganizationName="" ParentOrganizationCode="" PricingOrganizationCode=""/>
+−
+<SubOrganization>
+−
+<Organization AccountWithHub="" ActivateFlag="" AuthorityType="" BillingAddressKey="" CatalogOrganizationCode="" ContactAddressKey="" CorporateAddressKey="" CreatorOrganizationKey="" CustomerMasterOrganizationCode="" CustomerOrgPostfix="" DunsNumber="" InheritOrgConfig="" InventoryKeptExternally="" InventoryOrganizationCode="" InventoryPublished="" IsHubOrganization="" IsSourcingKept="" IssuingAuthority="" ItemXrefRule="" LocaleCode="" OrganizationCode="" OrganizationKey="" OrganizationName="" ParentOrganizationCode="" PasswordPolicyKey="" PaymentProcessingReqd="" PricingOrganizationCode="" PrimaryEnterpriseKey="" PrimarySicCode="" PrimaryUrl="" ResourceIdentifier="" SupplyKeptExternally="" TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction="" TaxpayerId="" XrefAliasType="" XrefOrganizationCode="">
+<CorporatePersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<BillingPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+−
+<Node AcceptanceRequired="" ActivateFlag="" CanShipToOtherAddresses="" ContactAddressKey="" CurrentBolNumber="" DefaultDeclaredValue="" Description="" ExportLicenseExpDate="" ExportLicenseNo="" ExportTaxpayerId="" GLN="" GenerateBolNumber="" IdentifiedByParentAs="" InterfaceSubType="" InterfaceType="" InventoryTracked="" Inventorytype="" IsItemBasedAllocationAllowed="" Latitude="" Localecode="" Longitude="" MaintainInventoryCost="" NodeOrgCode="" NodeType="" OwnerKey="" OwnerType="" PicklistType="" ReceiptProcessingTime="" ReceiptProcessingTimeForForwarding="" ReceivingNode="" RequireTransferAcceptance="" ReturnCenterFlag="" ReturnsNode="" ShipNode="" ShipNodeAddressKey="" ShipNodeClass="" ShipnodeKey="" ShipnodeType="" ShippingNode="" SupplierKey="" ThreePlNode="" TimeDiff="">
+<ShipNodePersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+</Node>
+−
+<OrgProtocolList>
+−
+<OrgProtocol OrgProtocolKey="" OrganizationKey="" Password="" ProtocolKey="" ServerIp="" ServerPort="" UserId="">
+−
+<OrgProtocolReferenceList>
+<OrgProtocolReference Name="" OrgProtocolKey="" OrgProtocolReferenceKey="" Value=""/>
+</OrgProtocolReferenceList>
+</OrgProtocol>
+</OrgProtocolList>
+−
+<UserList>
+−
+<User Activateflag="" BillingaddressKey="" BusinessKey="" ChangePassNext="" ContactaddressKey="" CreatorOrganizationKey="" Imagefile="" Localecode="" Loginid="" Longdesc="" MenuId="" NoteKey="" OrganizationKey="" ParentUserKey="" Password="" PasswordPolicyKey="" PreferenceKey="" Pwdlastchangedon="" SessionTimeout="" SuperUser="" Theme="" UserKey="" UsergroupKey="" Username="" Usertype="">
+<ContactPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+<BillingPersonInfo AddressID="" AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" AlternateEmailID="" Beeper="" City="" Company="" Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl="" IsCommercialAddress="" JobTitle="" LastName="" MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey="" PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode=""/>
+−
+<QueueSubscriptionList>
+<QueueSubscription QueueKey="" QueueSubscriptionKey="" UserKey=""/>
+</QueueSubscriptionList>
+−
+<UserGroupLists>
+<UserGroupList UserGroupListKey="" UserKey="" UsergroupKey=""/>
+</UserGroupLists>
+−
+<UserDelegateList>
+<UserDelegate ActiveFlag="" DelegateUserID="" DelegationPurpose="" EffectiveEndDate="" EffectiveStartDate="" IsPrimaryDelegate="" UserDelegateKey="" UserID=""/>
+</UserDelegateList>
+</User>
+</UserList>
+−
+<RelatedOrgList>
+<OrgEnterprise EnterpriseOrganizationKey="" OrgEnterpriseKey="" OrganizationKey=""/>
+</RelatedOrgList>
+−
+<EnterpriseOrgList>
+<OrgEnterprise EnterpriseOrganizationKey="" OrgEnterpriseKey="" OrganizationKey=""/>
+</EnterpriseOrgList>
+−
+<UserGroups>
+−
+<UserGroup BusinessKey="" GroupType="" OwnerKey="" OwnerType="" TemplateGroup="" UsergroupDescription="" UsergroupId="" UsergroupKey="" UsergroupName="">
+−
+<ResourcePermissionList>
+<ResourcePermission ActivateFlag="" ResourceKey="" ResourcePermissionKey="" UsergroupKey=""/>
+</ResourcePermissionList>
+−
+<UserGroupLists>
+<UserGroupList UserGroupListKey="" UserKey="" UsergroupKey=""/>
+</UserGroupLists>
+</UserGroup>
+</UserGroups>
+<Enterprise Activateflag="" BillingaddressKey="" CommercialContactKey="" ContactaddressKey="" CorporateaddressKey="" EnterpriseKey="" Enterprisecode="" Enterprisename="" Latitude="" LegalContactKey="" Localecode="" Logoimagefile="" Longdesc="" Longitude="" NoteKey="" TaxpayerId="" UseDefaultDistribution="" UseDefaultOrderStatusRules=""/>
+−
+<OrgDocumentList>
+<OrgDocument BackupProtocolKey="" DocumentFormatKey="" OrgDocumentKey="" OrganizationKey="" ProtocolKey="" RoleDocumentKey="" VariantReference1="" VariantReference2="" VariantReference3="" VariantReference4="" VariantReference5=""/>
+</OrgDocumentList>
+−
+<OrgRoleList>
+<OrgRole OrganizationKey="" RoleKey=""/>
+</OrgRoleList>
+−
+<CarrierAttributes>
+<Scac Account1="" Account2="" BillingAddressKey="" CommProtocol="" ContactAddressKey="" CurrentTrackingNo="" HostInterfaceType="" InternalReference1="" InternalReference2="" InternalReference3="" InternalReference4="" InternalReference5="" Localecode="" MaxTrackingNo="" MinTrackingNo="" OrganizationCode="" Scac="" ScacDesc="" ScacKey="" ServerAddress1="" ServerAddress2="" ServerPassword="" ServerUserid="" SystemIntgForDomesticReqd="" SystemIntgForIntlReqd="" TrackNoAlgo=""/>
+</CarrierAttributes>
+−
+<PaymentRuleList>
+<PaymentRule AuthRequiredBeforeSchedule="" CollectExternalThroughAr="" CustomerAccountMaintainedInternally="" DefaultFlag="" Description="" FinancialHandlingRequired="" IgnorePaymentStatusForPurge="" InterfaceTime="" MerchantId="" OrganizationCode="" PaymentRuleId="" PaymentRuleKey="" PostponeReauthorization="" ReauthHoursBeforeAppointment="" ReauthHoursBeforeRelease="" UseChargeTransactionRequestsForAuthorization=""/>
+</PaymentRuleList>
+−
+<PaymentTypeList>
+<PaymentType AllowAuthorizationsToExceedSettlementRequest="" AuthorizationExpirationHours="" AuthorizationReversalHours="" AuthorizationReversalStrategy="" CashBackLimit="" ChargeConsolAllowed="" ChargeInsteadOfAuth="" ChargeSequence="" ChargeUpToAvailable="" DefaultForReturn="" HasAltRefundConstraint="" MerchantId="" MinWaitTimeForConsol="" NewRefundPaymentType="" NoProcessingRequired="" OrganizationCode="" PartialReversalSupported="" PaymentTemplateType="" PaymentType="" PaymentTypeDescription="" PaymentTypeGroup="" PaymentTypeKey="" RefundConstraintOperator="" RefundConstraintPaymentType="" RefundConstraintValue="" RefundItemID="" RefundItemUom="" RefundRequiresFulfillment="" RefundSameAccount="" RefundSequence="" ValidForReturn="" Voidable="" ZeroAmountAuthorizationSupported=""/>
+</PaymentTypeList>
+−
+<OrgServiceList>
+<OrgService OrgServiceKey="" OrganizationKey="" ServiceKey=""/>
+</OrgServiceList>
+</Organization>
+</SubOrganization>
+−
+<Calendars>
+−
+<Calendar AllowShiftOverride="" CalendarDescription="" CalendarId="Required" CalendarKey="" OrganizationCode="">
+<InheritFromCalendar CalendarId="" InheritCalendarKey="" OrganizationCode=""/>
+−
+<EffectivePeriods>
+−
+<EffectivePeriod EffectiveFromDate="" EffectiveToDate="" ShiftEffectivePeriodKey="">
+−
+<Shifts>
+<Shift FridayValid="" MondayValid="" SaturdayValid="" ShiftEndTime="" ShiftKey="" ShiftName="" ShiftStartTime="" ShiftType="" SundayValid="" ThursdayValid="" TuesdayValid="" WednesdayValid=""/>
+</Shifts>
+</EffectivePeriod>
+</EffectivePeriods>
+−
+<CalendarDayExceptions>
+−
+<CalendarDayException CalendarDayExceptionKey="" Date="" ExceptionType="">
+−
+<ExceptionShifts>
+−
+<ExceptionShift ExceptionShiftKey="" ShiftKey="">
+<Shift ShiftEndTime="" ShiftKey="" ShiftName="" ShiftStartTime="" ShiftType=""/>
+</ExceptionShift>
+</ExceptionShifts>
+</CalendarDayException>
+</CalendarDayExceptions>
+</Calendar>
+</Calendars>
+−
+<DepartmentList>
+<Department DepartmentAbbreviation="" DepartmentCode="" DepartmentKey="" DepartmentName="" OrganizationCode=""/>
+</DepartmentList>
+−
+<CarrierPreferences>
+<CarrierPreference Account1="" Account2="" BillingAddressKey="" ContactAddressKey="" CurrentTrackingNo="" InternalReference1="" InternalReference2="" InternalReference3="" InternalReference4="" InternalReference5="" MaxTrackingNo="" MinTrackingNo="" PortalAccount1="" PortalAccount2="" PostOfficeCity="" PostOfficeState="" PostOfficeZipcode="" RecordKey="" RecordType="" ScacExKey="" ScacKey="" ServerAddress1="" ServerAddress2="" ServerPassword="" ServerUserid="" SystemIntgForDomesticReqd="" SystemIntgForIntlReqd=""/>
+</CarrierPreferences>
+−
+<CarrierAttributes>
+<Scac Account1="" Account2="" BillingAddressKey="" CommProtocol="" ContactAddressKey="" CurrentTrackingNo="" HostInterfaceType="" InternalReference1="" InternalReference2="" InternalReference3="" InternalReference4="" InternalReference5="" Localecode="" MaxTrackingNo="" MinTrackingNo="" OrganizationCode="" Scac="" ScacDesc="" ScacKey="" ServerAddress1="" ServerAddress2="" ServerPassword="" ServerUserid="" SystemIntgForDomesticReqd="" SystemIntgForIntlReqd="" TrackNoAlgo=""/>
+</CarrierAttributes>
+−
+<ScacAndServiceList>
+<ScacAndService CarrierServiceKey="" CarrierType="" ElectronicCode="" HostCode="" InternalReference1="" InternalReference2="" InternalReference3="" InternalReference4="" InternalReference5="" InternationalShipping="" OrganizationCode="" ScacAndService="" ScacAndServiceDesc="" ScacAndServiceKey="" ScacKey="" ShipMode=""/>
+</ScacAndServiceList>
+−
+<PaymentRuleList>
+<PaymentRule AuthRequiredBeforeSchedule="" CollectExternalThroughAr="" CustomerAccountMaintainedInternally="" DefaultFlag="" Description="" FinancialHandlingRequired="" IgnorePaymentStatusForPurge="" InterfaceTime="" MerchantId="" OrganizationCode="" PaymentRuleId="" PaymentRuleKey="" PostponeReauthorization="" ReauthHoursBeforeAppointment="" ReauthHoursBeforeRelease="" UseChargeTransactionRequestsForAuthorization=""/>
+</PaymentRuleList>
+−
+<PaymentTypeList>
+<PaymentType AllowAuthorizationsToExceedSettlementRequest="" AuthorizationExpirationHours="" AuthorizationReversalHours="" AuthorizationReversalStrategy="" CashBackLimit="" ChargeConsolAllowed="" ChargeInsteadOfAuth="" ChargeSequence="" ChargeUpToAvailable="" DefaultForReturn="" HasAltRefundConstraint="" MerchantId="" MinWaitTimeForConsol="" NewRefundPaymentType="" NoProcessingRequired="" OrganizationCode="" PartialReversalSupported="" PaymentTemplateType="" PaymentType="" PaymentTypeDescription="" PaymentTypeGroup="" PaymentTypeKey="" RefundConstraintOperator="" RefundConstraintPaymentType="" RefundConstraintValue="" RefundItemID="" RefundItemUom="" RefundRequiresFulfillment="" RefundSameAccount="" RefundSequence="" ValidForReturn="" Voidable="" ZeroAmountAuthorizationSupported=""/>
+</PaymentTypeList>
+−
+<OrgServiceList>
+<OrgService OrgServiceKey="" OrganizationKey="" ServiceKey=""/>
+</OrgServiceList>
+<InboundCompliance IsAppointmentReqd="" IsEspMaintained="" IsRoutingGuideMaintained="" ReadUomFromBuyer="" SCMLabelLevel="" SCMLabelReqd=""/>
+−
+<ConsumableOrganizationList>
+<InventoryOrgRelationship ConsumableInventoryOrg=""/>
+</ConsumableOrganizationList>
+−
+<OrgThemeList>
+<OrgTheme IsDefault="" OrgThemeKey="" OrganizationKey="" ThemeID=""/>
+</OrgThemeList>
+</Organization>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<MultiApi> 
+ <API
+                FlowName="${MultiApi.API.FlowName}"> 
+  <Input> 
+   <OrderRelease
+                ReqShipDate="${MultiApi.API.Input.OrderRelease.ReqShipDate}"
+        ShipAdviceNo="${MultiApi.API.Input.OrderRelease.ShipAdviceNo}"> 
+   </OrderRelease> 
+  </Input> 
+ </API> 
+ <API
+                Name="${MultiApi.API.2.Name}"> 
+      <Input> 
+         <OrderStatusChange
+                BaseDropStatus="${MultiApi.API.2.Input.OrderStatusChange.BaseDropStatus}"
+                ChangeForAllAvailableQty="${MultiApi.API.2.Input.OrderStatusChange.ChangeForAllAvailableQty}"
+                ShipAdviceNo="${MultiApi.API.2.Input.OrderStatusChange.ShipAdviceNo}"
+                ShipNode="${MultiApi.API.2.Input.OrderStatusChange.ShipNode}"
+        TransactionId="${MultiApi.API.2.Input.OrderStatusChange.TransactionId}"/> 
+      </Input> 
+   </API> 
+ <API
+                Name="${MultiApi.API.3.Name}"> 
+  <Input> 
+   <OrderStatusChange
+                BaseDropStatus="${MultiApi.API.3.Input.OrderStatusChange.BaseDropStatus}"
+                ChangeForAllAvailableQty="${MultiApi.API.3.Input.OrderStatusChange.ChangeForAllAvailableQty}"
+                ShipAdviceNo="${MultiApi.API.3.Input.OrderStatusChange.ShipAdviceNo}"
+                ShipNode="${MultiApi.API.3.Input.OrderStatusChange.ShipNode}" TransactionId="${MultiApi.API.3.Input.OrderStatusChange.TransactionId}"/> 
+  </Input> 
+ </API> 
+</MultiApi>

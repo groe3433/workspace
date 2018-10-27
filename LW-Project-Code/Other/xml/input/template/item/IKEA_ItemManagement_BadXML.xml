@@ -1,0 +1,23 @@
+<ItemList>
+<Item ItemID="${Item.ItemID} ItemGroupCode="${Item.ItemGroupCode}" UnitOfMeasure="${Item.UOM}" OrganizationCode="${Item.OrganizationCode}" >
+<PrimaryInformation  BundleFulfillmentMode="02" Description="${PrimaryInformation.Description}" ShortDescription="${PrimaryInformation.ShortDescription}"
+EffectiveEndDate="${PrimaryInformation.EffectiveEndDate}" EffectiveStartDate="${PrimaryInformation.EffectiveStartDate}" IsDeliveryAllowed="${PrimaryInformation.IsDeliveryAllowed}" 
+IsPickupAllowed="${PrimaryInformation.IsPickupAllowed}" IsReturnable="${PrimaryInformation.IsReturnable}" IsShippingAllowed="${PrimaryInformation.IsShippingAllowed}" 
+KitCode="${PrimaryInformation.KitCode}" Status="${PrimaryInformation.Status}" UnitHeight="${PrimaryInformation.UnitHeight}" 
+UnitHeightUOM="${PrimaryInformation.UnitHeightUOM}" IsProcurementAllowed="${PrimaryInformation.IsProcurementAllowed}" UnitLength="${PrimaryInformation.UnitLength}" 
+UnitLengthUOM="${PrimaryInformation.UnitLengthUOM}" UnitWeight="${PrimaryInformation.UnitWeight}" 
+UnitWeightUOM="${PrimaryInformation.UnitWeightUOM}" UnitWidth="${PrimaryInformation.UnitWidth}" UnitWidthUOM="${PrimaryInformation.UnitWidthUOM}" />
+<InventoryParameters  ATPRule="${InventoryParameters.ATPRule}" InventoryMonitorRule="${InventoryParameters.InventoryMonitorRule}" LeadTime="${InventoryParameters.LeadTime}"
+NodeLevelInventoryMonitorRule="${InventoryParameters.NodeLevelInventoryMonitorRule}" />
+<Components>
+<Component ComponentItemID="${Component.ComponentItemID}" ComponentOrganizationCode="${Component.ComponentOrganizationCode}" 
+ComponentUnitOfMeasure="${Component.ComponentUnitOfMeasure}" KitQuantity="${Component.KitQuantity}" /> 
+</Components>
+<Extn SupplierItemType="${Extn.SupplierItemType}" ArticlePackages="${Extn.ArticlePackages}" HFB="${Extn.HFB}" PA="${Extn.PA}" 
+ItemServiceAssociation="${Extn.ItemServiceAssociation}" TransportMethodType="${Extn.TransportMethodType}" IsParcelCombination="${Extn.IsParcelCombination}">
+<SomItemEntAttList>
+<SomItemEntAtt HDEarliestStartDate="${SomItemEntAtt.HDEarliestStartDate}" EnterpriseCode="${SomItemEntAtt.EnterpriseCode}" />
+</SomItemEntAttList>
+</Extn>
+</Item>
+</ItemList>

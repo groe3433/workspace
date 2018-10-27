@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="1.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+    <display-name>SterlingApplications</display-name>
+    <icon>
+        <small-icon>item02.gif</small-icon>
+        <large-icon>item02.gif</large-icon>
+    </icon>
+    <module id="yantraWebModule">
+        <web>
+            <web-uri>yantra.war</web-uri>
+            <context-root>/yantra</context-root>
+        </web>
+    </module>
+    <module id="yantraejbModule">
+        <ejb>yantraejb.jar</ejb>
+    </module>
+		<module id="WebModule_1">         
+			<web>          
+				<web-uri>ICBSRWebServices.war</web-uri>          
+				<context-root>ICBSRWebServices</context-root>         
+			</web>        
+		</module> 
+</application>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Order EnterpriseCode="" DocumentType="" OrderHeaderKey="" OrderNo="">
+<OrderLines>
+<OrderLine PrimeLineNo="" OriginalOrderedQty="" SubLineNo="" >
+<ItemDetails ItemID="" UnitOfMeasure="" />
+<ReturnOrderLines>
+<OrderLine OrderHeaderKey="" OrderLineKey=""/>
+</ReturnOrderLines>
+</OrderLine>
+</OrderLines>
+</Order>

@@ -1,0 +1,13 @@
+<NWCGIncidentReturnList>
+    <NWCGIncidentReturn CacheID="" Createprogid=""
+        Createts="" Createuserid=""
+        DateIssued="" IncidentNo=""
+        IncidentReturnKey="" ItemID=""
+        Lockid="" Modifyprogid="" Modifyts=""
+        Modifyuserid="" OverReceipt="N" QuantityNRFI=""
+        QuantityRFI="" QuantityRFIRefurb=""
+        QuantityReturned="" QuantityShipped=""
+        QuantityUnsNwtRefurb="" QuantityUnsNwtReturn=""
+        QuantityUnsRefurb="" QuantityUnsRet=""
+        ReceivedAsComponent="" TrackableID="" UnitPrice="" />
+</NWCGIncidentReturnList>

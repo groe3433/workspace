@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.home.portlets.OrderPortletExtnBundle" screenId="extn.home.portlets.OrderPortletExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_txtCustOrderNo_TextField_label"
+            bundleKey="extn_Order_Number"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_txtCustOrderNo"/>
+        <BundleEntry bundleEntryId="txtOrderNo_TextField_label"
+            bundleKey="OrderNo" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="txtOrderNo"/>
+        <BundleEntry bundleEntryId="txtEmail_Order_TextField_label"
+            bundleKey="extn_Billing_Email_address_starts_with"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="txtEmail_Order"/>
+        <BundleEntry bundleEntryId="txtPhoneNo_TextField_label"
+            bundleKey="extn_Customer_Billing_telephone"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="txtPhoneNo"/>
+    </BundleEntries>
+</ScreenBundle>

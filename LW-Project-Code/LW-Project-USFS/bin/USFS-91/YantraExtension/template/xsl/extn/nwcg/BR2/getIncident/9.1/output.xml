@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<GetIncidentReq xmlNameSpace="xmlns">
+<Service Name="ROSS Service Name Goes Here">
+<MessageOriginator>
+<SystemOfOrigin xmlNameSpace2="xmlns">
+<SystemOfOrigin>ICBS</SystemOfOrigin>
+</SystemOfOrigin>
+</MessageOriginator>
+<IncidentKey>
+<NaturalIncidentKey xmlNameSpace3="xmlns">
+<HostID>
+<UnitIDPrefix>1</UnitIDPrefix>
+<UnitIDSuffix>1</UnitIDSuffix>
+</HostID>
+<SequenceNumber>1</SequenceNumber>
+<YearCreated>2007</YearCreated>
+</NaturalIncidentKey>
+</IncidentKey>
+</Service>
+</GetIncidentReq>

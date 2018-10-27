@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Customer CustomerID="">
+  <Extn ExtnGACC="" ExtnCustomerName="" ExtnUnitType="" ExtnAgency="" ExtnDepartment=""/>
+  <Consumer BillingAddressKey="">
+  	<BillingPersonInfo FirstName="" LastName="" PersonInfoKey="" AddressLine1="" AddressLine2="" City="" State="" ZipCode="" Country=""/>
+  </Consumer>
+</Customer>

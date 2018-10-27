@@ -1,0 +1,174 @@
+		<div>
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Image" 
+		 				data-ibmsc-uid="imgEmailLabel"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'imgEmailLabel' , 
+		renderHidden : false  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Image" 
+		 				data-ibmsc-uid="imgPhoneNo"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'imgPhoneNo' , 
+		renderHidden : false  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="lblName"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lblName'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('blank')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Company_Name"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		spanLabel : true , 
+		_sc_extensibility_moveOrder : '8' , 
+		_sc_extensibility_referenceUId : 'extn_Companyname' , 
+		uId : 'extn_Company_Name' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.Company'
+,
+		 namespace : 			'Address'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Companyname"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'lblName' , 
+		uId : 'extn_Companyname' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.Company'
+,
+		 namespace : 			'Address'
+	}
+	}
+,	
+			 	value : 			this.getSimpleBundleString('extn_Company_Name')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Email"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'lblCityStateZip' , 
+		uId : 'extn_Email' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfoBillTo.EMailID'
+,
+		 namespace : 			'CustomerAddress'
+	}
+	}
+,	
+			 	value : 			this.getSimpleBundleString('Email')
+,	
+			 	label : 			this.getSimpleBundleString('Email')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Phone"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '6' , 
+		_sc_extensibility_referenceUId : 'lblPostalCode' , 
+		uId : 'extn_Phone' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.DayPhone'
+,
+		 namespace : 			'Address'
+	}
+	}
+,	
+			 	value : 			this.getSimpleBundleString('extn_Phone')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Email_ID"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : 'lblCountry' , 
+		uId : 'extn_Email_ID' , 
+		renderHidden : true , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.EMailID'
+,
+		 namespace : 			'Address'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+		 				data-ibmsc-uid="extn_Phone_Number"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '12' , 
+		_sc_extensibility_referenceUId : 'lblDayPhone' , 
+		uId : 'extn_Phone_Number' , 
+		renderHidden : true , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.DayPhone'
+,
+		 namespace : 			'Address'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

@@ -1,0 +1,136 @@
+<html>
+    <body>
+        <form name="frmInventoryDetail" target="/console/rfretrieval.ppc">
+            <table border="1">
+                <tr>
+                    <td>
+                        <table border="0" width="300">
+                            <tr>
+                                <td>                                    
+                                    <input col="1" name="lblPick" size="5" subtype="Label" value="INC#"
+                                    type="text" validate="false"/>									
+                                    <input col="7" 
+                                    inputbinding="xml:/TaskList/Task/Incident/@ExtnIncidentNo"
+                                    name="txtIncidentNo" size="30"
+                                    subtype="ProtectedText"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" 
+                                    inputbinding="xml:/TaskList/Task/Incident/@ExtnIncidentName"
+                                    name="txtIncidentName" size="25"
+                                    subtype="ProtectedText"
+                                    type="text" validate="false"/>
+									
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+									<input col="1" inputbinding="xml:/TaskList/Task/Address/@AddressLine1"
+                                    name="txtAddressLine1"        
+                                    size="35"
+                                    subtype="ProtectedText"
+                                    type="text" validate="false"/>
+
+								</td>
+                            </tr>
+                            <tr>
+                                <td>
+
+									<input col="1" inputbinding="xml:/TaskList/Task/Address/@AddressLine2"
+	                                name="txtAddressLine2"                            
+		                            size="35"
+			                        subtype="ProtectedText"                              
+				                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+								<input col="1" inputbinding="xml:/TaskList/Task/Address/@City"
+	                            name="txtCity"                            
+		                        size="15"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+								
+								<input col="18" inputbinding="xml:/TaskList/Task/Address/@State"
+	                            name="txtState"                            
+		                        size="5"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+								
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+								 <input col="1" name="lblBlmAcctCode" size="20" subtype="Label" value="BLM ACCT:"
+                                    type="text" validate="false"/>
+                                    </td>
+                            <tr>
+                                
+                                <td>
+								<input col="1" inputbinding="xml:/TaskList/Task/Incident/@ExtnBlmAcctCode"
+	                            name="txtBlmAcctCode"                            
+		                        size="40"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+                                  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+								 <input col="1" name="lblFsAcctCode" size="20" subtype="Label" value="FS ACCT:"
+                                 type="text" validate="false"/>
+                                 </td>
+                            <tr>
+                                
+                                <td>
+								<input col="1" inputbinding="xml:/TaskList/Task/Incident/@ExtnFsAcctCode"
+	                            name="txtFsAcctCode"                            
+		                        size="15"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+								<input col="20" inputbinding="xml:/TaskList/Task/Incident/@ExtnOverrideCode"
+	                            name="txtOverrideCode"                            
+		                        size="8"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+                 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                               	<input col="1" name="lblOtherAcctCode" size="20" subtype="Label" value="OTH ACCT:"
+                                type="text" validate="false"/>
+                                </td>
+                            <tr>
+                                
+                                <td>
+								<input col="1" inputbinding="xml:/TaskList/Task/Incident/@ExtnOtherAcctCode"
+	                            name="txtOtherAcctCode"                            
+		                        size="20"
+			                    subtype="ProtectedText"                              
+				                type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input col="13" hotkey="F4" mandatory="false"
+                                    name="action1" size="5"
+                                    subtype="CommandBack"
+                                    type="button" validate="false" value="Back"/>
+                                </td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

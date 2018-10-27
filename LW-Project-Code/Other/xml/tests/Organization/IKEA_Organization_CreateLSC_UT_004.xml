@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_CreateLSC_UT_004" Description="Create new LSC with proper input data.">
+	<p:Steps>
+		<!-- add the organization -->
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateLSC_Component"></p1:Component>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="LSC.145" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.CorporatePersonInfo.City" Type="INPUT" Value="Doloman Rd, Ilkeston"  />
+    <p:Parameter Key="Organization.CorporatePersonInfo.State" Type="INPUT" Value=""  />
+    <p:Parameter Key="Organization.CorporatePersonInfo.ZipCode" Type="INPUT" Value="NG162RU" /> 
+	<p:Parameter Key="Organization.Node.NodeType" Type="INPUT" Value="LSC"  />
+    <p:Parameter Key="Organization.Node.ReceiptProcessingTime" Type="INPUT" Value="" /> 
+	<p:Parameter Key="Organization.OrganizationName" Type="INPUT" Value="NOTTINGHAM HUB"/> 
+  </p:Parameters>
+</p:TestCase>

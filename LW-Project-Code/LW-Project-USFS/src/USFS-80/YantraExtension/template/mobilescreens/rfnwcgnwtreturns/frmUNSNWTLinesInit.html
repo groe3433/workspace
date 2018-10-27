@@ -1,0 +1,78 @@
+<html>
+<body>
+<form name="frmUNSNWTLinesInit" target="/console/rfnwcgnwtreturns.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblHeader" size="40" subtype="Label"
+					tag="binding=lblTitle" value="UNSNWT Return Lines" type="text"
+					validate="false" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" name="lblReturnNo" size="40" subtype="Label"
+					tag="binding=xml:/NextReceiptNo/@ReceiptNo" value=""
+					inputbinding="xml:/NextReceiptNo/@ReceiptNo"
+					outputbinding="xml:/NextReceiptNo/@ReceiptNo" type="text"
+					validate="false" /> <input col="19" size="15" name="lblIncNo"
+					subtype="Label" tag="binding=xml:/Receipt/@IncNo" type="hidden"
+					validate="false" value="" inputbinding="xml:/Receipt/@IncNo"
+					outputbinding="xml:/Receipt/@IncNo" /> <input col="19"
+					size="15" name="lblIncYear" subtype="Label"
+					tag="binding=xml:/Receipt/@IncYear" type="hidden" validate="false"
+					value="" inputbinding="xml:/Receipt/@IncYear"
+					outputbinding="xml:/Receipt/@IncYear" /></td>
+
+			</tr>
+			<tr>
+				<td><input col="1" size="9" name="lblItemID" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Item ID" /> <input col="11" name="txtItemID"
+					outputbinding="xml:/ReturnLine/@ItemID" size="7" subtype="Text"
+					tag="binding=xml:/ReturnLine/@ItemID" type="text" validate="true"
+					value="" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" size="9" name="lblQty" subtype="Label"
+					tag="binding=lblQty" type="text" validate="false" value="Quantity" />
+				<input col="11" inputbinding="xml:/ReturnLine/@Qty" name="txtQty"
+					outputbinding="xml:/ReturnLine/@Qty" size="4" subtype="Text"
+					tag="binding=xml:/ReturnLine/@Qty" type="text" validate="false" />
+				</td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="11" name="lblTotalLines"
+					subtype="Label" tag="binding=lblEquipment" type="text"
+					validate="false" value="Total Lines" /> <input col="12" size="5"
+					name="lblTotalLinesVal" subtype="Label" tag="binding=lblEquipment"
+					type="text" validate="false" value="0" /></td>
+			</tr>
+
+
+			<tr>
+				<td><input col="1" hotkey="F4" name="Add" size="12"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTAddLineToTempQ"
+					validate="false" value="Add To List" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" hotkey="F6" name="ViewList" size="12"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTReturnList"
+					validate="false" value="View List" /> <input col="13" hotkey="F3"
+					name="Process Return" size="15" subtype="Command" tag=" "
+					type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTProcessReturn"
+					validate="false" value="Process Return" /></td>
+			</tr>
+
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

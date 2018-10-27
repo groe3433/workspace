@@ -1,0 +1,207 @@
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by A Bc (America Online) -->
+<MergedDocument>
+	<InputDocument>
+		<ro:DistributionID xmlns:cat="http://nwcg.gov/services/ross/catalog/1.1" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:ro="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:rsc="http://nwcg.gov/services/ross/resource/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">d2a5836f-6245-11dc-a00b-83cbe38deaae</ro:DistributionID>
+		<ro:GetIncidentResp xmlns:cat="http://nwcg.gov/services/ross/catalog/1.1" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:ro="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:rsc="http://nwcg.gov/services/ross/resource/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<ro:ResponseStatus>
+				<ReturnCode>0</ReturnCode>
+			</ro:ResponseStatus>
+			<ro:Incident>
+				<IncidentKey>
+					<IncidentID>
+						<EntityType>Incident</EntityType>
+						<EntityID>102</EntityID>
+						<ApplicationSystem>
+							<SystemType>ROSS</SystemType>
+						</ApplicationSystem>
+					</IncidentID>
+					<NaturalIncidentKey>
+						<HostID>
+							<UnitIDPrefix>LM</UnitIDPrefix>
+							<UnitIDSuffix>9B1</UnitIDSuffix>
+						</HostID>
+						<SequenceNumber>1</SequenceNumber>
+						<YearCreated>2007</YearCreated>
+					</NaturalIncidentKey>
+				</IncidentKey>
+				<IncidentDetails>
+					<IncidentName>Incident A</IncidentName>
+					<IncidentType>Wildfire</IncidentType>
+					<SystemOfRecord>
+						<SystemType>ROSS</SystemType>
+					</SystemOfRecord>
+					<InitialDateTime>2007-09-11T16:13:00+00:00</InitialDateTime>
+					<IncidentLocation>
+						<GeographicCoordinate>
+							<GeographicCoordinateLatitude>
+								<LatitudeDegreeValue>10</LatitudeDegreeValue>
+								<LatitudeMinuteValue>20</LatitudeMinuteValue>
+								<LatitudeSecondValue>30</LatitudeSecondValue>
+								<LatitudeDirection>South</LatitudeDirection>
+							</GeographicCoordinateLatitude>
+							<GeographicCoordinateLongitude>
+								<LongitudeDegreeValue>5</LongitudeDegreeValue>
+								<LongitudeMinuteValue>6</LongitudeMinuteValue>
+								<LongitudeSecondValue>7</LongitudeSecondValue>
+								<LongitudeDirection>West</LongitudeDirection>
+							</GeographicCoordinateLongitude>
+						</GeographicCoordinate>
+						<UTMCoordinate>
+							<UTMGridZoneID>30</UTMGridZoneID>
+							<UTMEastingValue>718916</UTMEastingValue>
+							<UTMNorthingValue>114542</UTMNorthingValue>
+							<Hemisphere>North</Hemisphere>
+						</UTMCoordinate>
+					</IncidentLocation>
+					<LocationName>Incident A</LocationName>
+					<isComplexIndicator>false</isComplexIndicator>
+					<DispatchOrganization>
+						<UnitIDPrefix>LM</UnitIDPrefix>
+						<UnitIDSuffix>9B1</UnitIDSuffix>
+					</DispatchOrganization>
+					<BillingOrganization>
+						<UnitIDPrefix>LM</UnitIDPrefix>
+						<UnitIDSuffix>9B1</UnitIDSuffix>
+					</BillingOrganization>
+					<Status>Open</Status>
+				</IncidentDetails>
+				<IncidentEntities>
+					<IncidentRadioFrequencies>
+						<IncidentRadioFrequencyKey>
+							<RadioFrequencyNaturalKey>
+								<IncidentKey>
+									<IncidentID>
+										<EntityType>Incident</EntityType>
+										<EntityID>102</EntityID>
+										<ApplicationSystem>
+											<SystemType>ROSS</SystemType>
+										</ApplicationSystem>
+									</IncidentID>
+									<NaturalIncidentKey>
+										<HostID>
+											<UnitIDPrefix>LM</UnitIDPrefix>
+											<UnitIDSuffix>9B1</UnitIDSuffix>
+										</HostID>
+										<SequenceNumber>1</SequenceNumber>
+										<YearCreated>2007</YearCreated>
+									</NaturalIncidentKey>
+								</IncidentKey>
+								<FrequencyType>AirToAir</FrequencyType>
+								<FrequencyValue>FREQ1-Dispatch LM9B1</FrequencyValue>
+								<Tone>99.9</Tone>
+							</RadioFrequencyNaturalKey>
+							<RadioFrequencyID>
+								<EntityType>IncidentRadioFrequency</EntityType>
+								<EntityID>48</EntityID>
+								<ApplicationSystem>
+									<SystemType>ROSS</SystemType>
+								</ApplicationSystem>
+							</RadioFrequencyID>
+						</IncidentRadioFrequencyKey>
+						<PrimaryIndicator>true</PrimaryIndicator>
+					</IncidentRadioFrequencies>
+					<IncidentRequestBlocks>
+						<Catalog>Equipment</Catalog>
+						<Name>Default Block</Name>
+						<StartNumber>NotItRoss</StartNumber>
+						<EndNumber>999999</EndNumber>
+						<ForUseByAppSystem>
+							<SystemType>ROSS</SystemType>
+						</ForUseByAppSystem>
+					</IncidentRequestBlocks>
+					<IncidentRequestBlocks>
+						<Catalog>Crew</Catalog>
+						<Name>Default Block</Name>
+						<StartNumber>1</StartNumber>
+						<EndNumber>999999</EndNumber>
+						<ForUseByAppSystem>
+							<SystemType>ROSS</SystemType>
+						</ForUseByAppSystem>
+					</IncidentRequestBlocks>
+					<IncidentRequestBlocks>
+						<Catalog>Aircraft</Catalog>
+						<Name>Default Block</Name>
+						<StartNumber>1</StartNumber>
+						<EndNumber>999999</EndNumber>
+						<ForUseByAppSystem>
+							<SystemType>ROSS</SystemType>
+						</ForUseByAppSystem>
+					</IncidentRequestBlocks>
+					<IncidentRequestBlocks>
+						<Catalog>Supply</Catalog>
+						<Name>Default Block</Name>
+						<StartNumber>1</StartNumber>
+						<EndNumber>9999</EndNumber>
+						<ForUseByAppSystem>
+							<SystemType>ICBS</SystemType>
+						</ForUseByAppSystem>
+					</IncidentRequestBlocks>
+					<IncidentRequestBlocks>
+						<Catalog>Overhead</Catalog>
+						<Name>Default Block</Name>
+						<StartNumber>1</StartNumber>
+						<EndNumber>999999</EndNumber>
+						<ForUseByAppSystem>
+							<SystemType>ROSS</SystemType>
+						</ForUseByAppSystem>
+					</IncidentRequestBlocks>
+					<FinancialCodes>
+						<FinancialCode>
+							<OwningAgencyName>ICBS</OwningAgencyName>
+							<PrimaryInd>false</PrimaryInd>
+							<FinancialCode>FINANCIAL CODE HERE!!!!</FinancialCode>
+							<FiscalYear>2007</FiscalYear>
+						</FinancialCode>
+						<FinancialCode>
+							<OwningAgencyName>ICBS</OwningAgencyName>
+							<PrimaryInd>false</PrimaryInd>
+							<FinancialCode>SecRoss code</FinancialCode>
+							<FiscalYear>2010</FiscalYear>
+						</FinancialCode>
+						<FinancialCode>
+							<OwningAgencyName>ROSS</OwningAgencyName>
+							<PrimaryInd>true</PrimaryInd>
+							<FinancialCode>ROSS FIN CODE HERE</FinancialCode>
+							<FiscalYear>2007</FiscalYear>
+						</FinancialCode>
+					</FinancialCodes>
+					<IncidentAddresses>
+						<Address>
+							<Type>Mailing</Type>
+							<Line1>900 Chelmsford St</Line1>
+							<Line2>Suite 100</Line2>
+							<City>Lowell</City>
+							<State>MA</State>
+							<ZipCode>02166</ZipCode>
+							<CountryCode>US</CountryCode>
+							<PrimaryInd>true</PrimaryInd>
+						</Address>
+						<Address>
+							<Type>Shipping</Type>
+							<Line1>123 Happy St</Line1>
+							<Line2>Suite 888</Line2>
+							<City>Somewhere</City>
+							<State>NY</State>
+							<ZipCode>12345</ZipCode>
+							<CountryCode>US</CountryCode>
+							<PrimaryInd>true</PrimaryInd>
+						</Address>
+						<Address>
+							<Type>Shipping</Type>
+							<Line1>YOU SHOULDNT SEE ME</Line1>
+							<Line2>XXXXX</Line2>
+							<City>AHHHHHHH</City>
+							<State>NY</State>
+							<ZipCode>12345</ZipCode>
+							<CountryCode>US</CountryCode>
+							<PrimaryInd>false</PrimaryInd>
+						</Address>
+					</IncidentAddresses>
+				</IncidentEntities>
+			</ro:Incident>
+		</ro:GetIncidentResp>
+	</InputDocument>
+	<EnvironmentDocument>
+		<NWCGIncidentOrder IncidentNo="" IncidentAction="CREATE| UPDATE" Year=" 2044"/>
+	</EnvironmentDocument>
+</MergedDocument>

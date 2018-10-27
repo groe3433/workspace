@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:cat="http://nwcg.gov/services/ross/catalog/1.1" xmlns:tns="http://nwcg.gov/services/ross/catalog/wsdl/1.1" xmlns:ns="http://nwcg.gov/services/ross/catalog/1.1" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Catalog_WSDL" targetNamespace="http://nwcg.gov/services/ross/catalog/wsdl/1.1">
+	<types>
+		<xs:schema version="1.1">
+			<xs:import namespace="http://nwcg.gov/services/ross/catalog/1.1" schemaLocation="./Catalog.xsd"/>
+			<!--  Jay: Important: We need these comments for code generation of xs:any -->
+			<xs:import namespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" schemaLocation="ResourceOrderNotification.xsd"/>			
+			<xs:import namespace="http://nwcg.gov/services/ross/resource_order/1.1" schemaLocation="ResourceOrder.xsd"/>			
+			<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+			<xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="RossSecurity.xsd"/>
+		</xs:schema>
+	</types>
+	<message name="CreateCatalogItemReq">
+		<part name="body" element="cat:CreateCatalogItemReq"/>
+	</message>
+	<message name="CreateCatalogItemResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="DeleteCatalogItemReq">
+		<part name="body" element="cat:DeleteCatalogItemReq"/>
+	</message>
+	<message name="DeleteCatalogItemResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetCatalogItemReq">
+		<part name="body" element="cat:GetCatalogItemReq"/>
+	</message>
+	<message name="GetCatalogItemResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="UpdateCatalogItemReq">
+		<part name="body" element="cat:UpdateCatalogItemReq"/>
+	</message>
+	<message name="UpdateCatalogItemResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CatalogHeaderMessage">
+		<part name="SecurityToken" element="wsse:Security"/>
+		<part name="MessageContext" element="nwcg:MessageContext"/>
+	</message>
+	<portType name="CatalogInterface">
+		<documentation>CatalogInterface PortType - operation response messages returned for synchronous operation</documentation>
+		<operation name="CreateCatalogItem">
+			<input message="tns:CreateCatalogItemReq"/>
+			<output message="tns:CreateCatalogItemResp"/>
+		</operation>
+		<operation name="DeleteCatalogItem">
+			<input message="tns:DeleteCatalogItemReq"/>
+			<output message="tns:DeleteCatalogItemResp"/>
+		</operation>
+		<operation name="GetCatalogItem">
+			<input message="tns:GetCatalogItemReq"/>
+			<output message="tns:GetCatalogItemResp"/>
+		</operation>
+		<operation name="UpdateCatalogItem">
+			<input message="tns:UpdateCatalogItemReq"/>
+			<output message="tns:UpdateCatalogItemResp"/>
+		</operation>
+	</portType>
+	<binding name="CatalogBinding" type="tns:CatalogInterface">
+		<documentation>Catalog Binding - All request messages must contain SecurityToken and MessageContext headers and one request message in the body</documentation>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="CreateCatalogItem">
+			<soap:operation soapAction="CreateCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeleteCatalogItem">
+			<soap:operation soapAction="DeleteCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCatalogItem">
+			<soap:operation soapAction="GetCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateCatalogItem">
+			<soap:operation soapAction="UpdateCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="CatalogService">
+		<port name="CatalogPort" binding="tns:CatalogBinding">
+			<documentation>Integration Test Endpoint</documentation>
+			<soap:address location="https://drain.lw-lmco.com:15558/soap/ross"/>
+		</port>
+	</service>
+</definitions>

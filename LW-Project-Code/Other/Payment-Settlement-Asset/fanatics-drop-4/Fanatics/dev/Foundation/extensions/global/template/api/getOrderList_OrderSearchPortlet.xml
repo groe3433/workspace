@@ -1,0 +1,34 @@
+<OrderList TotalNumberOfRecords="">
+                    <Order BillToID="" BuyerOrganizationCode=""
+                        BuyerUserId="" CustomerContactID=""
+                        CustomerEMailID="" MashupTemplateRef="OrderEditorInput" CustomerFirstName=""
+                        CustomerLastName="" CustomerPONo=""
+                        CustomerPhoneNo="" CustomerZipCode=""
+                        DisplayStatusDescription="" DocumentType=""
+                        DraftOrderFlag="" EnterpriseCode="" EntryType=""
+                        HoldFlag="" MaxOrderStatusDesc=""
+                        MultipleStatusesExist="" OrderDate=""
+                        OrderHeaderKey="" OrderName="" OrderNo=""
+                        OverallStatus="" SellerOrganizationCode=""
+                        Status="" TaxExemptFlag=""
+                        TaxExemptionCertificate="" isHistory="">
+                        <OrderDates>
+                            <OrderDate ActualDate="" CommittedDate=""
+                                DateTypeId="" ExpectedDate=""
+                                OrderHeaderKey="" OrderLineKey=""
+                                OrderReleaseKey="" RequestedDate=""/>
+                        </OrderDates>
+                        <PriceInfo Currency="" TotalAmount=""/>
+                        <PersonInfoBillTo AddressLine1="" EMailID=""/>
+                        <CustomAttributes CustomerOrderNo="" FraudStatus=""/>
+                        <PersonInfoShipTo AddressID="" AddressLine1=""
+                            AddressLine2="" City="" Company=""
+                            Country="" CountryDesc="" DayPhone=""
+                            Department="" EMailID="" EveningPhone=""
+                            FirstName="" IsAddressVerified=""
+                            IsCommercialAddress="" LastName=""
+                            MiddleName="" MobilePhone="" PersonID=""
+                            PersonInfoKey="" State="" Suffix="" Title=""
+                            TitleDesc="" ZipCode="" isHistory=""/>
+                    </Order>
+                </OrderList>

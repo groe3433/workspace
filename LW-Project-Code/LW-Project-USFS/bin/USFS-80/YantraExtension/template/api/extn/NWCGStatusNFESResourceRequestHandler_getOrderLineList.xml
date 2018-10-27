@@ -1,0 +1,13 @@
+<OrderLineList>
+<OrderLine MinLineStatus="" MaxLineStatus="" Status="" OrderLineKey="" OrderHeaderKey="" ShipNode="" ConditionVariable2="">
+<Extn />
+<Notes NumberOfNotes="">
+<Note />
+</Notes>
+<Item ItemID="" ItemShortDesc=""/>
+<Order OrderNo="" UnitOfMeasure="" Createts="">
+<PersonInfoShipTo/>
+<Extn ExtnNavInfo="" ExtnReqDeliveryDate="" ExtnWillPickUpInfo="" ExtnWillPickUpName="" ExtnShipInstrState="" ExtnShipInstrCity="" ExtnShippingInstructions="" ExtnShippingContactName="" ExtnShippingContactPhone="" ExtnIncidentNo="" ExtnIncidentYear=""/>
+</Order>
+</OrderLine>            
+</OrderLineList>

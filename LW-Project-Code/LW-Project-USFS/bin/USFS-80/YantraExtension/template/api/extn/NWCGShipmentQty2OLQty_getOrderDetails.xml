@@ -1,0 +1,7 @@
+<Order OrderNo="" ReqShipDate="" >
+	<OrderLines>
+		<OrderLine OrderLineKey="" PrimeLineNo="" OrderedQty="">
+			<Extn ExtnUTFQty=""/>
+		</OrderLine>
+	</OrderLines>
+</Order>

@@ -1,0 +1,6 @@
+
+<InventoryAudit ItemID="IkLwTest1" OrganizationCode="GB_IE_ZONE" ShipNode="CDC-1481098113707-32" SupplyType="ONHAND" UnitOfMeasure="Piece">
+	<OrderBy>
+		<Attribute Desc="Y" Name="InventoryAuditKey"/>
+	</OrderBy>
+</InventoryAudit>

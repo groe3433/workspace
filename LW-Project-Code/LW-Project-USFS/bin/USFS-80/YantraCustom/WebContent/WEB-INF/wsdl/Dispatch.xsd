@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns:cad="http://nwcg.gov/services/dispatch/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" targetNamespace="http://nwcg.gov/services/dispatch/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:element name="DeliverNotificationReq">
+		<xs:annotation>
+			<xs:documentation> Notification Message for Deliver Notification operation - This request message is sent to CAD systems to attempt delivery of a  notification </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotifiedSystem" type="nwcg:ApplicationSystemType"/>
+				<xs:any namespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" processContents="lax" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Any valid response message from the Resource Order Notificaiton namespace.</xs:documentation>
+					</xs:annotation>
+				</xs:any>
+				<xs:any namespace="http://nwcg.gov/services/ross/resource_notification/1.1" processContents="lax" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Any valid response message from the Resource Notification namespace.</xs:documentation>
+					</xs:annotation>
+				</xs:any>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverOperationResultsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Deliver Operation Results operation - This request message is sent to CAD systems to attempt delivery of results of a previously requested operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DistributionID" type="nwcg:DistributionIDSimpleType"/>
+				<xs:choice>
+					<xs:annotation>
+						<xs:documentation>Will always contain either a single ResourceOrder response document or a single Resource response document</xs:documentation>
+					</xs:annotation>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_order/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource Order namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/catalog/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Catalog namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>					
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverOperationResultsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Deliver Operation Results operation - retunred by CAD system to indicate successful receipt of operation results</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>ReturnCode of 0 indicates CAD system successfully received posted results</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverNotificationResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Deliver Notificaiton operation - retunred by CAD system to indicate successful receipt of operation results</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>ReturnCode of 0 indicates CAD system successfully received posted results</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

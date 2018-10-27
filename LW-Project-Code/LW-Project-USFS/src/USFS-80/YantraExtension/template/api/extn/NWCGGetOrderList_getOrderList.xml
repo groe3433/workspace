@@ -1,0 +1,12 @@
+<OrderList LastOrderHeaderKey="" LastRecordSet=""
+    ReadFromHistory="" TotalOrderList="">
+    <Order BillToID="" BuyerOrganizationCode=""
+        DocumentType="" DraftOrderFlag="" EnterpriseCode=""
+        HoldFlag="" MaxOrderStatusDesc=""
+        MultipleStatusesExist="" OrderDate=""
+        OrderHeaderKey="" OrderNo=""
+        SaleVoided="" SellerOrganizationCode="" Status="" isHistory="" ShipNode="">
+        <PriceInfo Currency="" TotalAmount=""/>
+		<Extn/>
+    </Order>
+</OrderList>

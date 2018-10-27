@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_CreateStore_UT_002" Description="Create new Store with proper input data.">
+	<p:Steps>
+		<!-- add the organization -->
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateStore_Component"></p1:Component>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="STO.895-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.Description" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+    <p:Parameter Key="Organization.OrgRoleList.OrgRole.2.RoleKey" Type="INPUT" Value="BUYER" /> 
+	<p:Parameter Key="Organization.OrgRoleList.OrgRole.3.RoleKey" Type="INPUT" Value="SELLER" /> 
+    <p:Parameter Key="Organization.OrganizationName" Type="INPUT" Value="IKEA WARRINGTON"/> 
+    <p:Parameter Key="Organization.ParentOrganizationCode" Type="INPUT" Value="IKEA_GB"/> 
+    <p:Parameter Key="Organization.PrimaryEnterpriseKey" Type="INPUT" Value="IKEA_GB"/>
+    <p:Parameter Key="Organization.CorporatePersonInfo.City" Type="INPUT" Value="Warrington"  />
+    <p:Parameter Key="Organization.CorporatePersonInfo.Country" Type="INPUT" Value="GB"  />
+    <p:Parameter Key="Organization.CorporatePersonInfo.State" Type="INPUT" Value="GBCAM"  />
+    <p:Parameter Key="Organization.CorporatePersonInfo.ZipCode" Type="INPUT" Value="WA5 5TY" /> 
+    <p:Parameter Key="Organization.Node.NodeType" Type="INPUT" Value="Store"  />
+    <p:Parameter Key="Organization.Node.ReceiptProcessingTime" Type="INPUT" Value="24" /> 
+	<p:Parameter Key="Organization.Calendar.EffectiveFromDate" Type="INPUT" Value="2008-01-16"  />
+    <p:Parameter Key="Organization.Calendar.EffectiveToDate" Type="INPUT" Value="2050-12-31" />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.ShiftEndTime" Type="INPUT" Value="03:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.ShiftName" Type="INPUT" Value="00:00:00-03:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.ShiftStartTime" Type="INPUT" Value="00:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.MondayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.TuesdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.WednesdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.ThursdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.FridayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.SaturdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.1.SundayValid" Type="INPUT" Value="Y" /> 
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.ShiftEndTime" Type="INPUT" Value="14:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.ShiftName" Type="INPUT" Value="00:00:00-14:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.ShiftStartTime" Type="INPUT" Value="00:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.MondayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.TuesdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.WednesdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.ThursdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.FridayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.SaturdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.2.SundayValid" Type="INPUT" Value="N" /> 
+	<p:Parameter Key="Organization.Calendar.Shifts.Shift.3.ShiftEndTime" Type="INPUT" Value="24:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.ShiftName" Type="INPUT" Value="22:00:00-24:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.ShiftStartTime" Type="INPUT" Value="22:00:00"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.MondayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.TuesdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.WednesdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.ThursdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.FridayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.SaturdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Organization.Calendar.Shifts.Shift.3.SundayValid" Type="INPUT" Value="Y" /> 
+  </p:Parameters>
+</p:TestCase>

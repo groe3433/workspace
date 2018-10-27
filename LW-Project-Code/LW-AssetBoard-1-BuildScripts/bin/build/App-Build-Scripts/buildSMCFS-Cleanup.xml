@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-Cleanup" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-Cleanup" description="Cleanup Github and Custom Zip files">
+	</target>	
+	
+	<target name="cleanupRuntimeFolder" description="cleanup runtime folder (windows only)">		
+		<delete dir="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}" />
+	</target>	
+	
+	<target name="cleanupCustomAgentZipFile" description="cleanup custom agent zip file">		
+		<delete dir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+	</target>		
+	
+	<target name="cleanupDownloadedGithubFiles" description="cleanup downloaded Github files and dir">		
+		<delete file="${zip.location}/${git.zip.file}.zip" />
+	</target>	
+</project>

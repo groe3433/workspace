@@ -1,0 +1,38 @@
+<jxb:bindings version="1.0"
+               xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <jxb:bindings schemaLocation="./ResourceOrder.xsd" node="/xs:schema">
+        <jxb:bindings node="//xs:element[@name='DeliverOperationResultsReq']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_order/1.1']">
+       <jxb:property name="deliverResourceOrderOperationResults"/>
+    </jxb:bindings>
+        <jxb:bindings node="//xs:element[@name='DeliverOperationResultsReq']//xs:any[@namespace='http://nwcg.gov/services/ross/resource/1.1']">
+        <jxb:property name="deliverResourceOperationResults"/>
+    </jxb:bindings>
+        <jxb:bindings node="//xs:element[@name='DeliverOperationResultsReq']//xs:any[@namespace='http://nwcg.gov/services/ross/catalog/1.1']">
+        <jxb:property name="deliverCatalogOperationResults"/>
+    </jxb:bindings>
+    <jxb:bindings node="//xs:element[@name='GetOperationResultsResp']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_order/1.1']">
+       <jxb:property name="getResourceOrderOperationResults"/>
+    </jxb:bindings>
+    <jxb:bindings node="//xs:element[@name='GetOperationResultsResp']//xs:any[@namespace='http://nwcg.gov/services/ross/resource/1.1']">
+       <jxb:property name="getResourceOperationResults"/>
+    </jxb:bindings>        
+    <jxb:bindings node="//xs:element[@name='GetOperationResultsResp']//xs:any[@namespace='http://nwcg.gov/services/ross/catalog/1.1']">
+       <jxb:property name="getCatalogOperationResults"/>
+    </jxb:bindings>        
+  </jxb:bindings>
+ <jxb:bindings schemaLocation="../ResourceOrderNotification.xsd" node="/xs:schema">
+    <jxb:bindings node="//xs:element[@name='DeliverNotificationReq']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_order_notification/1.1']">
+       <jxb:property name="deliverResourceOrderNotification"/>
+    </jxb:bindings>
+        <jxb:bindings node="//xs:element[@name='DeliverNotificationReq']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_notification/1.1']">
+        <jxb:property name="deliverResourceNotification"/>
+    </jxb:bindings>
+    <jxb:bindings node="//xs:element[@name='GetNotificationsResp']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_order_notification/1.1']">
+       <jxb:property name="getResourceOrderNotification"/>
+    </jxb:bindings>
+    <jxb:bindings node="//xs:element[@name='GetNotificationsResp']//xs:any[@namespace='http://nwcg.gov/services/ross/resource_notification/1.1']">
+       <jxb:property name="getResourceNotification"/>
+    </jxb:bindings>    
+  </jxb:bindings>
+</jxb:bindings>

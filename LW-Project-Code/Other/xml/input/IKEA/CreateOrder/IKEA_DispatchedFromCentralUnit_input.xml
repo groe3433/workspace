@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ConsignmentLine
+    ConsignmentLineNo="${ConsignmentLine.ConsignmentLineNo}"
+    ConsignmentNo="${ConsignmentLine.ConsignmentNo}"
+    DispatchedDate="${ConsignmentLine.DispatchedDate}"
+    ItemID="${ConsignmentLine.ItemID}"
+    ItemSupplier="${ConsignmentLine.ItemSupplier}"
+    MergeNode="${ConsignmentLine.MergeNode}"
+    OrderLineKey="${ConsignmentLine.OrderLineKey}"
+    OwnerOrganizationCode="${ConsignmentLine.OwnerOrganizationCode}"
+    Quantity="${ConsignmentLine.Quantity}"
+    ShipNode="${ConsignmentLine.ShipNode}"
+    ShipmentNo="${ConsignmentLine.ShipmentNo}" UnitOfMeasure="${ConsignmentLine.UnitOfMeasure}"/>

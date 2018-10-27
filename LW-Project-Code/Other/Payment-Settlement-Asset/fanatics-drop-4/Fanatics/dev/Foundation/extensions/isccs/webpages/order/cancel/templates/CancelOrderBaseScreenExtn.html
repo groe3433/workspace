@@ -1,0 +1,173 @@
+		<div>
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '6' , 
+		_sc_extensibility_referenceUId : 'lblnoCancellation' , 
+		uId : 'extn_cancel_pane' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	<div data-dojo-type="sc/plat/dojo/layout/AdvancedTableLayout" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								cols : 2 , 
+		customClass : 'tableLayout-cols-2'  
+	 					}">
+		 	</div>  
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CurrencyTextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'update_order' , 
+		uId : 'extn_fancashtxtbox' , 
+		required : true , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'Order.FanCash'
+,
+		 namespace : 			'extn_fancashModel'
+	}
+	]
+,
+		 currencyBinding : 	{
+		 path : 			'Order.PriceInfo.Currency'
+,
+		 namespace : 			'getCompleteOrderDetails_output'
+	}
+	}
+,	
+			 	label : 			this.getBundleString('extn_Fan_Cash')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CurrencyTextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'cancelType' , 
+		uId : 'extn_fancashtxtbox' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CurrencyTextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'update_order' , 
+		uId : 'extn_fancashtxtbox' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CurrencyTextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '4' , 
+		_sc_extensibility_referenceUId : 'cmbReasoncode' , 
+		uId : 'extn_fancashtxtbox' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CurrencyTextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '9' , 
+		_sc_extensibility_referenceUId : 'cmbReasoncode' , 
+		uId : 'extn_fancashtxtbox' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '5' , 
+		_sc_extensibility_referenceUId : 'cmbReasoncode' , 
+		uId : 'extn_fancashreason' , 
+		required : true , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'Order.FanCashReason'
+,
+		 namespace : 			'extn_fancashModel'
+	}
+	]
+,
+		 optionsBinding : 	{
+		 descriptionField : 			'CodeValue'
+,
+		 valueField : 			'CodeValue'
+,
+		 path : 			'CommonCodeList.CommonCode'
+,
+		 namespace : 			'extn_getFanCashReasonCode_output'
+	}
+	}
+,	
+			 	label : 			this.getBundleString('extn_Fan_Cash_Reason')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'cmbReasoncode'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Cancellation_Reason_Code')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '7' , 
+		_sc_extensibility_referenceUId : 'extn_fancashtxtbox' , 
+		uId : 'extn_fancashreason' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '8' , 
+		_sc_extensibility_referenceUId : 'extn_cancel_pane' , 
+		uId : 'cmbReasoncode' , 
+		_sc_extensibility_position : 'first'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '11' , 
+		_sc_extensibility_referenceUId : 'cancelType' , 
+		uId : 'extn_fancashreason' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/RadioButtonSet" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : 'extn_fancashtxtbox' , 
+		uId : 'cancelType' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		</div>

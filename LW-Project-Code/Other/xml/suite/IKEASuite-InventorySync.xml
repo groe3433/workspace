@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEASuite-InventorySync" active="Y" description="Test Suite containing the InventorySync test case for the IKEA Pilot">
+	<Tests>
+		<Test testFile="InventorySync/IKEA_Inventory_InventorySync_UT_001.xml"/>
+		<Test testFile="InventorySync/IKEA_Inventory_InventorySync_UT_002.xml"/>
+	</Tests>
+</Suite>

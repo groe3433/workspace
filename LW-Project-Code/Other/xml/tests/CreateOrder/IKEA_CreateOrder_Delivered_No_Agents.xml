@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " Active="Y" Name="IKEA_CreateOrder_Released_No_Agents"
+	Description="
+	1. JMS Send - Send message to Queue
+	2. 
+	">
+	<p:Tags>
+		<p:Tag Name="IKEA_CreateOrder_Released_No_Agents"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		<p:Sequence Number="1" Delay="0">
+			<p1:Api Name="createOrder"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="CreateOrderTruck.xml" Location="resources/xml/input/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>
+		<Sequence Number="2"  DynamicInput="true">
+			<p1:Service Name="IKEACreateAndUpdateWorkOrderForChangeOrder"></p1:Service>
+			<p1:Validations>
+			<p1:Validate> </p1:Validate>
+			</p1:Validations>
+		</Sequence>
+	</p:Steps>
+	<p:Parameters>
+	<!--	<p:GeneratedParameter Key="Item.ItemID" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Item.ItemID.1" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Item.ItemID.2" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+
+		<p:Parameter key="PrimaryInformation.Description" type="INPUT" value="Product item"/>
+		<p:Parameter key="PrimaryInformation.Description.1" type="INPUT" value="Product item 1"/>
+		<p:Parameter key="PrimaryInformation.Description.2" type="INPUT" value="Product item 2"/>
+
+		<p:Parameter key="PrimaryInformation.ShortDescription" type="INPUT" value="Product item"/>
+		<p:Parameter key="PrimaryInformation.ShortDescription.1" type="INPUT" value="Product item 1"/>
+		<p:Parameter key="PrimaryInformation.ShortDescription.2" type="INPUT" value="Product item 2"/>
+-->
+	</p:Parameters>
+</p:TestCase>

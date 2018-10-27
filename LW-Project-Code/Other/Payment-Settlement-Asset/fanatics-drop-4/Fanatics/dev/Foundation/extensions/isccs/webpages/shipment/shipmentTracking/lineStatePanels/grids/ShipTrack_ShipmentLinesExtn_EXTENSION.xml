@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipTrack_ShipmentLinesExtn"
+        extnPackage="extn.shipment.shipmentTracking.lineStatePanels.grids"
+        originalScreen="isccs.shipment.shipmentTracking.lineStatePanels.grids.ShipTrack_ShipmentLines"
+        originalScreenPackage="isccs.shipment.shipmentTracking.lineStatePanels.grids" type="diffrential">
+        <Items>
+            <TitlePane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="shipmentLinestitlepane" title="$(_scSimpleBundle:Title_ShipmentLines)"/>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="tblShipmentLines">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColQuantity"
+                            field="extn_shipment_track" hidden="true"
+                            name="$(_scSimpleBundle:extn_Shipment_Tracking_Numbers)" uId="extn_shipment_track"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProduct"
+                            uId="tblColProduct" width="35%"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColQuantity"
+                            uId="tblColQuantity" width="15%"/>
+                        <View _sc_extensibility_moveOrder="2"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_shipment_track"
+                            field="extn_return_track" hidden="true"
+                            name="$(_scSimpleBundle:extn_Return_Shipment_Tracking_Numbers1)" uId="extn_return_track"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

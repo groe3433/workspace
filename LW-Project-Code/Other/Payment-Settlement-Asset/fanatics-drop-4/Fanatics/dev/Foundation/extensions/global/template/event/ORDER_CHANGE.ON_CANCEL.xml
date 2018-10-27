@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order AllAddressesVerified=""
+    AuthorizationExpirationDate=""
+    BillToID="" BuyerOrganizationCode=""
+    CarrierAccountNo="" CarrierServiceCode=""
+    ChargeActualFreightFlag=""
+    CustomerEMailID="" CustomerPONo=""
+    DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
+    EnteredBy="" EnterpriseCode="" EntryType=""
+    FreightTerms="" HoldFlag="" HoldReasonCode=" "
+    MaxOrderStatus="" MaxOrderStatusDesc=""
+    MinOrderStatus="" MinOrderStatusDesc=""
+    NotifyAfterShipmentFlag="" OrderDate=""
+    OrderHeaderKey="" OrderName=""
+    OrderNo="" OrderType="" OriginalTax=""
+    OriginalTotalAmount="" OtherCharges=""
+    PaymentStatus="" PersonalizeCode="" PriorityCode=""
+    PriorityNumber="" Purpose="" SCAC="" ScacAndService=""
+    ScacAndServiceKey="" SearchCriteria1="" SearchCriteria2=""
+    SellerOrganizationCode="" ShipToID=""
+    Status="" TaxExemptFlag="" TaxExemptionCertificate=""
+    TaxJurisdiction="" TaxPayerId="" TermsCode=""
+    TotalAdjustmentAmount="" isHistory="">
+    <PriceInfo ChangeInTotalAmount="" Currency=""
+        EnterpriseCurrency=""
+        ReportingConversionDate=""
+        ReportingConversionRate="" TotalAmount=""/>
+    <OrderLines>
+        <OrderLine Action=""
+            AllocationDate=""
+            BackorderNotificationQty="" CarrierAccountNo=""
+            CarrierServiceCode="" ChangeInOrderedQty=""
+            CustomerLinePONo="" CustomerPONo="" DeliveryCode=""
+            DepartmentCode="" FreightTerms="" HoldFlag=""
+            HoldReasonCode="" ImportLicenseNo="" InvoicedQty=""
+            IsFirmPredefinedNode="" ItemGroupCode="" KitCode=""
+            LineSeqNo="" LineType="" MaxLineStatus=""
+            MaxLineStatusDesc="" MinLineStatus=""
+            MinLineStatusDesc="" OpenQty=""
+            OrderHeaderKey=""
+            OrderLineKey="" OrderedQty=""
+            OriginalOrderedQty="" OtherCharges=""
+            PackListType="" PersonalizeCode="" PersonalizeFlag=""
+            PickableFlag="" PrimeLineNo="" Purpose=""
+            RemainingQty="" ReservationID=""
+            ReservationMandatory="" ReservationPool="" SCAC=""
+            ScacAndService="" ScacAndServiceKey=""
+            ShipToID="" ShipTogetherNo="" SplitQty=""
+            Status="" StatusQuantity="" SubLineNo="" isHistory="">
+            <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+                CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
+                ItemDesc="" ItemID=""
+                ItemShortDesc=""
+                ItemWeight="" ItemWeightUOM=""
+                ManufacturerItem="" ManufacturerItemDesc=""
+                ManufacturerName="" NMFCClass="" NMFCCode=""
+                NMFCDescription="" ProductClass="" ProductLine=""
+                ScheduleBCode="" SupplierItem="" SupplierItemDesc=""
+                TaxProductCode="" UPCCode="" UnitCost="" UnitOfMeasure=""/>
+            <LinePriceInfo ChangeInLineTotal="" LineTotal=""/>
+            <OrderDates>
+                <OrderDate ActualDate=""
+                    DateTypeId=""
+                    ExpectedDate=""
+                    OrderHeaderKey=""
+                    OrderLineKey=""
+                    OrderReleaseKey=" " RequestedDate=""/>
+            </OrderDates>
+            <LineOverallTotals Charges="" Discount=""
+                ExtendedPrice="" LineTotal="" OptionPrice=""
+                PricingQty="" Tax="" UnitPrice=""/>
+            <StatusBreakupForCanceledQty>
+                <CanceledFrom
+                    OrderLineScheduleKey=""
+                    OrderReleaseStatusKey=""
+                    Quantity="" Status=""
+                    StatusDate="" StatusDescription="">
+                    <Details
+                        ExpectedDeliveryDate=""
+                        ExpectedShipmentDate="" TagNumber=""/>
+                </CanceledFrom>
+            </StatusBreakupForCanceledQty>
+			<LineCharges>
+				<LineCharge ChargeCategory="" ChargeName="" ChargePerLine="" />
+			</LineCharges>
+	    <OrderStatuses>
+               <OrderStatus Status="" TotalQuantity="" StatusQty="" StatusDescription=""/>
+	    </OrderStatuses>
+        </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2=""
+        AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company=""
+        Country="" DayFaxNo="" DayPhone="" Department=""
+        EMailID="" EveningFaxNo="" EveningPhone=""
+        FirstName="" JobTitle="" LastName="" MiddleName=""
+        MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix=""
+        Title="" ZipCode=""/>
+    <PersonInfoBillTo AddressLine1="" AddressLine2=""
+        AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company=""
+        Country="" DayFaxNo="" DayPhone="" Department=""
+        EMailID="" EveningFaxNo="" EveningPhone=""
+        FirstName="" JobTitle="" LastName="" MiddleName=""
+        MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix=""
+        Title="" ZipCode=""/>
+    <HeaderCharges>
+	<HeaderCharge ChargeAmount="" ChargeCategory="" />
+    </HeaderCharges>
+    <OrderAudit AuditTransactionId=" "
+        OrderAuditKey=""
+        OrderHeaderKey="" ReasonCode=" "
+        ReasonText=" " Reference1=" " Reference2=" " Reference3=" "
+        Reference4=" " XMLFlag="">
+        <Order EnterpriseCode="" OrderNo=""/>
+        <OrderAuditLevels>
+            <OrderAuditLevel ModificationLevel=""
+                ModificationLevelScreenName=""
+                OrderLineKey="" OrderReleaseKey=" ">
+                <OrderLine PrimeLineNo="" SubLineNo=""/>
+                <OrderAuditDetails>
+                    <OrderAuditDetail Action="" AuditType="">
+                        <Attributes>
+                            <Attribute Name=""
+                                NewValue="" OldValue=""/>
+                        </Attributes>
+                    </OrderAuditDetail>
+                </OrderAuditDetails>
+                <ModificationTypes>
+                    <ModificationType Name="" ScreenName=""/>
+                </ModificationTypes>
+            </OrderAuditLevel>
+        </OrderAuditLevels>
+    </OrderAudit>
+</Order>

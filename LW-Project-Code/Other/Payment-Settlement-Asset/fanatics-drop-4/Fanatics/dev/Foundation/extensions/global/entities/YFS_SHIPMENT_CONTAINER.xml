@@ -1,0 +1,11 @@
+<DBSchema Name="CustomDBExtensions"> 
+<Entities> 
+<Entity TableName="YFS_SHIPMENT_CONTAINER">
+			<Attributes>
+				<Attribute ColumnName="EXTN_RETURN_TRACKING_NO" DataType="Text-40" 
+				Description="The shipment tracking number for the fulfilled order/orderline." 
+				Nullable="True" XMLName="ExtnReturnTrackingNo" XMLGroup="Extn"/>
+			</Attributes>
+</Entity>
+</Entities>
+</DBSchema>

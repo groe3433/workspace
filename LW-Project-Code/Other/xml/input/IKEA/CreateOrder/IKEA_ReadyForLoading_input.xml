@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<OrderStatusChange ShipAdviceNo="${OrderStatusChange.ShipAdviceNo}"
+    ShipNode="${OrderStatusChange.ShipNode}"
+            TransactionId="${OrderStatusChange.TransactionId}">
+   <OrderLines>
+      <OrderLine
+            BaseDropStatus="${OrderStatusChange.OrderLines.OrderLine.1.BaseDropStatus}"
+            PrimeLineNo="${OrderStatusChange.OrderLines.OrderLine.1.PrimeLineNo}"
+            Quantity="${OrderStatusChange.OrderLines.OrderLine.1.Quantity}" SubLineNo="${OrderStatusChange.OrderLines.OrderLine.1.SubLineNo}"/>
+           </OrderLines>
+</OrderStatusChange>

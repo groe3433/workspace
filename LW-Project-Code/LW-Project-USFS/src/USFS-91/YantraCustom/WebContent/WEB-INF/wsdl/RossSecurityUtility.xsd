@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.1">
+	<xs:element name="Created" type="xs:dateTime">
+		<xs:annotation>
+			<xs:documentation>Security token creation timestamp.  Uses "wsu" prefix.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

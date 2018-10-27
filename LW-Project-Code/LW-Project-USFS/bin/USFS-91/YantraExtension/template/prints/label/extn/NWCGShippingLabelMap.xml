@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="cacheId" Binding="/Shipment/@ShipNode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="contactName" Binding="/Shipment/FromAddress/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="contactPhone" Binding="/Shipment/FromAddress/@DayPhone" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="orgAddrLine1" Binding="/Shipment/FromAddress/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine2" Binding="/Shipment/FromAddress/@AddressLine2" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgCity" Binding="/Shipment/FromAddress/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgState" Binding="/Shipment/FromAddress/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgZipCode" Binding="/Shipment/FromAddress/@ZipCode" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="incidentNo" Binding="/Shipment/Order/Extn/@ExtnIncidentNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="issueNo" Binding="/Shipment/Order/@OrderNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="incidentName" Binding="/Shipment/Order/Extn/@ExtnIncidentName" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="customerNo" Binding="/Shipment/ShipToAddress/@PersonID" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="customerName" Binding="/Shipment/ShipToAddress/@LastName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="customerPhone" Binding="/Shipment/ShipToAddress/@DayPhone" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine1" Binding="/Shipment/ShipToAddress/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine2" Binding="/Shipment/ShipToAddress/@AddressLine2" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToCity" Binding="/Shipment/ShipToAddress/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToState" Binding="/Shipment/ShipToAddress/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToZipCode" Binding="/Shipment/ShipToAddress/@ZipCode" RepeatingElement="" Sequence="N"/>
+        
+</LabelFieldMap>

@@ -1,0 +1,62 @@
+/*
+ * Licensed Materials - Property of IBM
+ * IBM Call Center for Commerce (5725-P82)
+ * (C) Copyright IBM Corp. 2013 , 2015 All Rights Reserved.
+ * US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ */
+{
+	Entities: {
+		"CatalogSearch": {
+			"PageSize": 10,
+			"PageSizes": "5,10,20"
+		},
+		"Order": {
+			"PageSize": 50,
+			"PageSizes": "10,25,50"
+		},
+		"Customer":{
+			"PageSize": 50,
+			"PageSizes": "10,25,50"
+		},
+		"Inbox":{
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"Competitor":{
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"PriceMatch":{
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"User":{
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"Default":{
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"OrderLine": {   
+			"PageSize": 50,
+			"PageSizes": "10,25,50"
+		},
+		"Node": {
+			"PageSize": 5,
+			"PageSizes": "5,10"
+		},
+		"OrderInvoiceDetail": {   
+			"PageSize": 10,
+			"PageSizes": "10,25,50"
+		},
+		"OrderHoldType": {   
+			"PageSize": 10,
+			"PageSizes": "5,10,20"
+		},
+		"Shipment": {
+			"PageSize": 10,
+			"PageSizes": "5,10,20"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.shipment.shipmentTracking.lineStatePanels.ShipTrackShippingExtnBundle" screenId="extn.shipment.shipmentTracking.lineStatePanels.ShipTrackShippingExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_ship_method_DataLabel_label"
+            bundleKey="extn_Shipment_Method" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_ship_method"/>
+        <BundleEntry
+            bundleEntryId="extn_return_tracking_no_DataLabel_label"
+            bundleKey="extn_Return_Shipment_Tracking_Number"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="extn_return_tracking_no"/>
+    </BundleEntries>
+</ScreenBundle>

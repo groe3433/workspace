@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Author: Suryasnat -->
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:ro="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:ron="http://nwcg.gov/services/ross/resource_order_notification/1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nwcg.gov/services/ross/resource_order/wsdl/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Inbound" targetNamespace="http://nwcg.gov/services/ross/resource_order/wsdl/1.1">
+	<wsdl:types>
+		<xsd:schema xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" version="1.1">
+			<xsd:import namespace="http://nwcg.gov/services/ross/resource_order/1.1" schemaLocation="ResourceOrder.xsd"/>
+			<xsd:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+			<xsd:import namespace="http://nwcg.gov/services/ross/resource_order_notification/1.1" schemaLocation="ResourceOrderNotification.xsd"/>
+			<xsd:import namespace="http://nwcg.gov/services/ross/catalog/1.1" schemaLocation="Catalog.xsd"/>
+			<xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="RossSecurity.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="ServicePingReq">
+		<wsdl:part element="nwcg:ServicePingReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="ServicePingResp">
+		<wsdl:part element="nwcg:ServicePingResp" name="body"/>
+	</wsdl:message>
+	
+	<wsdl:message name="StatusNFESResourceRequestReq">
+		<wsdl:part element="ro:StatusNFESResourceRequestReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="StatusNFESResourceRequestResp">
+		<wsdl:part element="ro:StatusNFESResourceRequestResp" name="body"/>
+	</wsdl:message>			   
+	
+	<wsdl:message name="PlaceResourceRequestExternalReq">
+		<wsdl:part element="ro:PlaceResourceRequestExternalReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="PlaceResourceRequestExternalResp">
+		<wsdl:part element="nwcg:MessageAcknowledgement" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="CancelResourceRequestReq">
+		<wsdl:part element="ro:CancelResourceRequestReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="CancelResourceRequestResp">
+		<wsdl:part element="ro:CancelResourceRequestResp" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="GetOperationResultsReq">
+		<wsdl:part element="ro:GetOperationResultsReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="GetOperationResultsResp">
+		<wsdl:part element="ro:GetOperationResultsResp" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="MergeIncidentNotification">
+		<wsdl:part element="ron:MergeIncidentNotification" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="DeliverNotificationReq">
+		<wsdl:part element="ron:DeliverNotificationReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="DeliverNotificationResp">
+		<wsdl:part element="ron:DeliverNotificationResp" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveResourceRequestReq">
+		<wsdl:part element="ro:RetrieveResourceRequestReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveResourceRequestResp">
+		<wsdl:part element="ro:RetrieveResourceRequestResp" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="ResourceOrderHeaderMessage">
+		<wsdl:part element="wsse:Security" name="SecurityToken"/>
+		<wsdl:part element="nwcg:MessageContext" name="MessageContext"/>
+	</wsdl:message>
+	<wsdl:message name="DeliverOperationResultsReq">
+		<wsdl:part element="ro:DeliverOperationResultsReq" name="body"/>
+	</wsdl:message>
+	<wsdl:message name="DeliverOperationResultsResp">
+		<wsdl:part element="ro:DeliverOperationResultsResp" name="body"/>
+	</wsdl:message>
+	<wsdl:portType name="ICBSRInboundAsyncInterface">
+		<wsdl:documentation>Inbound request operation</wsdl:documentation>
+		<wsdl:operation name="ServicePing">
+			<wsdl:input message="tns:ServicePingReq"/>
+			<wsdl:output message="tns:ServicePingResp"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="StatusNFESResourceRequest">
+			<wsdl:input message="tns:StatusNFESResourceRequestReq"/>
+			<wsdl:output message="tns:StatusNFESResourceRequestResp"/>
+		</wsdl:operation>
+		
+		<wsdl:operation name="DeliverOperationResult">
+			<wsdl:input message="tns:DeliverOperationResultsReq"/>
+			<wsdl:output message="tns:DeliverOperationResultsResp"/>
+		</wsdl:operation>
+		<wsdl:operation name="DeliverNotification">
+			<wsdl:input message="tns:DeliverNotificationReq"/>
+			<wsdl:output message="tns:DeliverNotificationResp"/>
+		</wsdl:operation>
+		<wsdl:operation name="PlaceResourceRequestExternal">
+			<wsdl:input message="tns:PlaceResourceRequestExternalReq"/>
+			<wsdl:output message="tns:PlaceResourceRequestExternalResp"/>
+		</wsdl:operation>
+		<wsdl:operation name="GetOperationResults">
+			<wsdl:input message="tns:GetOperationResultsReq"/>
+			<wsdl:output message="tns:GetOperationResultsResp"/>
+		</wsdl:operation>
+    <!--
+		<wsdl:operation name="InboundNotification">
+			<wsdl:input message="tns:DeliverNotificationReq"/>
+			<wsdl:output message="tns:DeliverNotificationResp"/>
+		</wsdl:operation>
+				-->
+    <wsdl:operation name="CancelResourceRequest">
+			<wsdl:input message="tns:CancelResourceRequestReq"/>
+			<wsdl:output message="tns:CancelResourceRequestResp"/>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveResourceRequest">
+			<wsdl:input message="tns:RetrieveResourceRequestReq"/>
+			<wsdl:output message="tns:RetrieveResourceRequestResp"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ICBSRInboundAsyncBinding" type="tns:ICBSRInboundAsyncInterface">
+		<wsdl:documentation>ResourceOrder Binding - All request messages must contain SecurityToken and MessageContext headers and one request message in the body</wsdl:documentation>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ServicePing">
+			<soap:operation soapAction="ServicePing" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="StatusNFESResourceRequest">
+			<soap:operation soapAction="StatusNFESResourceRequest" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="DeliverOperationResult">
+			<soap:operation soapAction="DeliverOperationResult" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="PlaceResourceRequestExternal">
+			<soap:operation soapAction="PlaceResourceRequestExternal" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GetOperationResults">
+			<soap:operation soapAction="GetOperationResults" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+    <!--
+		<wsdl:operation name="InboundNotification">
+			<soap:operation soapAction="InboundNotification" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		-->
+    <wsdl:operation name="CancelResourceRequest">
+			<soap:operation soapAction="CancelResourceRequest" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RetrieveResourceRequest">
+			<soap:operation soapAction="RetrieveResourceRequest" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DeliverNotification">
+			<soap:operation soapAction="DeliverNotification" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="ICBSRInboundAsyncService">
+		<wsdl:documentation/>
+		<wsdl:port binding="tns:ICBSRInboundAsyncBinding" name="ICBSRInboundAsyncPort">
+			<soap:address location="http://sundance.lw-lmco.com:9087/ICBSRWebServices/ICBSRInboundAsyncService"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

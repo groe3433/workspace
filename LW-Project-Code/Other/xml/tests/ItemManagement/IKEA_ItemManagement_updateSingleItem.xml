@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " 
+	Active="Y" Name="IKEA_ItemManagement_updateSingleItem"
+	Description="
+	1. JMS Send - Send message to Queue
+	2. 
+	">
+	<p:Tags>
+		<p:Tag Name="ItemManagement"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		<p:Sequence Number="1" Delay="0">
+			<p1:Component Name="IKEA_ItemManagement_CreateSingleItem_Component"></p1:Component>
+			<p1:Parameters>
+			<p:Parameter Key="Item.PrimaryInformation.Description" Type="INPUT" Value="TEST"/>
+			</p1:Parameters>
+		</p:Sequence>
+		<p:Sequence Number="2" Delay="0">
+			<p1:Component Name="IKEA_ItemManagement_CreateSingleItem_Component"></p1:Component>
+			<p1:Parameters>
+			<p:Parameter Key="Item.PrimaryInformation.Description" Type="INPUT" Value="CHANGED TEST"/>
+			</p1:Parameters>
+		</p:Sequence>
+
+	</p:Steps>
+	<p:Parameters>
+		<p:GeneratedParameter Key="Item.ItemID" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+	</p:Parameters>
+</p:TestCase>

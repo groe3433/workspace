@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--getOrderDetail Output XML-->
+<Order OrderHeaderKey="" OrderNo="" OrderType="" Createts="" ShipNode="">
+	<Extn />
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" City="" Country=""
+        FirstName="" LastName="" State="" ZipCode="" AlternateEmailID=""/>
+	<OrderLines>
+		<OrderLine OrderLineKey="" MinLineStatus="" MaxLineStatus="" Status="" ShipNode="" ConditionVariable2="">
+			<Extn />
+			<Notes>
+				<Note />
+			</Notes>
+			<Item ItemID="" ItemShortDesc=""/>
+			<Instructions>
+				<Instruction InstructionText="" InstructionType=""/>
+			</Instructions>
+		</OrderLine>		
+	</OrderLines>
+</Order>
+ 

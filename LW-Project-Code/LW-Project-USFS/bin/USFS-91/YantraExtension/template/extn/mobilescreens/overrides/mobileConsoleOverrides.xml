@@ -1,0 +1,122 @@
+<MobileConsoleOverride>
+	<ResourceOverrides>
+		<ResourceOverride ResourceId="rfcount">
+			<FormOverrides>
+				<FormOverride name="frmCountCriteria">
+					<Fields>
+						<Field name="txtLocationId" executeaction="F3"/>
+					</Fields>
+				</FormOverride>
+				<FormOverride name="frmCountInventoryAttributesEntry" onloadaction="F3"/>
+				<FormOverride name="frmCountCompletion" onloadaction="F3"/>
+				<FormOverride name="frmCountConfirmation" onloadaction="F3"/>
+			</FormOverrides>
+		</ResourceOverride>
+		
+		<ResourceOverride ResourceId="rfmanualmove">
+			<FormOverrides>		
+				
+				<FormOverride name="frmEquipment" onloadaction="F3"/>
+			</FormOverrides>
+		</ResourceOverride>
+
+	<ResourceOverride ResourceId="rfnwcgrfireturns" >
+	<FormOverrides>
+		<FormOverride name="frmRFILinesInit">
+			<Fields>
+				<Field name="txtItemID"  executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmRFILinesTrkID">
+			<Fields>
+				<Field name="txtTID" executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmRFIHeader">
+			<Fields>
+				<Field name="txtIncNo"  />
+				<Field name="txtIncYear"  />
+				<Field name="txtReturnNo"  mandatory="true" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmRFILPNInit">
+			<Fields>
+				<Field name="txtLPNNo"  mandatory="true" executeaction="F3"/>
+			</Fields>
+		</FormOverride>
+	</FormOverrides>
+	</ResourceOverride>
+	
+	<ResourceOverride ResourceId="rfnwcgnrfireturn" >
+	<FormOverrides>
+		<FormOverride name="frmNRFILinesInit">
+			<Fields>
+				<Field name="txtItemID"  executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmNRFILinesTrkID">
+			<Fields>
+				<Field name="txtTID" executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmNRFIHeader">
+			<Fields>
+				<Field name="txtIncNo"  />
+				<Field name="txtIncYear"  />
+				<Field name="txtReturnNo"  mandatory="true" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmNRFILPNInit">
+			<Fields>
+				<Field name="txtLPNNo"  mandatory="true" executeaction="F3"/>
+			</Fields>
+		</FormOverride>
+	</FormOverrides>
+	</ResourceOverride>
+	
+	<ResourceOverride ResourceId="rfnwcgunsreturns" >
+	<FormOverrides>
+		<FormOverride name="frmUNSLinesInit">
+			<Fields>
+				<Field name="txtItemID"  executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmUNSLinesTrkID">
+			<Fields>
+				<Field name="txtTID" executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmUNSHeader">
+			<Fields>
+				<Field name="txtIncNo"  />
+				<Field name="txtIncYear"  />
+				<Field name="txtReturnNo"  mandatory="true" />
+			</Fields>
+		</FormOverride>
+	</FormOverrides>
+	</ResourceOverride>
+	
+	<ResourceOverride ResourceId="rfnwcgnwtreturns" >
+	<FormOverrides>
+		<FormOverride name="frmUNSNWTLinesInit">
+			<Fields>
+				<Field name="txtItemID"  executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmUNSNWTLinesTrkID">
+			<Fields>
+				<Field name="txtTID" executeaction="F3" />
+			</Fields>
+		</FormOverride>
+		<FormOverride name="frmUNSNWTHeader">
+			<Fields>
+				<Field name="txtIncNo"  />
+				<Field name="txtIncYear"  />
+				<Field name="txtReturnNo"  mandatory="true" />
+			</Fields>
+		</FormOverride>
+	</FormOverrides>
+	</ResourceOverride>
+
+	</ResourceOverrides>
+</MobileConsoleOverride>

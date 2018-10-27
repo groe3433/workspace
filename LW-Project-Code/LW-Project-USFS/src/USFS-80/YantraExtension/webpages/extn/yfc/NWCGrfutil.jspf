@@ -1,0 +1,109 @@
+<%@ include file="/yfc/rfutil.jspf" %>
+
+<%!
+	// removes the named attribute from request and PageContext
+	public void removeCountTrackId() throws Exception
+	{
+		YFCDocument doc = getTempQ() ;
+		YFCNodeList receiptLines = (YFCNodeList)doc.getElementsByTagName("ReceiptLine");
+		int rLineNLLen = receiptLines.getLength();
+		YFCElement rLineElem = null;
+		for(int i=0;i<rLineNLLen;i++)
+		{
+			rLineElem = (YFCElement) receiptLines.item(i);
+			if(rLineElem.hasAttribute("CountTrackId"))
+			rLineElem.removeAttribute("CountTrackId");
+					
+		}
+		request.getSession().setAttribute("QTEMP", doc) ;
+	}
+	public static String calculateTotalTrackableLines(YFCNodeList rLineNL) throws Exception
+	{
+		String strTotalLines = "";
+		int intTotalLines = 0;
+		int rLineNLLen = rLineNL.getLength();
+		YFCElement rLineElem = null;
+		String str = "";
+		for(int i=0;i<rLineNLLen;i++)
+		{
+			rLineElem = (YFCElement) rLineNL.item(i);
+			if(rLineElem.hasAttribute("CountTrackId"))
+			intTotalLines++;
+		}
+		strTotalLines = Integer.toString(intTotalLines); 
+		return strTotalLines;
+		
+	}
+	public YFCElement getField(YFCDocument formDoc,String EleName, String fieldName) throws Exception {
+	    YFCNodeList nl = formDoc.getElementsByTagName(EleName) ;
+	    YFCElement inputElem = null ;
+	    boolean fieldFound = false ;
+	    String name ;
+
+	    for (int i = 0 ; i < nl.getLength() ; i++) {
+		inputElem = (YFCElement)nl.item(i) ;
+		name = inputElem.getAttribute("name", "") ;
+		if (name.equals(fieldName)){
+		    fieldFound = true ;
+		    break ;
+		}
+	    }
+
+	    if (fieldFound)
+		return inputElem ;
+	    else
+		return null ;
+	}
+
+	public void addLPN(String LPN) throws Exception {
+		
+		YFCDocument doc = getTempQ() ;
+		YFCNodeList receiptLines = (YFCNodeList)doc.getElementsByTagName("ReceiptLine");
+		YFCElement eleRoot = doc.getDocumentElement();
+		int rLineNLLen = receiptLines.getLength();
+		YFCElement rLineElem = null;
+		for(int i=0;i<rLineNLLen;i++)
+		{
+			rLineElem = (YFCElement) receiptLines.item(i);
+			if(!rLineElem.hasAttribute("LPNNo"))
+			rLineElem.setAttribute("LPNNo",LPN);
+
+		}
+		request.getSession().setAttribute("QTEMP", doc) ;
+		
+	}
+	public void deleteItemFromList(String sItemID,String sQuant,String sLPNNo) throws Exception {
+		YFCDocument doc = getTempQ() ;
+		YFCNodeList receiptLines = (YFCNodeList)doc.getElementsByTagName("ReceiptLine");
+		int rLineNLLen = receiptLines.getLength();
+		YFCElement rLineElem = null;
+		for(int i=0;i<rLineNLLen;i++)
+		{	
+			String strLPN = "";
+			String strTrackID = "";
+			rLineElem = (YFCElement) receiptLines.item(i);
+			String strLineItemId = rLineElem.getAttribute("ItemID");
+			String strQuantity = rLineElem.getAttribute("QtyReturned");
+			if(rLineElem.hasAttribute("LPNNo"))
+			{
+				strLPN=rLineElem.getAttribute("LPNNo");
+			}
+			if(rLineElem.hasAttribute("sTID"))
+			{
+				strTrackID=rLineElem.getAttribute("sTID");
+			}
+			if(strLineItemId.equals(sItemID) && strQuantity.equals(sQuant) && strLPN.equals(sLPNNo))
+			{
+				doc.getDocumentElement().removeChild(rLineElem) ;
+				break;
+			}
+			else if(strTrackID.equals(sItemID))
+			{
+				doc.getDocumentElement().removeChild(rLineElem) ;
+				break;
+			}
+		}
+	
+	}
+		
+%>

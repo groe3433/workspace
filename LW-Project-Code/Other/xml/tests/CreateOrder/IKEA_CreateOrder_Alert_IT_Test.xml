@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " Active="Y" Name="IKEA_CreateOrder_Alert_IT_Test"
+	Description="
+		Agents needed to be running:
+		IkeaDeliveryReleasedUpdateIntegServer 
+		IkeaReceivePickingUpdatesIntegServer
+		IkeaCDULoadConfirmationIntegServer
+		IkeaReadyForLoadUpdateIntegServer
+		IkeaCSMDispatchedConfirmationIntegServer
+		IKEAProcessConfirmShipmentIntegServer
+		IkeaReceivedAtHubIntegServer
+		IkeaLoadedOnDeliveryTruckIntegServer
+		IkeaDeliveredToCustomerIntegServer
+	">
+	<p:Tags>
+		<p:Tag Name="IKEA_CreateOrder_Alert_IT_Test"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		 <p:Sequence Number="1">
+			<p1:NestedTest Name="IKEA_CreateOrder_Released_ALERT_IT_Test"/>
+		 </p:Sequence>
+		  
+		<p:Sequence Number="2" Delay="1">
+			<p1:Queue Name="SOM_IN_DELIVERY_RELEASED_UPDATE_QUEUE" Type="QUEUE_SEND" JmsServer="WL_JMS"></p1:Queue>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_ReleasedForPicking_input.xml" Location="resources/xml/input/IKEA/CreateOrder/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+				<p1:Parameter Type="INPUT" Value="IKEAInvokeManageReleaseDateChangeService" Key="MultiApi.API.FlowName"/>
+				<p1:Parameter Type="INPUT" Value="${Order.OrderLines.OrderLine.2.ReqDeliveryDate}" Key="MultiApi.API.Input.OrderRelease.ReqShipDate"/>
+				<p1:Parameter Type="INPUT" Value="${OrderRelease.ShipAdviceNo}" Key="MultiApi.API.Input.OrderRelease.ShipAdviceNo"/>
+				<p1:Parameter Type="INPUT" Value="changeOrderStatus" Key="MultiApi.API.2.Name"/>
+				<p1:Parameter Type="INPUT" Value="3200.040" Key="MultiApi.API.2.Input.OrderStatusChange.BaseDropStatus"/>
+				<p1:Parameter Type="INPUT" Value="Y" Key="MultiApi.API.2.Input.OrderStatusChange.ChangeForAllAvailableQty"/>
+				<p1:Parameter Type="INPUT" Value="${OrderRelease.ShipAdviceNo}" Key="MultiApi.API.2.Input.OrderStatusChange.ShipAdviceNo"/>
+				<p1:Parameter Type="INPUT" Value="${Order.OrderLines.OrderLine.2.ShipNode}" Key="MultiApi.API.2.Input.OrderStatusChange.ShipNode"/>
+				<p1:Parameter Type="INPUT" Value="DELIVERY_PLANNED.0001.ex" Key="MultiApi.API.2.Input.OrderStatusChange.TransactionId"/>
+				<p1:Parameter Type="INPUT" Value="changeOrderStatus" Key="MultiApi.API.3.Name"/>
+				<p1:Parameter Type="INPUT" Value="3200.060" Key="MultiApi.API.3.Input.OrderStatusChange.BaseDropStatus"/>
+				<p1:Parameter Type="INPUT" Value="Y" Key="MultiApi.API.3.Input.OrderStatusChange.ChangeForAllAvailableQty"/>
+				<p1:Parameter Type="INPUT" Value="${OrderRelease.ShipAdviceNo}" Key="MultiApi.API.3.Input.OrderStatusChange.ShipAdviceNo"/>
+				<p1:Parameter Type="INPUT" Value="${Order.OrderLines.OrderLine.2.ShipNode}" Key="MultiApi.API.3.Input.OrderStatusChange.ShipNode"/>
+				<p1:Parameter Type="INPUT" Value="RELEASED_FOR_PICKING.0001.ex" Key="MultiApi.API.3.Input.OrderStatusChange.TransactionId"/>
+			</p1:Parameters>
+		</p:Sequence>
+		
+		<p:Sequence Number="3">
+			<p1:Api Name="getOrderList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrderList_input.xml" Location="resources/xml/input/IKEA/CreateOrder/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+			<p1:Validate  ValidationType="XPATH" Expected="3200.060" Path="/OrderList/Order/@MaxOrderStatus"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence> 
+
+	</p:Steps>
+	<p:Parameters>
+		<p:GeneratedParameter Key="Order.OrderNo" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Shipment.ShipmentNo" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Order.AnswerSets.AnswerSet.1.AnswerSetTranKey" Type="INPUT" Prefix="1" Suffix="1"/>
+
+		
+
+		<!--<p:DateParameter Type = "INPUT"  Key="Order.OrderLines.OrderLine.1.PromisedApptEndDate" DateFormat="yyyy-MM-dd'T'HH:mm:ss" DaysOffset="1"/>-->
+
+	<!--	<Date Type="input" Key="Order.OrderDate" Value="yyyy-MM-dd'T'HH:mm:ss" DaysOffset="1"/>
+	-->
+	</p:Parameters>
+</p:TestCase>
+

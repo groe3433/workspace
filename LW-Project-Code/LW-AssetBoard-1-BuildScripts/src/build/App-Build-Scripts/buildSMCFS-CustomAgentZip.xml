@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-CustomAgentZip" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-CustomAgentZip" description="build custom zip and SCP the ZIP File to the agent boxes">
+		<antcall target = "createCustomAgentZipFile" />
+		<antcall target = "scpCustomAgentZipFile" />
+	</target>	
+	
+	<target name ="scpCustomAgentZipFile" depends ="sendTogCustomAgentZipFileToAgentServers" description ="SCP the ZIP File to the other 2 boxes"/>	
+	
+	<target name="createCustomAgentZipFile" description="Zips up the relevant files for the agents">
+		<echo>Zipping Relevant Agent Files</echo>
+		<mkdir dir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+		<!-- TOG Sterling Files for Agents -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/properties/customer_overrides.properties" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}/${project.name}.jar" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+		<copy file="${Sterling.Home}/jar/platform/9_4/resources.jar" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+		<copy file="${Sterling.Home}/jar/platform/9_4/entities.jar" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}" />
+		<!-- TOG Report Scripts -->
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-EmailBackOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-EmailBackOrderSummaryReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/BackOrdersSummary/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-CallOpenOrderProcedure.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-EmailOpenOrderReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-GenerateOpenOrdersReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrder/Scripts/TOG-GenerateOpenOrdersReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrders/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-CallOpenOrderDetailProcedure.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-EmailOpenOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OpenOrderDetail/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-EmailOrderReconciliationReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-OrderReconciliation.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-OrderReconciliation/Scripts/TOG-RetrieveAndProcessFile.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/OrderReconciliation/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-EmailItemSubstitutionReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/ItemSubstitution/Scripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Common-Report/TOG-Email-Greeting.txt" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/CommonReportFiles" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Common-Report/temp.txt" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts/CommonReportFiles" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/decryptReportFile.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/cleanArchivedReports.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/uploadFileToB2B.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOG-NonSterling-Processes/TOG-Report-Tools/downloadFileFromB2B.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGOMSExtracts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerReleaseAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleBOAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/getAgentStatus.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/processCompleted.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/scheduleAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/startAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/TOG-RunSQL.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGTriggerAgent/triggerAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGTriggerAgent" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/checkAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/restartHealthMonitorAgent.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/restartTOGAgents.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/rotateAgentLogs.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/startAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/startHealthMonitorAgentServer.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/stopAgentServers.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/MANUAL_AGENT_RESTART.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/purgeOldAgentLogFolders.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/closeOrder.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/closeShipment.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/inventoryAuditPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/inventoryPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/orderPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/shipmentPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCustomAgentScripts/TOGPurges/supplyItemPurge.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCustomAgentScripts/TOGPurges" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/TOGEmailDLs.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCommonScripts" />				
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/dos2unix4scripts.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/dos2unix4lists.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/setupScripts.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGCommonScripts/TOG-Job-Scheduler.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGCommonScripts" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-ErrorList.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />				
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-ErrorList.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderCount.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />				
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderCount.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderLineStats.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />				
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-OrderLineStats.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-SQLMonitor.sh" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />				
+		<copy file="${git.fetch.dir}/${git.pull.directory}/TOGCustom/src/build/Agent-Build-Scripts/TOGSystemStats/TOG-SQLMonitor.sql" todir="${git.fetch.dir}/${git.pull.directory}/${zip.file}/TOGSystemStats" />		
+		<zip destfile="${git.fetch.dir}/${git.pull.directory}/${zip.file}.zip">
+			<zipfileset dir="${git.fetch.dir}/${git.pull.directory}/${zip.file}"/>
+		</zip>
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${zip.file}.zip" todir="${zip.location}" />
+		<chmod file="${zip.location}/${zip.file}.zip" perm="ugo+rx" />	
+	</target>
+
+	<target name="sendTogCustomAgentZipFileToAgentServers" depends="Agent-Srv-Check" if="agent-srv-available">
+		<exec executable="/bin/bash">
+			<arg value="scpZipFile.sh"/>
+		</exec>		
+	</target>
+	
+	<target name="Agent-Srv-Check">
+		<condition property="agent-srv-available">
+			<equals arg1="${transfer.agent.zip}" arg2="yes" />
+		</condition>
+	</target>
+</project>

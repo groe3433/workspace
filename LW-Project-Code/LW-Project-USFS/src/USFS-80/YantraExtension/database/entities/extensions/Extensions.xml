@@ -1,0 +1,2669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBSchema>
+   <Entities>
+<!-- this will be the used for issues/pos -->
+      <Entity
+       TableName="YFS_ORDER_HEADER">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_INCIDENT_NO"
+             DataType="Text-40"
+             Description="Incident number"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentNo"
+             XMLGroup="Extn" />
+			
+			<Attribute
+             ColumnName="EXTN_INCIDENT_YEAR"
+             DataType="Text-10"
+             Nullable="true"
+             Size="10"
+             DefaultValue="' '"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentYear"
+             XMLGroup="Extn"
+             Description="Incident Year" />
+			
+            <Attribute
+             ColumnName="EXTN_INCIDENT_NAME"
+             DataType="Text-50"
+             Nullable="true"
+             Size="50"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentName"
+             XMLGroup="Extn"
+             Description="Incident Name" />
+
+            <Attribute
+             ColumnName="EXTN_BLM_AMOUNT"
+             DefaultValue="0"
+             Description="BLM Amount"
+             Nullable="false"
+	     DataType="NUM-15-4"
+             XMLName="ExtnBlmAmount"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_FS_AMOUNT"
+             DefaultValue="0"
+             Description="FS Amount"
+             Nullable="false"
+	     DataType="NUM-15-4"
+             XMLName="ExtnFsAmount"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_OTHER_AMOUNT"
+             DefaultValue="0"
+             Description="Other Amount"
+             Nullable="false"
+	     DataType="NUM-15-4"
+             XMLName="ExtnOtherAmount"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_BILLING_DOC"
+             DataType="Text-40"
+             Description="Billing Document"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnBillingDoc"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_FS_ACCT_CODE"
+             DataType="Text-40"
+             Description="FS Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnFsAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_BLM_ACCT_CODE"
+             DataType="Text-40"
+             Description="BLM Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnBlmAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_OTHER_ACCT_CODE"
+             DataType="Text-40"
+             Description="Other Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOtherAcctCode"
+             XMLGroup="Extn" />
+			
+			<!-- Jay: Renaming this field to REQUESITION_NO should be removed soon-->
+            <Attribute
+             ColumnName="EXTN_PO_NO"
+             DataType="Text-40"
+             Description="ICBS PO Number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnPoNo"
+             XMLGroup="Extn" />
+             <!-- end-->
+             
+             <Attribute
+             ColumnName="EXTN_REQUISITION_NO"
+             DataType="Text-40"
+             Description="ICBS REQUISITION Number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRequisitionNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_PRIORITY_CODE"
+             DataType="CHAR"
+             Description="Priority Code"
+             Nullable="true"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnPriorityCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_PO_SHIP_ACCT"
+             DataType="Text-40"
+             Description="PO Shipping Account"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnPoShipAcct"
+             XMLGroup="Extn" />
+
+			  <Attribute
+             ColumnName="EXTN_SHIPPING_AMOUNT"
+             DefaultValue="0"
+             Description="Shipping Amount"
+             Nullable="false"
+	     DataType="NUM-15-4"             
+	     XMLName="ExtnShippingAmount"
+             XMLGroup="Extn" />
+
+<!-- Added for Split Account Code Functionality-->
+
+			 <Attribute
+             ColumnName="EXTN_ACCT_CODE1"
+             DataType="Text-40"
+             Description="Account Code1"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAcctCode1"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE1"
+             DataType="Text-40"
+             Description="Override Code1"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode1"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SPLIT_AMOUNT1"
+             DefaultValue="0"
+             Description="Split Amount"
+             Nullable="false"
+             DataType="NUM-15-4"
+             XMLName="ExtnSplitAmount1"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ACCT_CODE2"
+             DataType="Text-40"
+             Description="Account Code2"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAcctCode2"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE2"
+             DataType="Text-40"
+             Description="Override Code2"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode2"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SPLIT_AMOUNT2"
+             DefaultValue="0"
+             Description="Split Amount"
+             Nullable="false"
+             DataType="NUM-15-4"
+             XMLName="ExtnSplitAmount2"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ACCT_CODE3"
+             DataType="Text-40"
+             Description="Account Code3"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAcctCode3"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE3"
+             DataType="Text-40"
+             Description="Override Code3"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode3"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SPLIT_AMOUNT3"
+             DefaultValue="0"
+             Description="Split Amount"
+             Nullable="false"
+             DataType="NUM-15-4"
+             XMLName="ExtnSplitAmount3"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ACCT_CODE4"
+             DataType="Text-40"
+             Description="Account Code4"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAcctCode4"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE4"
+             DataType="Text-40"
+             Description="Override Code4"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode4"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SPLIT_AMOUNT4"
+             DefaultValue="0"
+             Description="Split Amount"
+             Nullable="false"
+             DataType="NUM-15-4"
+             XMLName="ExtnSplitAmount4"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ACCT_CODE5"
+             DataType="Text-40"
+             Description="Account Code5"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAcctCode5"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE5"
+             DataType="Text-40"
+             Description="Override Code5"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode5"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SPLIT_AMOUNT5"
+             DefaultValue="0"
+             Description="Split Amount"
+             Nullable="false"
+             DataType="NUM-15-4"
+             XMLName="ExtnSplitAmount5"
+             XMLGroup="Extn" />
+
+<!-- Added for Split Account Code Functionality-->
+
+<!-- Added for reording the last two incident numbers associated with the issue-->
+            <Attribute
+             ColumnName="EXTN_LAST_INCIDENT_NO_1"
+             DataType="Text-40"
+             Description="Previous Incident number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnLastIncidentNo1"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_LAST_INCIDENT_NO_2"
+             DataType="Text-40"
+             Description="Second Last Incident number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnLastIncidentNo2"
+             XMLGroup="Extn" />
+
+<!-- Added Account Codes for Cache to Cache transfer    -->
+            <Attribute
+             ColumnName="EXTN_CACHE_SHIP_ACCT_CODE"
+             DataType="Text-40"
+             Description="Shipping Cache Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnShipAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_CACHE_RECEIVE_ACCT_CODE"
+             DataType="Text-40"
+             Description="Receiving Cache Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRecvAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_CACHE_ADJUST_ACCT_CODE"
+             DataType="Text-40"
+             Description="Adjust Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAdjustAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_PHONE_NO"
+             DataType="Text-20"
+             Description="Phone Number"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnPhoneNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE"
+             DataType="Text-20"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode"
+             XMLGroup="Extn"
+             Description="" />
+             
+             <Attribute
+             ColumnName="EXTN_SA_OVERRIDE_CODE"
+             DataType="Text-50"
+             Nullable="true"
+             Size="50"
+             Type="VARCHAR2"
+             XMLName="ExtnSAOverrideCode"
+             XMLGroup="Extn"
+             Description="" />
+
+			 <Attribute
+             ColumnName="EXTN_RA_OVERRIDE_CODE"
+             DataType="Text-50"
+             Nullable="true"
+             Size="50"
+             Type="VARCHAR2"
+             XMLName="ExtnRAOverrideCode"
+             XMLGroup="Extn"
+             Description="" />
+
+            <Attribute
+             ColumnName="EXTN_INCIDENT_TEAM_TYPE"
+             DataType="VARCHAR2"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentTeamType"
+             XMLGroup="Extn"
+             Description="" />
+
+            <Attribute
+             ColumnName="EXTN_INCIDENT_TYPE"
+             DataType="VARCHAR2"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentType"
+             XMLGroup="Extn"
+             Description="" />
+            <Attribute
+             ColumnName="EXTN_TO_INCIDENT_TYPE"
+             DataType="VARCHAR2"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToIncidentType"
+             XMLGroup="Extn"
+             Description="" />
+             
+             <Attribute
+             ColumnName="EXTN_TO_OVERRIDE_CODE"
+             DataType="Text-20"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnToOverrideCode"
+             XMLGroup="Extn"
+             Description="" />
+ 		 <!-- This will be the primary cache id of the incident -->
+            <Attribute
+             ColumnName="EXTN_INCIDENT_CACHE_ID"
+             DataType="Text-40"
+             Description="Other Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentCacheId"
+             XMLGroup="Extn" />
+
+
+	<!-- Added for incident to incident transfer -->
+            <Attribute
+             ColumnName="EXTN_TO_INCIDENT_NO"
+             DataType="Text-40"
+             DefaultValue=""
+             Description="Incident number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToIncidentNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_TO_INCIDENT_NAME"
+             DataType="Text-50"
+             Nullable="true"
+             Size="50"
+             Type="VARCHAR2"
+             XMLName="ExtnToIncidentName"
+             XMLGroup="Extn"
+             Description="" />
+
+            <Attribute
+             ColumnName="EXTN_TO_PHONE_NO"
+             DataType="Text-20"
+             Description="Phone Number"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnToPhoneNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_TO_FS_ACCT_CODE"
+             DataType="Text-40"
+             Description="FS Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToFsAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_TO_BLM_ACCT_CODE"
+             DataType="Text-40"
+             Description="BLM Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToBlmAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_TO_OTHER_ACCT_CODE"
+             DataType="Text-40"
+             Description="Other Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToOtherAcctCode"
+             XMLGroup="Extn" />
+
+			<!-- This will be the primary cache id of the to incident -->
+            <Attribute
+             ColumnName="EXTN_TO_INCIDENT_CACHE_ID"
+             DataType="Text-40"
+             Description="Other Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnToIncidentCacheId"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_TO_INCIDENT_YEAR"
+             DataType="Text-10"
+             Description="To Incident Year"
+             Nullable="true"
+             DefaultValue="' '"
+             Size="10"
+             Type="VARCHAR2"
+             XMLName="ExtnToIncidentYear"
+             XMLGroup="Extn" />
+		<!--
+		GSA FEDSTRIP DATA TYPE OF ALL OF THEM IS 15, have to change it later once get a free flagfrom henry
+		-->
+			 <Attribute
+             ColumnName="EXTN_DOCUMENT_IDENTIFIER_CODE"
+             DataType="Text-15"
+             Description="3 character Document Identifier Code. Reference only."
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnDocumentIdentifierCode"
+             XMLGroup="Extn" />
+
+			<Attribute
+             ColumnName="EXTN_ROUTING_IDENTIFIER_CODE"
+             DataType="Text-15"
+             Description="3 character Routing Identifier Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnRoutingIdentifierCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_MEDIA_AND_STATUS_CODE"
+             DataType="Text-15"
+             Description="1 character Media and Status Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnMediaAndStatusCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ACTIVITY_ADDRESS_CODE"
+             DataType="Text-15"
+             Description="6 character Requisitioner Activity Address Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnActivityAddressCode"
+             XMLGroup="Extn" />
+
+			  <Attribute
+             ColumnName="EXTN_JDATE"
+             DataType="Text-15"
+             Description="4 character Julian Date."
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnJDate"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SUPPLEMENTARY_ADDRESS"
+             DataType="Text-15"
+             Description="6 character Supplementary Address Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnSupAddressCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_FUND_CODE"
+             DataType="Text-15"
+             Description="2 character Fund Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnFundCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SIGNAL_CODE"
+             DataType="Text-15"
+             Description="1 character Signal Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnSignalCode"
+             XMLGroup="Extn" />
+			<!-- Jay : CR# 232 as per this CR, distributing the DIST_PROJ_CODE in two parts
+				 As DIST CODE and PROJ CODE and adding new field as DRN CODE
+			-->
+			 <Attribute
+             ColumnName="EXTN_DIST_CODE"
+             DataType="Text-15"
+             Description="6 character Distribution Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnDistributionCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_PROJ_CODE"
+             DataType="Text-15"
+             Description="6 character Project Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnProjectCode"
+             XMLGroup="Extn" />
+			
+			<Attribute
+             ColumnName="EXTN_DRN_CODE"
+             DataType="Text-25"
+             Description="DRN Code"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnDRNCode"
+             XMLGroup="Extn" />
+			
+			 <Attribute
+             ColumnName="EXTN_PRIORITY_DESIGNATOR_CODE"
+             DataType="Text-15"
+             Description="2 character Priority Designator Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnPriorityDesignatorCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_REQUIRED_DELIVERY_DATE"
+             DataType="Text-15"
+             Description="3 character Required Delivery Date"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnRequiredDeliveryDate"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_ADVICE_CODE"
+             DataType="Text-15"
+             Description="2 character Advice Code"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnAdviceCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_CNAME"
+             DataType="Text-30"
+             Description="Free form to record Requisitioner Name"
+             Nullable="true"
+             Size="30"
+             Type="VARCHAR2"
+             XMLName="ExtnRequisitionerName"
+             XMLGroup="Extn" />
+
+			<Attribute
+             ColumnName="EXTN_CNO"
+             DataType="Text-15"
+             Description="Free form to record Requisitioner contact number"
+             Nullable="true"
+             Size="15"
+             Type="VARCHAR2"
+             XMLName="ExtnRequisitionerNo"
+             XMLGroup="Extn" />
+		<!-- GSA FEDSTRIP ENDS -->
+
+			 <!-- This was added for Refurb Issues -->
+			<Attribute
+			 ColumnName="EXTN_REFURB_WO"
+			 DataType="Text-40"
+			 Description="Refurb Work Order Number"
+			 Nullable="true"
+			 Size="40"
+			 Type="VARCHAR2"
+			 XMLName="ExtnRefurbWO"
+			 XMLGroup="Extn" />
+
+			 <!-- This was added for CR 144 - Adding Customer Acct Code -->
+			<Attribute
+			 ColumnName="EXTN_CUST_ACCT_CODE"
+			 DataType="Text-40"
+			 Description="Customer Account Code"
+			 Nullable="true"
+			 Size="40"
+			 Type="VARCHAR2"
+			 XMLName="ExtnCustAcctCode"
+			 XMLGroup="Extn" />
+
+			<Attribute
+             ColumnName="EXTN_CUSTOMER_NAME"
+             DataType="Text-40"
+             Description="Customer Name"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnCustomerName"
+             XMLGroup="Extn" />
+			
+			<!-- Previously this field was Organization type, changing as per new CR for customer changes-->
+             <Attribute
+             ColumnName="EXTN_UNIT_TYPE"
+             DataType="Text-100"
+             Description="Unit Type"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnUnitType"
+             XMLGroup="Extn" />
+
+			<Attribute
+             ColumnName="EXTN_AGENCY"
+             DataType="Text-25"
+             Description="Customer Agency"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnAgency"
+             XMLGroup="Extn" />
+           
+           <Attribute
+             ColumnName="EXTN_DEPARTMENT"
+             DataType="Text-25"
+             Description="Customer Department"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnDepartment"
+             XMLGroup="Extn" />
+             
+			<!-- Jay: removing jurisdiction details
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_ID"
+             DataType="Text-40"
+             Description="Jurisdiction ID"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionID"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_NAME"
+             DataType="Text-100"
+             Description="Jurisdiction Name"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_TYPE"
+             DataType="Text-40"
+             Description="Jurisdiction Type"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionType"
+             XMLGroup="Extn" />
+			-->
+            <Attribute
+             ColumnName="EXTN_GACC"
+             DataType="Text-100"
+             Description="GACC"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnGACC"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_REQ_DELIVERY_DATE"
+             DataType="TimeStamp"
+             Description="Requested Delivery Date and Time"
+             Nullable="true"
+             Size="100"
+             Type="DATE"
+             XMLName="ExtnReqDeliveryDate"
+             XMLGroup="Extn" />
+                                       
+             <Attribute
+             ColumnName="EXTN_MASTER_WORK_ORDER_NO"
+             DataType="Text-40"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnMasterWorkOrderNo"
+             XMLGroup="Extn" 
+             Description="master work order number - will be same as the return number incase this master work order is from returns" />
+             
+             <!-- Adding the below fields as part of NFES request -->
+	     <Attribute
+             ColumnName="EXTN_SYSTEM_OF_ORIGIN"
+             DataType="Text-20"
+             Nullable="true"
+             Size="20" 
+             Type="VARCHAR2"
+             XMLName="ExtnSystemOfOrigin"
+             XMLGroup="Extn"
+             Description="System of Origin - ROSS or ICBSR as of 10/21/2008" />
+
+            <Attribute
+             ColumnName="EXTN_ROSS_FINANCIAL_CODE"
+             DataType="Text-100"
+             Description="ROSS Account Code"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnROSSFinancialCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_ROSS_OWNING_AGENCY"
+             DataType="Text-255"
+             Description="ROSS Owning Agency"
+             Nullable="true"
+             Size="255"
+             Type="VARCHAR2"
+             XMLName="ExtnROSSOwningAgency"
+             XMLGroup="Extn" />
+
+	     <Attribute
+             ColumnName="EXTN_ROSS_FISCAL_YEAR"
+             DataType="Text-25"
+             Nullable="true"
+             Type="VARCHAR2"
+             Size="25"
+             XMLName="ExtnROSSFiscalYear"
+             XMLGroup="Extn"
+             Description="ROSS Fiscal Year" />
+
+            <Attribute
+             ColumnName="EXTN_ROSS_BILLING_ORG"
+             DataType="Text-40"
+             Description="ROSS Billing Organization"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnROSSBillingOrganization"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_NAV_INFO"
+             DataType="Text-25"
+             Description="Shipping/Navigation Info"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnNavInfo"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_SHIPPING_INSTRUCTIONS"
+             DataType="Comments"
+             Description="Shipping Instructions"
+             Nullable="true"
+             Size="1500"
+             Type="VARCHAR2"
+             XMLName="ExtnShippingInstructions"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_SHIPPING_INFO"
+             Description="Shipping Info"
+             Nullable="true"
+             Size="500"
+             Type="VARCHAR2"
+             XMLName="ExtnShippingInfo"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_WILL_PICK_UP_NAME"
+             
+             Description="Will Pick Up Name"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnWillPickUpName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_WILL_PICK_UP_INFO"
+             
+             Description="Will Pick Up Info"
+             Nullable="true"
+             Size="256"
+             Type="VARCHAR2"
+             XMLName="ExtnWillPickUpInfo"
+             XMLGroup="Extn" />
+             
+			<Attribute 
+			  ColumnName="EXTN_SHIP_INSTR_CITY"
+              DataType="City"
+              Description="City for a Shipping Instruction shipping method"
+              Nullable="true"
+              XMLName="ExtnShipInstrCity"
+              XMLGroup="Extn" />
+              
+			<Attribute 
+			  ColumnName="EXTN_SHIP_INSTR_STATE"
+              DataType="State"
+              Description="State for a Shipping Instruction shipping method"
+              Nullable="true"
+              XMLName="ExtnShipInstrState"
+              XMLGroup="Extn" />              
+                        
+             <!-- End of new fields for NFES request -->
+             
+             <!-- Moving from Order Line to OrderHeader -->
+            <Attribute
+             ColumnName="EXTN_SHIPPING_CONT_NAME"
+             DataType="Text-40"
+             Description="Shipping Contact Name"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnShippingContactName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_SHIPPING_CONT_PHONE"
+             DataType="Text-20"
+             Description="Shipping Contact Phone"
+             Nullable="true"
+             Size="356"
+             Type="VARCHAR2"
+             XMLName="ExtnShippingContactPhone"
+             XMLGroup="Extn" />
+             
+           <!-- FBMS elements for Split Acct Codes --> 
+            <Attribute
+			ColumnName="EXTN_COST_CENTER"
+			DataType="Text-10"
+			Description="Cost Center"
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS"
+			DataType="Text-12"
+			Description="WBS"
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA"
+			DataType="Text-16"
+			Description="Functional Area"
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFunctionalArea"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_COST_CENTER_1"
+			DataType="Text-10"
+			Description="Cost Center1"
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter1"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS_1"
+			DataType="Text-12"
+			Description="WBS1"
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS1"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA_1"
+			DataType="Text-16"
+			Description="FA1"
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFA1"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_COST_CENTER_2"
+			DataType="Text-10"
+			Description=""
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter2"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS_2"
+			DataType="Text-12"
+			Description=""
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS2"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA_2"
+			DataType="Text-16"
+			Description=""
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFA2"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_COST_CENTER_3"
+			DataType="Text-10"
+			Description=""
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter3"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS_3"
+			DataType="Text-12"
+			Description=""
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS3"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA_3"
+			DataType="Text-16"
+			Description=""
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFA3"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_COST_CENTER_4"
+			DataType="Text-10"
+			Description=""
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter4"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS_4"
+			DataType="Text-12"
+			Description=""
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS4"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA_4"
+			DataType="Text-16"
+			Description=""
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFA4"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_COST_CENTER_5"
+			DataType="Text-10"
+			Description=""
+			Nullable="true"
+			Size="10"
+			Type="VARCHAR2"
+			XMLName="ExtnCostCenter5"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_WBS_5"
+			DataType="Text-12"
+			Description=""
+			Nullable="true"
+			Size="12"
+			Type="VARCHAR2"
+			XMLName="ExtnWBS5"
+			XMLGroup="Extn" />
+			
+			<Attribute
+			ColumnName="EXTN_FUNCTIONAL_AREA_5"
+			DataType="Text-16"
+			Description=""
+			Nullable="true"
+			Size="16"
+			Type="VARCHAR2"
+			XMLName="ExtnFA5"
+			XMLGroup="Extn" />
+			<!-- end of FBMS elements for Split Acct Codes -->
+
+            <!-- Added for FSS PO REPORT - CR-626 -->
+
+			<Attribute
+			ColumnName="EXTN_ORDER_PURPOSE"
+			DataType="Text-40"
+			Description="PO Order Purpose"
+			Nullable="true"
+			Size="40"
+			Type="VARCHAR2"
+			XMLName="ExtnOrderPurpose"
+			XMLGroup="Extn" />
+
+			<Attribute
+			ColumnName="EXTN_TRANSPORTATION_METHOD"
+			DataType="Text-40"
+			Description="PO Transportation Method"
+			Nullable="true"
+			Size="40"
+			Type="VARCHAR2"
+			XMLName="ExtnTransportationMethod"
+			XMLGroup="Extn" />
+
+			<!-- End - CR-626 -->
+			
+			<Attribute 
+			ColumnName="EXTN_ROSS_DISPATCH_UNIT_ID" 
+			DataType="Text-40" 
+			Description="Ross Dispatch Unit Id for the incident"
+			Nullable="true" 
+			Size="40" 
+			Type="VARCHAR2" 
+			XMLName="ExtnRossDispatchUnitId"
+			XMLGroup="Extn" />
+
+   <!-- Begin CR846 -->
+<Attribute
+ColumnName="EXTN_BASE_ORDER_HEADER_KEY"
+DataType="Text-24"
+Nullable="true"
+Size="24"
+Type="CHAR"
+XMLName="ExtnBaseOrderHeaderKey"
+XMLGroup="Extn"
+Description="Extn Base Order Header Key" />
+  <!-- End CR846 -->			
+
+<!-- Begin CR868  12052012 -->
+             <Attribute
+             ColumnName="EXTN_LAST_INCIDENT_NO_3"
+             DataType="Text-40"
+             Description="Third Last Incident number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnLastIncidentNo3"
+             XMLGroup="Extn" />
+
+             <Attribute
+             ColumnName="EXTN_INCIDENT_ID"
+             DataType="Text-10"
+             Description="Incident ID"
+             Nullable="true"
+             Size="10"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentId"
+             XMLGroup="Extn" />
+  <!-- End CR868 12052012 -->
+			
+         </Attributes>
+         <Indices>
+				<Index Name="NWCG_YFS_ORDER_HEADER_I1" Unique="False">
+				    <Column Name="ORDER_HEADER_KEY"/>
+					<Column Name="DOCUMENT_TYPE"/>
+					<Column Name="ORDER_TYPE"/>
+					<Column Name="EXTN_INCIDENT_NO"/>
+					<Column Name="EXTN_INCIDENT_YEAR"/>
+				    <Column Name="EXTN_TO_INCIDENT_NO"/>
+					<Column Name="EXTN_TO_INCIDENT_YEAR"/>
+					<Column Name="SHIP_NODE"/>
+				</Index>
+		 </Indices>
+      </Entity>
+
+      <Entity
+       TableName="YFS_ORDER_LINE">
+         <Attributes>
+
+		 <!-- as per design Radio_Kit_004390_Detail_Design-0224.doc-->
+
+		             <Attribute
+             ColumnName="EXTN_SYSTEM_NO"
+             DataType="Text-40"
+             Description="System number"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnSystemNo"
+             XMLGroup="Extn" />
+
+
+		 <!--design Radio_Kit_004390_Detail_Design-0224.doc ends here -->
+            <Attribute
+             ColumnName="EXTN_REQUEST_NO"
+             DataType="Text-20"
+             Description="Request number"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnRequestNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_ORIG_REQ_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="Original Requested Qty"
+             Nullable="false"
+             XMLName="ExtnOrigReqQty"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_ORIG_BACKORD_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="Backordered Qty"
+             Nullable="false"
+             XMLName="ExtnOrigBackorderedQty"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_BACKORDERED_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="Backordered Qty"
+             Nullable="false"
+             XMLName="ExtnBackorderedQty"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_QTY_RFI"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="RFI Qty"
+             Nullable="false"
+             XMLName="ExtnQtyRfi"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_SUPPLIER_STD_PACK"
+             DataType="CHAR"
+             DefaultValue="0"
+             Description="Supplier Standard Pack"
+             Nullable="false"
+             Size="100"
+             Type="CHAR"
+             XMLName="ExtnSupplierStdPack"
+             XMLGroup="Extn" />
+
+			<Attribute
+             ColumnName="EXTN_STD_PACK"
+             DataType="CHAR"
+             DefaultValue="0"
+             Description="Standard Pack"
+             Nullable="false"
+             Size="20"
+             Type="CHAR"
+             XMLName="ExtnStdPack"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_UTF_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="RFI Qty"
+             Nullable="false"
+             XMLName="ExtnUTFQty"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_FWD_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="RFI Qty"
+             Nullable="false"
+             XMLName="ExtnFwdQty"
+             XMLGroup="Extn" />
+
+<!-- This flag will be set on order create for all lines that have back order qty >0
+                     The flag will be reset when new issues are created of these backorder lines.
+                     The original backorder qty will not be updated though -->
+            <Attribute
+             ColumnName="EXTN_BACK_ORDER_FLAG"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="The back order flag(Y/N)"
+             Nullable="false"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnBackOrderFlag"
+             XMLGroup="Extn" />
+
+<!-- The trackable id this is needed for incident to incident transfers
+                as the shipments and returns are virtuals the serial tracking id needs
+                to be captured while creating the tranfer order -->
+            <Attribute
+             ColumnName="EXTN_TRACKABLE_ID"
+             DataType="Text-40"
+             Description="The trackable Id in case of Inicident transfers"
+             Nullable="true"
+             Size="40"
+             XMLName="ExtnTrackableId"
+             XMLGroup="Extn" />
+
+			 <!-- S -->
+			 <Attribute
+             ColumnName="EXTN_NSN"
+             DataType="Text-15"
+             Description="National Stock Number"
+             Nullable="true"
+             Size="15"
+             XMLName="ExtnNSN"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SUPPLIER_REQ_QTY"
+             DataType="Text-15"
+             Description="Requested Qty in Supplier UOMs (Reference only)"
+             Nullable="true"
+             Size="15"
+             XMLName="ExtnSupplierRequestedQty"
+             XMLGroup="Extn" />
+
+	     <Attribute
+             ColumnName="EXTN_SUPPLIER_PART_NO"
+             DataType="Text-40"
+             Nullable="true"
+             Size="40" 
+             Type="VARCHAR2"
+             XMLName="ExtnSupplierPartNo"
+             XMLGroup="Extn"
+             Description="Supplier Part Number" />
+             
+             <!-- Adding the below fields as part of NFES request -->
+	     <Attribute
+             ColumnName="EXTN_SPECIAL_NEEDS"
+             DataType="Text-80"
+             Nullable="true"
+             Size="80" 
+             Type="VARCHAR2"
+             XMLName="ExtnSpecialNeeds"
+             XMLGroup="Extn"
+             Description="Special Needs" />
+                        
+             <Attribute 
+             ColumnName="EXTN_ROSS_NEED_DATE_TIME" 
+             DataType="TimeStamp" 
+             Description="ROSS Need Date Time" 
+             Nullable="true" 
+             Type="DATE" 
+             XMLName="ExtnROSSNeedDateTime" 
+             XMLGroup="Extn" 
+             DefaultValue="sysdate" />
+
+			 <Attribute
+             ColumnName="EXTN_FORWARD_ORDER_FLAG"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="The forward order flag(Y/N)"
+             Nullable="false"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnForwardOrderFlag"
+             XMLGroup="Extn" />
+
+	     <!--End of new fields for NFES request -->
+	     
+	     	<!--added for cr 440 ks-->
+         	 <Attribute
+              ColumnName="EXTN_SUPPLIER_UOM"
+              DataType="Text-40"
+              Description="Supplier Unit Of Measure"
+              Nullable="true"
+              Size="40"
+              Type="VARCHAR2"
+              XMLName="ExtnSupplierUOM"
+              XMLGroup="Extn" />
+    		  <!-- end of 440 -->
+         	
+		    <!-- Added for FSS PO REPORT - CR-626 -->
+
+			<Attribute
+			ColumnName="EXTN_GSA_NO"
+			DataType="Text-40"
+			Description="GSA NO"
+			Nullable="true"
+			Size="40"
+			Type="VARCHAR2"
+			XMLName="ExtnGSANo"
+			XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_GSA_QTY"
+             DataType="NUM-14-4"
+             DefaultValue="0"
+             Description="GSA Qty"
+             Nullable="true"
+             XMLName="ExtnGSAQty"
+             XMLGroup="Extn" />
+			
+			<!-- End - CR-626 -->
+			
+			<!--  CR 557 BEGIN -->
+			<Attribute
+			 ColumnName="EXTN_TO_RECEIVE"
+			 DataType="CHAR"
+       		 Nullable="false"
+       		 Size="2"
+       		 Type="CHAR"
+       		 XMLName="ExtnToReceive"
+			 XMLGroup="Extn"
+      		 DefaultValue="'Y'"
+       		 Description="The Receive Order Flag (Y/N)" />
+
+			<!--  CR 557 END -->
+			
+            <Attribute
+             ColumnName="EXTN_BASE_REQUEST_NO"
+             DataType="Text-20"
+             Description="BaseRequest number"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnBaseRequestNo"
+             XMLGroup="Extn" />			
+             
+            <Attribute
+             ColumnName="EXTN_BO_NOTIFIED_ROSS"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="The flag(Y/N) to notify ROSS of full backorder"
+             Nullable="false"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnBackOrderNotifiedROSS"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_FO_NOTIFIED_ROSS"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="The flag(Y/N) to notify ROSS of full forward order"
+             Nullable="false"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnForwardOrderNotifiedROSS"
+             XMLGroup="Extn" />
+             
+			
+         </Attributes>
+            <Indices>
+				<Index Name="NWCG_YFS_ORDER_LINE_I1" Unique="False">
+					<Column Name="ITEM_ID"/>
+					<Column Name="UNIT_PRICE"/>
+					<Column Name="ORDER_HEADER_KEY"/>
+				</Index>
+		 </Indices>
+      </Entity>
+
+      <Entity
+       TableName="YFS_ITEM">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_NAT_CRITICAL_ITEM"
+             DataType="NatCriticalItem"
+             DefaultValue="'N'"
+             Description="National Critical Item"
+             Nullable="false"
+             XMLName="ExtnNatCriticalItem"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_PUBLISH_TO_ROSS"
+             DataType="PublishToRoss"
+             DefaultValue="'N'"
+             Description="Publish to ROSS"
+             Nullable="false"
+             XMLName="ExtnPublishToRoss"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_ROSS_RESOURCE_ITEM"
+             DataType="RossResourceItem"
+             DefaultValue="'N'"
+             Description="Ross Resource Item"
+             Nullable="false"
+             XMLName="ExtnRossResourceItem"
+             XMLGroup="Extn" />
+
+             <Attribute
+             ColumnName="EXTN_IATA_PROPER_SHIPPING_NAME"
+             DataType="IATAProperShippingName"
+             Description="IATA Proper Shipping Name"
+             Nullable="true"
+             XMLName="IATAProperShippingName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_IATA_HAZARD_CLASS"
+             DataType="IATAHazardClass"
+             Description="IATA Hazard Class"
+             Nullable="true"
+             XMLName="IATAHazardClass"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_IATA_UN_NUMBER"
+             DataType="IATAUNNumber"
+             Description="IATA UN Number"
+             Nullable="true"
+             XMLName="IATAUNNumber"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_IATA_PACKING_GROUP"
+             DataType="IATAPackingGroup"
+             Description="IATA Packing Group"
+             Nullable="true"
+             XMLName="IATAPackingGroup"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_STANDARD_PACK"
+             DataType="ExtnStandardPack"
+             Description="Standard Pack per case"
+             Nullable="true"
+             XMLName="ExtnStandardPack"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_KIT_LABEL_QTY"
+             DataType="ExtnKitLabelQty"
+             Description="Number of labels required for a kit"
+             Nullable="true"
+             XMLName="ExtnKitLabelQty"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_REPORT_DESC"
+			 DataType="ExtnReportDesc"
+			 Type="VARCHAR2"
+			 Size="200"
+             Description="Description field for Reports"
+             Nullable="false"
+			 DefaultValue="' '"
+             XMLName="ExtnReportDesc"
+             XMLGroup="Extn" />
+             
+             <Attribute
+		     ColumnName="EXTN_REFURB_REQUIRED"
+		  	 DataType="RefurbRequired"
+		     DefaultValue="N"
+		     Description="Requiring refurbishment specifications"
+		     Nullable="false"
+		     Size="4"
+		     Type="VARCHAR2"
+		     XMLName="ExtnRefurbRequired"
+		     XMLGroup="Extn" />  
+
+         </Attributes>
+
+         <Indices>
+				<Index Name="NWCG_YFS_ITEM_I1" Unique="False">
+					<Column Name="ITEM_KEY"/>
+					<Column Name="UOM"/>
+					<Column Name="UNIT_COST"/>
+					<Column Name="SHORT_DESCRIPTION"/>
+					<Column Name="DESCRIPTION"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="TAX_PRODUCT_CODE"/>
+				</Index>
+		 </Indices>
+      </Entity>
+
+      <Entity
+       TableName="YFS_ITEM_NODE_DEFN">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_CARRIED_AT_NODE"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="Carried at Node Flag"
+             Nullable="true"
+             Size="1"
+             Type="CHAR"
+             XMLName="ExtnCarriedAtNode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_LOCAL_CRITICAL_ITEM"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="Local Critical Item Flag"
+             Nullable="true"
+             Size="1"
+             Type="CHAR"
+             XMLName="ExtnLocalCriticalItem"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_STD_REFURB_COST"
+             DataType="NUM-15-4"
+             Description="Standard Refurbishment Cost"
+             Nullable="true"
+             XMLName="ExtnStdRefurbCost"
+             XMLGroup="Extn" />
+
+              <Attribute
+             ColumnName="EXTN_EXTERNAL_REFURB_COST"
+             DataType="NUM-15-4"
+             Description="External Refurb Cost"
+             Nullable="true"
+             XMLName="ExtnExternalRefurbCost"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_LOCAL_ITEM_COST"
+             DataType="NUM-15-4"
+             Description="Local Item Cost"
+             Nullable="true"
+             XMLName="ExtnLocalItemCost"
+             XMLGroup="Extn" />
+
+         </Attributes>
+      </Entity>
+
+      <Entity
+       TableName="YFS_CUSTOMER">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_ACTIVE_FLAG"
+             DataType="CHAR"
+             DefaultValue="'N'"
+             Description="Active Customer Flag"
+             Nullable="false"
+             Size="1"
+             Type="CHAR"
+             XMLName="ExtnActiveFlag"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_UNIT_TYPE"
+             DataType="Text-100"
+             Description="Unit Type"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnUnitType"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_AGENCY"
+             DataType="Text-25"
+             Description="Customer Agency"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnAgency"
+             XMLGroup="Extn" />
+             <Attribute
+             ColumnName="EXTN_DEPARTMENT"
+             DataType="Text-25"
+             Description="Customer Department"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnDepartment"
+             XMLGroup="Extn" />
+			
+			<!-- removing these extenssions for customer CR 
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_ID"
+             DataType="Text-40"
+             Description="Jurisdiction ID"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionID"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_NAME"
+             DataType="Text-100"
+             Description="Jurisdiction Name"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_JURISDICTION_TYPE"
+             DataType="Text-40"
+             Description="Jurisdiction Type"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnJurisdictionType"
+             XMLGroup="Extn" />
+				-->
+             <Attribute
+             ColumnName="EXTN_CUSTOMER_NAME"
+             DataType="Text-40"
+             Description="Customer Name"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnCustomerName"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_GACC"
+             DataType="Text-100"
+             Description="GACC"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnGACC"
+             XMLGroup="Extn" />
+             
+             <!-- Jay : Adding the extended customer type as the OOB takes only 2 values 
+             and does validation based on the buyer organization code, sicne buyer organization code is not fixed
+             we cant hardcode that and hence creating this extended column
+             01 - represents the NWCG Customer Type
+             02 - represents the Other Customer Type
+             -->
+             <Attribute
+             ColumnName="EXTN_CUSTOMER_TYPE"
+             DataType="Text-2"
+             Description="Customer Type"
+             Nullable="true"
+             Size="2"
+             Type="CHAR"
+             XMLName="ExtnCustomerType"
+             XMLGroup="Extn" />
+          </Attributes>
+      </Entity>
+
+<!-- We do not need to extend this table as we can use YFS_CUSTOMER_ADDNL_ADDRESS directly -->
+<!-- Extend the YFS_CONSUMER for personInfo Ship to
+        <Entity TableName="YFS_CONSUMER">
+            <Attributes>
+                <Attribute ColumnName="EXTN_PERS_INFO_SHIPTO_KEY"
+                    DataType="VARCHAR2" Nullable="true" Size="24" Type="VARCHAR2"
+                    XMLGroup="Extn" XMLName="PersonInfoShipToKey" Description="The Ship to Key"/>
+            </Attributes>
+
+            <ForeignKeys>
+                <ForeignKey ParentTableName="YFS_PERSON_INFO" XMLName="YFSPersonInfoShipTo" >
+                    <Attribute ColumnName="EXTN_PERS_INFO_SHIPTO_KEY" ParentColumnName="PERSON_INFO_KEY" />
+                </ForeignKey>
+            </ForeignKeys>
+        </Entity>
+
+      -->
+
+      <Entity
+       TableName="YFS_ORGANIZATION">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_CACHE_TYPE"
+             DataType="ExtnCacheType"
+             Description="Cache Type"
+             Nullable="false"
+             DefaultValue="'NATIONAL'"
+             XMLName="ExtnCacheType"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_OWNER_AGENCY"
+             DataType="ExtnOwnerAgency"
+             Description="Owner Agency"
+             Nullable="false"
+             DefaultValue="'FS'"
+             XMLName="ExtnOwnerAgency"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_FISCAL_YEAR"
+             DataType="Text"
+             Nullable="true"
+			 DefaultValue="' '"
+			 Type="VARCHAR2"
+			 Size="10"
+             XMLName="ExtnFiscalYear"
+             XMLGroup="Extn"
+             Description="Fiscal Year" />
+
+			 <Attribute
+             ColumnName="EXTN_DOCUMENT_NO"
+             DataType="ExtnDocumentNo"
+             Nullable="true"
+             XMLName="ExtnDocumentNo"
+             XMLGroup="Extn"
+             Description="DocumentNo" />
+
+			 <Attribute
+             ColumnName="EXTN_BILLING_TRANS_FILE_NAME"
+             DataType="ExtnBillingTransFileName"
+             Description="Billing Transaction File Name"
+             Nullable="true"
+             XMLName="ExtnBillingTransFileName"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_CURRENT_SEQ_NO"
+             DataType="Text-10"
+             Description="Billing Transaction Extract Seq No"
+             Nullable="true"
+             Size="10"
+             Type="VARCHAR2"
+             XMLName="ExtnCurrentSeqNo"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_CACHE_START_DATE"
+             DataType="ExtnCacheStartDate"
+             Description="Cache Start Date"
+             Nullable="true"
+             XMLName="ExtnCacheStartDate"
+             XMLGroup="Extn" />
+
+<!-- Added Account Codes for Cache to Cache transfer    -->
+            <Attribute
+             ColumnName="EXTN_CACHE_SHIP_ACCT_CODE"
+             DataType="ExtnCacheShipAcctCode"
+             Description="Shipping Cache Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnShipAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_CACHE_RECEIVE_ACCT_CODE"
+             DataType="ExtnCacheReceiveAcctCode"
+             Description="Receiving Cache Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRecvAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_CACHE_ADJUST_ACCT_CODE"
+             DataType="ExtnCacheAdjustAcctCode"
+             Description="Adjust Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnAdjustAcctCode"
+             XMLGroup="Extn" />
+
+             <Attribute
+             ColumnName="EXTN_FS_OVERRIDE_CODE"
+             DataType="ExtnOverrideCode"
+             Description="FS Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnFSOverrideCode"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_SA_OVERRIDE_CODE"
+             DataType="SA Override Code"
+             Description="SA Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnSAOverrideCode"
+             XMLGroup="Extn" />
+			
+			 <Attribute
+             ColumnName="EXTN_RA_OVERRIDE_CODE"
+             DataType="RA Override Code"
+             Description="RA Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnRAOverrideCode"
+             XMLGroup="Extn" />
+			
+			
+			 <Attribute
+             ColumnName="EXTN_CACHE_OFFSET_ACCT_CODE"
+             DataType="ExtnCacheOffsetAcctCode"
+             Description="Offset Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOffsetAcctCode"
+             XMLGroup="Extn" />
+             
+             <!-- Begin : Added Account Codes for Cache to Cache transfer CR-609   -->
+             <Attribute
+             ColumnName="EXTN_FS_TFR_SHIP_ACCT_CODE"
+             DataType="ExtnFSTransferShipAcctCode"
+             Description="FS Transfer Shipping Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnFSTransferShipAcctCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_FS_TFR_SAOVERRIDE_CODE"
+             DataType="ExtnFSTransferSAOverrideCode"
+             Description="FS Transfer Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnFSTransferSAOverrideCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_BLM_TFR_SHIP_ACCT_CODE"
+             DataType="ExtnBLMTransferShipAcctCode"
+             Description="BLM Transfer Shipping Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnBLMTransferShipAcctCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_OTHER_TFR_SHIP_ACCT_CODE"
+             DataType="ExtnOtherTransferShipAcctCode"
+             Description="OTHER Transfer Shipping Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOtherTransferShipAcctCode"
+             XMLGroup="Extn" /> 
+             
+             <Attribute
+             ColumnName="EXTN_FS_TFR_ORDER_ACCT_CODE"
+             DataType="ExtnFSTransferOrderAcctCode"
+             Description="FS Transfer Order Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnFSTransferOrderAcctCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_FS_TFR_OVERRIDE_CODE"
+             DataType="ExtnFSTransferOrderOverrideCode"
+             Description="FS Transfer Order Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnFSTransferOrderOverrideCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_BLM_TFR_ORDER_ACCT_CODE"
+             DataType="ExtnBLMTransferOrderAcctCode"
+             Description="BLM Transfer Order Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnBLMTransferOrderAcctCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_OTHER_TFR_ORDER_ACCT_CODE"
+             DataType="ExtnOtherTransferOrderAcctCode"
+             Description="OTHER Transfer Order Acct Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOtherTransferOrderAcctCode"
+             XMLGroup="Extn" />  
+             <!-- End : Added Account Codes for Cache to Cache transfer CR-609   -->      
+                   
+         </Attributes>
+      </Entity>
+
+     <!-- Added for WO Customization-->
+      <Entity
+       TableName="YFS_WORK_ORDER">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_INCIDENT_NO"
+             DataType="Text-100"
+             Description="Incident Number"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentNo"
+             XMLGroup="Extn" />
+			
+			 <Attribute
+             ColumnName="EXTN_INCIDENT_NAME"
+             DataType="Text-100"
+             Description="Incident Name"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentName"
+             XMLGroup="Extn" />
+			
+			 <Attribute
+             ColumnName="EXTN_INCIDENT_YEAR"
+             DataType="Text-10"
+             Nullable="true"
+             Size="10"
+             DefaultValue="' '"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentYear"
+             XMLGroup="Extn"
+             Description="Incident Year" />
+
+			<Attribute
+             ColumnName="EXTN_FS_ACCT_CODE"
+             DataType="Text-40"
+             Description="FS Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnFsAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_BLM_ACCT_CODE"
+             DataType="Text-40"
+             Description="BLM Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnBlmAcctCode"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_OTHER_ACCT_CODE"
+             DataType="Text-40"
+             Description="Other Account Code"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnOtherAcctCode"
+             XMLGroup="Extn" />
+
+ 			<Attribute
+             ColumnName="EXTN_IS_REFURB"
+             DataType="Text-1"
+             Description="Is Refurb"
+             Nullable="true"
+             Size="1"
+             Type="VARCHAR2"
+             XMLName="ExtnIsRefurb"
+             XMLGroup="Extn" />
+
+            <Attribute
+             ColumnName="EXTN_RFB_COST"
+             DataType="Text-20"
+             Description="Refurb Cost for this WO"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnRefurbCost"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_OVERRIDE_CODE"
+             DataType="Text-20"
+             Description="Override Code"
+             Nullable="true"
+             Size="20"
+             Type="VARCHAR2"
+             XMLName="ExtnOverrideCode"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_MASTER_WORK_ORDER_KEY"
+             DataType="Text-25"
+             Description="Master Work Order Key"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnMasterWorkOrderKey"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_MASTERWORKORDER_LINE_KEY"
+             DataType="Text-25"
+             Description="Master Work Order Line Key"
+             Nullable="true"
+             Size="25"
+             Type="VARCHAR2"
+             XMLName="ExtnMasterWorkOrderLineKey"
+             XMLGroup="Extn" />
+ 
+             <Attribute
+             ColumnName="EXTN_LOCATION_ID"
+             DataType="Text-40"
+             Description="VAS Location Id"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnLocationId"
+             XMLGroup="Extn" />
+ 
+             <Attribute
+             ColumnName="EXTN_PRINT_REPORT"
+             DataType="CHAR"
+             Description="Flag to print report and SKU labels"
+             Nullable="true"
+             Size="1"
+             Type="CHAR"
+             XMLName="ExtnPrintReport"
+             XMLGroup="Extn" />
+        </Attributes>
+      </Entity>
+		<!-- Added for Receipt -->
+	  <Entity
+       TableName="YFS_RECEIPT_LINE">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_RECEIVING_PRICE"
+			 DataType="NUM-19-6"
+             DefaultValue="0"
+             Description="Receiving Price"
+             Nullable="false"
+             XMLName="ExtnReceivingPrice"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_RECEIVED_AS_COMPONENT"
+             DataType="Flag"
+             Nullable="false"
+             Size="1"
+             Type="CHAR"
+             XMLName="ExtnReceivedAsComponent"
+			 XMLGroup="Extn"
+             DefaultValue="'N'"
+             Description="" />
+         </Attributes>
+
+		<Indices>
+		 <Index Name="NWCG_YFS_RECEIPT_LINE_I1" Unique="False">
+			 <Column Name="ITEM_ID"/>
+			 <Column Name="SERIAL_NO"/>
+			 <Column Name="EXTN_RECEIVING_PRICE"/>
+			 <Column Name="EXTN_RECEIVED_AS_COMPONENT"/>
+		  </Index>
+		  <Index Name="NWCG_YFS_RECEIPT_LINE_I2" Unique="False">
+			 <Column Name="ITEM_ID"/>
+			 <Column Name="RECEIPT_HEADER_KEY"/>
+		  </Index>
+		</Indices>
+      </Entity>
+		<!-- END Added for Receipt -->
+<!-- #####################################################################
+            ################ Sequences Begin ####################################
+          ##########################################################################-->
+<!--Incident Issue Number -->
+      <Sequence
+       Name="SEQ_NWCG_INCIDENT_ISSUENO"
+       Increment="1"
+       Startwith="1"
+       Maxvalue="9999999999"
+       Minvalue="1"
+       Cachesize="500"
+       ApiNeeded="Y" />
+
+<!--Added for Changes to Shipment Details Screen-->
+	<Entity
+	TableName="YFS_SHIPMENT" >
+	  <Attributes>
+		 <Attribute
+		  ColumnName="EXTN_TRACKING_NUMBERS"
+		  DataType="Text-250"
+		  Description="Shipment Tracking Numbers"
+		  Nullable="true"
+		  Size="250"
+		  Type="VARCHAR2"
+		  XMLName="ExtnTrackingNumbers"
+		  XMLGroup="Extn" />
+
+	     <Attribute
+		  ColumnName="EXTN_DRIVERS_NAME"
+		  DataType="Text-100"
+		  Description="Drivers Name"
+		  Nullable="true"
+		  Size="40"
+		  Type="VARCHAR2"
+		  XMLName="ExtnDriversName"
+		  XMLGroup="Extn" />
+
+		 <Attribute
+		  ColumnName="EXTN_INCIDENT_NUM"
+		  DataType="Text-100"
+		  Description="Incident number"
+		  Nullable="true"
+		  Size="100"
+		  Type="VARCHAR2"
+		  XMLName="ExtnIncidentNum"
+		  XMLGroup="Extn"
+		  SqlServerDataType=""/>
+
+		 <Attribute
+		  ColumnName="EXTN_ESTIMATED_DEPART_DATE"
+		  DataType="ExtnEstimatedDepartDate"
+		  Description="Estimated Departed Date"
+		  Nullable="true"
+		  XMLName="ExtnEstimatedDepartDate"
+		  XMLGroup="Extn" />
+
+	     <Attribute
+		  ColumnName="EXTN_ESTIMATED_ARRIVAL_DATE"
+		  DataType="ExtnEstimatedArrivalDate"
+		  Description="Estimated Arrival Date"
+		  Nullable="true"
+		  XMLName="ExtnEstimatedArrivalDate"
+		  XMLGroup="Extn" />	
+		  
+		  <Attribute
+		  ColumnName="EXTN_SHIPMENT_PIECES"
+		  DataType="NUM-5"
+		  Description="Total Number of Pieces in a Shipment"
+		  Nullable="true"
+		  XMLName="ExtnShipmentPieces"
+		  XMLGroup="Extn" />
+		  
+		  <Attribute
+		  ColumnName="EXTN_SHIPPING_ACCOUNT_CODE"
+		  DataType="Text-40"
+		  Description="Incident number"
+		  Nullable="true"
+		  Size="40"
+		  Type="VARCHAR2"
+		  XMLName="ExtnShipAcctCode"
+		  XMLGroup="Extn"/>
+
+		  <Attribute
+		  ColumnName="EXTN_VEHICLE_ID"
+		  DataType="Text-40"
+		  Description="Vehicle ID"
+		  Nullable="true"
+		  Size="40"
+		  Type="VARCHAR2"
+		  XMLName="ExtnVehicleId"
+		  XMLGroup="Extn"/>
+		  
+		  <Attribute
+		  ColumnName="EXTN_YEAR"
+		  DataType="Text-100"
+		  Description="Vehicle ID"
+		  Nullable="true"
+		  Size="4"
+		  Type="VARCHAR2"
+		  XMLName="ExtnYear"
+		  XMLGroup="Extn"/>
+		  
+		  <Attribute
+		  ColumnName="EXTN_ISUITE_PROCESSED"
+		  DataType="Text-100"
+		  DefaultValue="N"
+		  Description="Isuite Processed"
+		  Nullable="false"
+		  Size="4"
+		  Type="VARCHAR2"
+		  XMLName="ExtnIsuitePro"
+		  XMLGroup="Extn"/>  
+	  
+		 </Attributes>
+		</Entity>
+		
+		<Entity
+          TableName="YFS_RECEIPT_HEADER">
+         <Attributes>
+            <Attribute
+             ColumnName="EXTN_INCIDENT_NO"
+             DataType="Text-40"
+             Description="Incident number"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentNo"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_IS_RETURN_RECEIPT"
+             DataType="Text-1"
+             Description="Return Receipt Identifier"
+             Nullable="true"
+             Size="1"
+			 DefaultValue="'N'"
+             Type="CHAR"
+             XMLName="ExtnIsReturnReceipt"
+             XMLGroup="Extn" />
+
+			 <Attribute
+             ColumnName="EXTN_INCIDENT_YEAR"
+             DataType="Text-10"
+             Nullable="true"
+			 DefaultValue="' '"
+             Size="10"
+             Type="VARCHAR2"
+             XMLName="ExtnIncidentYear"
+             XMLGroup="Extn"
+             Description="Incident Year" />
+
+			 <Attribute
+             ColumnName="EXTN_RETURN_COMMENTS"
+             DataType="Text-2000"
+             Description="Incident number"
+             Nullable="true"
+             Size="2000"
+             Type="VARCHAR2"
+             XMLName="ExtnReturnComments"
+             XMLGroup="Extn" />
+          
+             <Attribute
+             ColumnName="EXTN_ISSUE_NO"
+             DataType="Text-40"
+             Description="Issue number"
+             Nullable="true"
+             Size="100"
+             Type="VARCHAR2"
+             XMLName="ExtnIssueNo"
+             XMLGroup="Extn" />
+
+             <!-- Begin of refund data CR 727: aoadio -->
+             <Attribute
+             ColumnName="EXTN_REFUND_BLM_ACCOUNT_CODE1"
+             DataType="Text-40"
+             Description="BLM Account Code For Refund"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRefundBlmAcctCode1"
+             XMLGroup="Extn" />
+ 			
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_CHARGED_AMOUNT1"
+             DefaultValue="0"
+             Description="Charged Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundChargedAmount1"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_REFUND_REFUNDED_AMOUNT1"
+             DefaultValue="0"
+             Description="Refunded Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundRefundedAmount1"
+             XMLGroup="Extn" />
+             
+  			 <Attribute
+             ColumnName="EXTN_REFUND_BLM_ACCOUNT_CODE2"
+             DataType="Text-40"
+             Description="BLM Account Code For Refund"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRefundBlmAcctCode2"
+             XMLGroup="Extn" />
+ 			
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_CHARGED_AMOUNT2"
+             DefaultValue="0"
+             Description="Charged Amount"
+             Nullable="true"
+	     	 DataType="NUM-15-4"             
+	     	 XMLName="ExtnRefundChargedAmount2"
+             XMLGroup="Extn" />
+ 
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_REFUNDED_AMOUNT2"
+             DefaultValue="0"
+             Description="Refunded Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	     	 XMLName="ExtnRefundRefundedAmount2"
+             XMLGroup="Extn" />
+  			
+  			 <Attribute
+             ColumnName="EXTN_REFUND_BLM_ACCOUNT_CODE3"
+             DataType="Text-40"
+             Description="BLM Account Code For Refund"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRefundBlmAcctCode3"
+             XMLGroup="Extn" />
+ 			
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_CHARGED_AMOUNT3"
+             DefaultValue="0"
+             Description="Charged Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundChargedAmount3"
+             XMLGroup="Extn" />
+ 
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_REFUNDED_AMOUNT3"
+             DefaultValue="0"
+             Description="Refunded Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundRefundedAmount3"
+             XMLGroup="Extn" />
+  			
+  			 <Attribute
+             ColumnName="EXTN_REFUND_BLM_ACCOUNT_CODE4"
+             DataType="Text-40"
+             Description="BLM Account Code For Refund"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRefundBlmAcctCode4"
+             XMLGroup="Extn" />
+ 			
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_CHARGED_AMOUNT4"
+             DefaultValue="0"
+             Description="Charged Amount"
+             Nullable="true"
+	     	 DataType="NUM-15-4"             
+	         XMLName="ExtnRefundChargedAmount4"
+             XMLGroup="Extn" />
+ 
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_REFUNDED_AMOUNT4"
+             DefaultValue="0"
+             Description="Refunded Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundRefundedAmount4"
+             XMLGroup="Extn" />
+
+  			 <Attribute
+             ColumnName="EXTN_REFUND_BLM_ACCOUNT_CODE5"
+             DataType="Text-40"
+             Description="BLM Account Code For Refund"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="ExtnRefundBlmAcctCode5"
+             XMLGroup="Extn" />
+ 
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_CHARGED_AMOUNT5"
+             DefaultValue="0"
+             Description="Charged Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundChargedAmount5"
+             XMLGroup="Extn" />
+ 		
+ 			 <Attribute
+             ColumnName="EXTN_REFUND_REFUNDED_AMOUNT5"
+             DefaultValue="0"
+             Description="Refunded Amount"
+             Nullable="true"
+	         DataType="NUM-15-4"             
+	         XMLName="ExtnRefundRefundedAmount5"
+             XMLGroup="Extn" />
+             
+             <!-- Begin of refund data CR 727: aoadio -->
+             
+             <Attribute
+             ColumnName="EXTN_RETURN_PERCENTAGE1"
+             DefaultValue="0"
+             Description="Return Percentage 1"
+             Nullable="true"
+	         DataType="Percentage"             
+	         XMLName="ExtnReturnPercentage1"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_RETURN_PERCENTAGE2"
+             DefaultValue="0"
+             Description="Return Percentage 2"
+             Nullable="true"
+	         DataType="Percentage"             
+	         XMLName="ExtnReturnPercentage2"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_RETURN_PERCENTAGE3"
+             DefaultValue="0"
+             Description="Return Percentage 3"
+             Nullable="true"
+	         DataType="Percentage"             
+	         XMLName="ExtnReturnPercentage3"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_RETURN_PERCENTAGE4"
+             DefaultValue="0"
+             Description="Return Percentage 4"
+             Nullable="true"
+	         DataType="Percentage"             
+	         XMLName="ExtnReturnPercentage4"
+             XMLGroup="Extn" />
+             
+             <Attribute
+             ColumnName="EXTN_RETURN_PERCENTAGE5"
+             DefaultValue="0"
+             Description="Return Percentage 5"
+             Nullable="true"
+	         DataType="Percentage"             
+	         XMLName="ExtnReturnPercentage5"
+             XMLGroup="Extn" />
+             
+          </Attributes>   
+          
+    	<Indices>
+		 <Index Name="NWCG_YFS_RECEIPT_HEADER_I1" Unique="False">
+			 <Column Name="RECEIPT_HEADER_KEY"/>
+			 <Column Name="RECEIPT_NO"/>
+			 <Column Name="EXTN_INCIDENT_NO"/>
+			 <Column Name="EXTN_INCIDENT_YEAR"/>
+			 <Column Name="RECEIVINGNODE_KEY"/>
+			 <Column Name="RECEIPT_DATE"/>
+		  </Index>
+		</Indices>
+       
+        </Entity>
+
+    	<Entity
+          TableName="YFS_LOCN_INVENTORY_AUDIT">
+		  <Indices>
+		 <Index Name="NWCG_YFS_LOCN_INV_AUDIT_I1" Unique="False">
+			 <Column Name="NODE_KEY"/>
+			 <Column Name="REFERENCE_1"/>
+	     </Index>
+	     <Index Name="NWCG_YFS_LOCN_INV_AUDIT_I2" Unique="False">
+			 <Column Name="NODE_KEY"/>
+			 <Column Name="INVENTORY_ITEM_KEY"/>
+			 <Column Name="INVENTORY_STATUS"/>
+	     </Index>
+		 <Index Name="NWCG_YFS_LOCN_INV_AUDIT_I3" Unique="False">
+			 <Column Name="NODE_KEY"/>
+			 <Column Name="TASK_TYPE"/>
+			 <Column Name="REASON_CODE"/>
+	     </Index>
+		 <Index Name="NWCG_YFS_LOCN_INV_AUDIT_I4" Unique="False">
+			 <Column Name="REFERENCE_1"/>
+			 <Column Name="LOCATION_ID"/>
+			 <Column Name="INVENTORY_ITEM_KEY"/>
+			 <Column Name="ADJUSTMENT_TYPE"/>
+	     </Index>
+		</Indices>
+      </Entity>
+      
+       <Entity
+          TableName="YFS_KIT_ITEM">
+		  <Indices>
+		 <Index Name="NWCG_YFS_KIT_ITEM_I1" Unique="False">
+			 <Column Name="ITEM_KEY"/>
+			 <Column Name="COMPONENT_ITEM_KEY"/>
+			 <Column Name="KIT_QUANTITY"/>
+	     </Index>
+		</Indices>
+      </Entity>
+      
+      <Entity
+          TableName="YFS_ORGANIZATION">
+		  <Indices>
+		 <Index Name="NWCG_YFS_ORG_I1" Unique="False">
+			 <Column Name="ORGANIZATION_CODE"/>
+			 <Column Name="CORPORATE_ADDRESS_KEY"/>
+	     </Index>
+		</Indices>
+      </Entity>
+      
+      <Entity
+          TableName="YFS_INVENTORY_ITEM">
+		  <Indices>
+		 <Index Name="NWCG_YFS_INV_ITEM_I1" Unique="False">
+			 <Column Name="INVENTORY_ITEM_KEY"/>
+			 <Column Name="ITEM_ID"/>
+	     </Index>
+		</Indices>
+      </Entity>
+      
+      <Entity
+          TableName="YFS_TASK">
+		  <Indices>
+		 <Index Name="NWCG_YFS_TASK_I1" Unique="False">
+			 <Column Name="ORGANIZATION_CODE"/>
+			 <Column Name="MOVE_REQUEST_LINE_KEY"/>
+	     </Index>
+         <Index Name="NWCG_YFS_TASK_I2" Unique="False">
+             <Column Name="ORGANIZATION_CODE"/>
+             <Column Name="WORK_ORDER_NO"/>
+         </Index>
+		</Indices>
+      </Entity>
+
+       <!--Receipt Number -->
+      <Sequence
+       Name="SEQ_NWCG_RECEIPTNO"
+       Increment="1"
+       Startwith="1"
+       Maxvalue="9999999999"
+       Minvalue="1"
+       Cachesize="500"
+       ApiNeeded="Y" /> 
+        
+	    <Entity
+			AuditRequired="Y"
+			TableName="YFS_INVENTORY_RESERVATION">
+			<AuditReferences>
+				<Reference ColumnName="INVENTORY_ITEM_KEY" />
+			</AuditReferences>
+        </Entity>
+
+   </Entities>
+</DBSchema>

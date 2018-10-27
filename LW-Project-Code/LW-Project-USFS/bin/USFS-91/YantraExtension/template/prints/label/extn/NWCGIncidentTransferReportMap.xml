@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="orgName" Binding="/Order/ShipNode/@OrganizationName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine1" Binding="/Order/ShipNode/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine2" Binding="/Order/ShipNode/@AddressLine2" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine3" Binding="/Order/ShipNode/@AddressLine3" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine4" Binding="/Order/ShipNode/@AddressLine4" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgAddrLine5" Binding="/Order/ShipNode/@AddressLine5" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgCity" Binding="/Order/ShipNode/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgState" Binding="/Order/ShipNode/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgZipCode" Binding="/Order/ShipNode/@ZipCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgUrl" Binding="/Order/ShipNode/@HttpUrl" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="issueNo" Binding="/Order/@OrderNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="FromCache" Binding="/Order/@ShipNode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="FromIncidentYear" Binding="/Order/Extn/@ExtnIncidentYear" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="FromIncidentNo" Binding="/Order/Extn/@ExtnIncidentNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="FromIncidentName" Binding="/Order/Extn/@ExtnIncidentName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="ToIncidentYear" Binding="/Order/Extn/@ExtnToIncidentYear" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="ToIncidentNo" Binding="/Order/Extn/@ExtnToIncidentNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="ToIncidentName" Binding="/Order/Extn/@ExtnToIncidentName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="ToCache" Binding="/Order/Extn/@ExtnToIncidentCacheId" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="fsAcctCode" Binding="/Order/Extn/@ExtnFsAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="blmAcctCode" Binding="/Order/Extn/@ExtnBlmAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="otherAcctCode" Binding="/Order/Extn/@ExtnOtherAcctCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="tofsAcctCode" Binding="/Order/Extn/@ExtnToFsAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="toblmAcctCode" Binding="/Order/Extn/@ExtnToBlmAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="tootherAcctCode" Binding="/Order/Extn/@ExtnToOtherAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shippingAcctCode" Binding="/Order/Extn/@ExtnShipAcctCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="overrideCode" Binding="/Order/Extn/@ExtnOverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="tooverrideCode" Binding="/Order/Extn/@ExtnToOverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="raoverrideCode" Binding="/Order/Extn/@ExtnRAOverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="saoverrideCode" Binding="/Order/Extn/@ExtnSAOverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="customerName" Binding="/Order/@CustomerName" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="shipToPersonID" Binding="/Order/ShipToAddress/@PersonID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine1" Binding="/Order/ShipToAddress/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine2" Binding="/Order/ShipToAddress/@AddressLine2" RepeatingElement="" Sequence="N"/>
+   	<!-- BR 2.1 enhancement -->
+	<LabelField DataType="Text" LabelFieldName="shipToAddrLine3" Binding="/Order/ShipToAddress/@AddressLine3" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine4" Binding="/Order/ShipToAddress/@AddressLine4" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine5" Binding="/Order/ShipToAddress/@AddressLine5" RepeatingElement="" Sequence="N"/>
+    	<!-- BR 2.1 enhancement -->
+<LabelField DataType="Text" LabelFieldName="shipToCity" Binding="/Order/ShipToAddress/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToState" Binding="/Order/ShipToAddress/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToZipCode" Binding="/Order/ShipToAddress/@ZipCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToFirstName" Binding="/Order/ShipToAddress/@FirstName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToLastName" Binding="/Order/ShipToAddress/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToContactPh" Binding="/Order/ShipToAddress/@DayPhone" RepeatingElement="" Sequence="N"/>
+
+<!-- CR 272 ks 2008-09-26 -->
+    <LabelField DataType="Text" LabelFieldName="httpUrl" Binding="/Order/PersonInfoShipTo/@HttpUrl" RepeatingElement="" Sequence="N"/>
+<!-- End CR 272 -->
+
+    <!--<LabelField DataType="Text" LabelFieldName="billToPersonID" Binding="/Order/PersonInfoBillTo/@PersonID" RepeatingElement="" Sequence="N"/> Commented for CR-528 -->
+
+	<LabelField DataType="Text" LabelFieldName="billToPersonID" Binding="/Order/@CustomerName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToAddrLine1" Binding="/Order/PersonInfoBillTo/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToAddrLine2" Binding="/Order/PersonInfoBillTo/@AddressLine2" RepeatingElement="" Sequence="N"/>
+   	<!-- BR 2.1 enhancement -->
+	<LabelField DataType="Text" LabelFieldName="billToAddrLine3" Binding="/Order/PersonInfoBillTo/@AddressLine3" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToAddrLine4" Binding="/Order/PersonInfoBillTo/@AddressLine4" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToAddrLine5" Binding="/Order/PersonInfoBillTo/@AddressLine5" RepeatingElement="" Sequence="N"/>
+    <!-- BR 2.1 enhancement -->
+	<LabelField DataType="Text" LabelFieldName="billToCity" Binding="/Order/PersonInfoBillTo/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToState" Binding="/Order/PersonInfoBillTo/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToZipCode" Binding="/Order/PersonInfoBillTo/@ZipCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToFirstName" Binding="/Order/PersonInfoBillTo/@FirstName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToLastName" Binding="/Order/PersonInfoBillTo/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="billToContactPh" Binding="/Order/PersonInfoBillTo/@DayPhone" RepeatingElement="" Sequence="N"/>
+
+
+    <LabelField DataType="Text" LabelFieldName="totalCost" Binding="/Order/OverallTotals/@GrandTotal" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="dtotalCost" Binding="/Order/OverallTotals/@GrandTotal" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalWt" Binding="/Order/@TotalWeight" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalCubes" Binding="/Order/@TotalVolume" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalWtUOM" Binding="/Order/@TotalWeightUOM" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="totalVolUOM" Binding="/Order/@TotalVolumeUOM" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="rcvdDtTime" Binding="/Order/@OrderDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="issuedDtTime" Binding="/Order/@OrderDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="reqdDtTime" Binding="/Order/@ReqShipDate" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="date" Binding="/Order/@CurrentDate" RepeatingElement="" Sequence="N"/>    <LabelField DataType="Text" LabelFieldName="transportationMode" Binding="/Order/@ScacAndService" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="noteText" Binding="/Order/@NoteText" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="regulationDesc" Binding="/Order/RegulationInfo/@Description" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="signatureString" Binding="/Order/RegulationInfo/@SignatureString" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="emergencyPhNo" Binding="/Order/RegulationInfo/@EmergencyPhoneNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="emergencyPhNoStr" Binding="/Order/RegulationInfo/@EmergencyPhoneNoString" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text"
+		LabelFieldName="trackableID" Binding=
+		"/Order/OrderLines/OrderLine/@TrackableID" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+		LabelFieldName="properShippingName" Binding=
+		"/Order/OrderLines/OrderLine/@ProperShippingName" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="hazardClass" Binding=
+		"/Order/OrderLines/OrderLine/@HazardClass" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="UNNumber" Binding=
+		"/Order/OrderLines/OrderLine/@UNNumber" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="packingGroup" Binding=
+		"/Order/OrderLines/OrderLine/@PackingGroup" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="itemWeight" Binding=
+		"/Order/OrderLines/OrderLine/@UnitWeight" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="reqNo" Binding=
+		"/Order/OrderLines/OrderLine/@ExtnRequestNo" RepeatingElement="OrderLine" Sequence="Y"/>
+	<LabelField DataType="Text"
+        LabelFieldName="itemId" Binding=
+		"/Order/OrderLines/OrderLine/Item/@ItemID" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="itemDesc" Binding=
+		"/Order/OrderLines/OrderLine/Item/@ItemShortDesc" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="qtyReq" Binding=
+		"/Order/OrderLines/OrderLine/Extn/@ExtnOrigReqQty" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+        LabelFieldName="qty" Binding=
+		"/Order/OrderLines/OrderLine/@OrderedQty" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+		LabelFieldName="qtyUTF" Binding=
+		"/Order/OrderLines/OrderLine/@ExtnUTFQty" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+		LabelFieldName="qtyBO" Binding=
+		"/Order/OrderLines/OrderLine/@ExtnBackorderedQty" RepeatingElement="OrderLine" Sequence="N"/>
+    <LabelField DataType="Text"
+		LabelFieldName="qtyFWD" Binding=
+		"/Order/OrderLines/OrderLine/@ExtnFwdQty" RepeatingElement="OrderLine" Sequence="N"/>
+     <LabelField DataType="Text"
+		LabelFieldName="linenoteText" Binding=
+		"/Order/OrderLines/OrderLine/@NoteText" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="itemUom" Binding=
+		"/Order/OrderLines/OrderLine/Item/@UnitOfMeasure" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="itemUnitCost" Binding=
+		"/Order/OrderLines/OrderLine/LineOverallTotals/@UnitPrice" RepeatingElement="OrderLine" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="itemTotalCost" Binding=
+		"/Order/OrderLines/OrderLine/LineOverallTotals/@LineTotal" RepeatingElement="OrderLine" Sequence="N"/>
+	<!-- System No for 004390 Components -->	
+	<LabelField DataType="Text"
+        LabelFieldName="SystemNo" Binding=
+		"/Order/OrderLines/OrderLine/Extn/@ExtnSystemNo" RepeatingElement="OrderLine" Sequence="N"/>	
+	
+
+	<RepeatingFields>
+	    <RepeatingField LabelFieldName="trackableID" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="properShippingName" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="hazardClass" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="UNNumber" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="packingGroup" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="itemWeight" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="reqNo" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="SystemNo" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="itemId" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="itemDesc" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="qtyReq" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="qty" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="qtyUTF" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="qtyBO" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="qtyFWD" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="itemUom" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="itemUnitCost" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+        <RepeatingField LabelFieldName="itemTotalCost" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+		<RepeatingField LabelFieldName="linenoteText" MaxFirstPage="0" MaxLastPage="7" MaxMidPage="7"/>
+     </RepeatingFields>
+</LabelFieldMap>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<EOF ReasonText="${EOF.ReasonText}" ShipNode="${EOF.ShipNode}"
+    SupplyType1="${EOF.SupplyType1}"
+    SynchNonOnHandInventory="${EOF.SynchNonOnHandInventory}" YantraMessageGroupID="${EOF.YantraMessageGroupID}"/>

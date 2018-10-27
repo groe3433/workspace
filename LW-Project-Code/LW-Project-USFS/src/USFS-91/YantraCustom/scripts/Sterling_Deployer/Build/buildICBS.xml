@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="BuildScripts" default="all" basedir=".">
+	
+	<property file="buildicbs.properties" />
+	<property environment="env"/>
+	<import file ="build_classpathforCVS.xml" />	
+	<import file ="buildWebServices.xml" />	
+	<path id="yantra.class.path">
+		<pathelement location="${env.JAVA_HOME}/lib/dt.jar" />
+		<pathelement location="${env.YFS_HOME}" />
+		<fileset dir="${env.YFS_HOME}/lib">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+
+	<path id="project.class.path">
+		<path refid="implementation.class.path" />
+	</path>	
+	<!-- This will create a icbs_br2.jar in YFS_HOME/external_deployment folder-->
+	<target name ="buildicbsjar"  depends ="cvs-fetch,deployicbsjars"   description ="CreatesICBSJar"/>
+	<target name ="buildicbswindowsjar"  depends ="deployicbswindowsjars"   description ="CreatesICBSJar"/>
+	<!-- This will create a resource jar in YFS_HOME/jar/platform/6_0/resources.jar folder -->
+	<target name ="buildresourcejar"  depends ="cvs-fetch,copy-extensions,resources" description="BuildsResourceJar" />
+	<target name ="buildresourcewindowsjar"  depends ="copy-extensions,resources" description="BuildsResourceJar" />
+	
+	<!--Run this target when there are DB changes like Adding column/indexes extra or when there is a change to the extensions.xml ony -->
+		<target name="build-smcfs" description="Executes all the targets and builds the ear in YFS_HOME External Deployments Folder">
+		<echo>Building smcfs.ear</echo>
+		<antcall target="clean" />
+		<antcall target="cvs-fetch" /> 
+		<antcall target="deployicbsjars" />
+		<antcall target="copy-extensions" />
+		<antcall target="deploy-WebSphereFiles"/>
+		<antcall target="deploy-MQFiles" />
+		<antcall target="resources" />
+		<!--
+		<antcall target="entityDeployer" />
+		-->
+		<antcall target="build-ear" />
+		<antcall target ="UpdateAjaxClient" />
+		<antcall target ="buildICBSWebServices" />
+		<antcall target ="zip-ICBSR" />
+	</target>
+		<target name="buildwindows-smcfs" description="Executes all the targets and builds the ear in YFS_HOME External Deployments Folder for windows">
+		<echo>Deploying ICBS Build...</echo>
+		<antcall target="clean-windows" />
+		<!-- For Windows replace this with local File System Target instead of CVS and everthing else should be same-->
+		<!--antcall target="cvs-fetch" /--> 
+		<antcall target="deployicbsjars" />
+		<antcall target="copy-extensions" />
+		<antcall target="deploy-WebSphereFiles"/>
+		<antcall target="deploy-MQFiles" />
+		<antcall target="resources" />
+		<antcall target="entityDeployer" />
+		<antcall target="build-ear" />
+		<antcall target ="UpdateAjaxClient" />
+		<antcall target ="buildICBSWebServices" />
+	
+	</target>
+	
+	<target name="clean" description="Deletes directories" >
+		<echo>Cleaning YFS_HOME extension directories</echo>
+		<delete dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<delete dir="${env.YFS_HOME}/extensions/global/entities"/>
+		<delete dir="${env.YFS_HOME}/extensions/global/resources"/>
+   		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+   	 	<delete dir="${env.YFS_HOME}/repository/datatypes/extn" />
+   	 	<delete dir="${cvs.fetch.dir}/${cvs.project.name}" />
+		<echo>Rebuilding YFS_HOME extension directories</echo>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/entities"/>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/resources"/>
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/datatypes/extn" />
+	</target>
+	
+	<target name="clean-windows" description="Deletes directories" >
+		<echo>Cleaning YFS_HOME extension directories</echo>
+		<delete dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<delete dir="${env.YFS_HOME}/extensions/global/entities"/>
+		<delete dir="${env.YFS_HOME}/extensions/global/resources"/>
+   		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<delete dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+   	 	<delete dir="${env.YFS_HOME}/repository/datatypes/extn" />
+   	 	<!--delete dir="${cvs.fetch.dir}/${cvs.project.name}" /-->
+		<echo>Rebuilding YFS_HOME extension directories</echo>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/webpages"/>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/entities"/>
+		<mkdir dir="${env.YFS_HOME}/extensions/global/resources"/>
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/xsl/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/xapi/template/merged/prints/label/extn" />
+		<mkdir dir="${env.YFS_HOME}/repository/datatypes/extn" />
+	</target>
+	
+	<target name="cvs-fetch" description="Get Latest Source Files From CVS">
+	  <delete dir="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom" failonerror="true" />
+	  <delete dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension" failonerror="true" />
+		<exec dir="${cvs.fetch.dir}" executable="cvs">
+			<arg value="co" />
+			<arg value="${cvs.project.name}" />
+		</exec>
+		<echo>Fetching YantraCustom into ${cvs.project.name}/YantraCustom </echo>
+		<exec dir="${cvs.fetch.dir}" executable="cvs">
+			<arg value="co" />
+			<arg value="-r"/>
+			<arg value="${cvs.module}"/>
+			<arg value="${cvs.project.name}/YantraCustom" />
+		</exec>
+		<exec dir="${cvs.fetch.dir}" executable="cvs">
+			<arg value="co" />
+			<arg value="-r"/>
+			<arg value="${cvs.module}"/>
+			<arg value="${cvs.project.name}/YantraExtension" />
+		</exec>
+	</target>
+	
+  	<target name="deployicbsjars" description="Make Jar">
+        <delete dir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" failonerror="false" />
+        <mkdir dir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" />
+		<javac encoding="8859_1" classpathref="project.class.path" destdir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" executable="${env.JAVA_HOME}/bin/javac">
+			<src path="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/src"></src>
+        </javac>
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>    	
+		  <jar destfile="${env.YFS_HOME}/external_deployments/${project.name}.jar" basedir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar">
+          </jar>
+		<exec executable="${env.YFS_HOME}/bin/install3rdParty.${ext}" failonerror="true">
+			<arg value="websphere"/>
+			<arg value="70"/>
+			<arg value="-j"/>
+			<arg value="${env.YFS_HOME}/external_deployments/${project.name}.jar"/>
+			<arg value="-targetJVM"/>
+			<arg value="EVERY"/>
+		</exec>
+		<echo>Deploying ROSSJar</echo>					
+		<exec executable="${env.YFS_HOME}/bin/install3rdParty.${ext}" failonerror="true">
+			<arg value="websphere"/>
+			<arg value="70"/>
+			<arg value="-j"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WS-ROSS80-Jar/${project.name.ross}.jar"/>
+			<arg value="-targetJVM"/>
+			<arg value="EVERY"/>
+		</exec>	
+   	</target>
+	
+  	<target name="deployicbswindowsjars" description="Make Jar">
+        <delete dir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" failonerror="false" />
+        <mkdir dir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" />
+		<javac encoding="8859_1" classpathref="project.class.path" destdir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar" executable="${env.JAVA_HOME}/bin/javac">
+			<src path="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/src"></src>
+        </javac>
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>    	
+		  <jar destfile="${env.YFS_HOME}/external_deployments/${project.name}.jar" basedir="${cvs.fetch.dir}/${cvs.project.name}/ICBSJar">
+          </jar>
+   	</target>	
+	
+	<target name ="copy-extensions" description ="copied and deploys all the Extension fileS">
+	<echo>Copy the project specific jsps to /war folder of SMCFS</echo>
+		<copy todir="${env.YFS_HOME}/repository/eardata/smcfs/war/rf/wms/retrieval">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/webpages/rf/wms/retrieval">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>
+		<echo>Copy the project specific jsps to /extensions/global/webpages folder of SMCFS</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/webpages">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/webpages/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>	
+		<echo>Copy login.jsp (NAP Capable Version) to /repository/eardata/platform/war/console folder of SMCFS</echo>
+		<copy todir="${env.YFS_HOME}/repository/eardata/platform/war/console">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/loginpage">
+			</fileset>
+		</copy>	
+			<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/repository/xapi/template/merged">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/template">
+				<exclude name="**/CVS" /> 
+				<exclude name="**/api" /> 
+				<exclude name="**/event" /> 
+				<exclude name="**/monitor" /> 
+				<exclude name="**/userexit" /> 
+			</fileset>
+		</copy>
+		<echo>Copy the project specific database to /database folder of SMCFS</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/entities">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/database/entities/extensions">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>	
+		<echo>Copy the project specific resources to /resources/extn folder of SMCFS</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/resources">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/resources">
+				<exclude name="**/CVS" />
+			</fileset>
+		</copy>
+		<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/template/api">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/template/api/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>		
+		<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/template/event">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/template/event/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>	
+		<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/template/userexit">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/template/userexit/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>		
+		<echo>Copy the project specific template to /template folder of Yantra</echo>
+		<copy todir="${env.YFS_HOME}/extensions/global/template/monitor">
+			<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/template/monitor/extn">
+				<exclude name="**/CVS" /> 
+			</fileset>
+		</copy>		
+    </target>
+			
+	<target name="deploy-WebSphereFiles" description="Deploys WebSphere Files for Windows">
+	<exec executable="${env.YFS_HOME}/bin/install3rdParty.${ext}" failonerror="true">
+			<arg value="websphere"/>
+			<arg value="70"/>
+			<arg value="-j"/>
+			<arg value="${env.WEBSPHERE_HOME}/plugins/com.ibm.ws.sib.utils.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/plugins/com.ibm.ws.sib.server.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/plugins/com.ibm.ws.emf.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/plugins/com.ibm.ws.bootstrap.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/plugins/com.ibm.ws.runtime.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/runtimes/com.ibm.ws.admin.client_7.0.0.jar"/>
+			<arg value="${env.WEBSPHERE_HOME}/runtimes/com.ibm.jaxws.thinclient_7.0.0.jar"/>
+			<arg value="-targetJVM"/>
+			<arg value="EVERY"/>
+			</exec>
+	</target>
+	
+	<target name="deploy-MQFiles" description="Deploys extensions on MCF app">		
+		<echo>Deploying WEbsphere MQ Files to the classpath</echo>	
+		<exec executable="${env.YFS_HOME}/bin/install3rdParty.${ext}" failonerror="true">
+			<arg value="websphere"/>
+			<arg value="70"/>
+			<arg value="-j"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mqjms.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/dhbcore.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.connector.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jmqi.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.commonservices.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.headers.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.pcf.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jmqi.local.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jmqi.remote.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jmqi.system.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.jms.admin.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.commonservices.j2se.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.commonservices.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.jms.internal.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.jms.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.matchspace.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.provider.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.ref.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.wmq.common.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.wmq.factories.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.wmq.jar"/>
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.msg.client.wmq.v6.jar"/>
+					
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.soap.jar"/>
+			<!-- com.ibm.mq.tools.ras.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/com.ibm.mq.tools.ras.jar"/>
+			<!-- rmm.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/rmm.jar"/>
+			<!-- jms.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/jms.jar"/>
+			<!-- jta.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/jta.jar"/>
+			<!-- jndi.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/jndi.jar"/>
+			<!-- providerutil.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/providerutil.jar"/>
+			<!-- fscontext.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/fscontext.jar"/>
+			<!-- connector.jar -->
+			<arg value="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars/connector.jar"/>
+			<arg value="-targetJVM"/>
+			<arg value="EVERY"/>
+		</exec>		
+	</target>
+	
+	<target name="resources" description="Deploys extensions on MCF app">		
+		<echo>Deploying resources</echo>					
+		<exec executable="${env.YFS_HOME}/bin/deployer.${ext}" failonerror="true">
+			<arg value="-t"/>
+			<arg value="resourcejar"/>
+		</exec>
+	</target>
+	
+	<target name="entityDeployer" description="Deploys extensions on MCF app">		
+		<echo>Deploying entityDeployer</echo>					
+		<exec executable="${env.YFS_HOME}/bin/deployer.${ext}" failonerror="true">
+			<arg value="-t"/>
+			<arg value="entitydeployer"/>
+		</exec>
+	</target>
+	
+	<target name="build-ear" description="Builds EAR file for deployment">		
+		<echo>Building smcfs.ear</echo>
+		<exec executable="${env.YFS_HOME}/bin/buildear.${ext}">
+			<arg value="-Dappserver=websphere"/>
+			<arg value="-Dwarfiles=smcfs,sma"/>
+			<arg value="-Dsupport.multi.war=true"/>
+			<arg value="-Dnowebservice=true"/>
+			<arg value="-Ddevmode=true"/>							  
+			<arg value="-Dnodocear=true"/>
+			<arg value="-Dearfile=smcfs.ear"/>
+			<arg value="create-ear"/>							  
+		</exec>
+	</target>
+		<target name="runUpdate">
+		<antcall target="repackageJars"/>
+	</target>
+	
+	<target name="zip-ICBSR" description="Zip up files for release">
+		<echo>Creating ear: zip-ICBSR target</echo>
+		<tstamp>
+	    	<format property="buildDate" pattern="MMddyyyyhhmmss" />
+	    </tstamp>
+		<mkdir dir="${env.BUILD}/deployment_STAGE/${buildDate}" />
+		<copy file="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/properties/customer_overrides.properties.QA" todir="${env.BUILD}/deployment_STAGE/${buildDate}" overwrite="true" />
+		<copy file="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/properties/customer_overrides.properties.TRN" todir="${env.BUILD}/deployment_STAGE/${buildDate}" overwrite="true" />
+		<copy file="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/properties/customer_overrides.properties.PROD" todir="${env.BUILD}/deployment_STAGE/${buildDate}" overwrite="true" />
+		
+		<copy file="${env.YFS_HOME}/external_deployments/smcfs.ear" todir="${env.BUILD}/deployment_STAGE/${buildDate}" overwrite="true" />
+		<zip destfile="${release.archive.name}_${buildDate}.zip">
+			<zipfileset dir="${env.BUILD}/deployment_STAGE/${buildDate}"/>
+		</zip>
+		<delete dir="${env.BUILD}/deployment_STAGE/${buildDate}" />
+	</target>
+	
+	<target name="UpdateAjaxClient">
+		<property name="extDeployments" value="${yantra.home}/external_deployments" />
+		<unjar dest="${extDeployments}/ICBSEar" src="${extDeployments}/smcfs.ear" />
+		<unjar dest="${extDeployments}/ICBSEar/ICBSWar" src="${extDeployments}/ICBSEar/smcfs.war" />
+		<copy file="${cvs.fetch.dir}/${cvs.project.name}/YantraExtension/webpages/extn/yfc/NWCGrfutil.jspf" todir="${extDeployments}/ICBSEar/ICBSWar/yfc" />
+		<antcall target ="UpdateWebXML" />
+		<antcall target ="repackageJars" />
+	</target>
+
+	<target name="repackageJars" >
+		<delete file="${extDeployments}/ICBSEar/smcfs.war" />
+		<delete file="${extDeployments}/smcfs.ear" />
+		<jar destfile="${extDeployments}/ICBSEar/smcfs.war" basedir="${extDeployments}/ICBSEar/ICBSWar" update="true" />
+		<delete dir="${extDeployments}/ICBSEar/ICBSWar" />
+		<copy file="${env.YFS_HOME}/jar/platform/6_0/entities.jar" todir="${extDeployments}/ICBSEar" overwrite="true" />
+		<copy file="${env.YFS_HOME}/jar/platform/6_0/resources.jar" todir="${extDeployments}/ICBSEar" overwrite="true" />
+		<copy file="${env.YFS_HOME}/jar/websphere/70/nwcg_icbs_br2.jar" todir="${extDeployments}/ICBSEar" overwrite="true" />		
+		<jar destfile="${extDeployments}/smcfs.ear" basedir="${extDeployments}/ICBSEar" update="true" />
+		<delete dir="${extDeployments}/ICBSEar" />
+	</target>
+	
+	<target name="UpdateWebXML" >
+		<fixcrlf srcDir="${extDeployments}/ICBSEar/ICBSWar/WEB-INF" includes="web.xml" eol="lf" eof="remove" />
+		<replaceregexp match="\s+" replace=" " flags="g" byline="false">
+			<fileset dir="${extDeployments}/ICBSEar/ICBSWar/WEB-INF" includes="web.xml" />
+		</replaceregexp>
+		<replace file="${extDeployments}/ICBSEar/ICBSWar/WEB-INF/web.xml">
+			<replacetoken><![CDATA[</servlet-mapping> <session-config>]]></replacetoken>
+			<replacevalue>
+				<![CDATA[	</servlet-mapping>
+				<!-- Added for the USFS AJAX Servlet -->
+				<servlet>
+					<servlet-name>AjaxServlet</servlet-name>
+					<display-name>AjaxServlet</display-name>
+					<description>AjaxServlet controller Servlet</description>
+					<servlet-class>com.nwcg.icbs.yantra.ajax.NWCGAjaxControllerServlet</servlet-class>
+				</servlet>
+				<servlet-mapping>
+					<servlet-name>AjaxServlet</servlet-name>
+					<url-pattern>/AjaxServlet</url-pattern>
+				</servlet-mapping>
+				<!-- End AJAX Servlet --><session-config>]]>
+			</replacevalue>
+		</replace>
+	</target>
+
+	<target name ="buildICBSWebServices" description="Created ICBS WebServices file for ROSS-ICBS interface">
+		<antcall target ="create-war-for-icbsrws" />
+	</target>	
+		
+</project>

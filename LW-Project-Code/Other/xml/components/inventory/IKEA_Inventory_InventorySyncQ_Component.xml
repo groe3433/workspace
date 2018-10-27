@@ -1,0 +1,40 @@
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_Inventory_InventorySyncQ_Component" Active="Y" Description="Inventory Sync">
+	<Steps>
+		<Sequence Number="1" Delay="10">
+			<p1:Queue Name="SOM_IN_INVENTORY_SYNC_QUEUE" Type="QUEUE_SEND" JmsServer="WL_JMS"></p1:Queue>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_loadInventoryMismatch_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="2" Delay="10">
+			<p1:Queue Name="SOM_IN_INVENTORY_SYNC_QUEUE" Type="QUEUE_SEND" JmsServer="WL_JMS"></p1:Queue>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_EOF_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="4">
+			<p1:Api Name="getInventorySupply"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_getInventorySupply_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.Quantity" XPath="//@Quantity"/>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.TagNumber" XPath="//@TagNumber"/>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.ShipNode" XPath="//@ShipNode"/>
+			</p1:Parameters>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expression="abs(${Item.Supplies.Supply.Quantity})" Path="//@Quantity"> </p1:Validate>
+			</p1:Validations>
+		</Sequence>
+	</Steps>
+<Parameters/>
+</Component>

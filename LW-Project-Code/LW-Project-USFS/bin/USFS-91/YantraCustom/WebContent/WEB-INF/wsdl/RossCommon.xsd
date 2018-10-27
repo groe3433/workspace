@@ -1,0 +1,4244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by Todd Pepin (LOCKHEED MARTIN INFO & TECH SERVICES) -->
+<xs:schema xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns="http://nwcg.gov/services/ross/common_types/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" targetNamespace="http://nwcg.gov/services/ross/common_types/1.1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.1" jaxb:extensionBindingPrefixes="xjc" jaxb:version="1.0">
+	<xs:annotation>
+		<xs:documentation>Common ROSS Datatypes that may be used in more than one Service or Message</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>JAXB extensions</xs:documentation>
+		<xs:appinfo>
+			<jaxb:globalBindings generateIsSetMethod="true">
+	     </jaxb:globalBindings>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES  ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="AgreementNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>Agreement number of non-inventory resource on agreement not in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccountUserNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Current user name on the account</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AccountPasswordSimpleType">
+		<xs:annotation>
+			<xs:documentation>Plain-text password for the account.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="32"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NotifyTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Enum used by NotifyRequest message</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="InProgress"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogID">
+		<xs:annotation>
+			<xs:documentation>2.6 - Letter prefix representing a Catalog (ex: A for Aircraft)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="E"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="S"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Catalog Enumeration (ex: Aircraft, Person, Team, Equip etc)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Aircraft"/>
+			<xs:enumeration value="Person"/>
+			<xs:enumeration value="Crew"/>
+			<xs:enumeration value="Team"/>
+			<xs:enumeration value="Equipment"/>
+			<xs:enumeration value="Supply"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - NWCG is the only valid type for 2.6</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NWCG"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactMethodOrganizationSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ZCONTACT_METHOD enumeration applicable to Organizations; values include:TDD, 24HourPhone, OfficePhone, Fax, EMail </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactMethodPersonalSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ZCONTACT_METHOD enumeration applicable to Persons.  Values include: Cell, EMail, Fax, Pager, HomeOffice, OfficePhone</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactPrioritySimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ZCONTACT_PRIORITY enumeration: values include: Alternate, Primary, None</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Post 2.6 - Enumerated list of FIPS 10-4 2-character country codes</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}"/>
+			<xs:enumeration value="US">
+				<xs:annotation>
+					<xs:documentation>United States</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CA">
+				<xs:annotation>
+					<xs:documentation>Canada</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MX">
+				<xs:annotation>
+					<xs:documentation>Mexico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DeliverToLocationSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6  XOTHER_LOC_TYPE  used by deliver to location: Dynamic Enum includes these values: BoatLaunch, Bridge, Cabin, Campground, Church, CollegeCampus, CommunityCenter, Dam, DispatchCenter, DistrictOffice, DutyStation, ExpandedDispatchCenter, Fairgrounds, FieldOffice, FireCache, FireStation, GuardStation, Helibase, Heliport, Helispot, HighwayMaintenanceFacility,HistoricSite, Hospital, IncidentCommandPost, JettisonSiteRetardant, Lake, LawEnforcementFacility, Lookout, MilitaryFacility, MobilizationCenter, Mosque, NationalGuardArmory, NaturalGasPumpingStation, Office, OilWell, OrganizationCamp, Other, Park, Pond, PowerSubStation, PrepositionPoint, Quarry, RAWSStation, RadioTower, RailroadSiding, Ranch, RangerOffice, RepeaterSite, Reservoir, RestArea, RiverFord, RoadIntersection, SEATTankerBase, Sawmill, School, SpikeCamp, Stadium, StagingArea, SupervisorsOffice, Synagogue, Town, VeteransHall, WaterDipSite, WaterSource, WaterTank, WaterTower, WildlandFireStation, WorkCenter </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="EntityTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Enumerated list of entity types such as RadioFrequency, Incident etc</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="IncidentAviationHazard"/>
+			<xs:enumeration value="Incident"/>
+			<xs:enumeration value="Resource"/>
+			<xs:enumeration value="IncidentRadioFrequency"/>
+			<xs:enumeration value="Request"/>
+			<xs:enumeration value="Catalog"/>
+			<xs:enumeration value="RadioFrequency"/>
+			<xs:enumeration value="Organization"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FillOperationTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Enumeration representing the types of fills in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FillWithSingleResource"/>
+			<xs:enumeration value="FillWithAssignmentRoster"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FixedAviationHazardType">
+		<xs:annotation>
+			<xs:documentation>ROSS ZHAZARD_TYPE set of fixed aviation hazard types: values include: NoFlyZone, PowerLine, TowerLookout, TowerRadio, Structure, TowerTelevision, TowerLogging, TowerCellular, AerialCable, AerialTram, SkiLift, SmokeStack, HotAirBalloonSite, HangGliderSite, RadioControlledAircraftSite, RetardantJettisonArea, FixedHazard, NonFixedHazard, IncidentAircraft, MigratoryBirds, OtherAircraft, Smoke, TFR, HelicopterLogging, MilitaryAircraft</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="InternationalStateCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Post 2.6 - Enumerated list of FIPS 10-4 4-character international state codes</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{2}[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentStatusSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS ZINCIDENT_STATUS Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Open"/>
+			<xs:enumeration value="Closed"/>
+			<xs:enumeration value="Merging"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SystemTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS ZSYSTEM_TYPE Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ROSS"/>
+			<xs:enumeration value="WildCAD"/>
+			<xs:enumeration value="AltarisCAD"/>
+			<xs:enumeration value="WebStatus"/>
+			<xs:enumeration value="IQCS"/>
+			<xs:enumeration value="ResourceClearinghouse"/>
+			<xs:enumeration value="ICBS"/>
+			<xs:enumeration value="IQS"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LatitudeDirectionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS Latitude Direction Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="North"/>
+			<xs:enumeration value="South"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongitudeDirectionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS Longitude Direction Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="East"/>
+			<xs:enumeration value="West"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS Incident Type Enumeration </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MeridianSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS ZMERIDIAN Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BlackHills"/>
+			<xs:enumeration value="Boise"/>
+			<xs:enumeration value="Chickasaw"/>
+			<xs:enumeration value="Choctaw"/>
+			<xs:enumeration value="Cimarron"/>
+			<xs:enumeration value="CopperRiver"/>
+			<xs:enumeration value="Fairbanks"/>
+			<xs:enumeration value="FifthPrincipalMeridian"/>
+			<xs:enumeration value="FirstPrincipalMeridian"/>
+			<xs:enumeration value="FourthPrincipalMeridian"/>
+			<xs:enumeration value="GilaSaltRiver"/>
+			<xs:enumeration value="Humboldt"/>
+			<xs:enumeration value="Huntsville"/>
+			<xs:enumeration value="Indian"/>
+			<xs:enumeration value="KateelRiver"/>
+			<xs:enumeration value="Louisiana"/>
+			<xs:enumeration value="Michigan"/>
+			<xs:enumeration value="Montana"/>
+			<xs:enumeration value="MountDiablo"/>
+			<xs:enumeration value="Navajo"/>
+			<xs:enumeration value="NewMexico"/>
+			<xs:enumeration value="SaintHelena"/>
+			<xs:enumeration value="SaintStephens"/>
+			<xs:enumeration value="SaltLake"/>
+			<xs:enumeration value="SanBernardino"/>
+			<xs:enumeration value="SecondPrincipalMeridian"/>
+			<xs:enumeration value="Seward"/>
+			<xs:enumeration value="SixthPrincipalMeridian"/>
+			<xs:enumeration value="Tallahasee"/>
+			<xs:enumeration value="ThirdPrincipalMeridian"/>
+			<xs:enumeration value="Uintah"/>
+			<xs:enumeration value="Umiat"/>
+			<xs:enumeration value="Ute"/>
+			<xs:enumeration value="Washington"/>
+			<xs:enumeration value="Willamette"/>
+			<xs:enumeration value="WindRiver"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NotificationActionTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - no mapping in ROSS - used to classify actions taken in ross that result in request based notifications</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Cancel"/>
+			<xs:enumeration value="CancelReassign"/>
+			<xs:enumeration value="CancelUTF"/>
+			<xs:enumeration value="Create"/>
+			<xs:enumeration value="Delete"/>
+			<xs:enumeration value="Fill"/>
+			<xs:enumeration value="Merge"/>
+			<xs:enumeration value="Place"/>
+			<xs:enumeration value="Promote"/>
+			<xs:enumeration value="Reassign"/>
+			<xs:enumeration value="ReassignedDueToMerge"/>
+			<xs:enumeration value="Release"/>
+			<xs:enumeration value="Restore"/>
+			<xs:enumeration value="Retrieve"/>
+			<xs:enumeration value="TentativeRelease"/>
+			<xs:enumeration value="Transfer"/>
+			<xs:enumeration value="Unfill"/>
+			<xs:enumeration value="Unrelease"/>
+			<xs:enumeration value="Update"/>
+			<xs:enumeration value="UTF"/>
+			<xs:enumeration value="Yield"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UnitIDSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS UnitID type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+			<xs:minLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RadioFrequencyTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS ZRADIO_FREQ_TYPE values include: AirToAirTransmit, AirToAirReceive, AirToGroundTransmit, AirToGroundReceive, GroundToGroundTransmit, GroundToGroundReceive, AirToAir, AirTactics, AirTankerBaseGroundControlOperations, AirToAirOperationsHelibase, AirToGround, Command, County, DistrictNet, FireNet, FlightFollowing, Ground, GroundToGround, Helibase, LawEnforcement, ProjectFireNet, Ramp, Repeater, ServiceNet, Tactical, NationalFlightFollowing</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestRestrictionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS Request Exclusions - ZROLI_EXCLUSION</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ContractorNotAcceptable"/>
+			<xs:enumeration value="EFFADExclusion"/>
+			<xs:enumeration value="TraineeRequired"/>
+			<xs:enumeration value="PortalToPortalAcceptable"/>
+			<xs:enumeration value="TraineeAcceptable"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestInclusionSimpleType" final="restriction">
+		<xs:annotation>
+			<xs:documentation>2.6 - ROSS Request Inclusions-ZROLI_INCLUSION</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="None"/>
+			<xs:enumeration value="FederalOnly"/>
+			<xs:enumeration value="HostAgencyOnly"/>
+			<xs:enumeration value="StateOnly"/>
+			<xs:enumeration value="NonFederalOnly"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceRequestContactTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - maps to ZROLI_CONTACT_TYPE enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Assigning"/>
+			<xs:enumeration value="Requesting"/>
+			<xs:enumeration value="Ordering"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceUnavailabilityReasonTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ZRES_UNAVAIL_REASON enum</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DayOff"/>
+			<xs:enumeration value="Management"/>
+			<xs:enumeration value="OutOfService"/>
+			<xs:enumeration value="Personal"/>
+			<xs:enumeration value="Rest"/>
+			<xs:enumeration value="NotApplicable"/>
+			<xs:enumeration value="Inactive"/>
+			<xs:enumeration value="AtIncident"/>
+			<xs:enumeration value="Transferred"/>
+			<xs:enumeration value="Removed"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="USStateCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Ross StateCodes simple types</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="RadioFrequencyContactNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>The contact name for the incident radio frequency</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SpecialNeedsSimpleType">
+		<xs:annotation>
+			<xs:documentation>Contains text describing special needs for the request.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES ADDED 7/14/2006 ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="AircraftRegistrationNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Tail number or FAA aircraft registration mark</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="93"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AviationHazardDescriptionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Descriptive text of an aviation hazard</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogItemDescriptionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Description of a catalog item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="85"/>
+			<xs:pattern value="[\w_!@#$%^*(){},.=+~]?"/>
+			<xs:pattern value="[^\s].*[^\s]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CityNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Name of a city or municipality</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogSequenceNumber">
+		<xs:annotation>
+			<xs:documentation>2.6 - Catalog sequence number formatted like 1.1 or 1 or 2.1.1 etc.  (ROLI.REQ_NUM_SUFFIX)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CatalogItemMnemonicSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - 6 character mnemonic- required if CatalogName is Overhead</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[\w_!@#$%^*(){},.=+~]?"/>
+			<xs:pattern value="[^\s].*[^\s]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CombinedConfidentialitySimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Describes overall confidentiality level of message headers and content. Based on EDXL-DE distributionStatus element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Low"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DistributionIDSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ID assigned to an incoming request and used to retrieve operation results or for troubleshooting</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DistributionStatusSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Describes status of message (actual, excercise, system or test).  Based on EDXL-DE distributionStatus element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Actual"/>
+			<xs:enumeration value="Exercise"/>
+			<xs:enumeration value="System"/>
+			<xs:enumeration value="Test"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DistributionTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Describes type of message (request, respone, ack). Based on EDXL-DE distributionStatus element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Request"/>
+			<xs:enumeration value="Response"/>
+			<xs:enumeration value="Ack"/>
+			<xs:enumeration value="Report"/>
+			<xs:enumeration value="Update"/>
+			<xs:enumeration value="Cancel"/>
+			<xs:enumeration value="Dispatch"/>
+			<xs:enumeration value="Notification"/>
+			<xs:enumeration value="Error"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentationTextSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Documentation text used for incidents, resources, etc.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EFFADContactInfoType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Assignment - Contact information for non-inventory EFF/AD resource.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EntityIDSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ID assigned to incidents, requests, resources in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalEntityIDSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ID assigned to incidents, requests, resources in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EquipmentSerialNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Serial number of an equipment item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FAACodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - FAA Code of an airport</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FiscalYearSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.8 - Fiscal Year (used in Financial Codes)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:minInclusive value="1900"/>
+			<xs:maxInclusive value="2100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FinancialCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.8 - The actual 'Code' portion of a Financial Code structure</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FrequencyToneSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Radio frequency tone - Entered as three digits, a decimal, and two digits. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:double">
+			<xs:maxInclusive value="999.99"/>
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FrequencyValueSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Radio frequency value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentDescriptionSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Incident description text</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Incident name</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentSequenceNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - 1 to 6 digit number that is used in forming the last portion of the incident number – Example: If Incident number is ‘AB-LD1-000012’, then the Sequence Number is 12.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="999999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LocationNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Name of a location</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OfficeReferenceNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Office reference number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OriginatingSystemUserDataSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Data storage for use by external systems</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OwnerNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Assignment - owner/vendor name of non inventory resource on agreement </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersonNamePartSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Portion of a person's name (last, middle, first)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ProviderNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Assignment - provider name for non inventory resource </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="QuantitySimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Used for Quantity Requested and Quantity Assigned</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxInclusive value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceRequestContactInfoSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Requesting party contact information</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="356"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Simple type used for all crew, equipment and team resource names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="93"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SystemIDSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - ID number assigned to an instance of a system (e.g. to one dispatch using AltarisCAD or WildCAD)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VehicleIdentificationNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>2.6 - 17-character VIN number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="17"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES TO SUPPORT NILLABLE ELEMENTS IN NOTIFICATION MSGS ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="nillableBoolean">
+		<xs:annotation>
+			<xs:documentation>Union of xs:float and emptyString Valid values include any valid xml float or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:boolean xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDatetime">
+		<xs:annotation>
+			<xs:documentation>Union of xs:dateTime and emptyString.  Valid values include any valid xml dateTime or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:dateTime emptyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDecimal">
+		<xs:annotation>
+			<xs:documentation>Union of xs:decimal and emptyString Valid values include any valid xml decimal or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:decimal emptyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableDouble">
+		<xs:annotation>
+			<xs:documentation>Union of xs:double and emptyString Valid values include any valid xml double or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:double emptyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableFloat">
+		<xs:annotation>
+			<xs:documentation>Union of xs:float and emptyString Valid values include any valid xml float or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:float emptyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="nillableInt">
+		<xs:annotation>
+			<xs:documentation>Union of xs:int and emptyString.  Valid values include any valid xml int or empty tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:int emptyString"/>
+	</xs:simpleType>
+	<xs:simpleType name="emptyString">
+		<xs:annotation>
+			<xs:documentation>xs:string restricted to zero length string (empty string)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES ADDED FOR QUALIFICATION INTERFACE ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="GenderSimpleType">
+		<xs:annotation>
+			<xs:documentation>Gender of a person</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmploymentClassSimpleType">
+		<xs:annotation>
+			<xs:documentation>Employment class of a person</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AgencyCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Agency code of a person</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BodyWeightSimpleType">
+		<xs:annotation>
+			<xs:documentation>Body weight of a person</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:long">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceQualificationStatusSimpleType">
+		<xs:annotation>
+			<xs:documentation>Status of a resource qualification</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Qualified"/>
+			<xs:enumeration value="Trainee"/>
+			<xs:enumeration value="Unqualified"/>
+			<xs:enumeration value="Blocked"/>
+			<xs:enumeration value="Unknown"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrganizationSimpleType">
+		<xs:annotation>
+			<xs:documentation>Organization Enumeration (ex: Dispatch, Provider etc)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Dispatch"/>
+			<xs:enumeration value="Provider"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OrganizationNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Name of an organization</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AirportNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Name of an airport</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceManagerContactInfoSimpleType">
+		<xs:annotation>
+			<xs:documentation>Contact information for the person that manages a resource</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceContactInfoSimpleType">
+		<xs:annotation>
+			<xs:documentation>Contact information for the resource</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1400"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES ADDED FOR SUPPLY CACHE INTERFACE ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="AddressLineSimpleType">
+		<xs:annotation>
+			<xs:documentation>Format for first or second line of an address</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UnitOfIssueSimpleType">
+		<xs:annotation>
+			<xs:documentation>Unit of issue for a Supply catalog item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RequestBlockCatalogSimpleType">
+		<xs:annotation>
+			<xs:documentation>Representation of Catalogs as they are used as part of a request block</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Aircraft"/>
+			<xs:enumeration value="Crew"/>
+			<xs:enumeration value="Equipment"/>
+			<xs:enumeration value="Overhead"/>
+			<xs:enumeration value="Supply"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StandardPackSimpleType">
+		<xs:annotation>
+			<xs:documentation>Unit of issue for a Supply catalog item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AddressTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Types of addresses in ROSS ex: Shipping, Mailing etc</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Mailing"/>
+			<xs:enumeration value="Shipping"/>
+			<xs:enumeration value="Official"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IncidentContactTypeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Types of contacts that can be associated with an incident - ZINCIDENT_CONTACT_TYPE</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Requesting"/>
+			<xs:enumeration value="Shipping"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ZipCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Represents Zip Code Format</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ShippingInstructionsSimpleType">
+		<xs:annotation>
+			<xs:documentation>Free form text containing shipping instructions</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1500"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ShippingContactNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Free form text containing name of shipping contact</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ShippingContactPhoneSimpleType">
+		<xs:annotation>
+			<xs:documentation>Free form text containing phone number of shipping contact</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="356"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactInfoSimpleType">
+		<xs:annotation>
+			<xs:documentation>Free form text containing information for the contact ex:phone number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="356"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContactNameSimpleType">
+		<xs:annotation>
+			<xs:documentation>Free form text containing the name of the contact</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CacheIssueNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>Cache (ICBS) Issue Number</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   SIMPLE TYPES ADDED FOR IQS INTERFACE ************</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="PersonResourceFitnessCodeSimpleType">
+		<xs:annotation>
+			<xs:documentation>Person Resource Fitness Levels, A=Arduous, L=Light, M=Moderate, N=Not Applicable</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>************   COMPLEX TYPES  ************</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="AircraftResourceNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the resource attributes  identifying an aircraft type resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RegistrationNumber">
+				<xs:annotation>
+					<xs:documentation>Tail number/registration number uniquely identifying the aircraft</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="nwcg:AircraftRegistrationNumberSimpleType">
+						<xs:maxLength value="93"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AttributeChangedType">
+		<xs:annotation>
+			<xs:documentation>Facilitates the sending of changed attributes only during an update notification.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EntityType">
+				<xs:annotation>
+					<xs:documentation>Enumeration describing what changed: Resource, Incident, ResourceRequest etc (question regarding necessity of this element.  Is it redundant with choices below?)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="nwcg:EntityTypeSimpleType">
+							<xs:attribute name="EntityTypeName" use="required">
+								<xs:annotation>
+									<xs:documentation>Enumeration of permitted entity names (values)</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="Resource"/>
+										<xs:enumeration value="Incident"/>
+										<xs:enumeration value="ResourceRequest"/>
+										<xs:enumeration value="IncidentAviationHazard"/>
+										<xs:enumeration value="IncidentRadioFrequency"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="IncidentAttributeType">
+					<xs:annotation>
+						<xs:documentation>Enumeration representing Incident Attributes  ex: IncidentName, IncidentHostID, IncidentSequenceNumber etc. </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="IncidentAttributeTypeName" use="required">
+							<xs:annotation>
+								<xs:documentation>Enumeration of permitted attribute names (values)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="IncidentName"/>
+									<xs:enumeration value="IncidentType"/>
+									<xs:enumeration value="LocationName"/>
+									<xs:enumeration value="OfficeReferenceNumber"/>
+									<xs:enumeration value="InitialDateTime"/>
+									<xs:enumeration value="Description"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequencyAttributeType">
+					<xs:annotation>
+						<xs:documentation>Enumeration representing Incident Radio Frequency Attributes ex:  FrequencyValue FrequencyType, etc.</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="IncidentRadioFrequencyAttributeTypeName" use="required">
+							<xs:annotation>
+								<xs:documentation>Enumeration of permitted attribute names (values)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="FrequencyValue"/>
+									<xs:enumeration value="FrequencyType"/>
+									<xs:enumeration value="IsPrimaryIndicator"/>
+									<xs:enumeration value="Tone"/>
+									<xs:enumeration value="IsTacticalIndicator"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="IncidentAviationHazardAttributeType">
+					<xs:annotation>
+						<xs:documentation>Enumeration representing Incident Aviation Hazard Attributes ex: HazardType, City, State, etc. </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="IncidentAviationHazardAttributeTypeName" use="required">
+							<xs:annotation>
+								<xs:documentation>Enumeration of permitted attribute names (values)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="HazardType"/>
+									<xs:enumeration value="City"/>
+									<xs:enumeration value="State"/>
+									<xs:enumeration value="Description"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ResourceRequestAttributeType">
+					<xs:annotation>
+						<xs:documentation>Enumeration representing ResourceRequest Attributes  ex: ResourceRequestInclusionType, ResourceRequestStatus  etc. </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="ResourceRequestAttributeTypeName" use="required">
+							<xs:annotation>
+								<xs:documentation>Enumeration of permitted attribute names (values)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="NeedDateTime"/>
+									<xs:enumeration value="RequestedItemName"/>
+									<xs:enumeration value="InclusionType"/>
+									<xs:enumeration value="SpecialNeedsIndicator"/>
+									<xs:enumeration value="NamedRequestIndicator"/>
+									<xs:enumeration value="Priority"/>
+									<xs:enumeration value="MethodForPerson"/>
+									<xs:enumeration value="MethodForOrganization"/>
+									<xs:enumeration value="Description"/>
+									<xs:enumeration value="Date"/>
+									<xs:enumeration value="SystemName"/>
+									<xs:enumeration value="DispatchUnitID"/>
+									<xs:enumeration value="Author"/>
+									<xs:enumeration value="Text"/>
+									<xs:enumeration value="Name"/>
+									<xs:enumeration value="LocationType"/>
+									<xs:enumeration value="State"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ResourceAttributeType">
+					<xs:annotation>
+						<xs:documentation>Enumeration representing Resource Attributes  ex: ResourceName</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="ResourceAttributeTypeName" use="required">
+							<xs:annotation>
+								<xs:documentation>Enumeration of permitted attribute names (values)</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string"/>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="NewAttributeValue" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>string rep of new attribute value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ApplicationSystemType">
+		<xs:annotation>
+			<xs:documentation>Structure containing system attributes used to represent specific instances of external systems such as WildCAD or Altaris CAD</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SystemType" type="nwcg:SystemTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the possible kinds of systems  participating in the ROSS services interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemID" type="nwcg:SystemIDSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unique ID of a specific system participating in the ROSS services interface.  This attribute does not apply to systems like ROSS that are not multi-instance.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogItemType">
+		<xs:annotation>
+			<xs:documentation>2.6 -Catalog Item structure</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogType" type="nwcg:CatalogTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Organization governing this catalog ex: NWCG</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogName" type="nwcg:CatalogSimpleType">
+				<xs:annotation>
+					<xs:documentation>Name of the catalog (or sub-catalog) such as Aircraft, Person, Team etc</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemDescription" type="nwcg:CatalogItemDescriptionSimpleType">
+				<xs:annotation>
+					<xs:documentation>The name of the catalog item (in CAD this is called the Catalog Item Description)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemMnemonic" type="nwcg:CatalogItemMnemonicSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>4 character mnemonic representing catalog items of type overhead position.  Required if Catalog is Overhead, and category is Position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeIncidentAviationHazardKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific incident Aviation Hazard across the ROSS Services Interface.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentAviationHazardID" type="nwcg:IDType">
+				<xs:annotation>
+					<xs:documentation>ROSS Internal ID mapping to an exact HAZARD object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAviationHazardNaturalKey" type="nwcg:IncidentAviationHazardNaturalKeyType">
+				<xs:annotation>
+					<xs:documentation>Natural Key data implying an Incident Aviation Hazard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeIncidentKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific incident across the ROSS Services Interface</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentID" type="nwcg:IDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Internal ID mapping to an Incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NaturalIncidentKey" type="nwcg:IncidentNumberType">
+				<xs:annotation>
+					<xs:documentation>Set of attributes that uniquely identifies an incident.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeIncidentRadioFrequencyKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific incident radio frequency across the ROSS Services Interface</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RadioFrequencyNaturalKey" type="nwcg:IncidentRadioFrequencyNaturalKeyType">
+				<xs:annotation>
+					<xs:documentation>Set of attributes that uniquely identify an incident radio frequency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RadioFrequencyID" type="nwcg:IDType">
+				<xs:annotation>
+					<xs:documentation>Internal ID representing the incident radio frequency.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceUnitIDsType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Dispatch and Provider Unit IDs</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DispatchUnitID" type="nwcg:UnitIDType"/>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeResourceKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific resource across the ROSS Services Interface</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResourceType" type="nwcg:CatalogSimpleType">
+				<xs:annotation>
+					<xs:documentation>Aircraft, Person, Team, etc.  Indicates which Type of Natural Key data is included in this message.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceID" type="nwcg:IDType">
+				<xs:annotation>
+					<xs:documentation>The Internal ID mapping to a resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="AircraftKey" type="nwcg:AircraftResourceNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific Aircraft Resource across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CrewKey" type="nwcg:CrewResourceNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific Crew Resource across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="EquipmentKey" type="nwcg:EquipmentResourceNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific Equipment Resource across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonKey" type="nwcg:PersonResourceNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific Person Resource across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="TeamKey" type="nwcg:TeamResourceNaturalKey">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific Team Resource across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeResourceRequestKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific resource request across the ROSS Services Interface</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResourceRequestID" type="nwcg:IDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Internal ID mapping to a resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NaturalResourceRequestKey" type="nwcg:ResourceRequestNaturalKeyType">
+				<xs:annotation>
+					<xs:documentation>Structure Containing the resource request attributes identifying a resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CrewResourceNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the resource attributes  identifying a crew type resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CrewName" type="nwcg:ResourceNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Identifying name of  the crew</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the resource's provider organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DeliverToLocationCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the Deliver To Location attributes used in creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="nwcg:LocationNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>The name of the deliver to location</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationType" type="nwcg:DeliverToLocationSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration that best describes what the location is ex: Hospital, Lake etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DispatchUnitFromAndTo">
+		<xs:annotation>
+			<xs:documentation>Structure containing the from dispatch unit and the to dispatch unit</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FromUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>When a transaction (such as place)  occurs on a resource request, this attribute indicates which dispatch unit the request moved from</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ToUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>When a transaction (such as place) occurs on a resource request, this attribute indicates which dispatch unit the request moved to</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DocumentationReturnType">
+		<xs:annotation>
+			<xs:documentation>Documentation for incidents, resources or other objects</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Date" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date/Time the documentation entry was created in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemName" type="nwcg:SystemTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Name of the system associated with the logon session used to create the documentation entry</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DispatchUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Dispatch unit ID associated with the logon session used to create the documentation entry</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Author">
+				<xs:annotation>
+					<xs:documentation>First and Last name of person associated with user account used to make the documentation entry</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Text" type="nwcg:DocumentationTextSimpleType">
+				<xs:annotation>
+					<xs:documentation>The body of the documentation entry.  Most documentation entries include the following based upon the session used to make the entry:  user name, the unit ID of the dispatch organization and the originating system name. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="EquipmentResourceNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the resource attributes  identifying an equipment type resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EquipmentItemName" type="nwcg:ResourceNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Identifying name of  the piece of equipment</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the resource's provider organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GeographicCoordinateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing location data in Lat/Long format</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="GeographicCoordinateLatitude">
+				<xs:annotation>
+					<xs:documentation>A circle around the Earth parallel to the Equator. Values range from -90 degrees (inclusive) at the South Pole to +90 degrees (inclusive) at the North Pole. The value is 0 at the Equator.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LatitudeDegreeValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies the degree of a latitude. The value comes from a restricted range between -90 (inclusive) and +90 (inclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:maxExclusive value="90"/>
+									<xs:minInclusive value="0"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LatitudeMinuteValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies a minute of a degree. The value comes from a restricted range of 0 (inclusive) to 60 (exclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LatitudeSecondValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies a second of a minute. The value comes from a restricted range of 0 (inclusive) to 60 (exclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LatitudeDirection" type="nwcg:LatitudeDirectionSimpleType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="GeographicCoordinateLongitude">
+				<xs:annotation>
+					<xs:documentation>A meridian that is perpendicular to the Equator. Values range from -180 degrees (inclusive) at the International Date Line to +180 (exclusive) just west of the International Date Line. The value is 0 at the Prime Meridian.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="LongitudeDegreeValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies the degree of a longitude. The value comes from a restricted range between -180 (inclusive) and +180 (exclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="180"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LongitudeMinuteValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies a minute of a degree. The value comes from a restricted range of 0 (inclusive) to 60 (exclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LongitudeSecondValue">
+							<xs:annotation>
+								<xs:documentation>A value that specifies a second of a minute. The value comes from a restricted range of 0 (inclusive) to 60 (exclusive).</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:minInclusive value="0"/>
+									<xs:maxExclusive value="60"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="LongitudeDirection" type="nwcg:LongitudeDirectionSimpleType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IDType">
+		<xs:annotation>
+			<xs:documentation>Structure containing an entity ID and System the ID is native to</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EntityType" type="nwcg:EntityTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>The type of object that this ID refers to. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EntityID" type="nwcg:EntityIDSimpleType">
+				<xs:annotation>
+					<xs:documentation>ID that maps to an entity such as an Incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ApplicationSystem" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>System that the internal ID is native to</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExternalIDType">
+		<xs:annotation>
+			<xs:documentation>Structure containing an entity ID and System the ID is native to</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="EntityType" type="nwcg:EntityTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>The type of object that this ID refers to. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExternalEntityID" type="nwcg:ExternalEntityIDSimpleType">
+				<xs:annotation>
+					<xs:documentation>ID that maps to an entity such as an Incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ApplicationSystem" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>System that the internal ID is native to</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAviationHazardCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing an incident aviation hazard </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HazardType" type="nwcg:FixedAviationHazardType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the type of hazard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City" type="nwcg:CityNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>City where the Aviation Hazard is located</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="State" type="nwcg:USStateCodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>2 character state code where the hazard is located</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HazardLocation" type="nwcg:LocationCreateType">
+				<xs:annotation>
+					<xs:documentation>Geographical location of the haxzard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:AviationHazardDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description of the Aviation Hazard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAviationHazardRespType">
+		<xs:annotation>
+			<xs:documentation>Structure containing an incident aviation hazard </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HazardType" type="nwcg:FixedAviationHazardType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the type of hazard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City" type="nwcg:CityNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>City where the Aviation Hazard is located</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="State" type="nwcg:USStateCodeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>2 character state code where the hazard is located</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HazardLocation" type="nwcg:LocationReturnType">
+				<xs:annotation>
+					<xs:documentation>Geographical location of the haxzard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:AviationHazardDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description of the Aviation Hazard</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAviationHazardNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the attributes that identify an incident aviation hazard</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information identifying which incident the aviation hazard is associated with</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAviationHazardNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Aviation Hazard attributes that trigger a notification when updated in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HazardType" type="nwcg:FixedAviationHazardType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided when the type of hazard is changed in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City" type="nwcg:CityNameSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>provided when the City where the Aviation Hazard is located is changed in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="State" type="nwcg:USStateCodeSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>provided when the 2 character state code where the hazard is located is changed in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HazardLocation" type="nwcg:LocationReturnType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>All 3 location formats provided when the Geographical location of the haxzard is changed in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:AviationHazardDescriptionSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>provided when the Description of the Aviation Hazard is changed in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAviationHazardReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing an incident aviation hazard provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentAviationHazardKey" type="nwcg:CompositeIncidentAviationHazardKeyType">
+				<xs:annotation>
+					<xs:documentation>Key data for the Aviation Hazard </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAviationHazard" type="nwcg:IncidentAviationHazardRespType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Non-Key Aviation Hazard data</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Details and Incident Entities used during incident creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentNumber" type="nwcg:IncidentNumberType">
+				<xs:annotation>
+					<xs:documentation>The incident attributes that determine how the incident is numbered</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentDetails" type="nwcg:IncidentDetailsCreateType">
+				<xs:annotation>
+					<xs:documentation>Structure containing Incident attributes used during creation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentEntities" type="nwcg:IncidentEntitiesCreateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Structure containing Incident related entities such as Radio Frequency, and Incident Aviation Hazard used during incident creation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentDetailsCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident attributes used during creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentName" type="nwcg:IncidentNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of the incident.  If not provided, defaults to Incident Number</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentType" type="nwcg:IncidentTypeSimpleType" default="FireWildfire">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the reason/cause of the incident.  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InitialDatetime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>The start date/time of the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentLocation" type="LocationCreateType">
+				<xs:annotation>
+					<xs:documentation>The geographic location of the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationName" type="nwcg:LocationNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The place name of the incident if applicable.  If not provided, the Incident Name is used.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsComplexIndicator" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether or not this incident is part of an incident complex.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficeReferenceNumber" type="nwcg:OfficeReferenceNumberSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Alternative Incident number, for use by offices that keep their own incident number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:IncidentDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>In CAD this is the Location Description.  In ROSS, this is the Incident Description.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriginatingSystemUserData" type="nwcg:OriginatingSystemUserDataSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Allows external system to provide user data to store as part of the incident at incident creation time only.  This attribute cannot be later modified.  This is intended for storage of Home CAD ID, Local Event ID, and Agency, but ROSS does not enforce or check the content of this attribute. (except to enfore the max length)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentDetailsNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident attributes that trigger a notification when updated in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentName" type="nwcg:IncidentNameSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the name of the incident was changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentType" type="nwcg:IncidentTypeSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the reason/cause of the incident was changed in ROSS.  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemOfRecord" type="nwcg:ApplicationSystemType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the system that is the system of record for the incident was changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InitialDateTime" type="xs:dateTime" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the start date/time of the incident was changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentLocation" type="nwcg:LocationReturnType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the geographic location of the incident changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationName" type="nwcg:LocationNameSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the name of the incident location changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficeReferenceNumber" type="nwcg:OfficeReferenceNumberSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the Alternative Incident number, for use by offices that keep their own incident number changed in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="WithholdExternalTransactionsIndicator" type="xs:boolean" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided if the Withhold External Transactions indicator has been set to true in ROSS.  This occurs when an incident is marked too large in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentDetailsReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident attributes provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentName" type="nwcg:IncidentNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Name of the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentType" type="nwcg:IncidentTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the reason/cause of the incident.  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemOfRecord" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>System that is the system of record for the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InitialDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>The start date/time of the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentLocation" type="nwcg:LocationReturnType">
+				<xs:annotation>
+					<xs:documentation>The geographic location of the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationName" type="nwcg:LocationNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>This is the name of the incident location.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficeReferenceNumber" type="nwcg:OfficeReferenceNumberSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Alternative Incident number, for use by offices that keep their own incident number.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:IncidentDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>In CAD this is the Location Description.  In ROSS, this is the Incident Description.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriginatingSystemUserData" type="nwcg:OriginatingSystemUserDataSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>User data provided by external system when the incident was created.  This attribute is intended for storage of Home CAD ID, Local Event ID, and Agency, but ROSS does not enforce or check the content of this attribute. (except to enfore the max length)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="isComplexIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>true if this incident is part of a complex</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DispatchOrganization" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Incident Dispatch Organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BillingOrganization" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the billing organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CacheOrganization" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The default cache organization associated with this incident.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Status" type="nwcg:IncidentStatusSimpleType">
+				<xs:annotation>
+					<xs:documentation>Status of the incident - Open, Closed etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentDetailsUpdateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Attributes to be modified</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentName" type="nwcg:IncidentNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of the incident. Provide only if the value is being modified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentType" type="nwcg:IncidentTypeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the reason/cause of the incident.  Provide only if the value is being modified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InitialDateTime" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The start date/time of the incident.  Provide only if the value is being modified  The year cannot be changed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LocationName" type="nwcg:LocationNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The place name of the incident if applicable.  Only provided if the value is being modified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentLocation" type="nwcg:LocationCreateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The geographic location of the incident - only provide if the location is being modified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OfficeReferenceNumber" type="nwcg:OfficeReferenceNumberSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Alternative Incident number, for use by offices that keep their own incident number - only provide if the value is being modified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="nwcg:IncidentDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>In CAD this is the Location Description.  In ROSS, this is the Incident Description - only provide if the value is being modified.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentEntityKeysReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing a set of composite keys mapping to incident entities such as incident radio frequency and aviation hazards provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>set of composite keys, each mapping to an incident radio frequency object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAviationHazardKey" type="nwcg:CompositeIncidentAviationHazardKeyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>set of composite keys, each mapping to an incident aviation hazard object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentEntitiesReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident related entities such as Radio Frequency provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentRadioFrequencies" type="nwcg:IncidentRadioFrequencyReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The set of radio frequencies associated with this incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Documentation" type="nwcg:DocumentationReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>User documentation entries on this incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAviationHazards" type="nwcg:IncidentAviationHazardReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The set of Aviation Hazards associated with this incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAddresses" type="nwcg:IncidentAddressType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Shipping Addresses Associated with the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentRequestBlocks" type="nwcg:IncidentRequestBlockType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Request Blocks associated with this incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentFinancialCodes" type="nwcg:IncidentFinancialCodeType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Financial codes associated with this incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentContacts" type="nwcg:IncidentContactType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Shipping and/or Requesting type contacts associated with the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentEntitiesCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident related entities such as Radio Frequency, and Incident Aviation Hazard used during incident creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentRadioFrequency" type="nwcg:IncidentRadioFrequencyCreateType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The set of radio frequencies associated with the incident.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentDocumentation" type="nwcg:DocumentationTextSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Incident Documentation Text</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentAviationHazard" type="nwcg:IncidentAviationHazardCreateType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Aviation Hazards associated with the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentNumberType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Attributes that comprise the Incident Number</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="HostID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the Incident Host Organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SequenceNumber" type="nwcg:IncidentSequenceNumberSimpleType">
+				<xs:annotation>
+					<xs:documentation>1 to 6 digit number that is used in forming the last portion of the incident number – Example: If Incident number is ‘AB-LD1-000012’, then the Sequence Number is 12.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="YearCreated">
+				<xs:annotation>
+					<xs:documentation>String value of year.  Example: ‘2006’</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4"/>
+						<xs:pattern value="20[0-9]{2}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentRadioFrequencyNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing attributes that uniquely identify an incident radio frequency</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information identifying the incident that the radio frequency is associated with</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrequencyType" type="nwcg:RadioFrequencyTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration to describe the type of frequency.  Example:  Air to Air Transmit, Air Tactics  etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrequencyValue" type="nwcg:FrequencyValueSimpleType">
+				<xs:annotation>
+					<xs:documentation>Radio Frequency value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tone" type="nwcg:FrequencyToneSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Entered as three digits, a decimal, and two digits.  Tone is required when another frequency associated with the same incident has the same frequency type and frequency value (otherwise the tone is optional).  </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentRadioFrequencyCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Radio Frequency attributes used during creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FrequencyValue" type="nwcg:FrequencyValueSimpleType">
+				<xs:annotation>
+					<xs:documentation>Radio Frequency value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FrequencyType" type="nwcg:RadioFrequencyTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration to describe the type of frequency.  Example:  Air to Air Transmit, Air Tactics  etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsPrimaryIndicator" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Indicates whether or not the frequency is a primary frequency.  More than 1 frequency can be designated as primary.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Tone" type="nwcg:FrequencyToneSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Entered as three digits, a decimal, and two digits. Tone is required when another frequency associated with the same incident has the same frequency type and frequency value (otherwise the tone is optional). </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IsTacticalIndicator" type="xs:boolean" default="false" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether or not this  frequency is used for Tactical Aircraft.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactName" type="nwcg:RadioFrequencyContactNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The contact name for the incident radio frequency.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentRadioFrequencyNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Radio Frequency attributes that trigger a notification when updated in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PrimaryIndicator" type="xs:boolean" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentRadioFrequencyReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident Radio Frequency attributes returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType">
+				<xs:annotation>
+					<xs:documentation>Key data for the incident radio frequency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PrimaryIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Non-Key data for the incident radio frequency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactName" type="nwcg:RadioFrequencyContactNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The contact name for the incident radio frequency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentResourceRequestsReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing incident and resource request data returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Incident" type="nwcg:IncidentReturnType">
+				<xs:annotation>
+					<xs:documentation>Structure containing Incident data provided to external systems.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PendingRequest" type="nwcg:ResourceRequestPendingReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Structure containing pending resource request information returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FIlledRequest" type="nwcg:ResourceRequestFilledReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Structure containing filled resource request information returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Incident data provided to external systems.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information referring to a specific incident across the ROSS Services Interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentDetails" type="nwcg:IncidentDetailsReturnType">
+				<xs:annotation>
+					<xs:documentation>Incident Attributes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentEntities" type="nwcg:IncidentEntitiesReturnType">
+				<xs:annotation>
+					<xs:documentation>Incident Entity data "Entity" means items where more than one of them can be associated with an incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Location information provided to external systems; All 3 location formats will be returned whenever possible.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="GeographicCoordinate" type="nwcg:GeographicCoordinateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location in Lat/Long format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TRSCoordinate" type="nwcg:TownshipRangeSectionCoordinateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location in Township/Range/Section format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UTMCoordinate" type="nwcg:UTMCoordinateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location in Universal Transverse Mercator (UTM) format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentUpdateNotificationBaseType">
+		<xs:annotation>
+			<xs:documentation>Structure containing base attributes provided on any update incident notification</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+				<xs:annotation>
+					<xs:documentation>Key data indicating the incident that was updated in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemOfRecord" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>Incident's system of record value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OriginatingSystemUserData" type="nwcg:OriginatingSystemUserDataSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>User data provided by the creating system at incident creation time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LocationCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Location information used when creating a location</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:annotation>
+				<xs:documentation>1 of the following 3 elements is required</xs:documentation>
+			</xs:annotation>
+			<xs:element name="TRSCoordinate" type="nwcg:TownshipRangeSectionCoordinateType">
+				<xs:annotation>
+					<xs:documentation>Structure containing location data in Township Range Section (TRS) format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="GeographicCoordinate" type="nwcg:GeographicCoordinateType">
+				<xs:annotation>
+					<xs:documentation>Structure containing location data in Lat/Long format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UTMCoordinate" type="nwcg:UTMCoordinateType">
+				<xs:annotation>
+					<xs:documentation>Structure containing location data in Universal Transverse Mercator (UTM) format.  Datum WGS84/NAD83. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="MasterRosterPosition">
+		<xs:annotation>
+			<xs:documentation>Strucutre used when building a master roster. Unites a resource with a position.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+				<xs:annotation>
+					<xs:documentation>Resource In Position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItem" type="nwcg:CatalogItemType">
+				<xs:annotation>
+					<xs:documentation>Catalog Item of the position</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageContextType">
+		<xs:sequence>
+			<xs:element name="distributionID" type="nwcg:DistributionIDSimpleType"/>
+			<xs:element name="senderID">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="dateTimeSent" type="xs:dateTime"/>
+			<xs:element name="distributionStatus" type="nwcg:DistributionStatusSimpleType"/>
+			<xs:element name="distributionType" type="nwcg:DistributionTypeSimpleType"/>
+			<xs:element name="combinedConfidentiality" type="nwcg:CombinedConfidentialitySimpleType" minOccurs="0"/>
+			<xs:element name="messageName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="namespaceName">
+				<xs:simpleType>
+					<xs:restriction base="xs:anyURI">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="userOrganization" type="xs:string" minOccurs="0"/>
+			<xs:element name="username" type="xs:string" minOccurs="0"/>
+			<xs:element name="password" type="xs:string" minOccurs="0"/>
+			<xs:element name="systemID" type="nwcg:SystemIDSimpleType"/>
+			<xs:element name="systemType" type="nwcg:SystemTypeSimpleType"/>
+			<xs:element name="customProperties" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional properties in name=value format.  Separate multiple property pairs using semicolons</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="512"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="securitySessionID" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional.  If present, ESB should verify securitySessionID rather than re-authenticate user via LDAP or partner-specific authentication routine.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="512"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MessageOriginatorType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Information identifying where the request originated</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SystemOfOrigin" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>System that is originating the request across the ROSS Services Interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DispatchUnitID" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the organization originating the request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotificationBaseType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the core data required for every notification</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+				<xs:annotation>
+					<xs:documentation>Identifies the system originating this message</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TimeOfNotification" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date/Time the event occurred that triggered this notification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Action" type="nwcg:NotificationActionTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>What action occurred that caused the notification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonOrOrganizationContact">
+		<xs:annotation>
+			<xs:documentation>2.6 - contact that is assoc with an org or a person; not with a request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0">
+			<xs:element name="Priority" type="nwcg:ContactPrioritySimpleType">
+				<xs:annotation>
+					<xs:documentation>Indicates if this is the  primary contact, or the alternate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="MethodForPerson" type="nwcg:ContactMethodPersonalSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Type of contact that applies to people (ex: cell, fax, pager , home phone etc)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="MethodForOrganization" type="nwcg:ContactMethodOrganizationSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Type of contact that applies to an organization (ex: TDD, fax, 24 hour phone, etc)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The actual contact number ex: phone number, email address etc</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the resource attributes  identifying a person type resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>First Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>Last Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MiddleName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Middle Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RequestCodeType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the Resource Request Code -ex A-1</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogID" type="nwcg:CatalogID"/>
+			<xs:element name="SequenceNumber" type="nwcg:CatalogSequenceNumber">
+				<xs:annotation>
+					<xs:documentation>format like 1.1 or 1 or 2.1.1 etc.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceAvailabilityType">
+		<xs:annotation>
+			<xs:documentation>2.6 - Structure describing a resources availability</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AvailabilityIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>True for Available, false for Unavailable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnavailabilityReason" type="nwcg:ResourceUnavailabilityReasonTypeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provided only when Availability Indicator is 0</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceAssignmentNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing assignment attributes that trigger a notification when updated in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MobilizationETA" type="nwcg:nillableDatetime" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mobilization estimated time of arrival value for this resource's assignment in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationETD" type="nwcg:nillableDatetime" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Mobilization estimated time of departure value for this resource's assignment in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DemobilizationETA" type="nwcg:nillableDatetime" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Demobilization estimated time of arrival value for this resource's assignment in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DemobilizationETD" type="nwcg:nillableDatetime" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Demobilization estimated time of departure value for this resource's assignment in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuantityAssigned" type="nwcg:nillableInt" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Quantity assigned value for this assignment in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgreementNumber" type="nwcg:AgreementNumberSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>The agreement number value for this assignment in ROSS. (only applicable when filled with an agreement)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwnerName" type="nwcg:OwnerNameSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Resource owner name value for this assignment in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderName" type="nwcg:ProviderNameSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Resource Provider Name for this assignment in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssigningContact" type="nwcg:ResourceRequestContactReturnType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Contact Type and Contact Info values for this assignment in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFFADContactInformation" type="nwcg:EFFADContactInfoType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>EFFAD Contact value for this assignment in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceAssignmentReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the assignment of a resource returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Key information indicating which resource is being returned.  If the resource is not inventoried in ROSS, this key will not be provided.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationETD" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The estimated time the resource departed for the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationETA" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The estimated time the resource arrived at the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationATA" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The actual time the resource arrived at the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DemobilizationETD" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The estimated time the resource departed from the incident. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DemobilizationETA" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The estimated time the resource departing from the incident will arrive back at home.  If there is a demob itinerary, this is the date/time of the ETA of the last itinerary leg.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceContact" type="nwcg:PersonOrOrganizationContact" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Included if resource has a cell phone type contact</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FillDocumentation" type="nwcg:DocumentationReturnType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>User documentation provided at fill time</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AssigningContact" type="nwcg:ResourceRequestContactReturnType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The assigning contact information provided when the resource request was filled</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuantityAssigned" type="nwcg:QuantitySimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>For requests for a catalog item requested in quantities greater than 1, this attribute contains the actual quantity assigned which could differ from the quantity requested.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgreementNumber" type="nwcg:AgreementNumberSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agreement number of non-inventory resource on agreement</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwnerName" type="nwcg:OwnerNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of owner/vendor organization for non-inventory resource on agreement not in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderName" type="nwcg:ProviderNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name of provider organization for non-inventory resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EFFADContactInformation" type="nwcg:EFFADContactInfoType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact information for non-inventory EFF/AD resource.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CallSign" type="nwcg:ResourceNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>CallSign is provided if the assigned resource is an Aircraft resource which has a call sign assigned within the ROSS System.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceReleaseType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the non-key release data needed when releasing a resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DemobilizationETD" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Time of Departure - required for release; not used for tentative release</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DemobilizationETA" type="xs:dateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Time of Arrival -required for release; not used for tentative release</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReloadBase" type="nwcg:AirportNaturalKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Used in Releasing Tactical Aircraft; not used for tentative release</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TentativeReleaseIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>True to Tentatively Release a resource, false otherwse  Note: for 2.6 Tentative Release is not supported</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseStatusType">
+		<xs:annotation>
+			<xs:documentation>Structure containing response status data returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ReturnCode" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>0 if the operation was Successful, non-zero if the operation failed.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResponseMessage" type="nwcg:ResponseMessageType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Optional.  One or more messages that were returned as a result of performing an operation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>2.6</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType"/>
+			<xs:element name="RequestCode" type="nwcg:RequestCodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing resource request information used during creation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="RequestedCatalogItem" type="nwcg:CatalogItemType">
+					<xs:annotation>
+						<xs:documentation>Attributes describing the catalog item being requested</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestedItemKey" type="nwcg:CatalogItemNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Natural key of the catalog item being requested</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="NeedDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date/Time the requested item is needed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DeliverToLocation" type="nwcg:DeliverToLocationCreateType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Location where the requested item is needed</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestingContactInfo" type="nwcg:ResourceRequestContactInfoSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information identifying the person creating this resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InclusionType" type="nwcg:RequestInclusionSimpleType" default="None" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the type of inclusion such as Federal Only, State Only etc. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Restrictions" type="nwcg:RequestRestrictionSimpleType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies any restrictions on this resource request such as Contractor Not Acceptable.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReloadBaseFAACode" type="nwcg:FAACodeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>FAA Code of reload base airport.  This field is required if this is a request for tactical aircraft.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SequenceNumber" type="nwcg:CatalogSequenceNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Combined with the catalog of the requested item to form the request code (such as A-1).  The value provided must fall within a user-issued request number block</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuantityRequested" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Quantity requested for requested items that are orderable in quantities greater than 1</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="nwcg:QuantitySimpleType">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FinancialCode" type="nwcg:FinancialCodeType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Financial code for the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice minOccurs="0">
+				<xs:element name="ShippingAddress" type="nwcg:AddressType">
+					<xs:annotation>
+						<xs:documentation>The address to which the requested item should be shipped</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShippingInstructions" type="nwcg:ShippingInstructionsCreateType">
+					<xs:annotation>
+						<xs:documentation>Shipping instructions for use when a specific address is not available</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="WillPickUpInfo" type="nwcg:WillPickUpInformationType">
+					<xs:annotation>
+						<xs:documentation>Contains the information needed if the requested item will be picked up at the cache</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="ShippingContactName" type="nwcg:ShippingContactNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The name of the person to contact about shipping information for this resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ShippingContactPhone" type="nwcg:ShippingContactPhoneSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The phone number for the person to contact about shipping information for this resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReplacementInd" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag indicating if this is a replacement for a previous request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecialNeeds" type="nwcg:SpecialNeedsSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>special requirements specific to the order.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestBaseReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing base resource request information returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OrderDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date/time the request was created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date/time when the request needs to be filled.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestedItemName" type="nwcg:CatalogItemDescriptionSimpleType">
+				<xs:annotation>
+					<xs:documentation>aka Displayed Catalog Item Description</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InclusionType" type="nwcg:RequestInclusionSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration indicating inclusion type of this request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SystemOfOrigin" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>System that intiated creation of this request within ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Restrictions" type="nwcg:RequestRestrictionSimpleType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Set of restrictions/exclusions for this request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SpecialNeeds" type="nwcg:SpecialNeedsSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contains text describing special needs for the request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NamedRequestIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>True if this request is a named request; false otherwise</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CallSignRequiredIndicator" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>True if a call sign is required for this request or any of its subordinates</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuantityRequested" type="nwcg:QuantitySimpleType">
+				<xs:annotation>
+					<xs:documentation>The number of items this resource request is requesting</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestingContact" type="nwcg:ResourceRequestContactReturnType">
+				<xs:annotation>
+					<xs:documentation>The requesting contact information for the resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestContactReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing contact information for a resource request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ContactType" type="nwcg:ResourceRequestContactTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Assigning, Requesting or Ordering - the type of contact for the resource request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ContactInfo" type="nwcg:ResourceRequestContactInfoSimpleType">
+				<xs:annotation>
+					<xs:documentation>Free form contact information</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestFillOperationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing information needed to perform a fill</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information indicating which resource to fill with.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationETD" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Mobilization Estimated Date/Time of of Departure</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MobilizationETA" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Mobilization Estimated Date/Time of of Arrival</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FillType" type="nwcg:FillOperationTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing the possible types of Fill in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestOperationNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing incident, resource request order and optionally resource information used in notifying when an operation is performed on a resource request in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+				<xs:annotation>
+					<xs:documentation>Core information about this notification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Incident" type="nwcg:IncidentReturnType">
+				<xs:annotation>
+					<xs:documentation>Incident Data provided on resource request operation notifications.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType">
+				<xs:annotation>
+					<xs:documentation>Key info indicating which  resource request underwent an operation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceRequestBase" type="nwcg:ResourceRequestBaseReturnType">
+				<xs:annotation>
+					<xs:documentation>Order info for resource request that underwent the operation; If this was a Reassign operation, this is the 'Reassign From Request';  For a Cancel Reassign operation, this is the 'Reassign From" request prior to the cancellation.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceAssignment" type="nwcg:ResourceAssignmentReturnType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information about the assignment of the resource to this resource request, if applicable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DispatchUnitFromAndTo" type="nwcg:DispatchUnitFromAndTo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>When a transaction (such as place, retrieve)  occurs on a resource request, this attribute indicates which dispatch unit s the request moved between</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestFilledReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing filled resource request information returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information indicating which resource request is being returned</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestBase" type="nwcg:ResourceRequestBaseReturnType">
+				<xs:annotation>
+					<xs:documentation>Resource request information that is common to both pending and filled requests</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Assignment" type="nwcg:ResourceAssignmentReturnType">
+				<xs:annotation>
+					<xs:documentation>Resource and Travel data for resource assigned to this resource request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestPendingReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing pending resource request information returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information indicating which resource request is being returned</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestBase" type="nwcg:ResourceRequestBaseReturnType">
+				<xs:annotation>
+					<xs:documentation>Resource request information that is common to both pending and filled requests</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROSSQualifiedResourcesCount" type="xs:int">
+				<xs:annotation>
+					<xs:documentation>Number of resources being returned that are available, active and qualified to fill the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ROSSQualifiedResourceID" type="nwcg:CompositeResourceKeyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Set of resources being returned that are available, active and qualified to fill the request</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceRequestDetailsNotificationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing resource request attributes that trigger a notification when updated in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="SpecialNeeds" type="nwcg:SpecialNeedsSimpleType" nillable="true" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contains text describing special needs for the request.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="InclusionType" type="nwcg:RequestInclusionSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Inclusion value for the resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedDateTime" type="nwcg:nillableDatetime" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Need Date/Time value for this resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuantityRequested" type="nwcg:nillableInt" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Quantity Requested value for this resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReloadBaseFAACode" type="nwcg:FAACodeSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Provided if there is a relaod base associated with this resource request and the reload base is an airport in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestingContact" type="nwcg:ResourceRequestContactReturnType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Requesting Contact Type and Contact values for this resource request in ROSS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestedItemName" type="nwcg:CatalogItemDescriptionSimpleType" nillable="true">
+				<xs:annotation>
+					<xs:documentation>Requested item/Catalog Item Description value for this resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RestrictionCount">
+				<xs:annotation>
+					<xs:documentation>Number of restrictions defined for this resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Restrictions" type="nwcg:RequestRestrictionSimpleType" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Set of restrictions for this resource request in ROSS.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResponseMessageType">
+		<xs:annotation>
+			<xs:documentation>Structure containing user message attributes returned to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Application-assigned error code to help identify the specific location in code at which the error occured</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Severity">
+				<xs:annotation>
+					<xs:documentation>Indicates if this message was an error message, a warning message, or an informational message.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Information"/>
+						<xs:enumeration value="Warning"/>
+						<xs:enumeration value="Error"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Description" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Customer-friendly description of error or warning</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UnitIDType">
+		<xs:annotation>
+			<xs:documentation>Structure containing UNIT ID attributes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UnitIDPrefix">
+				<xs:annotation>
+					<xs:documentation>2-character prefix</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UnitIDSuffix">
+				<xs:annotation>
+					<xs:documentation>4-character suffix</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UTMCoordinateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing location data in Universal Transverse Mercator (UTM) format.  Datum WGS84/NAD83. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UTMGridZoneID">
+				<xs:annotation>
+					<xs:documentation>A unique 1-2-character alphanumeric identifier of a UTM grid zone. Also known at Grid Zone Designator, GZD.   Valid Zone numbers are 1-60.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UTMEastingValue">
+				<xs:annotation>
+					<xs:documentation>A distance east within a UTM zone. The precision of the value is based on the number of digits. Has the same number of digits as UTMNorthingValue.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="160000"/>
+						<xs:maxInclusive value="834139"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UTMNorthingValue">
+				<xs:annotation>
+					<xs:documentation>A distance north within a UTM zone. The precision of the value is based on the number of digits. Has the same number of digits as UTMEastingValue.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="10000000"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Hemisphere" type="nwcg:LatitudeDirectionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates whether this UTM coordinate is in the Northern or Southern hemisphere.  If not present, "North" is assumed.  "South" must be specified for UTM locations in the Southern hemisphere.  Always provided when part of a response message returned from an NWCG application.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TeamResourceNaturalKey">
+		<xs:annotation>
+			<xs:documentation>Structure Containing the resource attributes  identifying a team type resource</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TeamName" type="nwcg:ResourceNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Identifying name of  the team</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the resource's provider organization.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExternalSystemsToNotifyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the external systems to notify</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExternalSystem" type="nwcg:ExternalSystemToNotifyType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Optional.  One or more appication systems to be notified</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExternalSystemToNotifyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the external system to notify</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="nwcg:ApplicationSystemType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TownshipRangeSectionCoordinateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing location data in Township Range Section (TRS) format</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="State">
+				<xs:annotation>
+					<xs:documentation>State portion of the meridian - 2 character state code</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+						<xs:enumeration value="AK"/>
+						<xs:enumeration value="AL"/>
+						<xs:enumeration value="AR"/>
+						<xs:enumeration value="AZ"/>
+						<xs:enumeration value="CA"/>
+						<xs:enumeration value="CO"/>
+						<xs:enumeration value="FL"/>
+						<xs:enumeration value="IA"/>
+						<xs:enumeration value="ID"/>
+						<xs:enumeration value="IN"/>
+						<xs:enumeration value="IL"/>
+						<xs:enumeration value="KS"/>
+						<xs:enumeration value="LA"/>
+						<xs:enumeration value="MI"/>
+						<xs:enumeration value="MN"/>
+						<xs:enumeration value="MO"/>
+						<xs:enumeration value="MS"/>
+						<xs:enumeration value="MT"/>
+						<xs:enumeration value="ND"/>
+						<xs:enumeration value="NE"/>
+						<xs:enumeration value="NM"/>
+						<xs:enumeration value="NV"/>
+						<xs:enumeration value="OK"/>
+						<xs:enumeration value="OR"/>
+						<xs:enumeration value="SD"/>
+						<xs:enumeration value="UT"/>
+						<xs:enumeration value="WA"/>
+						<xs:enumeration value="WI"/>
+						<xs:enumeration value="WY"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="MeridianName" type="nwcg:MeridianSimpleType">
+				<xs:annotation>
+					<xs:documentation>Enumeration representing supported meridians</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Township">
+				<xs:annotation>
+					<xs:documentation>6 mile intervals east and west of the principal meridian</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TownshipDirection">
+				<xs:annotation>
+					<xs:documentation>Township value is which direction relative to the principal meridian</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="North"/>
+						<xs:enumeration value="South"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Range">
+				<xs:annotation>
+					<xs:documentation>6 mile intervals north and south of a base line that is associated with each principal meridian</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RangeDirection">
+				<xs:annotation>
+					<xs:documentation>Range value is which direction relative to the principal meridian</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="East"/>
+						<xs:enumeration value="West"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Section">
+				<xs:annotation>
+					<xs:documentation>Value between 1 and 36 indicating which 1/36th of the Township</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="36"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QuarterName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If the location is within a known township/range, the name of the quarter or quarter-quarter (i.e. SE NW).</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisterDeregisterSystemRequestType">
+		<xs:annotation>
+			<xs:documentation>Structure containing attributes for register/deregister system request operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+				<xs:annotation>
+					<xs:documentation>Identifies the system originating this request message</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RegisterDeregisterSystemResponseType">
+		<xs:annotation>
+			<xs:documentation>Structure containing attributes for register/deregister system response operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the system originating this request message</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>************   COMPLEX TYPES ADDED FOR QUALIFICATION INTERFACE ************</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="PersonResourceRegisterType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource registration data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>First Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>Last Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MiddleName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Middle Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceContactInfo" type="nwcg:ResourceContactInfoSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact information for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceValidateType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource registry validation data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>First Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="nwcg:PersonNamePartSimpleType">
+				<xs:annotation>
+					<xs:documentation>Last Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MiddleName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Middle Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceUpdateRegistryType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource registration data (for update)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>First Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Last Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MiddleName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Middle Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HomeDispatchUnitID" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the home dispatch organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceContactInfo" type="nwcg:ResourceContactInfoSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact information for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceConvertRegistryType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource conversion data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="HomeDispatchUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the home dispatch organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceCreateType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentClass" type="nwcg:EmploymentClassSimpleType">
+				<xs:annotation>
+					<xs:documentation>Employment class of the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgencyCode" type="nwcg:AgencyCodeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agency code of the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Contacts" type="nwcg:PersonOrOrganizationContact" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Contacts for the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreferredJetport" type="nwcg:AirportNaturalKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Preferred jetport of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BodyWeight" type="nwcg:BodyWeightSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Weight of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gender" type="nwcg:GenderSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gender of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Qualifications" type="nwcg:ResourceQualificationType" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Qualifications for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Fitness" type="nwcg:PersonResourceFitnessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fitness level and expiration for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceUpdateType">
+		<xs:annotation>
+			<xs:documentation>Person (overhead) resource data (for update)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FirstName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>First Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="LastName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Last Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MiddleName" type="nwcg:PersonNamePartSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Middle Name of person resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProviderUnitID" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit ID of the provider organization for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploymentClass" type="nwcg:EmploymentClassSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Employment class of the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AgencyCode" type="nwcg:AgencyCodeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Agency code of the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Contacts" type="nwcg:PersonOrOrganizationContact" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Contacts for the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreferredJetport" type="nwcg:AirportNaturalKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Preferred jetport of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="BodyWeight" type="nwcg:BodyWeightSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Weight of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Gender" type="nwcg:GenderSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Gender of the person</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Fitness" type="nwcg:PersonResourceFitnessType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Fitness level and expiration for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceContactInfo" type="nwcg:ResourceContactInfoSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact information for the resource</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AirportNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the attributes used to identify an airport</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="AirportFAACode" type="nwcg:FAACodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>FAA code of airport.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AirportName" type="nwcg:AirportNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Name of airport (must exactly match an airport in ROSS).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ResourceQualificationType">
+		<xs:annotation>
+			<xs:documentation>Resource qualification data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogItem" type="nwcg:CatalogItemType">
+				<xs:annotation>
+					<xs:documentation>The catalog item of the qualification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QualificationStatus" type="nwcg:ResourceQualificationStatusSimpleType">
+				<xs:annotation>
+					<xs:documentation>Status of the qualification (Qualified or Trainee)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QualificationExpirationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Expiration date of the qualification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceQualificationUpdateType">
+		<xs:annotation>
+			<xs:documentation>Resource qualification data (for update)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogItem" type="nwcg:CatalogItemType">
+				<xs:annotation>
+					<xs:documentation>The catalog item of the qualification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QualificationStatus" type="nwcg:ResourceQualificationStatusSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Status of the qualification (Qualified or Trainee)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QualificationExpirationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Expiration date of the qualification</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourceOrganizationNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the resource attributes identifying an organization that provides resources</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UnitID" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>Unit-ID uniquely identifying the organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CompositeOrganizationKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing Key information referring to a specific resource across the ROSS Services Interface</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OrganizationType" type="OrganizationSimpleType">
+				<xs:annotation>
+					<xs:documentation>Indicates which type of natural key data is included in this message (dispatch, provider, etc)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrganizationID" type="nwcg:IDType">
+				<xs:annotation>
+					<xs:documentation>The Internal ID mapping to an organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="DispatchKey" type="ResourceOrganizationNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing natural key information for a dispatch organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ProviderKey" type="ResourceOrganizationNaturalKeyType">
+					<xs:annotation>
+						<xs:documentation>Structure containing natural key information for a provider organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonResourceFitnessType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the person resource fitness level and expiration</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FitnessCode" type="PersonResourceFitnessCodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Indicates person resource fitness level</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FitnessExpirationDate" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates person resource fitness level expiration date</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganizationDetailsReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing organization attributes provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OrganizationName" type="OrganizationNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Name of the organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrganizationReturnType">
+		<xs:annotation>
+			<xs:documentation>Structure containing organization data provided to external systems</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="OrganizationKey" type="CompositeOrganizationKeyType">
+				<xs:annotation>
+					<xs:documentation>Key information referring to an organization</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrganizationDetails" type="OrganizationDetailsReturnType">
+				<xs:annotation>
+					<xs:documentation>Organization attributes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AccessUserAccountType">
+		<xs:annotation>
+			<xs:documentation>User account information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UserName" type="AccountUserNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Current user name on the account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountManagerDispatch" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>unit ID of the dispatch organization which manages this user account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccessAddedInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>‘true’ if external system access to this account has been added, due to the account being either created or updated. ‘false’ otherwise</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AffectedDispatch" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>unit ID of the dispatch organization that is gaining or losing access to this account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Password" type="AccountPasswordSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Plain-text password for the account. Only provided when AccessAddedInd is ‘true’</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateUserAccountType">
+		<xs:annotation>
+			<xs:documentation>User account information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UserName" type="AccountUserNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>Current user name on the account</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AccountManagerDispatch" type="nwcg:UnitIDType">
+				<xs:annotation>
+					<xs:documentation>unit ID of the dispatch organization which manages this user account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TemporaryPasswordInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>‘true’ if the password is temporary and will therefore require reset; ‘false’ otherwise</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Password" type="AccountPasswordSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Plain-text password for the account.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PreviousUserName" type="AccountUserNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If the user name has been updated, this contains the previous user name value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>************   COMPLEX TYPES ADDED FOR SUPPLY CACHE INTERFACE ************</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="AddressType">
+		<xs:annotation>
+			<xs:documentation>Structure Containing address attributes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Name" type="nwcg:OrganizationNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name or unit associated with the address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Type" type="nwcg:AddressTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Type of address such as Mailing, Shipping, Official</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Line1">
+				<xs:annotation>
+					<xs:documentation>First line of the address information</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="nwcg:AddressLineSimpleType">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Line2" type="nwcg:AddressLineSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Optional 2nd line of the address</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City">
+				<xs:simpleType>
+					<xs:restriction base="nwcg:CityNameSimpleType">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="State" type="nwcg:USStateCodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>State Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ZipCode" type="nwcg:ZipCodeSimpleType" minOccurs="0"/>
+			<xs:element name="CountryCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The NWCG Standard Country Code</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="UnitID" type="nwcg:UnitIDType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The Unit ID for the organization, if applicable </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogItemNaturalKeyType">
+		<xs:annotation>
+			<xs:documentation>Structure containing the attributes that identify a catalog item</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogType" type="nwcg:CatalogTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Organization governing this catalog ex: NWCG</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="CatalogItemName" type="nwcg:CatalogItemDescriptionSimpleType">
+					<xs:annotation>
+						<xs:documentation>The name of the catalog item</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CatalogItemCode" type="nwcg:CatalogItemMnemonicSimpleType">
+					<xs:annotation>
+						<xs:documentation>The code of the catalog item, for categories where a code is used such as Positions and NFES Supplies</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogItemCreateType">
+		<xs:annotation>
+			<xs:documentation>Catalog item data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogType" type="nwcg:CatalogTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Organization governing this catalog ex: NWCG</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemName" type="nwcg:CatalogItemDescriptionSimpleType">
+				<xs:annotation>
+					<xs:documentation>The name of the catalog item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemCode" type="nwcg:CatalogItemMnemonicSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The code of the catalog item, for categories where a code is used such as Positions and NFES Supplies</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TrackingRequiredInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that requests for the item must have mobilization and demobilization tracked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderableWithQuantityInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that the item can be ordered in quantities greater than one</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnitOfIssue" type="nwcg:UnitOfIssueSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit of issue for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandardPack" type="nwcg:StandardPackSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Standard packaging description for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogItemUpdateType">
+		<xs:annotation>
+			<xs:documentation>Catalog item data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogItemName" type="nwcg:CatalogItemDescriptionSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The new name of the catalog item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemCode" type="nwcg:CatalogItemMnemonicSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The new code of the catalog item, for categories where a code is used such as Positions and NFES Supplies</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TrackingRequiredInd" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that requests for the item must have mobilization and demobilization tracked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderableWithQuantityInd" type="xs:boolean" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that the item can be ordered in quantities greater than one</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnitOfIssue" type="nwcg:UnitOfIssueSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit of issue for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandardPack" type="nwcg:StandardPackSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Standard packaging description for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CatalogItemReturnType">
+		<xs:annotation>
+			<xs:documentation>Catalog item data</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CatalogType" type="nwcg:CatalogTypeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Organization governing this catalog ex: NWCG</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemName" type="nwcg:CatalogItemDescriptionSimpleType">
+				<xs:annotation>
+					<xs:documentation>The name of the catalog item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CatalogItemCode" type="nwcg:CatalogItemMnemonicSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The code of the catalog item, for categories where a code is used such as Positions and NFES Supplies</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TrackingRequiredInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that requests for the item must have mobilization and demobilization tracked</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderableWithQuantityInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Flag used to indicate that the item can be ordered in quantities greater than one</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="UnitOfIssue" type="nwcg:UnitOfIssueSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Unit of issue for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="StandardPack" type="nwcg:StandardPackSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Standard packaging description for a non-service supply item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FinancialCodeType">
+		<xs:annotation>
+			<xs:documentation>Structure containing financial code attributes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Code" type="nwcg:FinancialCodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>Financial Code - ID used to track expenditures</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OwningAgencyName" type="nwcg:OrganizationNameSimpleType">
+				<xs:annotation>
+					<xs:documentation>The name of the Agency organization that owns this financial code.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FiscalYear" type="nwcg:FiscalYearSimpleType">
+				<xs:annotation>
+					<xs:documentation>The year in which the financial code is issued</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentAddressType">
+		<xs:annotation>
+			<xs:documentation>Structure containing address info for an incident</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Address" type="nwcg:AddressType"/>
+			<xs:element name="PrimaryInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>True if this is the primary address of this type for an incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentContactType">
+		<xs:annotation>
+			<xs:documentation>Structure containing contact info for an incident</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Type" type="nwcg:IncidentContactTypeSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact type such as 'Shipping' or 'Requesting'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="nwcg:ShippingContactNameSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Name/Description of the contact -ex: person's name or something like 'General Office Phone'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Information" type="nwcg:ShippingContactPhoneSimpleType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Contact Information ex: phone number. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentFinancialCodeType">
+		<xs:annotation>
+			<xs:documentation>Structure containing financial code info for an incident</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="FinancialCode" type="nwcg:FinancialCodeType"/>
+			<xs:element name="PrimaryInd" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation>Indicates whether or not this is the primary/default financial code for the incident</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentRequestBlockType">
+		<xs:annotation>
+			<xs:documentation>Structure containing request block information</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Catalog" type="nwcg:RequestBlockCatalogSimpleType">
+				<xs:annotation>
+					<xs:documentation>This block applies to requests created from for items from this catalog</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name">
+				<xs:annotation>
+					<xs:documentation>Request Block Name</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="StartNumber" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>starting request number for this block</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EndNumber" type="xs:integer">
+				<xs:annotation>
+					<xs:documentation>Ending request number for this block</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Purpose" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Purpose of this block</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ForUseByAppSystem" type="nwcg:ApplicationSystemType">
+				<xs:annotation>
+					<xs:documentation>The application system that is ordering from this block</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CacheIssueCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing information for a cache issue</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CacheIssueNumber" type="nwcg:CacheIssueNumberSimpleType">
+				<xs:annotation>
+					<xs:documentation>Issue number assigned to the request by a cache (such as ICBS)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CacheIssueCreateDateTime" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Date and time when the Issue was created by a cache (such as ICBS)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PlaceCacheIssueCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing cache issue creation information for a set of requests</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CacheIssue" type="nwcg:CacheIssueCreateType"/>
+			<xs:element name="RequestCode" type="nwcg:RequestCodeType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WillPickUpInformationType">
+		<xs:annotation>
+			<xs:documentation>Structure containing information needed when picking up from a cache</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="PickUpContactName" type="nwcg:ContactNameSimpleType"/>
+			<xs:element name="PickUpContactInfo">
+				<xs:simpleType>
+					<xs:restriction base="nwcg:ContactInfoSimpleType">
+						<xs:maxLength value="356"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="PickUpDateTime" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ShippingInstructionsCreateType">
+		<xs:annotation>
+			<xs:documentation>Structure containing shipping instructions for a request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ShippingInstructions" type="nwcg:ShippingInstructionsSimpleType">
+				<xs:annotation>
+					<xs:documentation>Free form text containing instructions for shipping the requested item</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="City" type="nwcg:CityNameSimpleType"/>
+			<xs:element name="State" type="nwcg:USStateCodeSimpleType">
+				<xs:annotation>
+					<xs:documentation>State Code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>************   ELEMENTS  ************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="ServicePingReq">
+		<xs:annotation>
+			<xs:documentation>Empty message used to ping ESB Soap Processor</xs:documentation>
+		</xs:annotation>
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="ServicePingResp">
+		<xs:annotation>
+			<xs:documentation>Response message containing only timestamp</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Timestamp" type="xs:dateTime"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VerifySecuritySessionReq">
+		<xs:annotation>
+			<xs:documentation>Request message for verifying a SecuritySessionID</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SecuritySessionID" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>String containing a uniquely assigned SecuritySessionID.  If verified, this ID indicates that the user has been successfully authenticted by the ESB</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VerifySecuritySessionResp">
+		<xs:annotation>
+			<xs:documentation>Response message indicating whether the SecuritySessionID was verified successfully.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IsVerified" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Boolean indicating whether SecuritySessionID was verified successfully</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UserFullName" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Full name of user associated with a verified SecuritySessionID.  Not present if IsVerified = 'false'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IncidentRadioFrequencyNotifyType" type="nwcg:IncidentRadioFrequencyReturnType"/>
+	<xs:element name="MessageAcknowledgement">
+		<xs:annotation>
+			<xs:documentation>Standard MessageAcknowledgement structure returned on asynchronous requests</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DistributionID" type="nwcg:DistributionIDSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Field will be abseent if request fails XML validation or can not be processed</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MessageContext" type="nwcg:MessageContextType"/>
+	<xs:element name="ExternalSystemsToNotify" type="nwcg:ExternalSystemsToNotifyType"/>
+	<xs:element name="AuthUserReq">
+		<xs:annotation>
+			<xs:documentation>Sent from ESB to self-authenticating application systems</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Username">
+					<xs:annotation>
+						<xs:documentation>Username taken from SecurityToken in original request message</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="OnetimePassword">
+					<xs:annotation>
+						<xs:documentation>Onetime, unique password in request sent to ESB, could be UUID, MessageDigest, etc.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="AuthTimestamp" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>Timestamp of this authentication request in XML dateTime format (yyyy-MM-dd'T'HH:mm:ss.SSS'Z')</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Action" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Inbound Operation Name or Notification Name that is to be authorized.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AuthUserResp">
+		<xs:annotation>
+			<xs:documentation>Returned from self-authenticating system indicating whether or not the user was authenticated.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType"/>
+				<xs:element name="Username">
+					<xs:annotation>
+						<xs:documentation>Username on external system providing the authentication</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="30"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="IsAuthenticatedIndicator" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Flag indicating whether User is authenticated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="userFullname" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Fullname of user.  Required if IS_AUTHENTICATED= "true"</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string"/>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="authenticationMessage" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Optional message indicating reason for authentication failure</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>ICBS Incr 4 Common Types</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="FillDetailType">
+		<xs:annotation>
+			<xs:documentation>Details on NFES resource used to fill a request</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CacheIssue" type="nwcg:CacheIssueCreateType"/>
+			<xs:element name="CacheRequestCode" type="nwcg:RequestCodeType" minOccurs="0"/>
+			<xs:element name="CatalogItem" type="nwcg:CatalogItemNaturalKeyType" minOccurs="0"/>
+			<xs:element name="FillQuantity" type="nwcg:QuantitySimpleType"/>
+			<xs:element name="UtfQuantity" type="nwcg:QuantitySimpleType"/>
+			<xs:element name="BackorderQuantity" type="nwcg:QuantitySimpleType"/>
+			<xs:element name="ForwardQuantity" type="nwcg:QuantitySimpleType"/>
+			<xs:element name="UserDocumentation" type="nwcg:DocumentationTextSimpleType" minOccurs="0"/>
+			<xs:element name="TrackableId" type="nwcg:NFESTrackableIdSimpleType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="SystemNumber" type="nwcg:NFESSystemNumberSimpleType" minOccurs="0"/>
+			<xs:element name="MobilizationETD" type="xs:dateTime" minOccurs="0"/>
+			<xs:element name="MobilizationETA" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConsolidationDetailType">
+		<xs:annotation>
+			<xs:documentation>Details on requests consolidated by external cache</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UserDocumentation" type="nwcg:DocumentationTextSimpleType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="NFESTrackableIdSimpleType">
+		<xs:annotation>
+			<xs:documentation>Custom type for NFES trackable ids</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NFESSystemNumberSimpleType">
+		<xs:annotation>
+			<xs:documentation>Custom type for NFES radio kit system numbers</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

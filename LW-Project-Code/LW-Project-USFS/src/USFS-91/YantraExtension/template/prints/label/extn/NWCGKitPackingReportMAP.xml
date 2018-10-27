@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="date" Binding="/KitPacking/@Date" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgCode" Binding="/KitPacking/Organization/@OrganizationCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="orgName" Binding="/KitPacking/Organization/@OrganizationName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="addrLine1" Binding="/KitPacking/Organization/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="addrLine2" Binding="/KitPacking/Organization/@AddressLine2" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="city" Binding="/KitPacking/Organization/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="state" Binding="/KitPacking/Organization/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="zipCode" Binding="/KitPacking/Organization/@ZipCode" RepeatingElement="" Sequence="N"/>
+
+    <LabelField DataType="Text" LabelFieldName="itemID" Binding="/KitPacking/Item/@ItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="itemDesc" Binding="/KitPacking/Item/@ShortDescription" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="BuildingInstructions" Binding="/KitPacking/Item/@InstructionText" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="itemUom" Binding="/KitPacking/Item/@Uom" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="itemSerialNo" Binding="/KitPacking/Item/@SerialNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="volInCubicFt" Binding="/KitPacking/Item/@VolumeInCubicFeet" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="volCubicFtUnit" Binding="/KitPacking/Item/@VolumeCubicFeetUnit" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="volInCubicMtr" Binding="/KitPacking/Item/@VolumeInCubicMeter" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="volCubicMtrUnit" Binding="/KitPacking/Item/@VolumeCubicMetersUnit" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtInKg" Binding="/KitPacking/Item/@WeightInKg" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtKgUnit" Binding="/KitPacking/Item/@WeightKgUnits" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtInLbs" Binding="/KitPacking/Item/@WeightInLbs" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtLbUnit" Binding="/KitPacking/Item/@WeightLbUnits" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text"
+		LabelFieldName="childItemID" Binding=
+		"/KitPacking/WorkOrder/WorkOrderComponents/WorkOrderComponent/@ItemID" RepeatingElement="WorkOrderComponent" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="childDesc" Binding=
+		"/KitPacking/WorkOrder/WorkOrderComponents/WorkOrderComponent/@ShortDescription" RepeatingElement="WorkOrderComponent" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="childQty" Binding=
+		"/KitPacking/WorkOrder/WorkOrderComponents/WorkOrderComponent/@Quantity" RepeatingElement="WorkOrderComponent" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="childUom" Binding=
+		"/KitPacking/WorkOrder/WorkOrderComponents/WorkOrderComponent/@Uom" RepeatingElement="WorkOrderComponent" Sequence="N"/>
+	<LabelField DataType="Text"
+        LabelFieldName="childSerialNo" Binding=
+		"/KitPacking/WorkOrder/WorkOrderComponents/WorkOrderComponent/@SerialNo" RepeatingElement="WorkOrderComponent" Sequence="N"/>
+
+	<RepeatingFields>
+        <RepeatingField LabelFieldName="childItemID" MaxFirstPage="15" MaxLastPage="15" MaxMidPage="15"/>
+        <RepeatingField LabelFieldName="childDesc" MaxFirstPage="15" MaxLastPage="15" MaxMidPage="15"/>
+        <RepeatingField LabelFieldName="childQty" MaxFirstPage="15" MaxLastPage="15" MaxMidPage="15"/>
+        <RepeatingField LabelFieldName="childUom" MaxFirstPage="15" MaxLastPage="15" MaxMidPage="15"/>
+        <RepeatingField LabelFieldName="childSerialNo" MaxFirstPage="15" MaxLastPage="15" MaxMidPage="15"/>
+     </RepeatingFields>
+</LabelFieldMap>

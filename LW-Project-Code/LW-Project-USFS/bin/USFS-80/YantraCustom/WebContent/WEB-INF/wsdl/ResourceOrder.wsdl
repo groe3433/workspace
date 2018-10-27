@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<!-- Asynchronous version returns MessageAcknowledgement messages only.  Use distributionID to obtain results using GetOperationResults operation-->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:ro="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:tns="http://nwcg.gov/services/ross/resource_order/wsdl/1.1" xmlns:ns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ResourceOrder_WSDL" targetNamespace="http://nwcg.gov/services/ross/resource_order/wsdl/1.1">
+	<types>
+		<xs:schema version="1.1">
+			<xs:import namespace="http://nwcg.gov/services/ross/resource_order/1.1" schemaLocation="ResourceOrder.xsd"/>
+			<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+			<xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="RossSecurity.xsd"/>
+		</xs:schema>
+    </types>
+	<message name="AuthenticateUserReq">
+		<part name="body" element="ro:AuthenticateUserReq"/>
+	</message>
+	<message name="AddIncidentDocumentationReq">
+		<part name="body" element="ro:AddIncidentDocumentationReq"/>
+	</message>
+	<message name="CancelResourceRequestReq">
+		<part name="body" element="ro:CancelResourceRequestReq"/>
+	</message>
+	<message name="CreateIncidentReqMessage">
+		<part name="body" element="ro:CreateIncidentReq"/>
+	</message>
+	<message name="CreateIncidentAndRequestReq">
+		<part name="body" element="ro:CreateIncidentAndRequestReq"/>
+	</message>
+	<message name="CreateIncidentRequestAndFillReq">
+		<part name="body" element="ro:CreateIncidentRequestAndFillReq"/>
+	</message>
+	<message name="CreateIncidentRequestAndPlaceReq">
+		<part name="body" element="ro:CreateIncidentRequestAndPlaceReq"/>
+	</message>
+	<message name="CreateRequestAndFillReq">
+		<part name="body" element="ro:CreateRequestAndFillReq"/>
+	</message>
+	<message name="CreateRequestAndPlaceReq">
+		<part name="body" element="ro:CreateRequestAndPlaceReq"/>
+	</message>
+	<message name="CreateResourceRequestReqMessage">
+		<part name="body" element="ro:CreateResourceRequestReq"/>
+	</message>
+	<message name="FillResourceRequestReq">
+		<part name="body" element="ro:FillResourceRequestReq"/>
+	</message>
+	<message name="GetIncidentReq">
+		<part name="body" element="ro:GetIncidentReq"/>
+	</message>
+	<message name="GetIncidentAviationHazardsReq">
+		<part name="body" element="ro:GetIncidentAviationHazardsReq"/>
+	</message>
+	<message name="GetIncidentAndRequestsReq">
+		<part name="body" element="ro:GetIncidentAndRequestsReq"/>
+	</message>
+	<message name="GetIncidentDocumentationReq">
+		<part name="body" element="ro:GetIncidentDocumentationReq"/>
+	</message>
+	<message name="GetIncidentRadioFrequenciesReq">
+		<part name="body" element="ro:GetIncidentRadioFrequenciesReq"/>
+	</message>
+	<message name="GetIncidentsRequestsByStatusReq">
+		<part name="body" element="ro:GetIncidentsRequestsByStatusReq"/>
+	</message>
+	<message name="GetOperationResultsReq">
+		<part name="body" element="ro:GetOperationResultsReq"/>
+	</message>
+	<message name="GetResourceRequestReq">
+		<part name="body" element="ro:GetResourceRequestReq"/>
+	</message>
+	<message name="NotifyResourceRequestReq">
+		<part name="body" element="ro:NotifyResourceRequestReq"/>
+	</message>
+	<message name="PlaceResourceRequestReq">
+		<part name="body" element="ro:PlaceResourceRequestReq"/>
+	</message>
+	<message name="RegisterIncidentInterestReq">
+		<part name="body" element="ro:RegisterIncidentInterestReq"/>
+	</message>
+	<message name="ReplaceIncidentAviationHazardsReq">
+		<part name="body" element="ro:ReplaceIncidentAviationHazardsReq"/>
+	</message>
+	<message name="ReplaceIncidentRadioFrequenciesReq">
+		<part name="body" element="ro:ReplaceIncidentRadioFrequenciesReq"/>
+	</message>
+	<message name="SetIncidentActivationReq">
+		<part name="body" element="ro:SetIncidentActivationReq"/>
+	</message>
+<message name="UpdateIncidentDetailsReq">
+		<part name="body" element="ro:UpdateIncidentDetailsReq"/>
+	</message>
+	<message name="UpdateIncidentNumberReq">
+		<part name="body" element="ro:UpdateIncidentNumberReq"/>
+	</message>
+	<message name="UtfResourceRequestReq">
+		<part name="body" element="ro:UtfResourceRequestReq"/>
+	</message>
+	<message name="AuthenticateUserResp">
+		<part name="body" element="ro:AuthenticateUserResp"/>
+	</message>
+	<message name="UpdateNFESResourceRequestReq">
+		<part name="body" element="ro:UpdateNFESResourceRequestReq"/>
+	</message>
+	<message name="UpdateNFESResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CancelResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateIncidentRespMessage">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateIncidentAndRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateIncidentRequestAndFillResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateIncidentRequestAndPlaceResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateRequestAndFillResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateRequestAndPlaceResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="CreateResourceRequestRespMessage">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="FillResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetOperationResultsResp">
+		<part name="body" element="ro:GetOperationResultsResp"/>
+	</message>
+	<message name="AddIncidentDocumentationResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentsRequestsByStatusResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentAviationHazardsResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentAndRequestsResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentDocumentationResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetIncidentRadioFrequenciesResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="GetResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="NotifyResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="PlaceResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="RegisterIncidentInterestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="ReplaceIncidentAviationHazardsResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="ReplaceIncidentRadioFrequenciesResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="SetIncidentActivationResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="UpdateIncidentDetailsResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="UpdateIncidentNumberResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+	<message name="ResourceOrderHeaderMessage">
+		<part name="SecurityToken" element="wsse:Security"/>
+		<part name="MessageContext" element="nwcg:MessageContext"/>
+	</message>
+	
+
+	<message name="ServicePingReq">
+		<part name="body" element="nwcg:ServicePingReq"/>
+	</message>
+	<message name="ServicePingResp">
+		<part name="body" element="nwcg:ServicePingResp"/>
+	</message>	
+	
+	
+	<message name="UtfResourceRequestResp">
+		<part name="body" element="nwcg:MessageAcknowledgement"/>
+	</message>
+
+	<portType name="ResourceOrderInterface">
+		<documentation>ResourceOrderInterface PortType - MessageAcknowledgement messages returned for asynchronous operations</documentation>
+		<operation name="AddIncidentDocumentation">
+			<input message="tns:AddIncidentDocumentationReq"/>
+			<output message="tns:AddIncidentDocumentationResp"/>
+		</operation>
+		<operation name="AuthenticateUser">
+			<input message="tns:AuthenticateUserReq"/>
+			<output message="tns:AuthenticateUserResp"/>
+		</operation>
+		<operation name="CancelResourceRequest">
+			<input message="tns:CancelResourceRequestReq"/>
+			<output message="tns:CancelResourceRequestResp"/>
+		</operation>
+		<operation name="CreateIncident">
+			<input message="tns:CreateIncidentReqMessage"/>
+			<output message="tns:CreateIncidentRespMessage"/>
+		</operation>
+		<operation name="CreateIncidentAndRequest">
+			<input message="tns:CreateIncidentAndRequestReq"/>
+			<output message="tns:CreateIncidentAndRequestResp"/>
+		</operation>
+		<operation name="CreateIncidentRequestAndFill">
+			<input message="tns:CreateIncidentRequestAndFillReq"/>
+			<output message="tns:CreateIncidentRequestAndFillResp"/>
+		</operation>
+		<operation name="CreateIncidentRequestAndPlace">
+			<input message="tns:CreateIncidentRequestAndPlaceReq"/>
+			<output message="tns:CreateIncidentRequestAndPlaceResp"/>
+		</operation>
+		<operation name="CreateRequestAndFill">
+			<input message="tns:CreateRequestAndFillReq"/>
+			<output message="tns:CreateRequestAndFillResp"/>
+		</operation>
+		<operation name="CreateRequestAndPlace">
+			<input message="tns:CreateRequestAndPlaceReq"/>
+			<output message="tns:CreateRequestAndPlaceResp"/>
+		</operation>
+		<operation name="CreateResourceRequest">
+			<input message="tns:CreateResourceRequestReqMessage"/>
+			<output message="tns:CreateResourceRequestRespMessage"/>
+		</operation>
+		<operation name="FillResourceRequest">
+			<input message="tns:FillResourceRequestReq"/>
+			<output message="tns:FillResourceRequestResp"/>
+		</operation>
+		<operation name="GetIncident">
+			<input message="tns:GetIncidentReq"/>
+			<output message="tns:GetIncidentResp"/>
+		</operation>
+		<operation name="GetIncidentAndRequests">
+			<input message="tns:GetIncidentAndRequestsReq"/>
+			<output message="tns:GetIncidentAndRequestsResp"/>
+		</operation>
+		<operation name="GetIncidentAviationHazards">
+			<input message="tns:GetIncidentAviationHazardsReq"/>
+			<output message="tns:GetIncidentAviationHazardsResp"/>
+		</operation>
+		<operation name="GetIncidentDocumentation">
+			<input message="tns:GetIncidentDocumentationReq"/>
+			<output message="tns:GetIncidentDocumentationResp"/>
+		</operation>
+		<operation name="GetIncidentRadioFrequencies">
+			<input message="tns:GetIncidentRadioFrequenciesReq"/>
+			<output message="tns:GetIncidentRadioFrequenciesResp"/>
+		</operation>
+		<operation name="GetIncidentsRequestsByStatus">
+			<input message="tns:GetIncidentsRequestsByStatusReq"/>
+			<output message="tns:GetIncidentsRequestsByStatusResp"/>
+		</operation>
+		<operation name="GetOperationResults">
+			<input message="tns:GetOperationResultsReq"/>
+			<output message="tns:GetOperationResultsResp"/>
+		</operation>
+		<operation name="GetResourceRequest">
+			<input message="tns:GetResourceRequestReq"/>
+			<output message="tns:GetResourceRequestResp"/>
+		</operation>
+		<operation name="NotifyResourceRequest">
+			<input message="tns:NotifyResourceRequestReq"/>
+			<output message="tns:NotifyResourceRequestResp"/>
+		</operation>
+		<operation name="PlaceResourceRequest">
+			<input message="tns:PlaceResourceRequestReq"/>
+			<output message="tns:PlaceResourceRequestResp"/>
+		</operation>
+		<operation name="RegisterIncidentInterest">
+			<input message="tns:RegisterIncidentInterestReq"/>
+			<output message="tns:RegisterIncidentInterestResp"/>
+		</operation>
+
+		<operation name="ReplaceIncidentAviationHazards">
+			<input message="tns:ReplaceIncidentAviationHazardsReq"/>
+			<output message="tns:ReplaceIncidentAviationHazardsResp"/>
+		</operation>
+		<operation name="ReplaceIncidentRadioFrequencies">
+			<input message="tns:ReplaceIncidentRadioFrequenciesReq"/>
+			<output message="tns:ReplaceIncidentRadioFrequenciesResp"/>
+		</operation>
+
+		<operation name="SetIncidentActivation">
+			<input message="tns:SetIncidentActivationReq"/>
+			<output message="tns:SetIncidentActivationResp"/>
+		</operation>
+
+		<operation name="ServicePing">
+			<input message="tns:ServicePingReq"/>
+			<output message="tns:ServicePingResp"/>
+		</operation>
+
+		<operation name="UpdateIncidentDetails">
+			<input message="tns:UpdateIncidentDetailsReq"/>
+			<output message="tns:UpdateIncidentDetailsResp"/>
+		</operation>
+		<operation name="UpdateIncidentNumber">
+			<input message="tns:UpdateIncidentNumberReq"/>
+			<output message="tns:UpdateIncidentNumberResp"/>
+		</operation>
+		<operation name="UtfResourceRequest">
+			<input message="tns:UtfResourceRequestReq"/>
+			<output message="tns:UtfResourceRequestResp"/>
+		</operation>
+
+		<operation name="UpdateNFESResourceRequest">
+			<input message="tns:UpdateNFESResourceRequestReq"/>
+			<output message="tns:UpdateNFESResourceRequestResp"/>
+		</operation>
+	</portType>
+	<binding name="ResourceOrderBinding" type="tns:ResourceOrderInterface">
+		<documentation>ResourceOrder Binding - All request messages must contain SecurityToken and MessageContext headers and one request message in the body</documentation>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="AddIncidentDocumentation">
+			<soap:operation soapAction="AddIncidentDocumentation" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="AuthenticateUser">
+			<soap:operation soapAction="AuthenticateUser" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CancelResourceRequest">
+			<soap:operation soapAction="CancelResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateIncident">
+			<soap:operation soapAction="CreateIncident" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateIncidentAndRequest">
+			<soap:operation soapAction="CreateIncidentAndRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateIncidentRequestAndFill">
+			<soap:operation soapAction="CreateIncidentRequestAndFill" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateIncidentRequestAndPlace">
+			<soap:operation soapAction="CreateIncidentRequestAndPlace" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateRequestAndFill">
+			<soap:operation soapAction="CreateRequestAndFill" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateRequestAndPlace">
+			<soap:operation soapAction="CreateRequestAndPlace" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreateResourceRequest">
+			<soap:operation soapAction="CreateResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="FillResourceRequest">
+			<soap:operation soapAction="FillResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncident">
+			<soap:operation soapAction="GetIncident" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncidentAndRequests">
+			<soap:operation soapAction="GetIncidentAndRequests" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncidentAviationHazards">
+			<soap:operation soapAction="GetIncidentAviationHazards" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncidentDocumentation">
+			<soap:operation soapAction="GetIncidentDocumentation" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncidentRadioFrequencies">
+			<soap:operation soapAction="GetIncidentRadioFrequencies" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetIncidentsRequestsByStatus">
+			<soap:operation soapAction="GetIncidentsRequestsByStatus" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetOperationResults">
+			<soap:operation soapAction="GetOperationResults" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetResourceRequest">
+			<soap:operation soapAction="GetResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="NotifyResourceRequest">
+			<soap:operation soapAction="NotifyResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="PlaceResourceRequest">
+			<soap:operation soapAction="PlaceResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="RegisterIncidentInterest">
+			<soap:operation soapAction="RegisterIncidentInterest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ReplaceIncidentAviationHazards">
+			<soap:operation soapAction="ReplaceIncidentAviationHazards" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ReplaceIncidentRadioFrequencies">
+			<soap:operation soapAction="ReplaceIncidentRadioFrequencies" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="SetIncidentActivation">
+			<soap:operation soapAction="SetIncidentActivation" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="ServicePing">
+			<soap:operation soapAction="ServicePing" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+
+		<operation name="UpdateIncidentDetails">
+			<soap:operation soapAction="UpdateIncidentDetails" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateIncidentNumber">
+			<soap:operation soapAction="UpdateIncidentNumber" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UtfResourceRequest">
+			<soap:operation soapAction="UtfResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateNFESResourceRequest">
+			<soap:operation soapAction="UpdateNFESResourceRequest" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceOrderHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="ResourceOrderService">
+		<documentation>Only document/literal style SOAP messages sent over HTTPS are supported</documentation>
+		<port name="ResourceOrderPort" binding="tns:ResourceOrderBinding">
+			<soap:address location="http://boswxl20006664.sci.local:9081/USFS-Trunk/ResourceOrderService"/>
+		</port>
+	</service>
+</definitions>

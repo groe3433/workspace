@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Julie Olson (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns="http://nwcg.gov/services/ross/resource_notification/1.1" xmlns:rscn="http://nwcg.gov/services/ross/resource_notification/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://nwcg.gov/services/ross/resource_notification/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>****************  Release 2.6 Resource Notification Message Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="UpdateResourceAssignmentNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when assignment information has changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request the assignment has changed for in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource's assignment has changed in ROSS.  This is provided when the resource is inventoried in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UpdatedData" type="nwcg:ResourceAssignmentNotificationType">
+					<xs:annotation>
+						<xs:documentation>Attribute values that changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateResourceKeyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification when a resource's name is changed in ROSS.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OldResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Old Resource Key indicating the resource that was either renamed in ROSS, or that underwent a resource merge in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Updated Resource key that reflects the resource name change; or the key of the surviving resource when a resource merge occurs in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>****************  NOTIFICATIONS ADDED FOR QUALIFICATION INTERFACE  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="UpdateResourceOrgNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when an organization for a resource has changed in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource's assignment has changed in ROSS.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ProviderUnitID" type="nwcg:UnitIDType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Unit ID of the new provider for the resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="HomeDispatchUnitID" type="nwcg:UnitIDType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Unit ID of the new home dispatch for the resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RegisterPersonResourceAcceptedNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when a register request is accepted by the data steward</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>The key for the person resource, including the clearinghouse ID</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonResource" type="nwcg:PersonResourceRegisterType">
+					<xs:annotation>
+						<xs:documentation>Information for the person being accepted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExternalResourceID" type="nwcg:IDType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>ID of the person in the external system (such as EmplID for IQCS)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RegisterPersonResourceRejectedNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when a register request is rejected by the data steward</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonResource" type="nwcg:PersonResourceRegisterType">
+					<xs:annotation>
+						<xs:documentation>Information for the person being rejected</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ExternalResourceID" type="nwcg:IDType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>ID of the person in the external system (such as EmplID for IQCS)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

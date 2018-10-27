@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Mike Roadifer (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns="http://nwcg.gov/services/ross/organization_notification/1.1" xmlns:orgn="http://nwcg.gov/services/ross/organization_notification/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://nwcg.gov/services/ross/organization_notification/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>****************  Release 2.6 Organization Notification Message Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="UpdateOrganizationKeyNotification">
+		<xs:annotation>
+			<xs:documentation>Notification message when an organization is changed</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="NotificationBase" type="nwcg:NotificationBaseType">
+					<xs:annotation>
+						<xs:documentation>Core information about this notification</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OldOrganizationKey" type="nwcg:CompositeOrganizationKeyType">
+					<xs:annotation>
+						<xs:documentation>Old key information identifying the organization that was updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewOrganizationKey" type="nwcg:CompositeOrganizationKeyType">
+					<xs:annotation>
+						<xs:documentation>New key information for the organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

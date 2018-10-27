@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+                         "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+    <context-param>
+        <param-name>yfc-filter-1</param-name>
+        <param-value>com.yantra.yfs.ui.backend.YFSCheckUserFilter</param-value>
+    </context-param>
+    <listener id="listener_1">
+        <listener-class>com.yantra.ycp.ui.backend.YCPSessionListerner</listener-class>
+    </listener>
+    <servlet id="Servlet_1">
+        <servlet-name>authservlet</servlet-name>
+        <display-name>Auth Servlet</display-name>
+        <description>Authentication Servlet</description>
+        <servlet-class>com.yantra.ycp.cognos.YantraAuthenticationServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_2">
+        <servlet-name>savedsearchservlet</servlet-name>
+        <display-name>Saved Search Servlet</display-name>
+        <description>Saved Search Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.SavedSearchServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_3">
+        <servlet-name>imageservlet</servlet-name>
+        <display-name>Image Servlet</display-name>
+        <description>Image Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.ImageServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_4">
+        <servlet-name>postinitservlet</servlet-name>
+        <display-name>Post Initialization Servlet</display-name>
+        <description>Post Initialization Servlet</description>
+        <servlet-class>com.yantra.appserver.PostServletInitializer</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+    <servlet id="Servlet_5">
+        <servlet-name>initservlet</servlet-name>
+        <display-name>Initializer Servlet</display-name>
+        <description>Initializer Servlet</description>
+        <servlet-class>com.yantra.appserver.ConsoleUIInitializer</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet id="Servlet_6">
+        <servlet-name>Initializer</servlet-name>
+        <servlet-class>com.yantra.appserver.ServletInitializer</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet id="Servlet_7">
+        <servlet-name>listservlet</servlet-name>
+        <display-name>List Servlet</display-name>
+        <description>List Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.ListServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_8">
+        <servlet-name>detailservlet</servlet-name>
+        <display-name>Detail Servlet</display-name>
+        <description>Detail Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.DetailServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_9">
+        <servlet-name>searchservlet</servlet-name>
+        <display-name>Search Servlet</display-name>
+        <description>Search Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.SearchServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_10">
+        <servlet-name>consoleservlet</servlet-name>
+        <display-name>Console Servlet</display-name>
+        <description>Console Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.ConsoleServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_11">
+        <servlet-name>actionservlet</servlet-name>
+        <display-name>Action Servlet</display-name>
+        <description>Action Servlet</description>
+        <servlet-class>com.yantra.yfc.ui.backend.servlets.ActionServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_12">
+        <servlet-name>InteropHttpServlet</servlet-name>
+        <servlet-class>com.yantra.interop.client.InteropHttpServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_13">
+        <servlet-name>WmConfigServlet</servlet-name>
+        <servlet-class>com.yantra.interop.ui.backend.WmConfigServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_14">
+        <servlet-name>entityservlet</servlet-name>
+        <servlet-class>com.yantra.util.YEntityServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_15">
+        <servlet-name>YCPBusinessRulesAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPBusinessRulesAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_16">
+        <servlet-name>YCPCustomModificationTypeAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPCustomModificationTypeAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_17">
+        <servlet-name>YCPCurrencyConversionListAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPCurrencyConversionListAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_18">
+        <servlet-name>YCPOrgDetailsAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPOrgDetailsAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_19">
+        <servlet-name>YCPRuleSetAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPRuleSetAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_20">
+        <servlet-name>YCPGroupAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.sm.ui.backend.YCPGroupAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_21">
+        <servlet-name>YCPUserAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.sm.ui.backend.YCPUserAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_22">
+        <servlet-name>YCPGenericMasterData</servlet-name>
+        <servlet-class>com.yantra.ycp.ui.backend.YCPGenericMasterData</servlet-class>
+    </servlet>
+    <servlet id="Servlet_23">
+        <servlet-name>YCPWFRepositoryAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.wf.ui.backend.YCPWFRepositoryAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_24">
+        <servlet-name>YantraConfigServlet</servlet-name>
+        <servlet-class>com.yantra.app.config.YantraConfigServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_25">
+        <servlet-name>LinearServlet</servlet-name>
+        <servlet-class>com.idautomation.linear.IDAutomationServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_26">
+        <servlet-name>MaxicodeServlet</servlet-name>
+        <servlet-class>com.idautomation.maxicode.IDAutomationServlet </servlet-class>
+    </servlet>
+    <servlet id="Servlet_27">
+        <servlet-name>MenuHierarchy</servlet-name>
+        <servlet-class>com.yantra.ycp.sm.ui.backend.YCPMenuAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_28">
+        <servlet-name>DocumentTypesHierarchy</servlet-name>
+        <servlet-class>com.yantra.ycp.wf.ui.backend.YCPDocumentTypesAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_29">
+        <servlet-name>YCPResourceAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.sm.ui.backend.YCPResourceAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_30">
+        <servlet-name>YIFUIManager</servlet-name>
+        <servlet-class>com.yantra.interop.ui.backend.YIFUIManager</servlet-class>
+    </servlet>
+    <servlet id="Servlet_31">
+        <servlet-name>YCPGenericWizardAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.ui.backend.YCPGenericWizardAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_32">
+        <servlet-name>YCPCalendarAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.ui.backend.YCPCalendarAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_33">
+        <servlet-name>YCPUOMConversion</servlet-name>
+        <servlet-class>com.yantra.ycp.ui.backend.YCPUOMConversion</servlet-class>
+    </servlet>
+    <servlet id="Servlet_34">
+        <servlet-name>APIServlet</servlet-name>
+        <servlet-class>com.yantra.ycp.util.YCPAPIServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_35">
+        <servlet-name>YCPRegionAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.ui.backend.YCPRegionAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_36">
+        <servlet-name>YHMMonitorServlet</servlet-name>
+        <servlet-class>com.yantra.ycp.hm.ui.backend.YHMMonitorServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_37">
+        <servlet-name>YCMServiceSkillAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMServiceSkillAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_38">
+        <servlet-name>ProductivityReferenceServlet</servlet-name>
+        <servlet-class>com.yantra.ycp.productivity.ui.backend.ProductivityReferenceServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_39">
+        <servlet-name>YCPBarCodeTranslationAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.bct.ui.backend.YCPBarCodeTranslationAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_40">
+        <servlet-name>YCPModelingDeviceAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.device.ui.backend.YCPModelingDeviceAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_41">
+        <servlet-name>YCRNServlet</servlet-name>
+        <servlet-class>com.yantra.ycp.cognos.YCRNServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_42">
+        <servlet-name>RcpServlet</servlet-name>
+        <display-name>Rcp Servlet</display-name>
+        <description>Yantra rich client backend gateway Servlet</description>
+        <servlet-class>com.yantra.ycp.rcp.backend.YRCServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_43">
+        <servlet-name>RcpAutoUpdateServlet</servlet-name>
+        <display-name>Rcp  Auto Update Servlet</display-name>
+        <description>Yantra rich client backend Servlet for Auto Update</description>
+        <servlet-class>com.yantra.ycp.rcp.backend.YRCAutoUpdateServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_44">
+        <servlet-name>PaymentRule</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPPaymentRuleAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_45">
+        <servlet-name>PriceProgram</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPPriceProgramAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_46">
+        <servlet-name>YOMPSourcingDetailsAPI</servlet-name>
+        <servlet-class>com.yantra.omp.uibackend.YOMPSourcingDetailsAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_47">
+        <servlet-name>YOMOutboundConstraintsAPI</servlet-name>
+        <servlet-class>com.yantra.omp.uibackend.YOMOutboundConstraintsAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_48">
+        <servlet-name>YOMPCustomerDetailsAPI</servlet-name>
+        <servlet-class>com.yantra.omp.uibackend.YOMPCustomerDetailsAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_49">
+        <servlet-name>OMPMasterData</servlet-name>
+        <servlet-class>com.yantra.omp.uibackend.OMPMasterData</servlet-class>
+    </servlet>
+    <servlet id="Servlet_50">
+        <servlet-name>YOMPHoldAPI</servlet-name>
+        <servlet-class>com.yantra.omp.uibackend.YOMPHoldAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_51">
+        <servlet-name>DistributionRule</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPDistributionRuleAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_52">
+        <servlet-name>totalsupplyservlet</servlet-name>
+        <display-name>Total Supply Servlet</display-name>
+        <description>Total Supply Servlet</description>
+        <servlet-class>com.yantra.yfs.ui.backend.YFSTotalSupplyServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_53">
+        <servlet-name>totaldemandservlet</servlet-name>
+        <display-name>Total Demand Servlet</display-name>
+        <description>Total Demand Servlet</description>
+        <servlet-class>com.yantra.yfs.ui.backend.YFSTotalDemandServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_54">
+        <servlet-name>ATPgraph</servlet-name>
+        <display-name>ATP Servlet</display-name>
+        <description>ATP Servlet</description>
+        <servlet-class>com.yantra.yfs.ui.backend.YFSATPServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_55">
+        <servlet-name>YCPInventoryConsiderationsAPI</servlet-name>
+        <servlet-class>com.yantra.ycp.pm.ui.backend.YCPInventoryConsiderationsAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_56">
+        <servlet-name>INVResPoolAPI</servlet-name>
+        <servlet-class>com.yantra.inv.uibackend.INVResPoolAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_57">
+        <servlet-name>INVMasterData</servlet-name>
+        <servlet-class>com.yantra.inv.uibackend.INVMasterData</servlet-class>
+    </servlet>
+    <servlet id="Servlet_58">
+        <servlet-name>YDMRoutingGuideAPI</servlet-name>
+        <servlet-class>com.yantra.ydm.uibackend.YDMRoutingGuideAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_59">
+        <servlet-name>YCMCategoriesAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMCategoriesAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_60">
+        <servlet-name>YCMCategoryDtlAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMCategoryDtlAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_61">
+        <servlet-name>YCMCreateItemAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMCreateItemAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_62">
+        <servlet-name>YCMItemListAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMItemListAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_63">
+        <servlet-name>YCMItemQueryBuilderAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMItemQueryBuilderAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_64">
+        <servlet-name>YCMModifyItemAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMModifyItemAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_65">
+        <servlet-name>YCMClassificationDtlAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMClassificationDtlAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_66">
+        <servlet-name>YCMMasterData</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMMasterData</servlet-class>
+    </servlet>
+    <servlet id="Servlet_67">
+        <servlet-name>YCMAdditionalCapacityAPI</servlet-name>
+        <servlet-class>com.yantra.ycm.ui.backend.YCMAdditionalCapacityAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_68">
+        <servlet-name>WMSPutawayAPI</servlet-name>
+        <servlet-class>com.yantra.wms.put.ui.backend.WMSPutawayAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_69">
+        <servlet-name>WMSSKUDedicationAPI</servlet-name>
+        <servlet-class>com.yantra.wms.wl.ui.backend.WMSSKUDedicationAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_70">
+        <servlet-name>WMSNodeDispositionAPI</servlet-name>
+        <servlet-class>com.yantra.wms.rcv.ui.backend.WMSNodeDispositionAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_71">
+        <servlet-name>WMSConfigurationRulesAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSConfigurationRulesAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_72">
+        <servlet-name>TaskReferenceServlet</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.TaskReferenceServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_73">
+        <servlet-name>TaskTypeServlet</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.TaskTypeServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_74">
+        <servlet-name>WMSTaskSummarygraph</servlet-name>
+        <display-name>WMSTaskSummary Servlet</display-name>
+        <description>WMSTaskSummary Servlet</description>
+        <servlet-class>com.yantra.wms.ui.backend.WMSTaskSummaryServlet</servlet-class>
+    </servlet>
+    <servlet id="Servlet_75">
+        <servlet-name>WMSModelingEquipmentAPI</servlet-name>
+        <servlet-class>com.yantra.wms.wl.ui.backend.WMSModelingEquipmentAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_76">
+        <servlet-name>WMSEquipmentDtlListAPI</servlet-name>
+        <servlet-class>com.yantra.wms.wl.ui.backend.WMSEquipmentDtlListAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_77">
+        <servlet-name>WMSWaveReleaseScheduleAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSWaveReleaseScheduleAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_78">
+        <servlet-name>WMSPackStrategyAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSPackStrategyAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_79">
+        <servlet-name>WMSShipmentGroupAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSShipmentGroupAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_80">
+        <servlet-name>WMSPickLocationAssignmentAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSPickLocationAssignmentAPI</servlet-class>
+    </servlet>
+    <servlet id="Servlet_81">
+        <servlet-name>WMSCopyOrgAPI</servlet-name>
+        <servlet-class>com.yantra.wms.ui.backend.WMSCopyOrgAPI</servlet-class>
+    </servlet>
+	<!-- Added for the USFS AJAX Servlet -->
+	<servlet>
+        <servlet-name>AjaxServlet</servlet-name>
+        <display-name>AjaxServlet</display-name>
+        <description>AjaxServlet controller Servlet</description>
+        <servlet-class>com.nwcg.icbs.yantra.ajax.NWCGAjaxControllerServlet</servlet-class>
+    </servlet>
+	<!-- servlet mapping -->
+	<servlet-mapping>
+        <servlet-name>AjaxServlet</servlet-name>
+        <url-pattern>/AjaxServlet</url-pattern>
+    </servlet-mapping>
+    <!-- End AJAX Servlet -->
+    <servlet-mapping id="ServletMapping_1">
+        <servlet-name>RcpServlet</servlet-name>
+        <url-pattern>/RcpServlet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_2">
+        <servlet-name>RcpAutoUpdateServlet</servlet-name>
+        <url-pattern>/RcpAutoUpdateServlet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_3">
+        <servlet-name>YCPRegionAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.ui.backend.YCPRegionAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_4">
+        <servlet-name>YCPCalendarAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.ui.backend.YCPCalendarAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_5">
+        <servlet-name>YIFUIManager</servlet-name>
+        <url-pattern>/servlets/com.yantra.interop.ui.backend.YIFUIManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_6">
+        <servlet-name>imageservlet</servlet-name>
+        <url-pattern>/console/icons/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_7">
+        <servlet-name>imageservlet</servlet-name>
+        <url-pattern>/yfcicons/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_8">
+        <servlet-name>savedsearchservlet</servlet-name>
+        <url-pattern>/savedsearch/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_9">
+        <servlet-name>InteropHttpServlet</servlet-name>
+        <url-pattern>/interop/InteropHttpServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_10">
+        <servlet-name>WmConfigServlet</servlet-name>
+        <url-pattern>/interop/wm/WmConfigServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_11">
+        <servlet-name>listservlet</servlet-name>
+        <url-pattern>/list/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_12">
+        <servlet-name>detailservlet</servlet-name>
+        <url-pattern>/detail/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_13">
+        <servlet-name>searchservlet</servlet-name>
+        <url-pattern>/search/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_14">
+        <servlet-name>actionservlet</servlet-name>
+        <url-pattern>/action/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_15">
+        <servlet-name>entityservlet</servlet-name>
+        <url-pattern>/entities/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_16">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_17">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_18">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.ppc</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_19">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_20">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.rf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_21">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_22">
+        <servlet-name>authservlet</servlet-name>
+        <url-pattern>*.auth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_23">
+        <servlet-name>YCPBusinessRulesAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPBusinessRulesAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_24">
+        <servlet-name>YCPCustomModificationTypeAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPCustomModificationTypeAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_25">
+        <servlet-name>YCPCurrencyConversionListAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPCurrencyConversionListAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_26">
+        <servlet-name>YCPOrgDetailsAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPOrgDetailsAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_27">
+        <servlet-name>YCPRuleSetAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPRuleSetAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_28">
+        <servlet-name>YCPGroupAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.sm.ui.backend.YCPGroupAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_29">
+        <servlet-name>YCPUserAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.sm.ui.backend.YCPUserAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_30">
+        <servlet-name>YCPGenericMasterData</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.ui.backend.YCPGenericMasterData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_31">
+        <servlet-name>YCPGenericMasterData</servlet-name>
+        <url-pattern>/console/com.yantra.ycp.ui.backend.YCPGenericMasterData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_32">
+        <servlet-name>YCPWFRepositoryAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.wf.ui.backend.YCPWFRepositoryAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_33">
+        <servlet-name>YantraConfigServlet</servlet-name>
+        <url-pattern>/servlets/com.yantra.app.config.YantraConfigServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_34">
+        <servlet-name>LinearServlet</servlet-name>
+        <url-pattern>/LinearServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_35">
+        <servlet-name>MaxicodeServlet</servlet-name>
+        <url-pattern>/MaxicodeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_36">
+        <servlet-name>MenuHierarchy</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.sm.ui.backend.YCPMenuAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_37">
+        <servlet-name>DocumentTypesHierarchy</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.wf.ui.backend.YCPDocumentTypesAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_38">
+        <servlet-name>YCPResourceAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.sm.ui.backend.YCPResourceAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_39">
+        <servlet-name>YCPGenericWizardAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.ui.backend.YCPGenericWizardAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_40">
+        <servlet-name>YCPUOMConversion</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.ui.backend.YCPUOMConversion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_41">
+        <servlet-name>APIServlet</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_42">
+        <servlet-name>YHMMonitorServlet</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.hm.ui.backend.YHMMonitorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_43">
+        <servlet-name>YCMServiceSkillAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMServiceSkillAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_44">
+        <servlet-name>ProductivityReferenceServlet</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.productivity.ui.backend.ProductivityReferenceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_45">
+        <servlet-name>YCPBarCodeTranslationAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.bct.ui.backend.YCPBarCodeTranslationAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_46">
+        <servlet-name>YCPModelingDeviceAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.device.ui.backend.YCPModelingDeviceAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_47">
+        <servlet-name>YCRNServlet</servlet-name>
+        <url-pattern>/ycrn/YCRNServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_48">
+        <servlet-name>YOMPHoldAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.omp.uibackend.YOMPHoldAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_49">
+        <servlet-name>PaymentRule</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPPaymentRuleAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_50">
+        <servlet-name>PriceProgram</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPPriceProgramAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_51">
+        <servlet-name>YOMPSourcingDetailsAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.omp.uibackend.YOMPSourcingDetailsAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_52">
+        <servlet-name>YOMOutboundConstraintsAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.omp.uibackend.YOMOutboundConstraintsAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_53">
+        <servlet-name>YOMPCustomerDetailsAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.omp.uibackend.YOMPCustomerDetailsAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_54">
+        <servlet-name>OMPMasterData</servlet-name>
+        <url-pattern>/servlets/com.yantra.omp.uibackend.OMPMasterData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_55">
+        <servlet-name>INVResPoolAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.inv.uibackend.INVResPoolAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_56">
+        <servlet-name>ATPgraph</servlet-name>
+        <url-pattern>/inventory/ATPgraph/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_57">
+        <servlet-name>totalsupplyservlet</servlet-name>
+        <url-pattern>/inventory/totalsupplygraph/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_58">
+        <servlet-name>totaldemandservlet</servlet-name>
+        <url-pattern>/inventory/totaldemandgraph/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_59">
+        <servlet-name>DistributionRule</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPDistributionRuleAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_60">
+        <servlet-name>YCPInventoryConsiderationsAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycp.pm.ui.backend.YCPInventoryConsiderationsAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_61">
+        <servlet-name>INVMasterData</servlet-name>
+        <url-pattern>/servlets/com.yantra.inv.uibackend.INVMasterData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_62">
+        <servlet-name>YDMRoutingGuideAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ydm.uibackend.YDMRoutingGuideAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_63">
+        <servlet-name>YCMClassificationDtlAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMClassificationDtlAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_64">
+        <servlet-name>YCMMasterData</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMMasterData</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_65">
+        <servlet-name>YCMAdditionalCapacityAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMAdditionalCapacityAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_66">
+        <servlet-name>YCMCategoriesAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMCategoriesAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_67">
+        <servlet-name>YCMCategoryDtlAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMCategoryDtlAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_68">
+        <servlet-name>YCMCreateItemAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMCreateItemAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_69">
+        <servlet-name>YCMItemListAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMItemListAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_70">
+        <servlet-name>YCMItemQueryBuilderAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMItemQueryBuilderAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_71">
+        <servlet-name>YCMModifyItemAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.ycm.ui.backend.YCMModifyItemAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_72">
+        <servlet-name>WMSPutawayAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.put.ui.backend.WMSPutawayAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_73">
+        <servlet-name>WMSSKUDedicationAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.wl.ui.backend.WMSSKUDedicationAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_74">
+        <servlet-name>WMSNodeDispositionAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.rcv.ui.backend.WMSNodeDispositionAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_75">
+        <servlet-name>TaskTypeServlet</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.TaskTypeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_76">
+        <servlet-name>TaskReferenceServlet</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.TaskReferenceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_77">
+        <servlet-name>WMSConfigurationRulesAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSConfigurationRulesAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_78">
+        <servlet-name>WMSTaskSummarygraph</servlet-name>
+        <url-pattern>/WMSTaskSummary/TaskSummarygraph/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_79">
+        <servlet-name>WMSModelingEquipmentAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.wl.ui.backend.WMSModelingEquipmentAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_80">
+        <servlet-name>WMSEquipmentDtlListAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.wl.ui.backend.WMSEquipmentDtlListAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_81">
+        <servlet-name>WMSWaveReleaseScheduleAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSWaveReleaseScheduleAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_82">
+        <servlet-name>WMSPackStrategyAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSPackStrategyAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_83">
+        <servlet-name>WMSShipmentGroupAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSShipmentGroupAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_84">
+        <servlet-name>WMSPickLocationAssignmentAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSPickLocationAssignmentAPI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_85">
+        <servlet-name>consoleservlet</servlet-name>
+        <url-pattern>*.exui</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping id="ServletMapping_86">
+        <servlet-name>WMSCopyOrgAPI</servlet-name>
+        <url-pattern>/servlets/com.yantra.wms.ui.backend.WMSCopyOrgAPI</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+    <mime-mapping>
+        <extension>htc</extension>
+        <mime-type>text/x-component</mime-type>
+    </mime-mapping>
+    <welcome-file-list>
+        <welcome-file>/console/start.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

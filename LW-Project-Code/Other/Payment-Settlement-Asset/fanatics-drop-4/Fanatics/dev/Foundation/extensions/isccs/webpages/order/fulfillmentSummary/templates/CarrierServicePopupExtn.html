@@ -1,0 +1,126 @@
+		<div>
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		resourceId : 'extnOverrideShipCharge' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'extn_carrierService' , 
+		uId : 'extn_pane' , 
+		renderHidden : false , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'carrierService' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'levelOfService' , 
+		_sc_extensibility_moveOrder : '2' , 
+		autoComplete : true , 
+		_sc_extensibility_referenceUId : 'carrierService' , 
+		hasDownArrow : true , 
+		scuiDataType : 'CarrierServiceCode' , 
+		uId : 'extn_carrierService' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'CarrierServiceCode'
+,
+		 namespace : 			'gerCarrierServiceOutput'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 path : 			'CarrierServiceList.CarrierServiceCode'
+,
+		 namespace : 			'CarrierServiceSourceData'
+	}
+,
+		 optionsBinding : 	{
+		 descriptionField : 			'CarrierServiceDesc'
+,
+		 readDescFromBundle : 			false
+,
+		 addEmptyOption : 			true
+,
+		 valueField : 			'CarrierServiceCode'
+,
+		 path : 			'CarrierServiceList.CarrierService'
+,
+		 namespace : 			'CarrierServiceData'
+	}
+	}
+,	
+			 	label : 			this.getSimpleBundleString('Level_of_Service')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CheckBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		style : 'padding-left:32px' , 
+		_sc_extensibility_moveOrder : '5' , 
+		_sc_extensibility_referenceUId : 'extn_override_label' , 
+		uId : 'extn_override_check' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'OverrideShippingCharge'
+,
+		 namespace : 			'gerCarrierServiceOutput'
+	}
+	]
+,
+		 checkedValue : 	{
+		 value : 			'Y'
+	}
+,
+		 sourceBinding : 	{
+		 path : 			'Order.CustomAttributes.OverrideShippingCharge'
+,
+		 namespace : 			'extn_getCompleteOrderDetails'
+	}
+,
+		 uncheckedValue : 	{
+		 value : 			'N'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '4' , 
+		_sc_extensibility_referenceUId : 'extn_pane' , 
+		uId : 'extn_override_label' , 
+		_sc_extensibility_position : 'first'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getBundleString('extn_Override_Shipping_Charge1')
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

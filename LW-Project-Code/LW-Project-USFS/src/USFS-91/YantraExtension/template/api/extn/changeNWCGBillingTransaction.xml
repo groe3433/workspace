@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NWCGBillingTransaction CacheId="" Createprogid="" Createts="" Createuserid="" DispositionCode="" DocumentType="" EnterpriseCode="" IncidentBlmAcctCode="" IncidentFsAcctCode="" IncidentFsOverrideCode="" IncidentNo="" IncidentYear="" IsAccountSplit="" IsExtracted="" IsReviewed="" ItemClassification="" ItemDescription="" ItemId="" ItemProductLine="" LastBlmAcctCode="" LastFsAcctCode="" LastFsOverrideCode="" LocationId="" Lockid="" Modifyprogid="" Modifyts="" Modifyuserid="" SequenceKey="" SplitAmtNumber="" TransAmount="" TransDate="" TransHeaderKey="" TransLineKey="" TransQty="" TransType="" TransactionFiscalYear="" TransactionNo="" UOM="" UnitCost="" isHistory="" >
+</NWCGBillingTransaction>

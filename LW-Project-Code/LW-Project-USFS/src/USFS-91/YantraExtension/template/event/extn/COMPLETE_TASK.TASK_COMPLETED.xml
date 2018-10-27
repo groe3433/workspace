@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task AssignedToUserId="" EnterpriseKey="" IsSummaryTask="" Node="" OrganizationCode="" ParentTaskId="" PredecessorTaskId=""  SourceLocationId="" SourceZoneId="" TargetAisle="" TargetLocationId="" TargetZoneId="" TaskId="" TaskKey="" TaskPriority="" TaskStatus="" TaskType="" isHistory="" >
+<Inventory CountryOfOrigin="" FifoNo="" InventoryStatus="" ItemId="" ProductClass="" Quantity="" ReceiptHeaderKey="" Segment="" SegmentType="" SerialNo="" ShipByDate="" SourceCaseId="" SourcePalletId="" TagNumber="" TargetCaseId="" TargetPalletId="" UnitOfMeasure="">
+  <TagAttributes BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo="" TagNumber="" /> 
+</Inventory>
+  <TaskReferences BatchNo="" BolNo="" ContainerNo="" CountRequestKey="" CountRequestNo="" DocumentType="" LoadNo="" ManifestNo="" MoveRequestKey="" MoveRequestLineKey="" MoveRequestNo="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" PrimeLineNo="" ReceiptNo="" ReleaseNo="" Scac="" ShipmentContainerKey="" ShipmentKey="" ShipmentNo="" SubLineNo="" TrailerNo="" WaveNo="" WorkOrderKey="" WorkOrderNo="" /> 
+</Task>

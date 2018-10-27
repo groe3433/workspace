@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shipment ShipmentKey=" " ShipmentNo=" " ShipNode=" " SellerOrganizationCode=" ">
+<ShipmentLines>
+<ShipmentLine ActualQuantity="" DocumentType="" ItemDesc="" ItemID="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" PrimeLineNo="" ProductClass="" Quantity="" ReceivedQuantity="" ReleaseNo="" ShipmentKey="" ShipmentLineKey="" ShipmentLineNo="" ShipmentSubLineNo="" ShortageQty="" SubLineNo="" UnitOfMeasure=""/>
+</ShipmentLines>
+</Shipment>

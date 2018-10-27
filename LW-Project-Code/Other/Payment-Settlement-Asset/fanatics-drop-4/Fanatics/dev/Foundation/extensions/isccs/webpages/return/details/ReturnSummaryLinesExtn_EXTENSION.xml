@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnSummaryLinesExtn"
+        extnPackage="extn.return.details"
+        originalScreen="isccs.return.details.ReturnSummaryLines"
+        originalScreenPackage="isccs.return.details" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColUnitPrice"
+                            field="extn_disposition"
+                            name="$(_scSimpleBundle:extn_Return_Disposition)"
+                            uId="extn_disposition" width="12%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getDispostionCode" path="OrderLineKey"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="2"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColDeliveryMethod" uId="extn_disposition"/>
+                        <View _sc_extensibility_moveOrder="3"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColOriginalOrderNo"
+                            field="extn_product"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="35%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="extn_getReceiptLineList_output"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_3" value="extn_getReceiptLineList_output"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <MashupRefs>
+            <Init>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_ReturnSummaryLines_getReceiptLineList"
+                    mashupRefId="extn_ReturnSummaryLines_getReceiptLineList" sourceNamespace="extn_getReceiptLineList_output"/>
+            </Init>
+            <Behavior>
+                <MashupRef extnType="MODIFY"
+                    mashupId="ReturnSummaryLines_getCompleteOrderLineList" mashupRefId="getCompleteOrderLineList"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

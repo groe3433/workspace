@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NWCGMasterWorkOrderLine MasterWorkOrderLineKey="" MasterWorkOrderKey="" ItemID="" ProductClass="" UnitOfMeasure="" ItemDesc="" 
+PrimarySerialNo="" SecondarySerialNo1="" ActualQuantity="" RefurbishedQuantity="" TransferQty="" RFIRefurbQuantity=""
+ UNSRefurbQuantity="" UNSNWTRefurbQuantity="" RefurbCost="" Status="" ManufacturerName="" ManufacturerModel="" LotNo=""
+  DisplayMasterWOComponents="" RevisionNo="" ShipByDate="" BatchNo ="" OwnerUnitID="" IsReplacedItem=""  ReceivingPrice=""
+    ReceiptLineKey="" StartNoEarlierThan="" FinishNoLaterThan="" Node="" >
+    </NWCGMasterWorkOrderLine>
+			

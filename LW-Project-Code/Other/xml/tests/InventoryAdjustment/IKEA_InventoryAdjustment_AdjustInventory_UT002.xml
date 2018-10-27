@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " 
+			Active="Y" Name="IKEA_InventoryAdjustment_AdjustInventory_UT002" Description="Positive adjustment of inventory for an item - DDC">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateSupplier_Component"></p1:Component>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Component Name="IKEA_Inventory_AdjustInventory_Component"></p1:Component>
+		</p:Sequence>
+	</p:Steps>
+	<p:Parameters>
+	<p:GeneratedParameter Prefix="SUP-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.Description" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.OrgRoleList.OrgRole.2.RoleKey" Type="INPUT" Value="SELLER" /> 
+	<p:Parameter Key="Organization.EnterpriseOrgList.OrgEnterprise.EnterpriseOrganizationKey" Type="INPUT" Value="GB_IE_ZONE" /> 
+    <p:Parameter Key="Organization.EnterpriseOrgList.OrgEnterprise.2.EnterpriseOrganizationKey" Type="INPUT" Value="SUPPLIER_GB_IE_ZONE" />
+	<p:Parameter Key="Item.ItemID" Type="INPUT" Value="ART00214553"  />
+	<p:Parameter Key="InventorySupply.ItemID" Type="INPUT" Value="ART00214553"  />
+	<p:Parameter Key="Item.OrganizationCode" Type="INPUT" Value="SUPPLIER_GB_IE_ZONE"  />
+	<p:Parameter Key="Item.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}"  />
+	<p:Parameter Key="InventorySupply.ProductClass" Type="INPUT" Value="NEW" />
+	<p:Parameter Key="Item.Quantity" Type="INPUT" Value="100" /> 
+	<p:Parameter Key="Item.UpdateVelocity" Type="INPUT" Value="N"  />
+	<p:Parameter Key="InventorySupply.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}" /> 	
+	</p:Parameters>
+
+</p:TestCase>

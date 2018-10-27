@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defaults>
+<!--
+	<Default Key="input.date.format" Value="yyyy-MM-dd" />
+	<Default Key="outputDoc.date.format" Value="yyyy-MM-dd'T'HH:mm:ss" />
+	<Default Key="output.param.date.format" Value="yyyy-MM-dd" />
+-->
+</Defaults>

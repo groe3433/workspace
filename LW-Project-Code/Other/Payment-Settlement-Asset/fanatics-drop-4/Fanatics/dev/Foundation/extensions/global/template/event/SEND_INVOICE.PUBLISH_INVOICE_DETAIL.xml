@@ -1,0 +1,36 @@
+<InvoiceDetail>
+	<InvoiceHeader TotalAmount="" LineSubTotal="" OrderInvoiceKey="" InvoiceNo="" TotalTax="" Reference1="" MasterInvoiceNo="" InvoiceType="" HeaderTax="" DateInvoiced="" CollectedThroughAR="" CollectedExternally="" ChargedActualFreight="" AmountCollected="" ActualFreightCharge="" TotalHeaderCharges="" TotalDiscount="" TotalCharges="" HeaderDiscount="" HeaderCharges="">
+		<Order SellerOrganizationCode="" OrderNo="" OrderHeaderKey="" EntryType="" EnterpriseCode="" DocumentType="" TermsCode="" DeliveryCode="">
+			<PriceInfo Currency=""/>
+			<PersonInfoBillTo ZipCode="" Title="" Suffix="" State="" PersonInfoKey="" PersonID="" MobilePhone="" MiddleName="" LastName="" FirstName="" EveningPhone="" EMailID="" Department="" DayPhone="" Country="" Company="" City="" AddressLine2="" AddressLine1="" OtherPhone="" JobTitle="" EveningFaxNo="" DayFaxNo="" Beeper="" AlternateEmailID="" AddressLine6="" AddressLine5="" AddressLine4="" AddressLine3=""/>
+			<AdditionalAddresses/>
+			<References/>
+		</Order>
+		<Shipment SCAC="" ShipNode="" ShipDate="">
+			<ToAddress ZipCode="" Title="" Suffix="" State="" PersonID="" MobilePhone="" MiddleName="" LastName="" FirstName="" EveningPhone="" EMailID="" Department="" DayPhone="" Country="" Company="" City="" AddressLine2="" AddressLine1="" OtherPhone="" JobTitle="" EveningFaxNo="" DayFaxNo="" Beeper="" AlternateEmailID="" AddressLine6="" AddressLine5="" AddressLine4="" AddressLine3="" HttpUrl=""/>
+			<ShipNode ShipnodeKey="">
+				<ShipNodePersonInfo ZipCode="" Title="" Suffix="" State="" PersonID="" MobilePhone="" MiddleName="" LastName="" FirstName="" EveningPhone="" EMailID="" Department="" DayPhone="" Country="" Company="" City="" AddressLine2="" AddressLine1="" OtherPhone="" JobTitle="" EveningFaxNo="" DayFaxNo="" Beeper="" AlternateEmailID="" AddressLine6="" AddressLine5="" AddressLine4="" AddressLine3="" HttpUrl=""/>
+			</ShipNode>
+		</Shipment>
+		<LineDetails TotalLines="">
+			<LineDetail OrderLineKey="" UnitPrice="" LineTotal="" Quantity="" Tax="" PricingQty="" ExtendedPrice="" Charges="" ShippedQty="" OrderInvoiceDetailKey="">
+				<OrderLine SubLineNo="" PrimeLineNo="" OrderLineKey="">
+					<Item UnitOfMeasure="" ProductClass="" ItemID=""/>
+					<LinePriceInfo UnitPrice="" RetailPrice="" PricingUOM="" PricingQtyConversionFactor="" ListPrice="" InvoicedPricingQty="" DiscountPercentage="" DiscountType="" DiscountReference=""/>
+					<References/>
+				</OrderLine>
+				<LineCharges/>
+				<LineTaxes/>
+			</LineDetail>
+		</LineDetails>
+		<TotalSummary>
+			<ChargeSummary/>
+			<TaxSummary/>
+		</TotalSummary>
+		<HeaderCharges/>
+		<HeaderTaxes/>
+		<CollectionDetails TotalLines="">
+			<CollectionDetail/>
+		</CollectionDetails>
+	</InvoiceHeader>
+</InvoiceDetail>

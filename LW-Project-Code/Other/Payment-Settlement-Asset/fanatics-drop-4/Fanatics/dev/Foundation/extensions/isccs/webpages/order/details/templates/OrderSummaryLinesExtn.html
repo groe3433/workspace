@@ -1,0 +1,342 @@
+		<div>
+		 	<div data-dojo-type="gridx/Grid" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'OLST_listGrid'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	structure : 	[
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_moveOrder : 			'1'
+,
+		 _sc_extensibility_referenceUId : 			'tblColQuantity'
+,
+		 width : 			'9%'
+,
+		 uId : 			'tblColQuantity'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 field : 			'extn_PromisedShipDate'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'PROMISED_SHIP_DATE'
+,
+		 dynamicBindingFunc : 			'getDateFromOrderDate'
+,
+		 dynamicBindingPackage : 			'extn.utils'
+,
+		 dynamicBindingClassName : 			'CustomUtils'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'2'
+,
+		 _sc_extensibility_referenceUId : 			'tblColUnitPrice'
+,
+		 width : 			'20%'
+,
+		 name : 			this.getSimpleBundleString('extn_Promised_Ship_Date')
+,
+		 uId : 			'extn_Promisedshipdate'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 field : 			'extn_Revisedshipdate'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'REVISED_SHIP_DATE'
+,
+		 dynamicBindingFunc : 			'getDateFromOrderDate'
+,
+		 dynamicBindingPackage : 			'extn.utils'
+,
+		 dynamicBindingClassName : 			'CustomUtils'
+			}
+		}
+,
+		 _sc_extensibility_moveOrder : 			'3'
+,
+		 _sc_extensibility_referenceUId : 			'extn_Promisedshipdate'
+,
+		 width : 			'20%'
+,
+		 name : 			this.getSimpleBundleString('extn_Revised_Ship_Date_Reason1')
+,
+		 uId : 			'extn_Revisedshipdate'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 field : 			'extn_Revisedshipdatereason'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 _sc_extensibility_moveOrder : 			'4'
+,
+		 _sc_extensibility_referenceUId : 			'extn_Revisedshipdate'
+,
+		 hidden : 			true
+,
+		 name : 			this.getSimpleBundleString('extn_Shipped_Date')
+,
+		 uId : 			'extn_Revisedshipdatereason'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColDeliveryMethod'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColDeliveryMethod'
+	}
+,
+	 		{
+		 field : 			'extn_fulfillmentlocation'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'Shipment.ShipNode'
+,
+		 dynamicBindingFunc : 			'getShipNodeFromShipment'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'5'
+,
+		 _sc_extensibility_referenceUId : 			'extn_Revisedshipdatereason'
+,
+		 width : 			'15%'
+,
+		 name : 			this.getSimpleBundleString('extn_Fulfillment_Location')
+,
+		 uId : 			'extn_fulfillmentlocation'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 field : 			'extn_product'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+,
+		 dynamicBindingFunc : 			'getProductHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'6'
+,
+		 _sc_extensibility_referenceUId : 			'tblColPrimeLineNo'
+,
+		 hidden : 			false
+,
+		 width : 			'36%'
+,
+		 name : 			this.getSimpleBundleString('extn_Product')
+,
+		 uId : 			'extn_product'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProductAddItems'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColProductAddItems'
+	}
+,
+	 		{
+		 field : 			'extn_Item_Line'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'PrimeLineNo'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'7'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProductAddItems'
+,
+		 width : 			'7%'
+,
+		 name : 			this.getSimpleBundleString('extn_Item_Line_')
+,
+		 uId : 			'extn_Item_Line'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColPrimeLineNo'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColPrimeLineNo'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColUnitPrice'
+,
+		 width : 			'8%'
+,
+		 name : 			this.getSimpleBundleString('UnitPrice')
+,
+		 uId : 			'tblColUnitPrice'
+	}
+,
+	 		{
+		 field : 			'extn_Linestatus'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'DisplayStatus'
+,
+		 dynamicBindingFunc : 			'getStatusHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'8'
+,
+		 _sc_extensibility_referenceUId : 			'tblColStatus'
+,
+		 width : 			'13%'
+,
+		 name : 			this.getSimpleBundleString('extn_Line_Status')
+,
+		 uId : 			'extn_Linestatus'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColStatus'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColStatus'
+	}
+,
+	 		{
+		 field : 			'extn_shipdate'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'Shipment.ActualShipmentDate'
+,
+		 dynamicBindingFunc : 			'getActualShipDateFromShipment'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'9'
+,
+		 _sc_extensibility_referenceUId : 			'extn_fulfillmentlocation'
+,
+		 width : 			'20%'
+,
+		 name : 			this.getSimpleBundleString('extn_Shipped_Date')
+,
+		 uId : 			'extn_shipdate'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'move'
+,
+		 _sc_extensibility_moveOrder : 			'10'
+,
+		 _sc_extensibility_referenceUId : 			'extn_fulfillmentlocation'
+,
+		 uId : 			'extn_shipdate'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'move'
+,
+		 _sc_extensibility_moveOrder : 			'11'
+,
+		 _sc_extensibility_referenceUId : 			'extn_Item_Line'
+,
+		 uId : 			'extn_product'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColExpectedOn'
+,
+		 width : 			'14%'
+,
+		 uId : 			'tblColExpectedOn'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'move'
+,
+		 _sc_extensibility_moveOrder : 			'12'
+,
+		 _sc_extensibility_referenceUId : 			'tblColUnitPrice'
+,
+		 uId : 			'tblColQuantity'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+	]
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

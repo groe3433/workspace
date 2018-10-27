@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://nwcg.gov/services/ross/common_types/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nwcg.gov/services/ross/common_types/1.1">
+
+  <xs:element name="AuthUserReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Username" type="xs:string"/>
+        <xs:element name="OnetimePassword" type="xs:string"/>
+        <xs:element name="AuthTimestamp" type="xs:anySimpleType"/>
+        <xs:element name="Action" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AuthUserResp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ResponseStatus" type="tns:ResponseStatusType"/>
+        <xs:element name="Username" type="xs:string"/>
+        <xs:element name="IsAuthenticatedIndicator" type="xs:boolean"/>
+        <xs:element name="userFullname" type="xs:string" minOccurs="0"/>
+        <xs:element name="authenticationMessage" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ResponseStatusType">
+    <xs:sequence>
+      <xs:element name="ReturnCode" type="xs:int"/>
+      <xs:element name="ResponseMessage" type="tns:ResponseMessageType" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ResponseMessageType">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string"/>
+      <xs:element name="Severity" type="xs:string"/>
+      <xs:element name="Description" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

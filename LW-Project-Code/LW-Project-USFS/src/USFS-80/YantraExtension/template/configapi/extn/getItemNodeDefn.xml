@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<ItemNodeDefn ItemID="" ItemNodeDefnKey="" Node="" OperationalConfigurationComplete="" OrganizationCode="" PickingType="" StorageType="" UnitOfMeasure="" VelocityCode="">
+  <Item GlobalItemID="" ItemGroupCode="" ItemID="" ItemKey="" OrganizationCode="" UnitOfMeasure="">
+    <PrimaryInformation CapacityQuantityStrategy="" CostCurrency="" CountryOfOrigin="" CreditWOReceipt="" DefaultProductClass="" Description="" ExtendedDescription="" FixedCapacityQtyPerLine="" FixedPricingQtyPerLine="" InvoiceBasedOnActuals="" IsDeliveryAllowed="" IsPickupAllowed="" IsReturnService="" IsReturnable="" IsShippingAllowed="" IsStandaloneService="" ItemType="" KitCode="" ManufacturerItem="" ManufacturerItemDesc="" ManufacturerName="" MasterCatalogID="" MaxOrderQuantity="" MinOrderQuantity="" MinimumCapacityQuantity="" MultipleProdLineAllowed="" PricingQuantityConvFactor="" PricingQuantityStrategy="" PricingUOM="" PricingUOMStrategy="" PrimaryEnterpriseCode="" ProductLine="" RequiresProdAssociation="" ReturnWindow="" SerializedFlag="" ShortDescription="" Status="" TaxableFlag="" UnitCost="" UnitHeight="" UnitHeightUOM="" UnitLength="" UnitLengthUOM="" UnitWeight="" UnitWeightUOM="" UnitWidth="" UnitWidthUOM="" OrderingQuantityStrategy="" CapacityPerOrderedQty=""/> 
+    <InventoryParameters ATPRule="" AdvanceNotificationTime="" DefaultExpirationDays="" InventoryMonitorRule="" IsFifoTracked="" IsSerialTracked="" LeadTime="" MinNotificationTime="" ProcessingTime="" TagControlFlag="" TagReqAtReceipt="" TagReqAtShipment="" TimeSensitive="" /> 
+    <ClassificationCodes CommodityCode="" ECCNNo="" HarmonizedCode="" HazmatClass="" NAICSCode="" NMFCClass="" NMFCCode="" OperationalConfigurationComplete="" PickingType="" Schedule_B_Code="" StorageType="" TaxProductCode="" UNSPSC="" VelocityCode="" /> 
+  </Item>
+  <Extn/>
+</ItemNodeDefn>

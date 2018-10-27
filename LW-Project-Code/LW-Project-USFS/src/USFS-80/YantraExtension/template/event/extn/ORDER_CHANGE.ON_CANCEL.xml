@@ -1,0 +1,50 @@
+<!-- ORDER_CHANGE.ON_CANCEL event xml -->
+<Order OrderHeaderKey="" EnterpriseCode="" DocumentType="" OrderNo="" BuyerOrganizationCode="" SellerOrganizationCode="" OrderType="" Createts="" ShipNode="">
+	<Extn/>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" City="" Country=""
+        FirstName="" LastName="" State="" ZipCode="" AlternateEmailID=""/>
+	<OrderLines TotalNumberOfRecords=""><!--ChangeInOrderedQty is returned with sign. In case of this event it should always come with negative sign. -->
+		<OrderLine OrderLineKey="" OrderedQty="" PrimeLineNo="" SubLineNo="" ChangeInOrderedQty="" MinLineStatus="" 
+		MaxLineStatus="" Status="" ShipNode="" ConditionVariable2="">
+			<Extn />
+			<Notes>
+				<Note />
+			</Notes>
+			<Item ItemID="" ProductClass="" UnitOfMeasure="" ItemShortDesc=""/>
+			<Instructions>
+				<Instruction InstructionText="" InstructionType=""/>
+			</Instructions>
+			<!--ChangeInLineTotal is returned with sign. -->
+			<LinePriceInfo LineTotal="" ChangeInLineTotal=""/>
+			<StatusBreakupForCanceledQty>
+				<CanceledFrom OrderReleaseStatusKey="" OrderReleaseKey="" Status="" StatusDescription="" StatusDate="" OrderLineScheduleKey="" Quantity="">
+					<Details ExpectedDeliveryDate="" ExpectedShipmentDate="" TagNumber="" ShipByDate="" ShipNode="" ReceivingNode=""/>
+				</CanceledFrom>
+			</StatusBreakupForCanceledQty>
+		</OrderLine>
+	</OrderLines>
+	<PriceInfo Currency="" EnterpriseCurrency="" ReportingConversionDate="" ReportingConversionRate="" TotalAmount="" ChangeInTotalAmount=""/>
+	<OrderAudit AuditTransactionId="" NewBuffer="" OldBuffer="" OrderAuditKey="" OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" 
+	ReasonCode="" ReasonText="" Reference1="" Reference2="" Reference3="" Reference4="" XMLFlag="">
+		<Order EnterpriseCode="" OrderNo=""/>
+		<OrderAuditLevels>
+			<OrderAuditLevel ModificationLevel="" OrderLineKey="" OrderReleaseKey="">
+				<ModificationTypes>
+					<ModificationType Name=""/>
+				</ModificationTypes>
+				<OrderLine PrimeLineNo="" SubLineNo=""/>
+				<OrderRelease ReleaseNo=""/>
+				<OrderAuditDetails>
+					<OrderAuditDetail Action="" AuditType="">
+						<IDs>
+							<ID Name="" Value=""/>
+						</IDs>
+						<Attributes>
+							<Attribute Name="" NewValue="" OldValue=""/>
+						</Attributes>
+					</OrderAuditDetail>
+				</OrderAuditDetails>
+			</OrderAuditLevel>
+		</OrderAuditLevels>
+	</OrderAudit>
+</Order>

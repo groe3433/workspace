@@ -1,0 +1,19 @@
+<OrderList>
+<Order ProcessPaymentOnReturnOrder="" OrderNo="" ReturnByGiftRecipient="" ReshipParentLineKey="" >
+<OrderLines>
+<OrderLine DerivedFromOrderLineKey="" DerivedFromOrderHeaderKey="" OrderedQty="" OrderLineKey="" ReshipParentLineKey="" PrimeLineNo="" ReturnableQty="" SubLineNo="" GiftFlag="" >
+<LinePriceInfo IsLinePriceForInformationOnly=""  InvoicedLineTotal="" InvoicedPricingQty="" IsPriceLocked="" LineTotal="" PricingUOM=""  UnitPrice=""/>
+<ItemDetails ItemID="" UnitOfMeasure="" >
+<PrimaryInformation IsReturnable="" />
+</ItemDetails>
+<Instructions>
+<Instruction InstructionText="" />
+</Instructions>
+<OrderStatuses>
+<OrderStatus StatusQty="" Status="" />
+</OrderStatuses>
+</OrderLine>
+</OrderLines>
+<OverallTotals/>
+</Order>
+</OrderList>

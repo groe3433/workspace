@@ -1,0 +1,8 @@
+<Users SystemName="${Users.SystemName}" >
+<User Loginid="${User.Loginid}"  TemplateLoginid="${Users.User.TemplateLoginid}" Username="${Users.User.Loginid}" DataSecurityGroupId="${Users.User.DataSecurityGroupId}" >
+ <UserGroupLists>
+  <UserGroupList UsergroupId="${Users.UserGroupLists.UserGroupList.UsergroupId}"/>
+  <UserGroupList UsergroupId="${Users.UserGroupLists.UserGroupList.UsergroupId.2}"/>
+  </UserGroupLists>
+</User>
+</Users>

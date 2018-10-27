@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_CreateNodeTransferScheduleBadToNode_UT_018" Description="Create new Node Transfer Schedule Bad To Node.">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:NestedTest Name="IKEA_Organization_CreateCDC_UT_001"></p1:NestedTest>
+			  <p1:Parameters>
+				<p1:Parameter Key="Organization.OrganizationCode" Type="INPUT" Value="${CDC.OrganizationCode}"/>
+			</p1:Parameters>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:NestedTest Name="IKEA_Organization_CreateSupplier_UT_003"></p1:NestedTest>
+			  <p1:Parameters>
+				<p1:Parameter Key="Organization.OrganizationCode" Type="INPUT" Value="${Supplier.OrganizationCode}"/>
+			</p1:Parameters>
+		</p:Sequence>
+		<p:Sequence Number="3">
+			<p1:Api Name="manageNodeTransferSchedule"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_manageNodeTransferSchedule_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+			<p1:Validate ValidationType="XPATH" Expected="YFS10364" Path="//@ErrorCode"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="CDC-" Suffix="" Key="CDC.OrganizationCode" Type="INPUT"/>
+	<p:GeneratedParameter Prefix="Sup-" Suffix="" Key="Supplier.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="NodeTransferSchedule.Operation" Type="INPUT" Value="Create"/>
+	<p:Parameter Key="NodeTransferSchedule.WednesdayShip" Type="INPUT" Value="Y"/>
+	<p:Parameter Key="NodeTransferSchedule.TuesdayShip" Type="INPUT" Value="Y"/>
+	<p:Parameter Key="NodeTransferSchedule.TransitDays" Type="INPUT" Value="5"/>
+	<p:Parameter Key="NodeTransferSchedule.FromNode" Type="INPUT" Value="${CDC.OrganizationCode}"/>
+	<p:Parameter Key="NodeTransferSchedule.ThursdayShip" Type="INPUT" Value="Y"/>
+	<p:Parameter Key="NodeTransferSchedule.SundayShip" Type="INPUT" Value="N"/>
+	<p:Parameter Key="NodeTransferSchedule.SaturdayShip" Type="INPUT" Value="N"/>
+	<p:Parameter Key="NodeTransferSchedule.MondayShip" Type="INPUT" Value="Y"/>
+	<p:Parameter Key="NodeTransferSchedule.ToNode" Type="INPUT" Value=""/>
+	<p:Parameter Key="NodeTransferSchedule.FridayShip" Type="INPUT" Value="Y"/>
+	<p:Parameter Key="NodeTransferSchedule.EffectiveToDate" Type="INPUT" Value="2050-12-31"/>
+	<p:Parameter Key="NodeTransferSchedule.EffectiveFromDate" Type="INPUT" Value="2008-01-16"/>
+  </p:Parameters>
+</p:TestCase>

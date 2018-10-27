@@ -1,0 +1,25 @@
+<html>
+<body>
+<form name="frmRFILines" target="/console/rfnwcgrfireturns.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblHeader" size="40" subtype="Label"
+					tag="binding=lblTitle" value="Process Return Success" type="text"
+					validate="false" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" name="lblReturnNo" size="40" subtype="Label"
+					tag="binding=xml:/NextReceiptNo/@ReceiptNo" value=""
+					inputbinding="xml:/NextReceiptNo/@ReceiptNo" type="text"
+					validate="false" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

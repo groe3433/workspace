@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.common.notes.NoteDisplayExtnBundle" screenId="extn.common.notes.NoteDisplayExtn">
+    <BundleEntries>
+        <BundleEntry
+            bundleEntryId="extn_ckListStatus_CheckBoxList_label"
+            bundleKey="Exclude" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_ckListStatus"/>
+        <BundleEntry
+            bundleEntryId="extn_ckListStatus_CheckBoxList_BindingData_CheckBoxListBinding_Priority_Option_label"
+            bundleKey="Include_Lower_Priority_Notes"
+            bundleValueFn="_scSimpleBundle"
+            childPath="CheckBoxList_BindingData_CheckBoxListBinding_Priority_Option"
+            property="label" type="WIDGET" uId="extn_ckListStatus"/>
+        <BundleEntry
+            bundleEntryId="extn_ckListStatus_CheckBoxList_BindingData_CheckBoxListBinding_UserNote_Option_label"
+            bundleKey="Option_User" bundleValueFn="_scSimpleBundle"
+            childPath="CheckBoxList_BindingData_CheckBoxListBinding_UserNote_Option"
+            property="label" type="WIDGET" uId="extn_ckListStatus"/>
+        <BundleEntry
+            bundleEntryId="extn_ckListStatus_CheckBoxList_BindingData_CheckBoxListBinding_SystemNote_Option_label"
+            bundleKey="System" bundleValueFn="_scSimpleBundle"
+            childPath="CheckBoxList_BindingData_CheckBoxListBinding_SystemNote_Option"
+            property="label" type="WIDGET" uId="extn_ckListStatus"/>
+    </BundleEntries>
+</ScreenBundle>

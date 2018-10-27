@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_ItemManagement_CreateMultipleItems_Component" Active="Y" Description="Multiple items - IKEA ItemManagement pushing message to queue then calling getOrderList to confirm change">
+	<Steps>
+		<Sequence Number="1" Delay="1">
+			<p1:Queue Name="SOM_IN_ITEM_LOAD_QUEUE" Type="QUEUE_SEND" JmsServer="WL_JMS"></p1:Queue>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_ItemManagement_ItemManagementMultiple.xml" Location="resources/xml/input/template/item/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="2">
+			<p1:Api Name="getItemList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_ItemManagement_getItemList_input.xml" Location="resources/xml/input/template/item/"></p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_ItemManagement_getItemList_output.xml" Location="resources/xml/output/template/item/"></p1:Document>
+			</p1:Documents>
+			<p1:Parameters></p1:Parameters>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH"
+					Expected="${Item.ItemID}" Path="/ItemList/Item/@ItemID">
+				</p1:Validate>
+			</p1:Validations>
+		</Sequence>
+		<Sequence Number="3">
+			<p1:Api Name="getItemList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_ItemManagement_getItemList_input_1.xml" Location="resources/xml/input/template/item/"></p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_ItemManagement_getItemList_output.xml" Location="resources/xml/output/template/item/"></p1:Document>
+			</p1:Documents>
+			<p1:Parameters></p1:Parameters>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH"
+					Expected="${Item.ItemID.1}" Path="/ItemList/Item/@ItemID">
+				</p1:Validate>
+			</p1:Validations>
+		</Sequence>		
+		<Sequence Number="4">
+			<p1:Api Name="getItemList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_ItemManagement_getItemList_input_2.xml" Location="resources/xml/input/template/item/"></p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_ItemManagement_getItemList_output.xml" Location="resources/xml/output/template/item/"></p1:Document>
+			</p1:Documents>
+			<p1:Parameters></p1:Parameters>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH"
+					Expected="${Item.ItemID.2}" Path="/ItemList/Item/@ItemID">
+				</p1:Validate>
+			</p1:Validations>
+		</Sequence>
+	</Steps>
+	<Parameters/>
+</Component>

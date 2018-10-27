@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Schedule.On_Success Event XML-->
+<Order AllocationRuleID="" AuthorizationExpirationDate="" BillToID=""
+    BuyerOrganizationCode="" CarrierAccountNo="" CarrierServiceCode=""
+    ChargeActualFreightFlag="" Createts="" CustomerEMailID="" CustomerPONo=""
+    DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
+    EnteredBy="" EnterpriseCode="" EntryType="" 
+    FreightTerms="" HoldFlag="" HoldReasonCode="" MaxOrderStatus=""
+    MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""
+    NotificationReference="" NotificationType=""
+    NotifyAfterShipmentFlag="" OrderDate="" OrderHeaderKey=""
+    OrderName="" OrderNo="" OrderType="" OriginalTax=""
+    OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
+    PersonalizeCode="" PriceProgramKey="" PriorityCode=""
+    PriorityNumber="" Purpose="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate=""
+    ReqShipDate="" SCAC="" ScacAndService="" ScacAndServiceKey=""
+    SearchCriteria1="" SearchCriteria2="" SellerOrganizationCode=""
+    ShipCompleteFlag="" ShipNode="" ShipToID="" Status="" TaxExemptFlag=""
+    TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId=""
+    TermsCode="" TotalAdjustmentAmount="" isHistory="" HasStateChanged="">
+    <Extn />
+    <OrderLines NumberOfOrderLines="">
+        <OrderLine AllocationDate="" CarrierAccountNo=""
+            CarrierServiceCode="" CustomerLinePONo="" CustomerPONo=""
+            DeliveryCode="" DepartmentCode="" 
+            FreightTerms="" HoldFlag="" HoldReasonCode=""
+            ImportLicenseExpDate="" ImportLicenseNo="" InvoicedQty=""
+            KitCode="" LineSeqNo="" LineType="" MaxLineStatus=""
+            MaxLineStatusDesc="" MinLineStatus="" MinLineStatusDesc=""
+            OpenQty=""  OrderHeaderKey="" OrderLineKey=""
+            OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty=""
+            OtherCharges="" 
+             PackListType="" PersonalizeCode=""
+            PersonalizeFlag="" PickableFlag="" PrimeLineNo="" Purpose=""
+            ReceivingNode="" RemainingQty="" ReqCancelDate=""
+            ReqDeliveryDate="" ReqShipDate="" ReservationID=""
+            ReservationPool="" SCAC="" ScacAndService=""
+            ScacAndServiceKey="" ShipNode="" ShipToID=""
+            ShipTogetherNo="" SplitQty="" Status="" StatusQuantity=""
+            SubLineNo="" isHistory="">
+            <Extn />
+            <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+                CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
+                ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ManufacturerItem=""
+                ManufacturerItemDesc="" ManufacturerName="" NMFCClass=""
+                NMFCCode="" NMFCDescription="" ProductClass=""
+                ProductLine="" ScheduleBCode="" SupplierItem=""
+                SupplierItemDesc="" TaxProductCode="" UPCCode=""
+                UnitCost="" UnitOfMeasure=""/>
+            <Instructions NumberOfInstructions="">
+                <Instruction InstructionText="" InstructionType="" InstructionURL=""/>
+            </Instructions>
+        </OrderLine>
+    </OrderLines>
+    <Instructions NumberOfInstructions="">
+        <Instruction InstructionText="" InstructionType="" InstructionURL=""/>
+    </Instructions>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PersonInfoBillTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+</Order>

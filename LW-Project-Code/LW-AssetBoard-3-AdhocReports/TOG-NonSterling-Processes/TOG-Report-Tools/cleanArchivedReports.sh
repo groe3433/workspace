@@ -1,0 +1,14 @@
+find /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Archive/BackOrdersSummary_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Archive/BackOrdersDetail_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Archive/OMS_OpenOrd_download_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Archive/ATP_OMS_OpenOrd_download_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Archive/Order_Recon_Processed_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Archive/Order_recon_exceptions_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Archive/OpenOrders_* -mtime +62 -exec rm {} \;
+find /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Archive/ItemSubstitution_* -mtime +62 -exec rm {} \;
+rm /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Logs/*.log;
+rm /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Logs/*.log;
+rm /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Logs/*.log;
+rm /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Logs/*.log;
+rm /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Logs/*.log;
+rm /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Logs/*.log;

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ItemList>
+<Item ItemGroupCode="${Item.1.ItemGroupCode}"
+        ItemID="${Item.1.ItemID}"
+        OrganizationCode="${Item.1.OrganizationCode}"
+            UnitOfMeasure="${Item.1.UnitOfMeasure}">
+<PrimaryInformation
+            BundleFulfillmentMode="${Item.1.PrimaryInformation.BundleFulfillmentMode}"
+            Description="${Item.1.PrimaryInformation.Description}"
+            EffectiveEndDate="${Item.1.PrimaryInformation.EffectiveEndDate}"
+            EffectiveStartDate="${Item.1.PrimaryInformation.EffectiveStartDate}"
+            IsDeliveryAllowed="${Item.1.PrimaryInformation.IsDeliveryAllowed}"
+            IsPickupAllowed="${Item.1.PrimaryInformation.IsPickupAllowed}"
+            IsProcurementAllowed="${Item.1.PrimaryInformation.IsProcurementAllowed}"
+            IsReturnable="${Item.1.PrimaryInformation.IsReturnable}"
+            IsShippingAllowed="${Item.1.PrimaryInformation.IsShippingAllowed}"
+            KitCode="${Item.1.PrimaryInformation.KitCode}"
+            ShortDescription="${Item.1.PrimaryInformation.ShortDescription}"
+            Status="${Item.1.PrimaryInformation.Status}"
+            UnitHeight="${Item.1.PrimaryInformation.UnitHeight}"
+            UnitHeightUOM="${Item.1.PrimaryInformation.UnitHeightUOM}"
+            UnitLength="${Item.1.PrimaryInformation.UnitLength}"
+            UnitLengthUOM="${Item.1.PrimaryInformation.UnitLengthUOM}"
+            UnitWeight="${Item.1.PrimaryInformation.UnitWeight}"
+            UnitWeightUOM="${Item.1.PrimaryInformation.UnitWeightUOM}"
+            UnitWidth="${Item.1.PrimaryInformation.UnitWidth}"
+            UnitWidthUOM="${Item.1.PrimaryInformation.UnitWidthUOM}"/>
+<InventoryParameters
+            ATPRule="${Item.1.InventoryParameters.ATPRule}"
+            InventoryMonitorRule="${Item.1.InventoryParameters.InventoryMonitorRule}"
+            LeadTime="${Item.1.InventoryParameters.LeadTime}"
+            NodeLevelInventoryMonitorRule="${Item.1.InventoryParameters.NodeLevelInventoryMonitorRule}"/>
+<Extn
+            ArticlePackages="${Item.1.Extn.ArticlePackages}"
+            HFB="${Item.1.Extn.HFB}"
+            IsParcelCombination="${Item.1.Extn.IsParcelCombination}"
+            ItemServiceAssociation="${Item.1.Extn.ItemServiceAssociation}"
+            PA="${Item.1.Extn.PA}"
+            SupplierItemType="${Item.1.Extn.SupplierItemType}"
+        TransportMethodType="${Item.1.Extn.TransportMethodType}">
+</Extn>
+</Item>
+<Item
+        ItemGroupCode="${Item.2.ItemGroupCode}"
+        ItemID="${Item.2.ItemID}"
+        OrganizationCode="${Item.2.OrganizationCode}"
+            UnitOfMeasure="${Item.2.UnitOfMeasure}">
+<PrimaryInformation
+            BundleFulfillmentMode="${Item.2.PrimaryInformation.BundleFulfillmentMode}"
+            Description="${Item.2.PrimaryInformation.Description}"
+            EffectiveEndDate="${Item.2.PrimaryInformation.EffectiveEndDate}"
+            EffectiveStartDate="${Item.2.PrimaryInformation.EffectiveStartDate}"
+            IsDeliveryAllowed="${Item.2.PrimaryInformation.IsDeliveryAllowed}"
+            IsPickupAllowed="${Item.2.PrimaryInformation.IsPickupAllowed}"
+            IsProcurementAllowed="${Item.2.PrimaryInformation.IsProcurementAllowed}"
+            IsReturnable="${Item.2.PrimaryInformation.IsReturnable}"
+            IsShippingAllowed="${Item.2.PrimaryInformation.IsShippingAllowed}"
+            KitCode="${Item.2.PrimaryInformation.KitCode}"
+            ShortDescription="${Item.2.PrimaryInformation.ShortDescription}"
+            Status="${Item.2.PrimaryInformation.Status}"
+            UnitHeight="${Item.2.PrimaryInformation.UnitHeight}"
+            UnitHeightUOM="${Item.2.PrimaryInformation.UnitHeightUOM}"
+            UnitLength="${Item.2.PrimaryInformation.UnitLength}"
+            UnitLengthUOM="${Item.2.PrimaryInformation.UnitLengthUOM}"
+            UnitWeight="${Item.2.PrimaryInformation.UnitWeight}"
+            UnitWeightUOM="${Item.2.PrimaryInformation.UnitWeightUOM}"
+            UnitWidth="${Item.2.PrimaryInformation.UnitWidth}"
+            UnitWidthUOM="${Item.2.PrimaryInformation.UnitWidthUOM}"/>
+<InventoryParameters
+            ATPRule="${Item.2.InventoryParameters.ATPRule}"
+            InventoryMonitorRule="${Item.2.InventoryParameters.InventoryMonitorRule}"
+            LeadTime="${Item.2.InventoryParameters.LeadTime}"
+            NodeLevelInventoryMonitorRule="${Item.2.InventoryParameters.NodeLevelInventoryMonitorRule}"/>
+<Extn
+            ArticlePackages="${Item.2.Extn.ArticlePackages}"
+            HFB="${Item.2.Extn.HFB}"
+            IsParcelCombination="${Item.2.Extn.IsParcelCombination}"
+            ItemServiceAssociation="${Item.2.Extn.ItemServiceAssociation}"
+            PA="${Item.2.Extn.PA}"
+            SupplierItemType="${Item.2.Extn.SupplierItemType}"
+        TransportMethodType="${Item.2.Extn.TransportMethodType}">
+</Extn>
+</Item>
+<Item
+        ItemGroupCode="${Item.3.ItemGroupCode}"
+        ItemID="${Item.3.ItemID}"
+        OrganizationCode="${Item.3.OrganizationCode}"
+            UnitOfMeasure="${Item.3.UnitOfMeasure}">
+<PrimaryInformation
+            BundleFulfillmentMode="${Item.3.PrimaryInformation.BundleFulfillmentMode}"
+            Description="${Item.3.PrimaryInformation.Description}"
+            EffectiveEndDate="${Item.3.PrimaryInformation.EffectiveEndDate}"
+            EffectiveStartDate="${Item.3.PrimaryInformation.EffectiveStartDate}"
+            IsDeliveryAllowed="${Item.3.PrimaryInformation.IsDeliveryAllowed}"
+            IsPickupAllowed="${Item.3.PrimaryInformation.IsPickupAllowed}"
+            IsProcurementAllowed="${Item.3.PrimaryInformation.IsProcurementAllowed}"
+            IsReturnable="${Item.3.PrimaryInformation.IsReturnable}"
+            IsShippingAllowed="${Item.3.PrimaryInformation.IsShippingAllowed}"
+            KitCode="${Item.3.PrimaryInformation.KitCode}"
+            ShortDescription="${Item.3.PrimaryInformation.ShortDescription}"
+            Status="${Item.3.PrimaryInformation.Status}"
+            UnitHeight="${Item.3.PrimaryInformation.UnitHeight}"
+            UnitHeightUOM="${Item.3.PrimaryInformation.UnitHeightUOM}"
+            UnitLength="${Item.3.PrimaryInformation.UnitLength}"
+            UnitLengthUOM="${Item.3.PrimaryInformation.UnitLengthUOM}"
+            UnitWeight="${Item.3.PrimaryInformation.UnitWeight}"
+            UnitWeightUOM="${Item.3.PrimaryInformation.UnitWeightUOM}"
+            UnitWidth="${Item.3.PrimaryInformation.UnitWidth}"
+            UnitWidthUOM="${Item.3.PrimaryInformation.UnitWidthUOM}"/>
+<InventoryParameters
+            ATPRule="${Item.3.InventoryParameters.ATPRule}"
+            InventoryMonitorRule="${Item.3.InventoryParameters.InventoryMonitorRule}"
+            LeadTime="${Item.3.InventoryParameters.LeadTime}"
+            NodeLevelInventoryMonitorRule="${Item.3.InventoryParameters.NodeLevelInventoryMonitorRule}"/>
+<Extn
+            ArticlePackages="${Item.3.Extn.ArticlePackages}"
+            HFB="${Item.3.Extn.HFB}"
+            IsParcelCombination="${Item.3.Extn.IsParcelCombination}"
+            ItemServiceAssociation="${Item.3.Extn.ItemServiceAssociation}"
+            PA="${Item.3.Extn.PA}"
+            SupplierItemType="${Item.3.Extn.SupplierItemType}" TransportMethodType="${Item.3.Extn.TransportMethodType}">
+</Extn>
+</Item>
+</ItemList>

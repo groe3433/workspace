@@ -1,0 +1,14 @@
+/NWCGAddPOPricingDetails.java/1.5/Wed Oct  8 06:31:27 2014//
+/NWCGBeforeCancelTaskUE.java/1.5/Tue May 12 20:44:11 2015//
+/NWCGBeforeCreateOrderUE.java/1.1/Thu Jul 23 21:53:13 2015//
+/NWCGBeforeOrderRepricingUE.java/1.2/Tue May 12 20:44:11 2015//
+/NWCGBeforeTaskCompletionUE.java/1.3/Wed Oct  8 06:31:27 2014//
+/NWCGGenerateIncidentIssueNo.java/1.3/Wed Oct  8 06:31:27 2014//
+/NWCGGenerateIssueShipmentNo.java/1.9/Tue Jun 23 22:54:35 2015//
+/NWCGGetCustomerIDUE.java/1.6/Tue May 12 20:44:11 2015//
+/NWCGItemValidator.java/1.5/Wed Oct  8 06:31:27 2014//
+/NWCGVASBeforeCreateWorkOrderUE.java/1.5/Tue May 12 20:44:11 2015//
+/NWCGValidateLocationUE.java/1.8/Tue May 12 20:44:11 2015//
+/NWCGValidateTrackableIDUE.java/1.4/Wed Oct  8 06:31:27 2014//
+/NWCGYCMValidateItemModificationUE.java/1.5/Tue May 12 20:44:11 2015//
+/NWCGYDMBeforeConsolidateToShipment.java/1.7/Tue May 12 20:44:11 2015//

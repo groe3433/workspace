@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<InventorySupply
+    CallingOrganizationCode="${InventorySupply.CallingOrganizationCode}"
+    ConsiderAllNodes="${InventorySupply.ConsiderAllNodes}"
+    ConsiderAllSegments="${InventorySupply.ConsiderAllSegments}"
+    DistributionRuleId="${InventorySupply.DistributionRuleId}"
+    ETA="${InventorySupply.ETA}" ItemID="${InventorySupply.ItemID}"
+    LotNumber="${InventorySupply.LotNumber}"
+    OrganizationCode="${InventorySupply.OrganizationCode}"
+    ProductClass="${InventorySupply.ProductClass}"
+    Segment="${InventorySupply.Segment}"
+    SegmentType="${InventorySupply.SegmentType}"
+    ShipByDate="${InventorySupply.ShipByDate}"
+    ShipNode="${InventorySupply.ShipNode}"
+    SupplyType="${InventorySupply.SupplyType}"
+    UnitOfMeasure="${InventorySupply.UnitOfMeasure}"
+    ValidateItem="${InventorySupply.ValidateItem}"
+    ValidateShipNode="${InventorySupply.ValidateShipNode}"
+        ValidateShipNodeOwner="${InventorySupply.ValidateShipNodeOwner}">
+<Tag
+        BatchNo="${InventorySupply.Tag.BatchNo}"
+        LotAttribute1="${InventorySupply.Tag.LotAttribute1}"
+        LotAttribute2="${InventorySupply.Tag.LotAttribute2}"
+        LotAttribute3="${InventorySupply.Tag.LotAttribute3}"
+        LotKeyReference="${InventorySupply.Tag.LotKeyReference}"
+        LotNumber="${InventorySupply.Tag.LotNumber}"
+        ManufacturingDate="${InventorySupply.Tag.ManufacturingDate}" RevisionNo="${InventorySupply.Tag.RevisionNo}"/>
+</InventorySupply>

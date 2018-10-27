@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Inventory_InventorySync_UT_001" Description="Test Inventory Sync.">
+	<p:Steps>
+	
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateCDC_Component"></p1:Component>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Component Name="IKEA_ItemManagement_CreateSingleItem_Component"></p1:Component>
+		</p:Sequence>
+		<!-- adjust inventory to preset amount -->
+		<p:Sequence Number="3">
+			<p1:Component Name="IKEA_Inventory_AdjustInventory_Component"></p1:Component>
+		</p:Sequence>
+		<!-- sync the inventory to a different amount -->
+		<p:Sequence Number="4">
+			<p1:Component Name="IKEA_Inventory_InventorySync_Component"></p1:Component>
+		</p:Sequence>
+		<!--<p:Sequence Number="5">
+			<p1:Api Name="syncLoadedInventory"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_syncLoadedInventory_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>-->
+		<!-- check that inventory matches the synced amount --> 
+	<!--	<p:Sequence Number="6">
+			<p1:Api Name="getInventorySupply"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_getInventorySupply_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.Quantity" XPath="//@Quantity"/>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.TagNumber" XPath="//@TagNumber"/>
+			</p1:Parameters>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expression="abs(${Item.Quantity})" Path="//@Quantity"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>-->
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="CDC-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:GeneratedParameter Key="Item.ItemID" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+	
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Item.OrganizationCode"  Type="INPUT" Value="${Organization.ParentOrganizationCode}"/>
+	<p:Parameter Key="Item.ShipNode"  Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	
+	<p:Parameter Key="InventorySupply.OrganizationCode"  Type="INPUT" Value="${Organization.ParentOrganizationCode}"/>
+	<p:Parameter Key="InventorySupply.ShipNode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="InventorySupply.ItemID"  Type="INPUT" Value="${Item.ItemID}"/>
+	
+	<p:Parameter Key="ApplyDifferences"  Type="INPUT" Value="Y"/>
+	<p:Parameter Key="CompleteInventoryFlag"  Type="INPUT" Value="Y"/>
+	<p:Parameter Key="ReasonCode"  Type="INPUT" Value="Inventory Sync"/>
+    <p:Parameter Key="ReasonText"  Type="INPUT" Value="Inventory Sync"/>
+	<p:Parameter Key="ShipNode"   Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:GeneratedParameter Prefix="ISGroup-" Suffix="" Key="Items.YantraMessageGroupID" Type="INPUT"/>
+    <p:Parameter Key="Item.InventoryOrganizationCode"  Type="INPUT" Value="${Organization.ParentOrganizationCode}"/>
+    <p:Parameter Key="Item.Supplies.Supply.AvailabilityType"  Type="INPUT" Value="TRACK"/>
+	<p:Parameter Key="Item.Supplies.Supply.Quantity"  Type="INPUT" Value="2"/>
+    <p:Parameter Key="Item.Supplies.Supply.SupplyType" Type="INPUT" Value="ONHAND"/>
+    <p:Parameter Key="Item.Supplies.Supply.Tag.RevisionNo" Type="INPUT" Value="2"/>
+	
+	<p:Parameter Key="EOF.SynchNonOnHandInventory" Type="INPUT" Value="N"/> 
+	<p:Parameter Key="EOF.ReasonText"  Type="INPUT" Value="Inventory Sync"/>
+	<p:Parameter Key="EOF.ShipNode"  Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="EOF.SupplyType1"  Type="INPUT" Value="${Item.SupplyType}"/>
+	<p:Parameter Key="EOF.YantraMessageGroupID" Type="INPUT" Value="${Items.YantraMessageGroupID}"/>
+	<p:Parameter Key="YantraMessageGroupID" Type="INPUT" Value="${Items.YantraMessageGroupID}"/>
+	
+
+	<p:Parameter Type = "INPUT"  Key="Inventory.ApplyDifferences" Value="Y"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.CompleteInventoryFlag" Value="Y"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.ReasonCode" Value="Inventory Sync"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.ReasonText" Value="Inventory Sync"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.SynchNonOnHandInventory" Value="N"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.SupplyTypes.SupplyType.SupplyType" Value="ONHAND"/>
+	<p:Parameter Type = "INPUT"  Key="Inventory.ShipNode" Value="${Organization.OrganizationCode}" />
+    <p:Parameter Type = "INPUT"  Key="Inventory.YantraMessageGroupID" Value="${Items.YantraMessageGroupID}" />
+    <p:DateParameter Type = "INPUT"  Key="Promise.ReqStartDate" DateFormat="yyyy-MM-dd'T'HH:mm:ss" DaysOffset="1"/>
+	
+  </p:Parameters>
+</p:TestCase>

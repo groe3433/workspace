@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ShipmentLines>
+	<ShipmentLine ActualQuantity=" ">
+		<Shipment ShipmentNo="">
+			<Extn ExtnEstimatedArrivalDate="" ExtnEstimatedDepartDate=""/>
+		</Shipment>
+		<ShipmentTagSerials TotalNumberOfRecords="">
+			<ShipmentTagSerial Quantity=" " SerialNo=" "/>
+		</ShipmentTagSerials>
+	</ShipmentLine>
+</ShipmentLines>

@@ -1,0 +1,27 @@
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_Organization_DeleteOrganization_Component" Active="Y" Description="Delete Organization">
+	<Steps>
+		<Sequence Number="1">
+			<p1:Api Name="deleteOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrganization_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="2">
+			<p1:Api Name="getOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrganization_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+			<p1:Validate ValidationType="XPATH" Expected=""  Path="//@OrganizationCode"> </p1:Validate>
+			</p1:Validations>
+		</Sequence>
+	</Steps>
+<Parameters/>
+</Component> 

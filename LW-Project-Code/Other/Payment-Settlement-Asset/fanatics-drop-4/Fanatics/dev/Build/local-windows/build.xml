@@ -1,0 +1,339 @@
+<project name="Build Script For DHL" default="all" basedir=".">
+
+	<property file="build.properties" />
+
+	<path id="project.class.path">
+		<fileset dir="${smcfs_install.dir}/jar">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<echo message="Java Version: ${java.version}" />
+	<echo message="Java home: ${java.home}" />
+
+
+	<tstamp>
+		<format property="date.etape1" pattern="dd-MM-yyyy-HHmmss" />
+	</tstamp>
+
+
+	<!--  TARGETS START -->
+	<target name="all1" depends="clean, copy-files, deploy-extensions, build-jars, deploy-DHL-jar,
+		clean-callcenter-dir, build-war-cc, copy-war-callcenter-dir, build-ear, deploy-modules" description="Executes all the targets" />
+
+	<target name="allNew" depends="clean, copy-files, build-jars, deploy-DHL-jar, clean-callcenter-dir, build-war-cc, 
+		copy-war-callcenter-dir, build-ear, deploy-modules" description="Executes all the targets" />
+
+	<target name="allNew2" depends="clean, copy-files, build-jars, deploy-DHL-jar, build-ear, deploy-modules" description="Executes all the targets" />
+	<!-- <target name="all" depends="clean, copy-files, deploy-extensions, build-jars, deploy-DHL-jar, clean-sbc-dir, build-war-sbc, copy-war-sbc-dir,
+		clean-callcenter-dir, build-war-cc, copy-war-callcenter-dir, build-ear, deploy-modules" description="Executes all the targets" /> -->
+
+		<target name="all" depends="clean, copy-files, deploy-extensions, build-jars, deploy-DHL-jar, build-ear" description="Executes all the targets" />
+
+	<target name="noJar" depends="clean, copy-files, deploy-extensions, build-ear" description="Executes all the targets" />
+
+
+
+	<target name="CallCenterBuildDeploy" depends="clean, copy-files, build-jars, deploy-DHL-jar, clean-callcenter-dir, build-war-cc, copy-war-callcenter-dir, deploy-CallCenter-modules" description="Executes all Call center apps" />
+
+
+	<!--Cleans the custom code in smcfs_install.dir-->
+	<target name="clean" description="Deletes directories">
+
+		<!-- Delete directories -->
+		<delete dir="${smcfs_install.dir}/extensions" />
+		<delete dir="${smcfs_install.dir}/tmp/buildsmcfs" />
+		<delete dir="${smcfs_install.dir}/tmp/ejb" />
+		<delete dir="${smcfs_install.dir}/tmp/smcfs" />
+		<delete dir="${smcfs_install.dir}/tmp/uijars" />
+		<delete dir="${smcfs_install.dir}/tmp/buildsbc" />
+		<delete dir="${smcfs_install.dir}/external_deployments" />
+	</target>
+
+	<target name="build-jars" description="Make Project Jar">
+		<!-- Compile the java source files -->
+		<delete dir="${projectbase.dir}/dist/Foundation/classes" />
+		<mkdir dir="${projectbase.dir}/dist/Foundation/classes" />
+
+		<javac classpathref="project.class.path" executable="${JAVA_HOME}/javac" destdir="${projectbase.dir}/dist/Foundation/classes" debug="on" debuglevel="lines,vars,source" failonerror="true">
+			<src path="${projectbase.dir}/src" />
+		</javac>
+
+
+		<!-- Makes the project jar file -->
+		<!--Create version file -->
+		<tstamp>
+			<format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+		</tstamp>
+
+		<echo file="${projectbase.dir}/dist/version.txt">
+            Release Version: ${project.name} V ${release.version}
+			Branch Build: ${branch}
+            Release Date: ${NOW}
+        </echo>
+
+		<!--Copy the version.txt -->
+		<copy file="${projectbase.dir}/dist/version.txt" todir="${projectbase.dir}/dist/Foundation/classes" failonerror="true" />
+
+		<jar destfile="${projectbase.dir}/dist/Foundation/${project.name}.jar" basedir="${projectbase.dir}/dist/Foundation/classes">
+			<manifest>
+				<section name="version-information">
+					<attribute name="Version" value="${release.version}" />
+					<attribute name="Date" value="${NOW}" />
+				</section>
+			</manifest>
+		</jar>
+
+	</target>
+
+	<target name="copy-files" description="Deploys the project files in the relevant folders of MCF Installation">
+		<!--Copy extensions-->
+		<echo>Copy the project specific extensions to extensions folder of APP</echo>
+		<copy todir="${smcfs_install.dir}/extensions/" overwrite="true" failonerror="true">
+			<fileset dir="${projectbase.dir}/Foundation/extensions">
+				<exclude name="**/CVS" />
+			</fileset>
+		</copy>
+
+		<!--Copy env specific properties file-->
+		<echo>Copy the env specific customer_overrides.properties to properties folder of APP</echo>
+		<copy tofile="${smcfs_install.dir}/properties/customer_overrides.properties" overwrite="true" file="${projectbase.dir}/Foundation/properties/${ENV}/customer_overrides.properties" failonerror="false" />
+		<echo>Copying repository/eardata/isccs files</echo>
+		<copy todir="${smcfs_install.dir}/repository/eardata/isccs/" overwrite="true" failonerror="true">
+			<fileset dir="${projectbase.dir}/Foundation/repository/eardata/isccs" />
+		</copy>
+		<echo>Copying repository/eardata/platform_uifwk files</echo>
+		<copy todir="${smcfs_install.dir}/repository/eardata/platform_uifwk/" overwrite="true" failonerror="true">
+					<fileset dir="${projectbase.dir}/Foundation/eardata/platform_uifwk" />
+		</copy>
+		<echo>Copying repository/dojo/ files for gridx select module</echo>
+				<copy todir="${smcfs_install.dir}/repository/dojo" overwrite="true" failonerror="true">
+							<fileset dir="${projectbase.dir}/Foundation/repository/dojo" />
+		</copy>
+		<echo>Copying repository/idx files</echo>
+		<copy todir="${smcfs_install.dir}/repository/idx" overwrite="true" failonerror="true">
+			<fileset dir="${projectbase.dir}/Foundation/repository/idx" />
+		</copy>
+		<echo>Copying resources files</echo>
+		<copy todir="${smcfs_install.dir}/resources" overwrite="true" failonerror="true">
+			<fileset dir="${projectbase.dir}/Foundation/resources" />
+		</copy>
+	</target>
+
+	<target name="deploy-extensions" description="Deploys extensions on MCF app">
+		<exec executable="${smcfs_install.dir}/bin/deployer.cmd" failonerror="true">
+			<arg value="-t" />
+			<arg value="resourcejar" />
+		</exec>
+
+		<exec executable="${smcfs_install.dir}/bin/deployer.cmd" failonerror="true">
+			<arg value="-t" />
+			<arg value="entitydeployer" />
+		</exec>
+	</target>
+
+
+	<target name="deploy-DHL-jar" description="Deploys extensions on MCF app">
+		<exec executable="${smcfs_install.dir}/bin/install3rdParty.cmd" failonerror="true">
+			<arg value="${project.name}" />
+			<arg value="${release.version}" />
+			<arg value="-j" />
+
+			<arg value="${projectbase.dir}/dist/Foundation/${project.name}.jar" />
+			<arg value="-targetJVM" />
+			<arg value="EVERY" />
+		</exec>
+	</target>
+
+	<!--Cleans the call center war dir-->
+	<target name="clean-sbc-dir" description="Deletes-create directory">
+		<delete dir="${smcfs_install.dir}/external-deployment-sbc" />
+		<mkdir dir="${smcfs_install.dir}/external-deployment-sbc" />
+	</target>
+
+	<target name="build-war-sbc" description="Builds Call centre wae deployment">
+		<exec executable="${smcfs_install.dir}/bin/buildwar.cmd" failonerror="true">
+			<arg value="-Dappserver=weblogic" />
+			<arg value="-Dnowebservice=true" />
+			<arg value="-Dwarfiles=sbc" />
+			<arg value="-Ddevmode=false" />
+			<arg value="-Dwls-10=true" />
+			<arg value="-Dnodocwar=true" />
+		</exec>
+	</target>
+
+	<!--Copy SBC war to its own folder.-->
+	<target name="copy-war-sbc-dir" description="Copy war">
+		<move todir="${smcfs_install.dir}/external-deployment-sbc/" overwrite="true" failonerror="true">
+			<fileset dir="${smcfs_install.dir}/external_deployments">
+			</fileset>
+		</move>
+	</target>
+
+	<!--Cleans the call center war dir-->
+	<target name="clean-callcenter-dir" description="Deletes-create directory">
+		<delete dir="${smcfs_install.dir}/external-deployment-callcenter" />
+		<mkdir dir="${smcfs_install.dir}/external-deployment-callcenter" />
+	</target>
+
+	<!--<arg value="-Dwarfiles=isccsdev" />-->
+	<target name="build-war-cc" description="Builds Call centre wae deployment">
+		<exec executable="${smcfs_install.dir}/bin/buildwar.cmd" failonerror="true">
+			<arg value="-Dappserver=weblogic" />
+			<arg value="-Dnowebservice=true" />
+			<arg value="-Dwarfiles=isccsdev" />
+			<arg value="-Ddevmode=true" />
+			<arg value="-Dnodocwar=true" />
+		</exec>
+	</target>
+
+	<!--Copy call centre war to its own folder.-->
+	<target name="copy-war-callcenter-dir" description="Copy war">
+		<!--copy todir="${smcfs_install.dir}/external-deployment-callcenter/" overwrite="true" failonerror="true">
+			<fileset dir="${smcfs_install.dir}/external_deployments">
+			</fileset>
+		</copy-->
+		<move file="${smcfs_install.dir}/external_deployments/isccsdev.war" tofile="${smcfs_install.dir}/external-deployment-callcenter/isccs.war" overwrite="true" />
+	</target>
+
+	<target name="build-ear" description="Builds EAR file for deployment">
+		<exec executable="${smcfs_install.dir}/bin/buildear.cmd" failonerror="true">
+			<arg value="-Dappserver=weblogic" />
+			<arg value="-Dnowebservice=true" />
+			<arg value="-Dwarfiles=smcfs,sbc,sma" />
+			<arg value="-Dsupport.multi.war=true" />
+			<arg value="-Dearfile=smcfs.ear" />
+			<arg value="-Ddevmode=false" />
+			<arg value="create-ear" />
+		</exec>
+	</target>
+
+
+	<!-- CDT 
+	./cdtshell.cmd -Source db2-mc -SourcePassword NYAm3Eva -Target CDT-Backup-->
+	<target name="cdt-from-mc-to-xml" description="CDT from MC DB to a BackUp Folder on MC box">
+		<exec executable="${smcfs_install.dir}/bin/cdtshell.cmd">
+			<arg value="-Source" />
+			<arg value="${cdt.MC_DB}" />
+			<arg value="-SourcePassword" />
+			<arg value="${cdt.MC_PASSWORD}" />
+			<arg value="-Target" />
+			<arg value="${cdt.backup.folder.MC}" />
+		</exec>
+		<antcall target="cdt-zip" />
+	</target>
+	<!--ZIP
+	zip -r /IBM/OMS/CDT/CDT-Backup-Zips/CDT-DEVMC-time /IBM/OMS/CDT/CDT-Backup -->
+	<target name="cdt-zip">
+		<echo>Creating ZIP for configurations...</echo>
+
+		<exec executable="zip" failonerror="true">
+			<arg value="-r" />
+			<arg value="${cdt.backup.zip.dir}/${cdt.backup.prefix}-${date.etape1}" />
+			<arg value="${cdt.backup.folder.MC.dir}" />
+		</exec>
+
+		<delete dir="${cdt.backup.folder.MC.dir}" />
+		<mkdir dir="${cdt.backup.folder.MC.dir}" />
+	</target>
+
+
+	<target name="cdt-unzip">
+		<echo>Unzipping CDT file </echo>
+
+		<delete dir="${cdt.deploy.dir}" />
+		<mkdir dir="${cdt.deploy.dir}" />
+
+		<exec executable="unzip" failonerror="true">
+			<arg value="${cdt-file}" />
+			<arg value="${cdt.deploy.dir}" />
+		</exec>
+	</target>
+
+	<target name="cdt-xml-to-target" description="import of CDT configurations in XML">
+		<property name="oms.bin.dir" value="${smcfs_install.dir}/bin" />
+		<!-- 	    <property name="cdtshell.loc" value="${oms.bin.dir}/cdtshell.cmd"/>  -->
+
+		<!--         Update HEAP_FLAGS value in cdtshell.cmd -->
+		<!--         <replaceregexp file="${cdtshell.loc}" -->
+		<!--           match="${oms.bin.dir}/tmp.cmd" -->
+		<!--           replace="${oms.bin.dir}/tmp.cmd;export HEAP_FLAGS='-Xms4096m -Xmx4096m'"/> -->
+
+		<!-- 	    <property name="full.cdt.dump.dir" value="full_cdt_dump" /> -->
+		<!-- 		<echo>Importing cdt xml's from ${full.cdt.dump.dir}...</echo> -->
+
+		<!-- 		<property name="cdt.dir"  value="/opt/IBM/data/full_cdt_dump"/>  -->
+		<!--         <delete dir="${cdt.dir}" /> -->
+		<!--         <mkdir dir="${cdt.dir}" /> -->
+
+		<!-- 		<copy todir="${cdt.dir}"> -->
+		<!--             <fileset dir="full_cdt_dump"/> -->
+		<!-- 		</copy> -->
+
+		<exec executable="${smcfs_install.dir}/bin/cdtshell.cmd">
+			<arg value="-Source" />
+			<arg value="${cdt.deploy.xml}" />
+			<arg value="-Target" />
+			<arg value="${cdt.backup.folder.MC}" />
+			<arg value="-SourcePassword" />
+			<arg value="${cdt.TEST_PASSWORD}" />
+		</exec>
+
+	</target>
+
+	<!-- ant -Dsource='db2-test' -Dsource='password' cdt-from-source-to-xml -->
+
+	<target name="cdt-from-source-to-xml" description="CDT from source to a BackUp Folder on that server box">
+
+		<echo>Source DB = ${source}</echo>
+		<fail message="Property &quot;source&quot; needs to be set to the git branch name e.g. -Dsource='sourceName'">
+			<condition>
+				<or>
+					<equals arg1="${source}" arg2="${sourcePassword}" />
+					<not>
+						<isset property="source" />
+					</not>
+				</or>
+			</condition>
+		</fail>
+
+
+		<exec executable="${smcfs_install.dir}/bin/cdtshell.cmd">
+			<arg value="-Source" />
+			<arg value="${source}" />
+			<arg value="-SourcePassword" />
+			<arg value="${sourcePassword}" />
+			<arg value="-Target" />
+			<arg value="${cdt.backup.folder.MC}" />
+		</exec>
+		<antcall target="cdt-zip" />
+	</target>
+
+
+	<target name="deploy-modules" description="stops server and installs new builds.">
+		<exec executable="${build.dir}/deploy-modules.cmd" failonerror="true">
+		</exec>
+	</target>
+
+	<target name="deploy-CallCenter-modules" description="stops server and installs new builds.">
+		<exec executable="${build.dir}/deploy-modulesCallCenter.cmd" failonerror="true">
+		</exec>
+	</target>
+
+	<target name="kill-agents" description="stops agent servers">
+		<exec executable="${smcfs_install.dir}/bin/killAllServers.cmd" failonerror="true">
+		</exec>
+	</target>
+
+	<target name="start-agents" description="stops agent servers">
+		<exec executable="${smcfs_install.dir}/bin/startAllServers.cmd" failonerror="true">
+		</exec>
+	</target>
+	
+	  <target name="sonar-runner" description="Runs sonar scan on the code checked out" >
+	    <exec executable="/opt/sonar/sonar-runner/sonar-runner-2.4/bin/sonar-runner" failifexecutionfails="true" errorproperty="" failonerror="true">
+	      	<arg value="-Dproject.settings=/opt/sonar/sonar-runner/sonar-runner-2.4/bin/DHLProject.properties"/>
+	    	<arg value="-Dsonar.branch=${branch}"/>
+	    </exec>
+	  </target>
+
+</project>

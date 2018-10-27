@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEAParticipantModelSuite" active="Y" description="Test Suite containing the test cases for the IKEA Participant model">
+        <Tests>
+                <Test testFile="Organization/IKEA_Organization_CreateCDC_UT_001.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateStore_UT_002.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateSupplier_UT_003.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateLSC_UT_004.xml"/>
+				<Test testFile="Organization/IKEA_Organization_DeleteCDC_UT_005.xml"/>
+				<Test testFile="Organization/IKEA_Organization_DeleteLSC_UT_006.xml"/>
+				<Test testFile="Organization/IKEA_Organization_DeleteSupplier_UT_007.xml"/>
+				<Test testFile="Organization/IKEA_Organization_DeleteStore_UT_008.xml"/>
+				<Test testFile="Organization/IKEA_Organization_ModifyCDC_UT_009.xml"/>
+				<Test testFile="Organization/IKEA_Organization_ModifyNonExistingCDC_UT_010.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateCalendarCDC_UT_011.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateCalendarCDC_UT_012.xml"/>
+				<Test testFile="Organization/IKEA_Organization_ModifyCalendarCDC_UT_013.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateCDCNoLocaleCode_UT_014.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateNodeTransferSchedule_UT_015.xml"/>
+				<Test testFile="Organization/IKEA_Organization_ModifyNodeTransferSchedule_UT_016.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateNodeTransferScheduleBadFromNode_UT_017.xml"/>
+				<Test testFile="Organization/IKEA_Organization_CreateNodeTransferScheduleBadToNode_UT_018.xml"/>
+        </Tests>
+</Suite>   

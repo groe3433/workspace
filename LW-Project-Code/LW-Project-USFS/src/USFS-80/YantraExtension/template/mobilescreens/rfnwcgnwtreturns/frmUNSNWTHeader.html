@@ -1,0 +1,88 @@
+<html>
+<body>
+<form name="frmUNSNWTHeader" target="/console/rfnwcgnwtreturns.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblHeader" size="20" subtype="Label"
+					tag="binding=lblTitle" value="UNSNWT Return Header" type="text"
+					validate="false" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="9" name="lblCacheID" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Cache ID" /> <input col="11" size="9" name="lblCacheIDValue"
+					subtype="Label" tag="binding=xml:/Receipt/@CacheID" type="text"
+					validate="false" inputbinding="xml:CurrentUser:/User/@Node"
+					outputbinding="xml:/Receipt/@CacheID" value="" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" name="lblReturnNo" size="9" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Return No" /> <input col="11"
+					inputbinding="xml:/NextReceiptNo/@ReceiptNo" name="txtReturnNo"
+					outputbinding="xml:/NextReceiptNo/@ReceiptNo" size="15"
+					subtype="Text" tag="binding=xml:/NextReceiptNo/@ReceiptNo"
+					type="text" validate="true" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="9" name="lblIncYear" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Inc Year" /> <input col="11"
+					inputbinding="xml:/Receipt/@IncYear" name="txtIncYear"
+					outputbinding="xml:/Receipt/@IncYear" size="15" subtype="Text"
+					tag="binding=xml:/Receipt/@IncYear" type="text" validate="false" />
+				</td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="9" name="lblIncNo" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Inc No" /> <input col="11"
+					inputbinding="xml:/Receipt/@IncNo" name="txtIncNo"
+					outputbinding="xml:/Receipt/@IncNo" size="15" subtype="Text"
+					tag="binding=xml:/Receipt/@IncNo" type="text" validate="true" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="11" size="15" name="lblIncName" subtype="Label"
+					tag="binding=xml:/Receipt/@IncidentName" type="text"
+					validate="false" value=""
+					inputbinding="xml:/NWCGIncidentOrderList/NWCGIncidentOrder/@IncidentName"
+					outputbinding="xml:/Receipt/@IncidentName" /> <input
+					col="19" size="15" name="lblCustid" subtype="Label"
+					tag="binding=xml:/Receipt/@CustomerId" type="hidden"
+					validate="false" value=""
+					inputbinding="xml:/NWCGIncidentOrderList/NWCGIncidentOrder/@CustomerId"
+					outputbinding="xml:/Receipt/@CustomerId" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="6" name="lblNotes" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Notes" /> <input col="11" inputbinding="xml:/Receipt/@Notes"
+					name="txtNotes" outputbinding="xml:/Receipt/@Notes" size="15"
+					subtype="Text" tag="binding=xml:/Receipt/@Notes" type="text"
+					validate="false" /></td>
+			</tr>
+
+
+
+			<tr>
+				<td><input col="11" hotkey="F3" name="Go" size="18"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTLinesInit"
+					validate="false" value="Add Return Lines" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

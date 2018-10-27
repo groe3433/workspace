@@ -1,0 +1,39 @@
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_Inventory_AdjustInventory_Component" Active="Y" Description="Adjust Inventory">
+	<Steps>
+		<Sequence Number="1">
+			<p1:Api Name="getInventorySupply"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_getInventorySupply_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.Quantity" XPath="//@Quantity"/>
+			<p1:Parameter Type = "OUTPUT" Key="InventorySupply.TagNumber" XPath="//@TagNumber"/>
+			</p1:Parameters>
+		</Sequence>
+		<Sequence Number="2">
+			<p1:Api Name="adjustInventory"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_adjustInventory_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="3">
+			<p1:Api Name="getInventorySupply"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_Inventory_getInventorySupply_input.xml"
+					Location="resources/xml/input/template/inventory/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expression="abs(${Item.Quantity})" Path="//@Quantity"> </p1:Validate>
+			</p1:Validations>
+		</Sequence>
+	</Steps>
+<Parameters/>
+</Component>

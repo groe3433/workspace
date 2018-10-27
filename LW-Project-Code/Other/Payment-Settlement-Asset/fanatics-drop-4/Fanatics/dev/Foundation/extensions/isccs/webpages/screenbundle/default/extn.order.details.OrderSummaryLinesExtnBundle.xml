@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.order.details.OrderSummaryLinesExtnBundle" screenId="extn.order.details.OrderSummaryLinesExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_Promisedshipdate_View_name"
+            bundleKey="extn_Promised_Ship_Date"
+            bundleValueFn="_scSimpleBundle" property="name"
+            type="WIDGET" uId="extn_Promisedshipdate"/>
+        <BundleEntry bundleEntryId="extn_Revisedshipdate_View_name"
+            bundleKey="extn_Revised_Ship_Date_Reason1"
+            bundleValueFn="_scSimpleBundle" property="name"
+            type="WIDGET" uId="extn_Revisedshipdate"/>
+        <BundleEntry
+            bundleEntryId="extn_Revisedshipdatereason_View_name"
+            bundleKey="extn_Shipped_Date"
+            bundleValueFn="_scSimpleBundle" property="name"
+            type="WIDGET" uId="extn_Revisedshipdatereason"/>
+        <BundleEntry bundleEntryId="extn_fulfillmentlocation_View_name"
+            bundleKey="extn_Fulfillment_Location"
+            bundleValueFn="_scSimpleBundle" property="name"
+            type="WIDGET" uId="extn_fulfillmentlocation"/>
+        <BundleEntry bundleEntryId="extn_product_View_name"
+            bundleKey="extn_Product" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_product"/>
+        <BundleEntry bundleEntryId="extn_Item_Line_View_name"
+            bundleKey="extn_Item_Line_" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_Item_Line"/>
+        <BundleEntry bundleEntryId="tblColUnitPrice_View_name"
+            bundleKey="UnitPrice" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="tblColUnitPrice"/>
+        <BundleEntry bundleEntryId="extn_Linestatus_View_name"
+            bundleKey="extn_Line_Status" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_Linestatus"/>
+        <BundleEntry bundleEntryId="extn_shipdate_View_name"
+            bundleKey="extn_Shipped_Date"
+            bundleValueFn="_scSimpleBundle" property="name"
+            type="WIDGET" uId="extn_shipdate"/>
+    </BundleEntries>
+</ScreenBundle>

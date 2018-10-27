@@ -1,0 +1,30 @@
+<DBSchema>
+	<Entities>
+		<Entity TableName="YFS_ITEM">
+			<Attributes>
+				<Attribute ColumnName="EXTN_SHIP_ALONE" DataType="Text-1" 
+				DefaultValue="' '" Description="A flag to determine whether the item cannot be combined with other items while shipping." 
+				Nullable="false" Type="VARCHAR2" XMLName="ExtnShipAlone" XMLGroup="Extn"/>
+				<Attribute ColumnName="EXTN_QUICK_SHIP" DataType="Text-1" 
+				DefaultValue="' '" Description="A flag to determine whether the item can be shipped as soon as the inventory is available." 
+				Nullable="false" Type="VARCHAR2" XMLName="ExtnQuickShip" XMLGroup="Extn" />
+				<Attribute ColumnName="EXTN_STYLE_REF" DataType="Text-100" 
+				DefaultValue="' '" Description="The Style information of the product" Nullable="false" 
+				Type="VARCHAR2" XMLName="ExtnStyleRef" XMLGroup="Extn" />	
+				<Attribute ColumnName="EXTN_TEAM_CODE" DataType="Text-25" 
+				DefaultValue="' '" Description="The team information of the product" Nullable="false" 
+				Type="VARCHAR2" XMLName="ExtnTeamCode" XMLGroup="Extn" />	
+				<Attribute ColumnName="EXTN_LEAGUE_CODE" DataType="Text-25" 
+				DefaultValue="' '" Description="The League information of the product" Nullable="false" 
+				Type="VARCHAR2" XMLName="ExtnLeagueCode" XMLGroup="Extn" />				
+			</Attributes>
+		</Entity>
+		<Entity TableName="YFS_ORGANIZATION">
+			<Attributes>
+				<Attribute ColumnName="EXTN_CANCEL_ON_BACK_ORDER" DataType="Text-1" 
+				DefaultValue="' '" Description="A flag to determine whether the order will be cancelled if there is an inventory shortageitem." 
+				Nullable="false" Type="VARCHAR2" XMLName="ExtnCancelOnBackorder" XMLGroup="Extn"/>
+			</Attributes>
+		</Entity>
+	</Entities>
+</DBSchema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order EnterpriseCode="" OrderHeaderKey="" DocumentType="" OrderNo="" ShipNode="" Status="" Createuserid="" Modifyuserid="" Createts="" >
+    <Extn/> 
+    <OrderLines>
+        <OrderLine OrderLineKey="" OrderNo="" Createuserid="" Modifyuserid="">
+            <Item ItemID="" ProductClass="" UnitOfMeasure="" />
+            <Extn/>
+			<Notes/>
+			<Instructions/>
+        </OrderLine>
+    </OrderLines>
+	<PersonInfoShipTo/>
+</Order>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="PaymentCapture_CreditCardExtn"
+        extnPackage="extn.common.paymentCapture"
+        originalScreen="isccs.common.paymentCapture.PaymentCapture_CreditCard"
+        originalScreenPackage="isccs.common.paymentCapture" type="diffrential">
+        <Items>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtCreditCardNo" renderHidden="false"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtCVV" renderHidden="false"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

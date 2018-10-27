@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.order.details.OrderPricingSummaryExtnBundle" screenId="extn.order.details.OrderPricingSummaryExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="HeaderPricingSummary_Label_value"
+            bundleKey="extn_Order_summary"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="HeaderPricingSummary"/>
+    </BundleEntries>
+</ScreenBundle>

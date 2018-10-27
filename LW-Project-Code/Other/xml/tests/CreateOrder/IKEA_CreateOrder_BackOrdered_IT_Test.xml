@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd " Active="Y" Name="IKEA_CreateOrder_BackOrdered_IT_Test"
+	Description="
+	1. JMS Send - Send message to Queue
+	2. JSM Receive - Listen to the Queue until the message is found - Validate the Transaction ID is CREATE_SHMNT_INVOICE.0001
+	">
+	<p:Tags>
+		<p:Tag Name="IKEA_CreateOrder_BackOrdered_IT_Test"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:NestedTest Name="IKEA_ItemManagement_createSingleItem"/>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:NestedTest Name="IKEA_CreateOrder_Created_IT_Test"/>
+		</p:Sequence>
+		<p:Sequence Number="3">
+			<p1:Api Name="scheduleOrder"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_scheduleOrder_input.xml" Location="resources/xml/input/IKEA/CreateOrder/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>
+		<p:Sequence Number="4">
+			<p1:Api Name="getOrderList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrderList_input.xml" Location="resources/xml/input/IKEA/CreateOrder/">
+				</p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_getOrderList_output.xml" Location="resources/xml/output/IKEA/CreateOrder/"></p1:Document>
+			</p1:Documents>
+   			<p1:Validations>
+			<p1:Validate  ValidationType="XPATH" Expected="1300" Path="/OrderList/Order/@MaxOrderStatus"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>
+	</p:Steps>
+	<p:Parameters>
+		<p:GeneratedParameter Key="Item.ItemID" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Order.OrderNo" Type="INPUT" Prefix="IKEA" Suffix="TEST"/>
+		<p:GeneratedParameter Key="Order.AnswerSets.AnswerSet.1.AnswerSetTranKey" Type="INPUT" Prefix="1" Suffix="1"/>
+		<p:Parameter Key="Order.OrderLines.OrderLine.2.Item.ItemID" Type="INPUT" Value="${Item.ItemID}"/>
+		<p:DateParameter Key="TodaysDate" Type = "INPUT" DateFormat="yyyy-MM-dd" />
+		<p:DateParameter Key="TomorrowsDate" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="1" />
+		<p:Parameter Key="Order.OrderDate" Type="INPUT" Value="${TodaysDate}T18:00:00"/>
+		<p:Parameter Key="Order.OrderLines.OrderLine.1.PromisedApptEndDate" Type="INPUT" Value="${TomorrowsDate}T18:00:00+00:00"/>
+		<p:Parameter Key="Order.OrderLines.OrderLine.1.PromisedApptStartDate" Type="INPUT" Value="${TomorrowsDate}T08:00:00+00:00"/>
+		<p:Parameter Key="Order.OrderLines.OrderLine.2.ReqDeliveryDate" Type="INPUT" Value="${TomorrowsDate}T10:55:45+00:00"/>
+
+	</p:Parameters>
+</p:TestCase>
+

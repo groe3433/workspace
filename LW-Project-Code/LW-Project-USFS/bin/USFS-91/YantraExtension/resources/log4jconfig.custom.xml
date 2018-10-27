@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Licensed Materials - Property of IBM
+     (C)Copyright IBM Corp. [2010, 2011] All Rights Reserved.
+     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. -->
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="ALL" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxBackupIndex" value="10" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="file" value="C:\\Sterling\\logs\\sci.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+     <appender name="CONSOLE" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxBackupIndex" value="20" />
+        <param name="MaxFileSize" value="20MB" />
+        <param name="file" value="C:\\Sterling\\logs\\Agent.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+    <appender name="" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxBackupIndex" value="20" />
+        <param name="MaxFileSize" value="20MB" />
+        <param name="file" value="C:\\Sterling\\logs\\Agent.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+
+    <appender name="AGENT_LOG_APPENDER" class="org.apache.log4j.RollingFileAppender">
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+    <appender name="SECURITY_LOG_APPENDER" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="2" />
+        <param name="File" value="C:\\Sterling\\logs\\securityinfo.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+    <appender name="LOGIN_CLIENT_IP_DETAILS" class="org.apache.log4j.RollingFileAppender">
+            <param name="MaxFileSize" value="10MB" />
+            <param name="MaxBackupIndex" value="2" />
+            <param name="File" value="C:\\Sterling\\logs\\login_ip_details.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+            <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+      <appender name="PROPERTY_MANAGER" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxBackupIndex" value="10" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="file" value="C:\\Sterling\\logs\\property_manager.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCICommonLayout">
+            <param name="DefaultConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+    <appender name="REQUEST_LOG_APPENDER" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="2" />
+        <param name="File" value="C:\\Sterling\\logs\\requestinfo.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCIFilteredPatternLayout">
+            <param name="ConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>
+
+    <appender name="NWCG_ROSS_LOGGER" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="20MB" />
+        <param name="MaxBackupIndex" value="20" />
+        <param name="File" value="C:\\Sterling\\logs\\NWCG_A2A_File.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCIFilteredPatternLayout">
+            <param name="ConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender> 
+    
+    <appender name="NWCG_APPLICATION_LOGGER" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="20MB" />
+        <param name="MaxBackupIndex" value="20" />
+        <param name="File" value="C:\\Sterling\\logs\\NWCG_Application.log" />
+        <layout class="com.sterlingcommerce.woodstock.util.frame.logex.SCIFilteredPatternLayout">
+            <param name="ConversionPattern" value="%d:%-7p:%t: %-60m [%X{AppUserId}]: %-25c{1}%n"/>
+        </layout>
+        <filter class="com.sterlingcommerce.woodstock.util.frame.logex.SCIPatternFilter" />
+    </appender>           
+
+    <category  name="requestlogger" class="com.yantra.yfc.log.YFCLogCategory" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="DEBUG"  />
+        <appender-ref ref="REQUEST_LOG_APPENDER" />
+    </category>
+
+    <category  name="com.yantra.tools.property" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="PROPERTY_MANAGER" /> 	 
+    </category>
+
+    <category  name="com.yantra" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+    <category  name="com.sterlingcommerce" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+    <category  name="org.apache.struts2" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+    <category  name="net.sf.ehcache" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+    <category  name="com.opensymphony.xwork2" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+    <category  name="com.stercomm.SecurityLogger" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <priority class="com.yantra.yfc.log.YFCLogLevel" value="INFO"  /> 
+        <appender-ref ref="SECURITY_LOG_APPENDER" />
+    </category>
+    
+    <category  name="api.security" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <priority class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="SECURITY_LOG_APPENDER" />
+    </category>
+    
+    <category  name="com.yantra.integration.adapter" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <priority class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="CONSOLE" />
+    </category>
+
+    <category  name="com.comergent.apps.configurator.initializer.ConfiguratorInitManager" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <priority class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="CONSOLE" />
+    </category>
+    
+   <category  name="com.yantra.yfs.ui.backend.YFSLoginIPLogger" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+       <priority class="com.yantra.yfc.log.YFCLogLevel" value="INFO"  /> 
+       <appender-ref ref="LOGIN_CLIENT_IP_DETAILS" />
+   </category>
+
+   <category  name="DataValidationLogger" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+    </category>
+
+   <category  name="NWCGROSSLogger" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_ROSS_LOGGER" />
+   </category>
+    
+   <category  name="NWCGApplicationLogger" class="com.yantra.yfc.log.YFCLogCategory" additivity="false" >
+        <level class="com.yantra.yfc.log.YFCLogLevel" value="VERBOSE"  />
+        <appender-ref ref="NWCG_APPLICATION_LOGGER" />
+   </category> 
+   
+</log4j:configuration>

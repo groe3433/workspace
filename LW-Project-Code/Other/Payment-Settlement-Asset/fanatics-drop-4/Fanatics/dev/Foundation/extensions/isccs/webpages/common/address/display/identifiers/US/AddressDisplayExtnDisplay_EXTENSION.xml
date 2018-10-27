@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenDisplayExtension extnClassName="AddressDisplayExtn"
+        identifierId="US"
+        originalScreen="isccs.common.address.display.AddressDisplay" originalScreenPackage="isccs.common.address.display">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlPhoneHolder" renderHidden="false"/>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlEmailHolder" renderHidden="false"/>
+            <Link _sc_extensibility_moveOrder="14"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Phone_Number" uId="lnkEmail"/>
+            <Link _sc_extensibility_moveOrder="16"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="imgEmailLabel" uId="lnkEmail"/>
+            <Image _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="imgPhoneNo" renderHidden="false"/>
+            <Image _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="imgEmailLabel" renderHidden="false"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblName" label="$(_scSimpleBundle:extn_Company_Name)"/>
+            <Label _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblAddressLine1" uId="extn_Company_Name"/>
+            <Label _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblCountry" uId="extn_Email_ID"/>
+            <Label _sc_extensibility_moveOrder="13"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Email_ID" uId="extn_Phone_Number"/>
+            <Label _sc_extensibility_moveOrder="15"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lnkEmail" uId="lblDayPhone"/>
+            <Label _sc_extensibility_moveOrder="17"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="imgPhoneNo" uId="lblDayPhone"/>
+        </Items>
+    </ScreenDisplayExtension>
+</ExtensionMetaData>

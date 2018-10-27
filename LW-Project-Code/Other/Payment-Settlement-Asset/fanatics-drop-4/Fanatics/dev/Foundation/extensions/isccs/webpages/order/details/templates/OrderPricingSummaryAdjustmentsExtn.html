@@ -1,0 +1,33 @@
+		<div>
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lblDescription' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Label" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'spanLabel inline' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'lblAmount' , 
+		uId : 'extn_lblDescription' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Adjustments.Description'
+,
+		 dynamicBindingFunc : 			'applyCouponDesc'
+,
+		 namespace : 			'Adjustments'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

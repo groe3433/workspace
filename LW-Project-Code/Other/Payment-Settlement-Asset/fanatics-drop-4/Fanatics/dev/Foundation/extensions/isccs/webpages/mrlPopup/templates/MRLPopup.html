@@ -1,0 +1,133 @@
+<div class="sc-platform-screen-default mrlPopup">
+<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="
+						
+		spanLabel: true,
+		colspan : 1,
+		layoutAlign: 'top',
+		uId : 'extn_ManageInstructionPopup' 
+	 					">
+		 	
+   <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+ <div data-dojo-type="sc/plat/dojo/layout/AdvancedTableLayout" data-dojo-props="		showLabels : false , 
+		cols : 2 , 
+		customClass : 'tableLayout-cols-2'  
+ ">
+ <div data-dojo-type="sc/plat/dojo/widgets/Label"  data-dojo-props="		spanLabel : false,  
+		uId : 'lblPaymentDescription', 
+		scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getBundleString('extn_MRL_Fee')
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/CheckBox" data-dojo-props="uId : 'chkGiftRecipient',style : 'padding-left: 1px;',
+ 		scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			''
+,	
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.CustomAttributes.IsMRLFeeWaived'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+,
+		 checkedValue : 	{
+		 value : 			'Y'
+	}
+,
+		 sourceBinding : 	{
+		 path : 			'Order.CustomAttributes.IsMRLFeeWaived'
+,
+		 namespace : 			'extn_MRLReasonModel_output'
+	}
+,
+		 uncheckedValue : 	{
+		 value : 			'N'
+	}
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		uId : 'lblPaymentDescription'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getBundleString('extn_MRL_Fee_Waiver_Reason')
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="
+		uId : 'extn_return_reason' 
+		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : '',
+				bindingData : 	{
+		 optionsBinding : 	{
+		 valueField : 			'CodeValue'
+,
+		 path : 			'CommonCodeList.CommonCode'
+,
+		 descriptionField : 			'CodeShortDescription'
+,
+		 namespace : 			'extn_getMRLReasonCodes_output'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.CustomAttributes.MRLFeeWaiverReason'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 path : 			'Order.CustomAttributes.MRLFeeWaiverReason'
+,
+		 namespace : 			'extn_MRLReasonModel_output'
+	}
+	}
+			}
+		}">
+		 	</div>
+</div>		
+</div>
+<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="	class : 'popupNavigation messageDialogFooter'  ,	 
+		uId : 'btnReturnReason'  
+ ">
+  <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+	'class' : 'idxSecondaryButton' , 
+		showLabel : true , 
+		uId : 'extn_apply_btn'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Apply')
+			}
+		}
+"></div>
+                <div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+	'class' : 'idxSecondaryButton' , 
+		showLabel : true , 
+		uId : 'extn_cancel_btn'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Cancel')
+			}
+		}
+"></div>
+            </div>
+			</div>
+			

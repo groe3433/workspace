@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipTrack_ContainerLinesExtn"
+        extnPackage="extn.shipment.shipmentTracking.lineStatePanels.grids"
+        originalScreen="isccs.shipment.shipmentTracking.lineStatePanels.grids.ShipTrack_ContainerLines"
+        originalScreenPackage="isccs.shipment.shipmentTracking.lineStatePanels.grids" type="diffrential">
+        <Items>
+            <TitlePane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="containerLinestitlepane" title="$(_scSimpleBundle:extn_Container_Items)"/>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="tblContainerLines">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="clmProduct"
+                            field="extn_shipement_track" hidden="true"
+                            name="$(_scSimpleBundle:extn_Shipement_Tracking_Numbers)" uId="extn_shipement_track">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getTrackingNo" path="Quantity"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="2"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="clmQuantity" uId="extn_shipement_track"/>
+                        <View _sc_extensibility_moveOrder="3"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_shipement_track"
+                            field="extn_return_track" hidden="true"
+                            name="$(_scSimpleBundle:extn_Return_Shipment_Tracking_Numbers)" uId="extn_return_track"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="clmProduct"
+                            uId="clmProduct" width="50%"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

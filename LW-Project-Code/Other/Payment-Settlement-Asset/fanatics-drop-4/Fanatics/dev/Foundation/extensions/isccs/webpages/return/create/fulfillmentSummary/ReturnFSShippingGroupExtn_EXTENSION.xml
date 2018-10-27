@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnFSShippingGroupExtn"
+        extnPackage="extn.return.create.fulfillmentSummary"
+        originalScreen="isccs.return.create.fulfillmentSummary.ReturnFSShippingGroup"
+        originalScreenPackage="isccs.return.create.fulfillmentSummary" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="PrimeLineNo_FS"
+                            field="extn_product"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="70%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

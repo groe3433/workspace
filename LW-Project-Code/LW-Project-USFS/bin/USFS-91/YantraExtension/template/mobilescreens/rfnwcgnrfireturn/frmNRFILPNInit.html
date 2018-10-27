@@ -1,0 +1,37 @@
+<html>
+<body>
+<form name="frmNRFILPNInit" target="/console/rfnwcgnrfireturn.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblHeader" size="20" subtype="Label"
+					tag="binding=lblTitle" value="Enter LPN No" type="text"
+					validate="false" /></td>
+			</tr>
+
+
+			<tr>
+				<td><input col="1" name="lblLPNNo" size="9" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="LPN No" /> <input col="11"
+					inputbinding="xml:/NextReceiptNo/@ReceiptNo" name="txtLPNNo"
+					outputbinding="xml:/LPN/@LPNNo" size="15" subtype="Text"
+					tag="binding=xml:/LPN/@LPNNo" type="text" validate="true" /></td>
+			</tr>
+
+
+			<tr>
+				<td><input col="11" hotkey="F3" name="Go" size="5"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnrfireturn.ppc?action=frmNRFILPNInitValtxtLPNNo"
+					validate="false" value="Add" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

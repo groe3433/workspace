@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.mrlPopup.MRLPopupInitController" 
+    requestMethodSupported="POST" screenId="extn.mrlPopup.MRLPopup">
+	<MashupRefs>
+	<MashupRef extnType="ADD" mashupId="extn_getMRLReasonCodes"
+            mashupRefId="extn_getMRLReasonCodes" permissionId=""/>
+    </MashupRefs>
+ </Controller>
+

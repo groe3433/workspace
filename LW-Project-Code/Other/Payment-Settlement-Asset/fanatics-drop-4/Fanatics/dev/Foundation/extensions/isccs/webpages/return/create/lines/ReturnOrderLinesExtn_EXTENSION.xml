@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnOrderLinesExtn"
+        extnPackage="extn.return.create.lines"
+        originalScreen="isccs.return.create.lines.ReturnOrderLines"
+        originalScreenPackage="isccs.return.create.lines" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColProductReturnItems"
+                            field="extn_product"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="50%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTMLForReturn"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductReturnItems"
+                            hidden="true" uId="tblColProductReturnItems"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

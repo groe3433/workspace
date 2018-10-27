@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Organization
+    CapacityKeptExternally="${Organization.CapacityKeptExternally}"
+    CapacityOrganizationCode="${Organization.CapacityOrganizationCode}"
+    CatalogOrganizationCode="${Organization.CatalogOrganizationCode}"
+    InventoryKeptExternally="${Organization.InventoryKeptExternally}"
+    InventoryOrganizationCode="${Organization.InventoryOrganizationCode}"
+    InventoryPublished="${Organization.InventoryPublished}"
+    IsLegalEntity="${Organization.IsLegalEntity}"
+    LocaleCode="${Organization.LocaleCode}"
+    Operation="${Organization.Operation}"
+    OrganizationCode="${Organization.OrganizationCode}"
+    OrganizationName="${Organization.OrganizationName}"
+    ParentOrganizationCode="${Organization.ParentOrganizationCode}"
+        PrimaryEnterpriseKey="${Organization.PrimaryEnterpriseKey}">
+<CorporatePersonInfo
+        City="${Organization.CorporatePersonInfo.City}"
+        Country="${Organization.CorporatePersonInfo.Country}"
+        DayFaxNo="${Organization.CorporatePersonInfo.DayFaxNo}"
+        DayPhone="${Organization.CorporatePersonInfo.DayPhone}"
+        EMailID="${Organization.CorporatePersonInfo.EMailID}"
+        OtherPhone="${Organization.CorporatePersonInfo.OtherPhone}"
+        State="${Organization.CorporatePersonInfo.State}"
+        ZipCode="${Organization.CorporatePersonInfo.ZipCode}"/>
+<BillingPersonInfo
+        City="${Organization.BillingPersonInfo.City}"
+        Country="${Organization.BillingPersonInfo.Country}"
+        DayFaxNo="${Organization.BillingPersonInfo.DayFaxNo}"
+        DayPhone="${Organization.BillingPersonInfo.DayPhone}"
+        EMailID="${Organization.BillingPersonInfo.EMailID}"
+        OtherPhone="${Organization.BillingPersonInfo.OtherPhone}"
+        State="${Organization.BillingPersonInfo.State}"
+        ZipCode="${Organization.BillingPersonInfo.ZipCode}"/>
+<Node
+        CanShipToAllNodes="${Organization.Node.CanShipToAllNodes}"
+        InventoryTracked="${Organization.Node.InventoryTracked}"
+        Inventorytype="${Organization.Node.Inventorytype}"
+        IsFulfillmentNode="${Organization.Node.IsFulfillmentNode}"
+        IsItemBasedAllocationAllowed="${Organization.Node.IsItemBasedAllocationAllowed}"
+        IsYard="${Organization.Node.IsYard}"
+        NodeType="${Organization.Node.NodeType}"
+        ProcureToShipAllowed="${Organization.Node.ProcureToShipAllowed}"
+        ReceiptProcessingTime="${Organization.Node.ReceiptProcessingTime}"/>
+<OrgRoleList
+            Reset="${Organization.OrgRoleList.Reset}">
+<OrgRole
+        RoleKey="${Organization.OrgRoleList.OrgRole.RoleKey}"/>
+</OrgRoleList>
+<EnterpriseOrgList
+            Reset="${Organization.EnterpriseOrgList.Reset}">
+<OrgEnterprise
+        EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.EnterpriseOrganizationKey}"/>
+</EnterpriseOrgList>
+<Extn
+        ExtnCloseDate="${Organization.Extn.ExtnCloseDate}" ExtnLeadTimeOffset="${Organization.Extn.ExtnLeadTimeOffset}"/>
+</Organization>

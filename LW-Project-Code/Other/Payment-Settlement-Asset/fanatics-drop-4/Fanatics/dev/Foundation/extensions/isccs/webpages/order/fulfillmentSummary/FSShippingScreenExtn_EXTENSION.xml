@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="FSShippingScreenExtn"
+        extnPackage="extn.order.fulfillmentSummary"
+        originalScreen="isccs.order.fulfillmentSummary.FSShippingScreen"
+        originalScreenPackage="isccs.order.fulfillmentSummary" type="diffrential">
+        <Items>
+            <Button _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="changeToPickup" renderHidden="true"/>
+            <Button _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="changeAddress" disabled="true" renderHidden="true"/>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            field="extn_product"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="51%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="this method will validate if all the line is selected"
+                    eventId="changeLOS_onClick" isExtn="true" sequence="19">
+                    <Handler methodName="validateLineLevelLOS"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

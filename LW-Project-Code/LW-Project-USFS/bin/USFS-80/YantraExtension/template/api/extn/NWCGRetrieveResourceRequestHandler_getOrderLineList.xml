@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLineList TotalLineList="">
+	<OrderLine OrderHeaderKey="" OrderLineKey="" OrderedQty="" ConditionVariable1="" ConditionVariable2="" MaxLineStatus="" Status="">
+		<Extn ExtnRequestNo="" ExtnBackOrderFlag="" ExtnForwardOrderFlag="" ExtnBackorderedQty="" ExtnFwdQty="" ExtnOrigReqQty="" ExtnQtyRfi="" ExtnShippingContactName="" ExtnShippingContactPhone="" ExtnSystemOfOrigin="" ExtnUTFQty=""/>
+		<Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+		<OrderLineTranQty OrderedQty="" TransactionalUOM=""/>
+		<Order OrderHeaderKey="" OrderNo="" MaxOrderStatus="" DocumentType="" ReqDeliveryDate="">
+			<Extn ExtnIncidentNo="" ExtnIncidentYear="" ExtnNavInfo="" ExtnWillPickUpName="" ExtnWillPickUpInfo="" ExtnShippingInstructions="" ExtnShipInstrCity="" ExtnShipInstrState=""/>
+			<OrderStatuses>
+				<OrderStatus OrderLineScheduleKey="" OrderReleaseKey="" OrderReleaseStatusKey="" ReceivingNode="" ShipNode="" Status="" StatusDate="" StatusDescription="" StatusQty="" StatusReason="" TotalQuantity="">
+					<OrderStatusTranQuantity StatusQty="" TotalQuantity="" TransactionalUOM=""/>
+				</OrderStatus>
+			</OrderStatuses>
+		</Order>		
+	</OrderLine>
+</OrderLineList>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Schedule.On_Success Event XML-->
+<Order Createts="" OrderHeaderKey="" OrderNo="" OrderType="" ShipNode="" ShipToID="" >
+    <Extn />
+    <OrderLines NumberOfOrderLines="">
+        <!--1 or more order line-->
+        <OrderLine OrderLineKey="" OrderedQty="" ShipNode="" ShipToID="" SubLineNo="">
+            <Extn />
+            <Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="" UnitOfMeasure=""/>
+        </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" HttpUrl="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+</Order>

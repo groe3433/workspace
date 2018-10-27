@@ -1,0 +1,102 @@
+<%@ page import="java.util.*" %>
+<%@ include file="/extn/console/jsp/nwcg_extended_editable_table_utils.jspf" %>
+
+<%
+	String sRootNodeDifference = getParameter("RootNodeDifference");
+	if (isVoid(sRootNodeDifference)) {
+		sRootNodeDifference = null;
+	}
+	String sChildLoopParentNodeDifferenceForKey = getParameter("ChildLoopParentNodeDifferenceForKey");
+	if (isVoid(sChildLoopParentNodeDifferenceForKey)) {
+		sChildLoopParentNodeDifferenceForKey = null;
+	}
+	String sChildLoopParentNodeDifference = getParameter("ChildLoopParentNodeDifference");
+	if (isVoid(sChildLoopParentNodeDifference)) {
+		sChildLoopParentNodeDifference = null;
+	}
+	String sRootNodeName = getParameter("RootNodeName");
+	if (isVoid(sRootNodeName)) {
+		sRootNodeName = "Order";
+	}
+	String sChildLoopXMLName = getParameter("ChildLoopXMLName");
+	if (isVoid(sChildLoopXMLName)) {
+		sChildLoopXMLName = sRootNodeName + "Line";
+	}
+	String sChildLoopXMLKeyName = getParameter("ChildLoopXMLKeyName");
+	if (isVoid(sChildLoopXMLKeyName)) {
+		sChildLoopXMLKeyName = sChildLoopXMLName + "Key";
+	}
+	String sChildLoopXMLSecondaryKeyName = getParameter("ChildLoopXMLSecondaryKeyName");
+	if (isVoid(sChildLoopXMLSecondaryKeyName)) {
+		sChildLoopXMLSecondaryKeyName = "Status";
+	}
+	String sChildLoopParentXMLName = getParameter("ChildLoopParentXMLName");
+	if (isVoid(sChildLoopParentXMLName)) {
+		sChildLoopParentXMLName = sChildLoopXMLName + "s";
+	}
+	String sCheckBoxName = getParameter("CheckBoxName");
+	if (isVoid(sCheckBoxName)) {
+		sCheckBoxName = "chkEntityKey";
+	}
+	String sAppendBlankTemplates = getParameter("AppendBlankTemplates");
+	if (isVoid(sAppendBlankTemplates)) {
+		sAppendBlankTemplates = "true";
+	}
+	String sNoOfBlankTemplates = getParameter("NoOfBlankTemplates");
+	int iNoOfBlankTemplates = 9;
+	if (!isVoid(sNoOfBlankTemplates)) {
+		try {
+			iNoOfBlankTemplates = Integer.parseInt(sNoOfBlankTemplates);
+		} catch (Exception ex) {
+			iNoOfBlankTemplates = 1;
+		}
+	}
+
+	String sOperation = request.getParameter("userOperation");
+	int iNumChildLoopNodes = 0;
+	YFCElement errors = (YFCElement)request.getAttribute("YFC_EXCEPTIONXML");
+	YFCElement oNewRootNode = null;
+	YFCElement oNewChildLoopParentNode = null;
+	YFCElement oExistingRootNode = null;
+	YFCElement oExistingChildLoopParentNode = null;
+	YFCElement detailAPIRoot = (YFCElement) request.getAttribute(sRootNodeName); //Detail API Output
+
+	if (sRootNodeDifference != null) {
+		detailAPIRoot = getPathDifferenceElement(detailAPIRoot,sRootNodeDifference);
+	}
+	if(detailAPIRoot != null) 
+		if (sChildLoopParentNodeDifference != null) {
+			oExistingChildLoopParentNode = getPathDifferenceElement(detailAPIRoot,sChildLoopParentNodeDifference).getChildElement(sChildLoopParentXMLName);
+		} else {
+			oExistingChildLoopParentNode = detailAPIRoot.getChildElement(sChildLoopParentXMLName);
+		}
+		
+	if(!isVoid(errors) || equals(sOperation,"Y") || equals(sOperation,"DELETE")) {
+		YFCElement root = (YFCElement)request.getAttribute("getRequestDOMOutput");
+		if(root != null)
+		{
+			oNewRootNode = root.getChildElement(sRootNodeName);
+			if (sRootNodeDifference != null) {
+				oNewRootNode = getPathDifferenceElement(root,sRootNodeDifference);
+			}
+			if(oNewRootNode != null) {
+				oNewChildLoopParentNode = oNewRootNode.getChildElement(sChildLoopParentXMLName);
+				if (sChildLoopParentNodeDifference != null) {
+					oNewChildLoopParentNode = getPathDifferenceElement(oNewRootNode,sChildLoopParentNodeDifference).getChildElement(sChildLoopParentXMLName);
+				}
+			}
+		}
+		mergeDOM(sRootNodeName,oNewChildLoopParentNode,oExistingChildLoopParentNode,sChildLoopParentXMLName,sChildLoopXMLName,sChildLoopXMLKeyName,sChildLoopXMLSecondaryKeyName,sCheckBoxName,iNoOfBlankTemplates,sRootNodeDifference,sChildLoopParentNodeDifference,sChildLoopParentNodeDifferenceForKey);
+	} else {
+		if (equals("true",sAppendBlankTemplates)) {
+			//Need to check if it's a blank draft order.if so, add 8 blank rows
+			if(oExistingChildLoopParentNode != null) {
+				YFCNodeList oLineList = oExistingChildLoopParentNode.getElementsByTagName(sChildLoopXMLName);
+				iNumChildLoopNodes = oLineList.getLength();
+				if(iNumChildLoopNodes <= 0)
+					appendBlankTemplateNodes(oExistingChildLoopParentNode,sChildLoopXMLName,sCheckBoxName,iNoOfBlankTemplates);
+			}
+		}
+	}
+
+%>

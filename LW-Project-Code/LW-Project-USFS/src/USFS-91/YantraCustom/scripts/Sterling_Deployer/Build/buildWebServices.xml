@@ -1,0 +1,68 @@
+<!-- Copyright 2008, Sterling Commerce, Inc. All rights reserved. -->
+<project basedir="." name="Build ICBSR WebServices for deployment on an application server" default="create-war-for-icbsrws">
+
+        <property file="buildicbs.properties"/>
+        <property environment="env"/>
+        <property file="${env.YFS_HOME}/properties/sandbox.cfg" prefix="sandbox"/>
+        <property name="icbsrwsdir" location="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WebContent/"/>
+
+        <property name="tmpdir" location="${env.YFS_HOME}/tmp" />
+        <property name="icbsrwstmp" location="${env.YFS_HOME}/external_deployments/icbsrws"/>
+        <property name="icbsrwswar" location="${env.YFS_HOME}/external_deployments/ICBSRWebServices.war"/>
+        <property name="nwcgjar" location="${env.YFS_HOME}/extensions/global/jars/${project.name}.jar"/>
+		<property name="nwcgrossjar" location="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WS-ROSS80-Jar/nwcg_ross_br2.jar"/>
+        <property name="earfile" location="${env.YFS_HOME}/external_deployments/${package}.ear"/>
+
+        <target name="cleanwar">
+                <echo message="Cleaning ${icbsrwswar}"/>
+                <delete file="${icbsrwswar}"/>
+        </target>
+
+        <target name="create-war-for-icbsrws" >
+                <echo message="Building ICBSR Webservices war"/>
+                <antcall target="cleanwar"/>
+                <echo message="Deleting  ${icbsrwstmp}"/>
+                <delete dir="${icbsrwstmp}"/>
+                <echo message="Creating ${icbsrwstmp}"/>
+                <mkdir dir="${icbsrwstmp}"/>
+
+                <echo message="Copying files from ${icbsrwsdir} to {icbsrwstmp}"/>
+                <copy todir="${icbsrwstmp}" >
+                        <fileset dir="${icbsrwsdir}">
+                                <include name="**"/>
+                                <exclude name="**/CVS"/>
+                                <exclude name="META-INF/*.xml"/>
+                        </fileset>
+                </copy>
+
+                <echo message="Copying file ${nwcgjar} to {icbsrwstmp}"/>
+                <copy todir="${icbsrwstmp}/WEB-INF/lib" file="${nwcgjar}"/>
+            	<echo message="Copying file ${nwcgrossjar} to {icbsrwstmp}"/>
+            	<copy todir="${icbsrwstmp}/WEB-INF/lib" file="${nwcgrossjar}"/>
+
+                <echo message="Creating war {icbsrwswar}"/>
+                <war destfile="${icbsrwswar}" webxml="${icbsrwsdir}/WEB-INF/web.xml">
+                        <fileset dir="${icbsrwstmp}"/>
+                </war>
+
+                <echo message="Updating ear"/>
+                <antcall target="update-ear"/>
+        </target>
+
+
+
+        <target name="update-ear">
+              <echo message="Updayting smcfs.ear"/>
+
+                <copy todir="${tmpdir}/ear/meta-inf" >
+                        <fileset file="${icbsrwsdir}/META-INF/application.xml" />
+                </copy>
+
+                <ear destfile="${earfile}" appxml="${tmpdir}/ear/meta-inf/application.xml" update="true">
+                        <fileset file="${icbsrwswar}"/>
+                </ear>
+
+                <delete file="${icbsrwswar}"/>
+        </target>
+
+</project>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OrganizationList>
+	<Organization OrganizationCode="" OrganizationKey="" OrganizationName="" ParentOrganizationCode="">
+	  <CorporatePersonInfo AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" AddressLine6="" City="" Company="" Country="" DayFaxNo="" DayPhone="" EveningPhone="" FirstName="" HttpUrl="" LastName="" MiddleName="" MobilePhone="" State="" ZipCode="" />
+  </Organization>
+</OrganizationList>

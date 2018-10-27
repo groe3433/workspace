@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLine OrderHeaderKey="" ShipNode="" ReceivingNode="">
+	<Extn ExtnBaseRequestNo="" ExtnBackorderedQty="" ExtnFwdQty="" ExtnRequestNo="" ExtnQtyRfi=""/>
+    <Order BillToID="" BuyerOrganizationCode="" DocumentType="" EnterpriseCode="" SellerOrganizationCode="" 
+    	OrderType="" ReqShipDate="" ReqDeliveryDate="" ReqCancelDate="" ScacAndServiceKey="" ReceivingNode="">
+		<Extn/>
+	</Order>
+    <Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+    <PersonInfoShipTo/>
+</OrderLine>

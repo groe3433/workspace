@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Items ApplyDifferences="${ApplyDifferences}"
+    CompleteInventoryFlag="${CompleteInventoryFlag}"
+    ReasonText="${ReasonText}" ShipNode="${ShipNode}"
+    YantraMessageGroupID="${YantraMessageGroupID}">
+    <Item
+        InventoryOrganizationCode="${Item.InventoryOrganizationCode}"
+        ItemID="${Item.ItemID}" ProductClass="${Item.ProductClass}"
+                UnitOfMeasure="${Item.UnitOfMeasure}">
+        <Supplies>
+            <Supply
+                AvailabilityType="${Item.Supplies.Supply.AvailabilityType}"
+                Quantity="${Item.Supplies.Supply.Quantity}"
+                    SupplyType="${Item.Supplies.Supply.SupplyType}">
+                <Tag RevisionNo="${Item.Supplies.Supply.Tag.RevisionNo}"/>
+            </Supply>
+        </Supplies>
+    </Item>
+</Items>

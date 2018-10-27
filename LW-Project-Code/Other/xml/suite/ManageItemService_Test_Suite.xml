@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="ManageItemService Test Suite" active="Y" description="Test Suite containing the ManageItemService test cases">
+	<Tests>
+		<Test testFile="Item/LAB_Item_ManageItemService_T001.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T001.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T002.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T003.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T004.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T005.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T006.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T007.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T008.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T009.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T010.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T011.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T012.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T013.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T014.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T015.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T016.xml" />
+			<Test testFile="Item/LAB_Item_ManageItemService_T017.xml" />
+	</Tests>
+</Suite>

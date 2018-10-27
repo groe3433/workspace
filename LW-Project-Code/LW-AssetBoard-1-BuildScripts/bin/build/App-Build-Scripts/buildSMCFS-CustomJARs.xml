@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-CustomJARs" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-CustomJARs" description="build smcfs custom code jar">
+	</target>	
+	
+	<target name="buildSMCFSCustomCodeJar" description="build smcfs custom code jar">
+		<mkdir dir="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}" />
+		<javac encoding="8859_1" classpathref="project.class.path" destdir="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}" debug="true" executable="${Java.Home}/javac">
+			<src path="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src"></src>
+			<!--compilerarg value="-Xlint:all"/-->
+		</javac>
+		<tstamp>
+			<format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+		</tstamp>
+		<jar destfile="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}/${project.name}.jar" basedir="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}">
+		</jar>
+		<exec executable="${Sterling.Home}/bin/install3rdParty.${ext}" failonerror="true">
+			<arg value="${third.party.local}"/>
+			<arg value="${customjarversion}"/>
+			<arg value="-j"/>
+			<arg value="${git.fetch.dir}/${git.pull.directory}/${compilingfolder}/${customjarfolder}/${project.name}.jar"/>
+			<arg value="-targetJVM"/>
+			<arg value="EVERY"/>
+		</exec>
+	</target>
+</project>

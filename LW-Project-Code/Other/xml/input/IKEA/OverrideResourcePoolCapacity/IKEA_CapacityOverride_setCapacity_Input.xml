@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<OverrideResourcePoolCapacity>
+<ResourcePools>
+<ResourcePool
+            CapacityOrganizationCode="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.CapacityOrganizationCode}"
+            Node="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.Node}"
+                    ResourcePoolId="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ResourcePoolId}">
+<ServiceSlots>
+<ServiceSlot
+                    EndTime="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.EndTime}"
+                            StartTime="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.StartTime}">
+<Dates>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.Date}"
+                            OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.OverrideReason}"/>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.2.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.2.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.2.Date}"
+                            OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.2.OverrideReason}"/>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.3.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.3.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.3.Date}"
+                            OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.3.OverrideReason}"/>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.4.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.4.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.4.Date}"
+                            OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.4.OverrideReason}"/>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.5.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.5.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.5.Date}"
+                            OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.5.OverrideReason}"/>
+<Date
+                            Capacity="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.6.Capacity}"
+                            CapacityUnitOfMeasure="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.6.CapacityUnitOfMeasure}"
+                            Date="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.6.Date}" OverrideReason="${OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.6.OverrideReason}"/>
+</Dates>
+</ServiceSlot>
+</ServiceSlots>
+</ResourcePool>
+</ResourcePools>
+</OverrideResourcePoolCapacity>

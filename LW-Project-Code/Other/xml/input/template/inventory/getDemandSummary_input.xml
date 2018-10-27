@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DemandSummary ItemID="${DemandSummary.ItemID}"
+    OrganizationCode="${DemandSummary.OrganizationCode}"
+    ProductClass="${DemandSummary.ProductClass}"
+            UnitOfMeasure="${DemandSummary.UnitOfMeasure}">
+	<ShipNodes>
+		<ShipNode ShipNode="${DemandSummary.ShipNodes.ShipNode.ShipNode}"/>
+	</ShipNodes>
+</DemandSummary>

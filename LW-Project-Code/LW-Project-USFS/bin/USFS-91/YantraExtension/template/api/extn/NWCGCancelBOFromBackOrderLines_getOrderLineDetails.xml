@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLine OrderHeaderKey="">
+	<Extn ExtnBackorderedQty="" ExtnRequestNo=""/>
+    <Order BillToID="" BuyerOrganizationCode="" DocumentType="" EnterpriseCode="" SellerOrganizationCode="" OrderType="">
+		<Extn ExtnIncidentNo="" ExtnIncidentYear ="">
+		</Extn>
+	</Order>
+    <Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+</OrderLine>

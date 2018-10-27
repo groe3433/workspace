@@ -1,0 +1,149 @@
+<div>
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		colspan : 2 , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalInfo'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalLineInfo'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'pnlGridContainer'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalInfo' , 
+		uId : 'pnlGridContainer' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '5' , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalInfo' , 
+		uId : 'pnlGridContainer' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '6' , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalLineInfo' , 
+		uId : 'pnlGridContainer' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '7' , 
+		_sc_extensibility_referenceUId : 'pnlAdditionalInfo' , 
+		uId : 'pnlGridContainer' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '8' , 
+		_sc_extensibility_referenceUId : 'lblContainerNo' , 
+		uId : 'pnlGridContainer' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : 'lblQuantityValue' , 
+		uId : 'extn_lblCarrierValue' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('CarrierService')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.Shipment.CarrierServiceCode'
+,
+		 namespace : 			'TrackingData'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lblCarrierValue' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'pnlTrackingNo' , 
+		uId : 'extn_ship_method' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ShipmentLine.Shipment.SCAC'
+,
+		 namespace : 			'TrackingData'
+	}
+	}
+,	
+			 	label : 			this.getBundleString('extn_Shipment_Method')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '4' , 
+		_sc_extensibility_referenceUId : 'extn_ship_method' , 
+		uId : 'extn_return_tracking_no' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'ContainerDetail.Container.Extn.ExtnReturnTrackingNo'
+,
+		 namespace : 			'TrackingData'
+	}
+	}
+,	
+			 	label : 			this.getBundleString('extn_Return_Shipment_Tracking_Number')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'lblStatusValue' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		</div>

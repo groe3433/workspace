@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderListScreenExtn"
+        extnPackage="extn.order.search"
+        originalScreen="isccs.order.search.OrderListScreen"
+        originalScreenPackage="isccs.order.search" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="change"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColStatus"
+                            name="$(_scSimpleBundle:Label_Status)"
+                            uId="tblColStatus" width="11%"/>
+                        <View _sc_extensibility_moveOrder="2"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColCustomerName"
+                            field="extn_cust_Email"
+                            name="$(_scSimpleBundle:CustomerEmail)"
+                            uId="extn_cust_Email" width="15%">
+                            <BindingData>
+                                <SourceBinding path="PersonInfoBillTo.EMailID"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColZipCode"
+                            hidden="true" uId="tblColZipCode"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColAddress"
+                            hidden="true" uId="tblColAddress"/>
+                        <View _sc_extensibility_moveOrder="3"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColOrderDate"
+                            field="extn_approval_date" hidden="false"
+                            name="$(_scSimpleBundle:extn_Approval_Date1)"
+                            uId="extn_approval_date" width="15%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="CustomUtils"
+                                    dynamicBindingFunc="getDateFromOrderDate"
+                                    dynamicBindingPackage="extn.utils" path="FRAUD_APPROVAL_DATE"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColCustomerName"
+                            hidden="false" uId="tblColCustomerName" width="14%"/>
+                        <View _sc_extensibility_moveOrder="4"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_approval_date"
+                            field="extn_webstore"
+                            name="$(_scSimpleBundle:extn_Webstore1)"
+                            uId="extn_webstore" width="11%">
+                            <BindingData>
+                                <SourceBinding path="SellerOrganizationName"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColOrderDate"
+                            hidden="true" uId="tblColOrderDate"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColOrderNo"
+                            hidden="true" uId="tblColOrderNo" width="11%"/>
+                        <View _sc_extensibility_moveOrder="5"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColCustomerName" uId="tblColStatus"/>
+                        <View _sc_extensibility_moveOrder="6"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColOrderDate"
+                            field="extn_order_date"
+                            name="$(_scSimpleBundle:extn_Order_Date)"
+                            uId="extn_order_date" width="15%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="CustomUtils"
+                                    dynamicBindingFunc="getDateFromOrderDate"
+                                    dynamicBindingPackage="extn.utils" path="OrderDate"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="7"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColStatus"
+                            field="extn_order_no" hidden="false"
+                            linkField="true"
+                            name="$(_scSimpleBundle:extn_Order_Number)"
+                            uId="extn_order_no" width="10%">
+                            <BindingData>
+                                <SourceBinding path="CustomAttributes.CustomerOrderNo"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColOrderTotal"
+                            uId="tblColOrderTotal" width="11%"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

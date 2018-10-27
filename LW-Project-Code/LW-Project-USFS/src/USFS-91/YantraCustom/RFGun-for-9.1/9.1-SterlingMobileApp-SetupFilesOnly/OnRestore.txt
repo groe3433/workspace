@@ -1,0 +1,10 @@
+\Windows\wceload.exe /noaskdest /delete 0 \Application\StartUpCtl\OnRestore\NETCFv2.wce5.armv4i.cab
+wait
+\Windows\wceload.exe /noaskdest /delete 0 \Application\StartUpCtl\OnRestore\YantraMobileApp_WCE4_5.ARMV4.CAB
+wait
+\application\warmboot.exe
+
+
+
+
+

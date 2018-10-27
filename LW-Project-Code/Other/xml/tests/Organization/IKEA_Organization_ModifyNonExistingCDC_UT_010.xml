@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_ModifyNonExistingCDC_UT_010" Description="modify CDC which doesn't exist.">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:Api Name="modifyOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_modifyOrganization_CDC_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Parameters>
+				<p1:Parameter Key="Organization.CorporatePersonInfo.ZipCode" Type="INPUT" Value="PE2 9EV" /> 
+			</p1:Parameters>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Api Name="getOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrganization_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_getOrganizationHierarchy_output.xml"
+					Location="resources/xml/output/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+			<p1:Validate ValidationType="XPATH" Expected="YFS10001" Path="//@ErrorCode"> </p1:Validate>
+			</p1:Validations>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="CDC.269-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+  </p:Parameters>
+</p:TestCase>

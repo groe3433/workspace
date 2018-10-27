@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM Sterling Selling and Fulfillment Suite - Foundation
+(C) Copyright IBM Corp. 2006, 2012 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!-- RELEASE.ON_CANCEL event xml -->
+<Order AllAddressesVerified="" AllocationRuleID=""
+    AuthorizationExpirationDate="" AutoCancelDate="" BillToID=""
+    BuyerOrganizationCode="" CarrierAccountNo="" CarrierServiceCode=""
+    ChargeActualFreightFlag="" CustomerEMailID="" CustomerPONo=""
+    DeliveryCode="" Division="" DocumentType="" DraftOrderFlag=""
+    EnteredBy="" EnterpriseCode="" EntryType="" FreightTerms=""
+    HoldFlag="" HoldReasonCode="" MaxOrderStatus=""
+    MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc=""
+    NotificationReference="" NotificationType=""
+    NotifyAfterShipmentFlag="" OrderDate="" OrderHeaderKey=""
+    OrderName="" OrderNo="" OrderType="" OriginalTax=""
+    OriginalTotalAmount="" OtherCharges="" PaymentStatus=""
+    PersonalizeCode="" PriceProgramKey="" PriorityCode=""
+    PriorityNumber="" Purpose="" ReceivingNode="" ReqCancelDate=""
+    ReqDeliveryDate="" ReqShipDate="" SCAC="" ScacAndService=""
+    ScacAndServiceKey="" SearchCriteria1="" SearchCriteria2=""
+    SellerOrganizationCode="" ShipCompleteFlag="" ShipToID="" Status=""
+    TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction=""
+    TaxPayerId="" TermsCode="" TotalAdjustmentAmount="" isHistory="">
+    <OrderLines>
+        <!--ChangeInOrderedQty is returned with sign. In case of this event it should always come with negative sign. -->
+        <OrderLine Action="" AllocationDate=""
+            BackorderNotificationQty="" CarrierAccountNo=""
+            CarrierServiceCode="" ChangeInOrderedQty=""
+            CustomerLinePONo="" CustomerPONo="" DeliveryCode=""
+            DepartmentCode="" FreightTerms="" HoldFlag=""
+            HoldReasonCode="" ImportLicenseExpDate="" ImportLicenseNo=""
+            InvoicedQty="" IsFirmPredefinedNode="" KitCode=""
+            LineSeqNo="" LineType="" MaxLineStatus=""
+            MaxLineStatusDesc="" MinLineStatus="" MinLineStatusDesc=""
+            OpenQty="" OrderHeaderKey="" OrderLineKey="" OrderedQty=""
+            OrigOrderLineKey="" OriginalOrderedQty="" OtherCharges=""
+            PackListType="" PersonalizeCode="" PersonalizeFlag=""
+            PickableFlag="" PrimeLineNo="" Purpose="" ReceivingNode=""
+            RemainingQty="" ReqCancelDate="" ReqDeliveryDate=""
+            ReqShipDate="" ReservationID="" ReservationMandatory=""
+            ReservationPool="" SCAC="" ScacAndService=""
+            ScacAndServiceKey="" ShipNode="" ShipToID=""
+            ShipTogetherNo="" SplitQty="" Status="" StatusQuantity=""
+            SubLineNo="" isHistory="">
+            <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+                CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
+                ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ManufacturerItem=""
+                ManufacturerItemDesc="" ManufacturerName="" NMFCClass=""
+                NMFCCode="" NMFCDescription="" ProductClass=""
+                ProductLine="" ScheduleBCode="" SupplierItem=""
+                SupplierItemDesc="" TaxProductCode="" UPCCode=""
+                UnitCost="" UnitOfMeasure=""/>
+            <LineOverallTotals Charges="" Discount="" ExtendedPrice=""
+                LineTotal="" Tax="" UnitPrice=""/>
+            <LinePriceInfo ChangeInLineTotal="" LineTotal=""/>
+            <StatusBreakupForCanceledQty>
+                <CanceledFrom OrderLineScheduleKey="" OrderReleaseKey=""
+                    OrderReleaseStatusKey="" Quantity="" Status=""
+                    StatusDate="" StatusDescription="">
+                    <Details ExpectedDeliveryDate=""
+                        ExpectedShipmentDate="" ReceivingNode=""
+                        ShipByDate="" ShipNode="" TagNumber=""/>
+                </CanceledFrom>
+            </StatusBreakupForCanceledQty>
+			<OrderStatuses>
+				<OrderStatus
+					Status="" StatusDescription="" StatusQty=""
+					TotalQuantity=""/>
+			</OrderStatuses>
+        </OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PersonInfoBillTo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <PriceInfo ChangeInTotalAmount="" Currency="" EnterpriseCurrency=""
+        ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+	<HeaderCharges>
+		<HeaderCharge ChargeAmount="" ChargeCategory="" />
+    </HeaderCharges>
+	<OrderStatuses>
+        <OrderStatus
+            Status="" StatusDescription="" StatusQty=""
+            TotalQuantity=""/>
+    </OrderStatuses>
+</Order>

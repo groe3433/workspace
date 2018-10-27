@@ -1,0 +1,72 @@
+		<div>
+		 	<div data-dojo-type="idx/form/CheckBoxList" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'ckListStatus' , 
+		renderHidden : true , 
+		disabled : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/CheckBoxList" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		spanLabel : true , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'btnApplyFilter' , 
+		scExcludeForDirtyCheck : true , 
+		uId : 'extn_ckListStatus' , 
+		renderHidden : false , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('Exclude')
+,	
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 path : 			'Note.Exclude'
+,
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 namespace : 			'getNoteList_input'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 namespace : 			'screenInput'
+	}
+,
+		 checkBoxListBinding : 	{
+		 options : 	[
+	 		{
+		 value : 			'Priority'
+,
+		 label : 			this.getSimpleBundleString('Include_Lower_Priority_Notes')
+,
+		 scExtensibilityArrayItemId : 			'extn_CheckBoxListBinding_0'
+	}
+,
+	 		{
+		 value : 			'UserNote'
+,
+		 label : 			this.getSimpleBundleString('Option_User')
+,
+		 scExtensibilityArrayItemId : 			'extn_CheckBoxListBinding_1'
+	}
+,
+	 		{
+		 value : 			'SystemNote'
+,
+		 label : 			this.getSimpleBundleString('System')
+,
+		 scExtensibilityArrayItemId : 			'extn_CheckBoxListBinding_2'
+	}
+	]
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

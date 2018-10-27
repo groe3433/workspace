@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="Location" Binding="/Location/@LocationId" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="Barc0001" Binding="/Location/@LocationId" RepeatingElement="" Sequence="N"/>
+</LabelFieldMap>

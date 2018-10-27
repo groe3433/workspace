@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shipment ActualDeliveryDate=" " ActualFreightCharge=" "
+    ActualShipmentDate=" " AppointmentNo=" " 
+    BolNo=" " BuyerOrganizationCode=" " CarrierAccountNo=" "
+    CarrierServiceCode=" " CarrierType=" " Code=" " CommercialValue=" "
+       Currency=" "
+    DeliveryCode=" " DeliveryPlanKey=" " DeliveryTS=" "
+    DestinationZone=" " DownLoadCount=" " EnterpriseCode=" "
+    ExpectedDeliveryDate=" " ExpectedShipmentDate=" "
+    ExportTaxpayerID=" " FreightTerms=" " FromAddressKey=" "
+    FromAppointment=" " HasOtherShipments=" " HazardousMaterialFlag=" "
+    HeldForConfirmation=" " ITDate=" " ITNo=" " 
+    ManifestKey=" " ManifestNo=" "   
+    NextAlertTs=" " NumOfCartons=" " NumOfPallets=" "
+    DocumentType=" " OrderHeaderKey="" OriginZone=" " PackListType=" "
+    ParentShipmentKey=" " PickListNo=" " PickticketNo=" "
+    PipelineKey=" " PodNo=" " ProNo=" " ReceivingNode=" " SCAC=" "
+    SealNo=" " SellerOrganizationCode=" " ShipDate=" " ShipMode=" "
+    ShipNode=" " ShipVia=" " ShipmentClosedFlag=" "
+    ShipmentConfirmUpdatesDone=" " ShipmentContainerizedFlag=" "
+    ShipmentDeliverUpdatesDone=" " ShipmentKey=" " ShipmentNo=" "
+    ShipmentPlannedFlag=" " ShipmentType=" " Status=" " StatusDate=" "
+    ToAddressKey=" " ToAppointment=" " TotalActualCharge=" "
+    TotalEstimatedCharge=" " TotalVolume=" " TotalVolumeUOM=" "
+    TotalWeight=" " TotalWeightUOM=" " TrackingNo=" " TrailerNo=" ">
+    <Extn />
+    <ShipmentLines>
+        <ShipmentLine  ShipmentLineKey=" " ItemID=" " OrderHeaderKey=" " ShipmentKey=" " UnitOfMeasure=" " ShipmentLineNo=" " SubLineNo=" " ItemDesc=" " Segment=" " SegmentType=" " isHistory="" ChainedFromOrderLineKey=" " ChainedFromOrderHeaderKey=" " OrderLineKey=" " OrderReleaseKey=" " OrderNo=""  ActualQuantity=" " Quantity="">
+		<ShipmentLineInvAttRequest LotNumber=" " LotKeyReference=" " ManufacturingDate=" " LotAttribute1=" " LotAttribute2=" " LotAttribute3=" " RevisionNo=" " BatchNo=" "/>
+			<ShipmentTagSerials TotalNumberOfRecords="">
+				<ShipmentTagSerial Quantity=" " SerialNo=" " ShipByDate=" " ShipmentLineKey=" " ShipmentTagSerialKey=" " RevisionNo=" " BatchNo=" " LotNumber=" " LotKeyReference=" " ManufacturingDate=" " LotAttribute1=" " LotAttribute2=" " LotAttribute3=" " />
+			</ShipmentTagSerials>
+			<Instructions>
+                <Instruction   
+                    InstructionDetailKey="" InstructionText=" "
+                    InstructionType=" " InstructionURL=" "
+                    InstructionUsage=" "  
+                      ReferenceKey=" "
+                    SequenceNo=" " TableName=" "/>
+		    </Instructions>
+        </ShipmentLine>
+    </ShipmentLines>
+</Shipment>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<NodeTransferSchedule
+    EffectiveFromDate="${NodeTransferSchedule.EffectiveFromDate}"
+    EffectiveToDate="${NodeTransferSchedule.EffectiveToDate}"
+    FridayShip="${NodeTransferSchedule.FridayShip}"
+    FromNode="${NodeTransferSchedule.FromNode}"
+    MondayShip="${NodeTransferSchedule.MondayShip}"
+    Operation="${NodeTransferSchedule.Operation}"
+    SaturdayShip="${NodeTransferSchedule.SaturdayShip}"
+    SundayShip="${NodeTransferSchedule.SundayShip}"
+    ThursdayShip="${NodeTransferSchedule.ThursdayShip}"
+    ToNode="${NodeTransferSchedule.ToNode}"
+    TransitDays="${NodeTransferSchedule.TransitDays}"
+    TuesdayShip="${NodeTransferSchedule.TuesdayShip}" WednesdayShip="${NodeTransferSchedule.WednesdayShip}"/>

@@ -1,0 +1,829 @@
+<?xml version="1.0"?>
+<project name="Generic Build Script For Consulting Projects" default="build-LM-release" basedir=".">
+<!-- Build file for Yantra Consulting projects -->
+
+<!--Initialization Block-->
+    <property file="buildt.properties" />
+
+    <import file="${appserver.build.file}" />
+
+    <import file="build_implementationt.xml" />
+
+    <path id="project.class.path">
+        <path refid="implementation.class.path" />
+
+        <path refid="yantra.class.path" />
+    </path>
+
+	
+<!--End Initialization Block-->
+
+	<target name="build-LM-release" description="Fetch, and prepare build files for release">
+	
+       	        <echo>Building yantra.ear</echo>
+		<tstamp>
+	            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        	</tstamp>
+
+                <!-- Cleans out YantraCustom directory -->
+      		<antcall target="clean" />
+
+		<!-- Fetches the source files from the CVS and put it in the corresponding folders -->
+		<antcall target="cvs-fetch" />
+
+		<!-- Use CDT to export DB into XMLs -->
+		<antcall target="cdt-export" /> 
+       
+		<!-- Zips the CDT xmls into a CDT.zip file -->
+		<zip destfile="${project.yantracustom.dir}/database/cdt/CDT.zip">
+        		<zipfileset dir="${project.yantracustom.dir}/database/cdt" >
+                		<include name="*.xml" />
+            		</zipfileset>
+        	</zip>
+	
+		<!--Delete the cdt xmls from the cdt folder-->
+       	        <echo>Delete the cdt xmls from the cdt folder</echo>
+        	<delete>
+              		<fileset dir="${project.yantracustom.dir}/database/cdt">
+                  		<include name="*.log" />
+                  		<include name="*.xml" />
+              		</fileset>
+        	</delete>
+
+		<antcall target="zip-LM" />
+       	        <echo>Completed building yantra.ear</echo>
+	</target>
+
+
+	<target name="zip-LM" description="Zip up files for release">
+
+       	        <echo>Creating ear: zip-LM target</echo>
+		<antcall target="make-jar" />
+
+		<zip destfile="${release.archive.name}">
+        		<zipfileset dir="${project.yantracustom.dir}/database/cdt" prefix="YantraCustom/database/cdt">
+				<exclude name="dummy.txt" />
+			</zipfileset>
+                	<!--<zipfileset dir="${project.yantracustom.dir}/data/" prefix="YantraCustom/data"> -->
+                           <!--     <exclude name="dummy.txt" /> -->
+                        <!--</zipfileset> -->
+
+			<!--<zipfileset dir="${project.yantracustom.dir}/dist" prefix="YantraCustom/dist">-->
+				<!--<file  name="${project.yantracustom.dir}/dist/${project.name}.jar" />-->
+                        <!--</zipfileset>-->
+
+                	<zipfileset dir="${project.yantracustom.dir}/database/sql" prefix="YantraCustom/database/sql">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+                	<zipfileset dir="${project.yantracustom.dir}/WebContent" prefix="YantraCustom/WebContent">
+                                <exclude name="CVS" />
+                        </zipfileset>
+        		<zipfileset dir="${project.yantraextn.dir}/resources/extn" prefix="YantraExtension/resources/extn">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+            		<zipfileset dir="${project.yantraextn.dir}/descriptors/websphere" prefix="YantraExtension/descriptors/websphere">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+            		<zipfileset dir="${project.yantraextn.dir}/template/" prefix="YantraExtension/template">
+                                <exclude name="dummy.txt" />
+				<exclude name="monitor/extn/dummy.txt" />
+                        </zipfileset>
+            		<zipfileset dir="${project.yantraextn.dir}/webpages/" prefix="YantraExtension/webpages">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+            		<zipfileset dir="${project.yantraextn.dir}/database/entities" prefix="YantraExtension/database/entities">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+			<zipfileset dir="${project.yantraextn.dir}/extn/" prefix="YantraExtension/extn">
+                                <exclude name="dummy.txt" />
+                        </zipfileset>
+			<zipfileset dir="${project.yantracustom.dir}/dist" includes="${project.name}.jar" prefix="YantraCustom/lib" />
+			<zipfileset dir="${project.yantracustom.dir}/dist" includes="NWCGversion.txt" prefix="YantraCustom/lib" />
+        	</zip>
+       	        <echo>Completed zip-LM target</echo>
+
+	</target>
+
+
+
+	<target name="clean" description="Deletes directories">
+		<!-- Clean the existing temporary,release and other 
+                        folders for customized code-->
+        <!--<antcall target="-pre-clean" />-->
+
+	<!--Delete the YantraCustom dir excluding the build scripts -->
+	 <echo>Deleting ${project.yantracustom.dir}</echo>
+
+	<delete includeemptydirs="true">
+		<fileset dir="${project.yantracustom.dir}">
+			<include name="**/*"/>
+			<exclude name="**/scripts/*"/>
+			<!-- <exclude name="**/database/*"/>  -->
+		</fileset>
+	</delete>
+
+	<!-- Delete the Extension dir>i-->
+        <echo>Deleting ${project.yantraextn.dir}</echo> 
+	<delete dir="${project.yantraextn.dir}"/>
+		
+        <delete dir="${env.YFS_HOME}/database/entities/extensions" />
+		
+	<delete dir="${env.YFS_HOME}/webpages/extn" />
+
+        <delete dir="${env.YFS_HOME}/resources/extn" />
+
+        <delete dir="${env.YFS_HOME}/template/api/extn" />
+
+        <delete dir="${env.YFS_HOME}/template/prints/label/extn" />
+
+        <delete dir="${env.YFS_HOME}/template/xsl/extn" />
+	
+<!--	<delete>
+		<fileset dir="${env.YFS_HOME}/resources/ydkresources">
+			<include name="ydkprefs.xml"/>
+			<include name="ydkconfig.xml"/>
+			<include name="*.DEV"/>
+		</fileset>
+	</delete>     -->   
+        <echo>Completed clean</echo> 
+    </target>
+
+    <target name="make-dir" description="Creates Required directories">
+		<!-- Make new directories for the source files 
+                        and extension folders in Yantra -->
+        <mkdir dir="${project.yantracustom.dir}" />
+        <mkdir dir="${project.yantraextn.dir}" />
+        
+        <mkdir dir="${env.YFS_HOME}/database/entities/extensions" />
+
+	<mkdir dir="${env.YFS_HOME}/webpages/extn" />
+
+        <mkdir dir="${env.YFS_HOME}/resources/extn" />
+
+        <mkdir dir="${env.YFS_HOME}/template/api/extn" />
+
+        <mkdir dir="${env.YFS_HOME}/template/prints/label/extn" />
+
+        <mkdir dir="${env.YFS_HOME}/template/xsl/extn" />
+
+
+        <antcall target="-post-make-dir" />
+    </target>
+
+    <target name="cvs-fetch" description="Get Latest Source Files From CVS" unless="build.cvs.donofetch">
+		<!-- Fetches the source files from the CVS and put it in the corresponding folders -->
+	<!-- Need to delete the directory. If we are deleting the directory, then cvs command is not fentching all the files -->
+	<echo> Deleting YantraCustom/src directory</echo>
+        <delete dir="${cvs.fetch.dir}/USFS/YantraCustom/src" />
+
+        <!-- <antcall target="cvs-fetch-custom" />  -->
+	<exec dir="${cvs.fetch.dir}" executable="cvs">
+		<arg value="co" />
+		<arg value="-r"/>
+                <arg value="${cvs.branch}"/>
+		<arg value="${cvs.project.name}/YantraCustom" />
+	</exec>
+
+	<echo>Fetching YantraExtension into ${cvs.project.name}/YantraExtension </echo>	 
+        <!-- Fetch the YantraExtension -->
+        <exec dir="${cvs.fetch.dir}" executable="cvs">
+              <arg value="co" />
+              <arg value="-r"/>
+              <arg value="${cvs.branch}"/>
+              <arg value="${cvs.project.name}/YantraExtension" />
+        </exec>
+
+        <antcall target="cvs-fetch-docs" />
+        
+        <antcall target="-post-cvs-fetch" />
+    </target>
+    
+    <target name="cvs-fetch-docs" description="Get the docs from CVS" unless="build.cvs.donotfetchdocs">
+              <!-- Fetch the ProjectDocs -->
+       	<echo>Fetching the docs from CVS</echo>
+        <exec dir="${cvs.fetch.dir}" executable="cvs">
+           <arg value="co" />
+           <arg value="${cvs.project.name}/ProjectDocs" />
+        </exec>
+       	<echo>Fetched the docs from CVS</echo>
+    </target>
+
+    <target name="compile" description="Compile java code">
+		<!-- Compile the java source files -->
+       	<echo>Compiling the java code with ${JAVA_HOME}</echo>
+        <mkdir dir="${project.yantracustom.dir}/dist/classes" />
+
+        <javac srcdir="${project.yantracustom.dir}/src" destdir="${project.yantracustom.dir}/dist/classes">
+		<!-- fork="yes" executable="/was_home/was_61/java/bin/javac" compiler="javac1.5" > -->
+            <classpath refid="project.class.path" /> 
+        </javac>
+       	<echo>Compiled the java code</echo>
+    </target>
+
+    <target name="make-jar" description="Make Jar" depends="compile">
+		<!-- Makes the project jar file -->
+		<!--Create version file -->
+		<echo file="${project.yantracustom.dir}/dist/NWCGversion.txt">Release Version: ${project.name} V ${release.version}
+Release Date: ${NOW}</echo>
+
+		<!--Copy the version.txt-->
+        <copy file="${project.yantracustom.dir}/dist/NWCGversion.txt" todir="${project.yantracustom.dir}/dist/classes" />
+
+        <jar destfile="${project.yantracustom.dir}/dist/${project.name}.jar" basedir="${project.yantracustom.dir}/dist/classes">
+            <manifest>
+                <attribute name="Built-By" value="${user.name}" />
+
+                <section name="version-information">
+                    <attribute name="Version" value="${release.version}" />
+
+                    <attribute name="Date" value="${NOW}" />
+                </section>
+            </manifest>
+        </jar>
+        <!-- this call will build up the configuration extenssion jar -->
+    <antcall target="build-config-jar" />
+    </target>
+	
+	<target  name="build-config-jar" description="Creates the configurator customization jar" depends="compile">
+       <!-- Build jar file-->
+       <jar basedir="${project.yantracustom.dir}/dist/classes" includes="**/NWCGYCMItemNodeDefnDtl.class" destfile="${project.yantracustom.dir}/dist/yfsextn.jar" update="on"/>
+       <!-- Copy the jar file -->
+       <copy file="${project.yantracustom.dir}/dist/yfsextn.jar" todir="${env.YFS_HOME}/extn/ui" failonerror="No"/>
+       <copy file="${project.yantracustom.dir}/dist/yfsextn.jar" todir="${env.YFS_HOME}/webpages/yfscommon" failonerror="No"/>
+       <copy file="${project.yantracustom.dir}/dist/yfsextn.jar" todir="${env.YFS_HOME}/lib" failonerror="No"/>
+            
+
+    </target>
+	
+    <target name="copy-project-files" description="Deploys the project files in the relevant folders of Yantra Installation">
+		<!--  Copies the project specific files to the Yantra installation -->
+        <antcall target="-pre-copy-files" />
+
+		<!--Copy webpages-->
+        <copy todir="${env.YFS_HOME}/webpages/extn">
+            <fileset dir="${project.yantraextn.dir}/webpages/extn">
+                <exclude name="**/CVS" />
+            </fileset>
+        </copy>
+        
+		<!--required for the configurator customization -->
+		
+		<copy file="${project.yantraextn.dir}/webpages/yfscommon/jarlist.txt" todir="${env.YFS_HOME}/webpages/yfscommon" failonerror="No"/>
+        
+		<!--Copy templates-->
+        <echo>Copy the project specific template to /template folder of Yantra</echo>
+
+        <copy todir="${env.YFS_HOME}/template">
+            <fileset dir="${project.yantraextn.dir}/template">
+                <exclude name="**/CVS" />
+            </fileset>
+        </copy>
+
+		<!--Copy Database-->
+        <echo>Copy the project specific database to /database folder of Yantra</echo>
+
+        <copy todir="${env.YFS_HOME}/database">
+            <fileset dir="${project.yantraextn.dir}/database">
+                <exclude name="**/CVS" />
+            </fileset>
+        </copy>
+
+		<!--Copy resource -->
+        <echo>Copy the project specific resources to /resources/extn folder of Yantra</echo>
+
+        <copy todir="${env.YFS_HOME}/resources/extn">
+            <fileset dir="${project.yantraextn.dir}/resources/extn">
+                <exclude name="**/CVS" />
+            </fileset>
+        </copy>
+
+		<copy todir="${env.YFS_HOME}/extn">
+            <fileset dir="${project.yantraextn.dir}/extn">
+                <exclude name="**/CVS" />
+            </fileset>
+        </copy>
+        
+		<!--Copy resource bundle to webpages for configurator
+        <echo>Copy the resource bundle to webpages for configurator</echo>
+
+        <copy todir="${env.YFS_HOME}/webpages/extn">
+            <fileset dir="${project.yantraextn.dir}/resources/extn">
+                <exclude name="**/CVS" />
+                <include name="*.properties" />
+            </fileset>
+        </copy>-->
+
+		<!--Copy Project jar and utils jar file \WEB-INF\Lib
+        <echo>Copy the project jar and utils jar file folder to Yantra webpages\WEB-INF\lib</echo>
+
+        <copy todir="${env.YFS_HOME}/webpages/WEB-INF/lib">
+            <fileset dir="${project.yantracustom.dir}/dist">
+                <include name="${project.name}.jar" />
+            </fileset>
+        </copy>-->
+
+        <echo>Copy the project jar and utils jar file folder to Yantra extn folder</echo>
+
+        <copy todir="${env.YFS_HOME}/extn">
+            <fileset dir="${project.yantracustom.dir}/dist">
+                <include name="${project.name}.jar" />
+            </fileset>
+        </copy>
+
+	<echo>Copy the deployment descriptors to the /descriptors folder of Yantra</echo>
+	<copy todir="${env.YFS_HOME}/descriptors">
+	    <fileset dir="${project.yantraextn.dir}/descriptors">
+		<exclude name="**/CVS"/>
+	    </fileset>
+	</copy>
+
+	<echo>Copy the ydk resources to the /resources/ydkresources folder</echo>
+	<copy todir="${env.YFS_HOME}/resources/ydkresources">
+	     <fileset dir="${project.yantraextn.dir}/resources/ydkresources">
+	 	<exclude name="**/CVS"/>
+	     </fileset>
+	</copy>
+	<!--Copy the version.txt from bin to webpages/extn required by the get_implementation_version.jsp -->
+	<antcall target="copy-version-txt" />
+	<antcall target="copy-build-properties" />
+	
+	<antcall target="-post-copy-files" />
+  </target>
+  
+  	<target name="build-ear" unless="build.donotbuildear">
+		<!--Builds the ear through Yantra's create-ear task-->
+		<antcall target="-pre-create-ear" />
+        	<antcall target="create-ear" />
+	        <antcall target="-post-create-ear" />
+	</target>
+	
+	<target name="build-project-clean">
+		<!-- Cleans the directories,fetches the code from CVS
+                Compiles and puts the corresponding files
+                in the Yantra installation and invokes build script of app server-->
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>
+
+        <echo>Build Starting At: ${NOW}</echo>
+
+        <antcall target="-pre-build-project-clean" />
+
+        <antcall target="clean" />
+
+        <antcall target="make-dir" />
+
+        <antcall target="cvs-fetch" />
+
+        <antcall target="-do-base-build" />
+
+        <antcall target="invoke-db-extn" />
+	
+     	<antcall target="alter-db" />
+		
+	<antcall target="db-dump-backup"/>
+	
+	<antcall target="cdt-export-backup"/>
+	
+	<antcall target="cdt-import-frombackup"/>	
+
+	<antcall target="build-ear"/>
+
+        <antcall target="-post-build-project-clean" />
+
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>
+
+        <echo>Build Completed At: ${NOW}</echo>
+    </target>
+
+    <target name="build-project-dev">
+		<!--  A developer's daily build task. Just fetches from CVS
+		makes the jar file and copies the files into YFS_HOME directories-->
+        <antcall target="-pre-build-project-dev" />
+
+        <antcall target="-do-base-build" />
+
+        <antcall target="-post-build-project-dev" />
+    </target>
+
+    <target name="-do-base-build" description="Runs the common build tasks">
+        <antcall target="make-jar" />
+
+       <!--Copy version.txt to webpages/extn-->
+        <copy file="${project.yantracustom.dir}/dist/NWCGversion.txt" todir="${project.yantraextn.dir}/webpages/extn" />
+
+        <antcall target="copy-project-files" />
+
+        <antcall target="db-verify" />
+	
+	
+    </target>
+
+	<target name="invoke-db-extn" unless="build.donotdbextn">
+		<antcall target="db-extn"/>
+	</target>
+
+    <target name="create-release" description="Creates a Release">
+		<!--Makes the release directory containing db dump,custom source code,library files,build files,
+            and other custom stuff-->
+        <tstamp>
+            <format property="NOW" pattern="EEE, MMMM dd yyyy hh:mm aa z" />
+        </tstamp>
+
+        <antcall target="-pre-release" />
+
+        <antcall target="clean" />
+
+        <antcall target="make-dir" />
+
+        <antcall target="cvs-fetch" />
+
+        <antcall target="-do-base-build" />
+
+		<!--Apply DBVerify scripts before exporting DB dump -->
+        <antcall target="alter-db" />
+
+        <antcall target="db-dump-export" />
+
+        <antcall target="cdt-export" />
+
+        <delete file="${release.archive.name}" />
+
+        <zip destfile="${release.archive.name}">
+            <zipfileset dir="${project.yantracustom.dir}/database/dump" prefix="db/dump" />
+
+            <zipfileset dir="${project.yantracustom.dir}/database/cdt" prefix="db/cdt" />
+
+            <zipfileset dir="${project.yantracustom.dir}/dist/" prefix="db/sql" includes="*.sql" />
+
+            <zipfileset dir="${project.yantracustom.dir}/src" prefix="src" />
+
+			<zipfileset dir="${project.yantracustom.dir}/build" prefix="samplebuildscripts"/>
+
+			<zipfileset dir="${project.yantracustom.dir}/dist" prefix="${release.yantra.dir}/lib" includes="${project.name}.jar" />
+            
+            <zipfileset dir="${project.yantraextn.dir}/resources/extn" prefix="${release.yantra.dir}/resources/extn" />
+
+            <zipfileset dir="${project.yantraextn.dir}/descriptors" prefix="${release.yantra.dir}/descriptors" />
+            
+            <zipfileset dir="${project.yantraextn.dir}/template/" prefix="${release.yantra.dir}/template" />
+
+            <zipfileset dir="${project.yantraextn.dir}/webpages/" prefix="${release.yantra.dir}/webpages" />
+
+            <zipfileset dir="${project.yantraextn.dir}/database/entities" prefix="${release.yantra.dir}/database/entities" />
+        </zip>
+
+        <antcall target="-post-release" />
+    </target>
+
+    <target name="db-verify" description="Runs DBVerify to generate the DDL scripts" unless="build.donotdbverify">
+		<!-- Runs Yantra dbverify command-->
+        <java fork="true" classname="com.yantra.tools.dbverify.DbVerifyCommandLine">
+            <arg value="-b" />
+
+            <arg value="${env.YFS_HOME}" />
+
+            <arg value="-u" />
+
+            <arg value="${db.mc.user}" />
+
+            <arg value="-p" />
+
+            <arg value="${db.mc.password}" />
+
+            <arg value="-d" />
+
+            <arg value="${db.mc.jdbcdriver}" />
+
+            <arg value="-url" />
+
+            <arg value="${db.mc.jdbcurl}" />
+
+            <arg value="-g" />
+
+            <arg value="Y" />
+
+            <arg value="-DT" />
+
+            <arg value="${env.YFS_HOME}/template/api/YFSDataTypes.xml" />
+
+            <classpath refid="yantra.class.path" />
+        </java>
+
+		<!--DBVerify would have generated the files in the direcoty in which the build is run from
+        i.e. current directory. We shall move it to dist directory-->
+        <move todir="${project.yantracustom.dir}/dist">
+            <fileset dir=".">
+                <include name="*.sql" />
+            </fileset>
+        </move>
+    </target>
+
+    <target name="db-dump-export" description="Export database scripts and creates the dump file" unless="build.donotexportdb">
+		<!-- Exports master DB data to a dump file -->
+        <delete>
+           <fileset dir="${project.yantracustom.dir}/database/dump">
+                <include name="*.dmp" />
+                <include name="*.log" />
+                <include name="*.zip" />
+            </fileset>
+        </delete>
+
+        <mkdir dir="${project.yantracustom.dir}/database/dump" />
+		<tstamp/>
+        <exec executable="exp" failonerror="yes">
+            <arg value="${db.export.user}/${db.export.password}@${db.export.sid} Consistent=Y statistics=NONE feedback=50000 log=${project.yantracustom.dir}/database/dump/exp.log file=${project.yantracustom.dir}/database/dump/${project.name}_DB_${DSTAMP}${TSTAMP}.dmp owner=${db.export.schema}" />
+        </exec>
+		
+    </target>
+	
+	<target name="db-dump-backup" description="Export database scripts and creates the dump file and checks in into CVS">
+		 <antcall target="db-dump-export" />
+
+		  <zip destfile="${project.yantracustom.dir}/database/dump/DBDump.zip">
+            <zipfileset dir="${project.yantracustom.dir}/database/dump" >
+                <include name="*.dmp" />
+            </zipfileset>
+		  </zip>
+
+		  <delete>
+            <fileset dir="${project.yantracustom.dir}/database/dump">
+                <include name="*.dmp" />
+                <include name="*.log" />
+            </fileset>
+		  </delete>
+		 <tstamp/>
+	    <exec dir="${project.yantracustom.dir}/database/dump" executable="cvs">
+	    	<arg value="commit"/>
+		<arg value="-m"/>
+		<arg value="'Dump for ${DSTAMP}-${TSTAMP}' "/>
+		<arg value="DBDump.zip"/>
+	    </exec>	    
+	</target>
+   
+    <target name="update-mc" description="Updates the masterconfig with the latest schema changes" unless="build.donotupdatemc">
+        <antcall target="make-dir"/>
+	<echo>Copy the project specific database to /database folder of Yantra</echo>
+
+        <copy todir="${env.YFS_HOME}/database">
+	     <fileset dir="${project.yantraextn.dir}/database">
+	          <exclude name="**/CVS" />
+	     </fileset>
+	</copy>
+          <!--Copy templates-->
+        <echo>Copy the YFSDatatypes.xml and yfsdatatypemap.xml to /template/api/extn folder of Yantra</echo>
+
+        <copy todir="${env.YFS_HOME}/template/api/extn">
+            <fileset dir="${project.yantraextn.dir}/template/api/extn">
+                <exclude name="**/CVS" />
+		<include name="yfsdatatypemap.xml"/>
+		<include name="YFSDataTypes.xml"/>
+            </fileset>
+        </copy>						    
+	<antcall target="db-verify"/>
+	<antcall target="alter-db-mc"/>
+    </target>
+
+<!-- Alter the MC and the build database schemas with the db-verify sql-->
+    <target name="alter-db" description="Alters the Master config and the build instances" unless="build.donotalterdb">
+	 <antcall target="alter-db-mc"/>
+	 <antcall target="alter-db-build"/>
+    </target>
+
+
+    <target name="alter-db-mc" description="Alters default Yantra Tables and adds new tables to the Master config " unless="build.donotalterdb">
+		<!-- Runs the scripts generate dby dbverify-->
+        <antcall target="-pre-alter-db" />
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_Sequence.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc..password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_IndexDrops.sql" />
+        </exec>
+
+       <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexDrops.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TableDrops.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TableChanges.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_IndexAdds.sql" />
+        </exec>
+	
+     	<exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+	    <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexAdds.sql" />
+	</exec>
+				     
+
+	<exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexModify.sql" />
+        </exec>
+	
+	<exec executable="sqlplus" failonerror="yes">
+	    <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexUpdates.sql" />
+	</exec>
+					    
+
+        <antcall target="-post-alter-db" />
+    </target>
+
+
+    <target name="alter-db-build" description="Alters default Yantra Tables and adds new tables to the build db" unless="build.donotalterdb">
+		<!-- Runs the scripts generate dby dbverify-->
+        <antcall target="-pre-alter-db" />
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_Sequence.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build..password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_IndexDrops.sql" />
+        </exec>
+
+       <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexDrops.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TableDrops.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TableChanges.sql" />
+        </exec>
+
+        <exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_IndexAdds.sql" />
+        </exec>
+	
+     	<exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+	    <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexAdds.sql" />
+	</exec>
+				     
+
+	<exec executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexModify.sql" />
+        </exec>
+	
+	<exec executable="sqlplus" failonerror="yes">
+	    <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+            <arg value="@${project.yantracustom.dir}/dist/Yantra_TextIndexUpdates.sql" />
+	</exec>
+					    
+
+        <antcall target="-post-alter-db" />
+    </target>
+
+
+
+<!--- Copied above -->
+    <target name="cdt-export" description="Generates the CDT export of the Master DB" unless="build.donotexportcdt">
+
+        <echo>Delete the CDT.zip and the xmls from the cdt folder ${project.yantracustom.dir}</echo> 
+	<delete>
+    	      <fileset dir="${project.yantracustom.dir}/database/cdt">
+                  <include name="*.zip" />
+                  <include name="*.log" />
+                  <include name="*.xml" />
+              </fileset>
+        </delete>
+        <!--
+	<delete dir="${cdt.export.TARGET_DIR}" />
+        <mkdir dir="${cdt.export.TARGET_DIR}" /> -->
+        <java fork="true" maxmemory="1024m" classname="com.yantra.tools.ydk.config.ConfigDeployMain">
+             <classpath refid="project.class.path" />
+             <classpath>
+                 <pathelement location="${env.YFS_HOME}/resources/ydkresources" />
+             </classpath>
+             <sysproperty key="YFS_HOME" value="${env.YFS_HOME}" />
+             <arg line="-Source ${cdt.export.SOURCE_DB} -SourcePassword ${cdt.export.SOURCE_PASSWORD} -Target ${cdt.export.TARGET_DB} -TargetPassword ${cdt.export.TARGET_PASSWORD}" />
+        </java>
+        <echo>Completed CDT export</echo> 
+    </target>
+
+    <target name="cdt-export-backup" description="Backup the CDT xmls to the source control">
+	
+	<antcall target="cdt-export"/>   
+           
+	<zip destfile="${project.yantracustom.dir}/database/cdt/CDT.zip">
+            <zipfileset dir="${project.yantracustom.dir}/database/cdt" >
+                <include name="*.xml" />
+            </zipfileset>
+        </zip>
+
+        <echo>Delete the cdt xmls from the cdt folder</echo>
+        <delete>
+              <fileset dir="${project.yantracustom.dir}/database/cdt">
+                  <include name="*.log" />
+                  <include name="*.xml" />
+              </fileset>
+        </delete>
+                 <tstamp/>
+            <exec dir="${project.yantracustom.dir}/database/cdt" executable="cvs">
+                <arg value="commit"/>
+                <arg value="-m"/>
+                <arg value="'CDT Dump for ${DSTAMP}-${TSTAMP}' "/>
+                <arg value="CDT.zip"/>
+            </exec>
+    
+    </target>
+    <target name="cdt-import-frombackup" description="Imports the CDT zip from the CVS into the target db">
+	
+	<unzip src="${project.yantracustom.dir}/database/cdt/CDT.zip" dest="${project.yantracustom.dir}/database/cdt"/>
+	<antcall target="cdt-import"/>
+
+    </target>
+
+     <target name="cdt-import" description="Imports the CDT into configured Yantra DB Instance">
+	<!--
+	<input message="Please enter target database password:"
+			addproperty="cdt.TARGET_PASSWORD" />
+	-->
+		<java fork="true" maxmemory="1024m" classname="com.yantra.tools.ydk.config.ConfigDeployMain">
+			<classpath refid="project.class.path" />
+			<classpath>
+				<pathelement location="${env.YFS_HOME}/resources/ydkresources" />
+			</classpath>
+
+			<sysproperty key="YFS_HOME" value="${env.YFS_HOME}" />
+
+			<arg line="-Source ${cdt.import.SOURCE_DB} -SourcePassword ${cdt.import.SOURCE_PASSWORD} -Target ${cdt.import.TARGET_DB} -TargetPassword ${cdt.import.TARGET_PASSWORD}" />
+
+		</java>
+
+	</target>
+
+	<target name="show-usage">
+        <echo>Usage:ant &lt;targets&gt; where targets are</echo>
+
+        <echo>cvs-fetch: Fetches the code from the CVS and puts it in project specific directories</echo>
+
+        <echo>make-jar: Makes the project jar file after compiling</echo>
+
+        <echo>copy-project-files: Deploys the project files in the relevant folders of Yantra Installation</echo>
+
+        <echo>build-project-clean:Invokes clean,make-dir,cvs-fetch,compile,make-jar,copy-project-files,db-extn,db-verify,alter-mc,alter-build,db-dump-backup,cdt-export-backup,cdt-import-frombackup,create-ear</echo>
+
+        <echo>build-project-dev: Invokes clean,make-dir,compile,make-jar,copy-project-files,db-extn,create-ear</echo>
+
+        <echo>alter-db: Alters the database using the scripts generated by DBVerify</echo>
+
+        <echo>db-dump-export: Invokes export utilty of sqlplus and creates the dump in dist/database folder</echo>
+
+        <echo>cdt-export: Invokes Yantra CDT</echo>
+
+        <echo>copy-working-files-cvs-folders: It copies the files from the Yantra Installation folders to the corresponding folders of the project directory</echo>
+
+        <echo>create-release: Creates a release for distribution</echo>
+
+	</target>
+
+<target name="version" description="Version">
+                <!-- Makes the project jar file -->
+                <!--Create version file -->
+                <echo file="${project.yantracustom.dir}/dist/NWCGversion.txt">Release Version: ${project.name} V ${release.version}
+Release Date: ${NOW}</echo>
+</target>
+
+</project>
+

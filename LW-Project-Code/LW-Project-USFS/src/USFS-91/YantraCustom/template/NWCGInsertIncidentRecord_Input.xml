@@ -1,0 +1,17 @@
+<!--Important attributes are marked as required.. rest can be ignored -->
+<Shipment ActualShipmentDate="Required">
+<ShipmentLines TotalNumberOfRecords="">
+<ShipmentLine ActualQuantity="Required" ItemDesc="" ItemID="Required"  IncidentNo="Required"  CacheID="Required" KitCode="" NetWeight="" NetWeightUom="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" OverShipQuantity="" PrimeLineNo="" ProductClass="" Quantity="" ReceivedQuantity="" ReleaseNo="" RequestedSerialNo="" ShipmentKey="" ShipmentLineKey="" ShipmentLineNo="" ShipmentSubLineNo="" ShortageQty="" SubLineNo="" UnitOfMeasure="" WaveNo="" isHistory="" UnitPrice="Required">
+<ShipmentLineInvAttRequest BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo="" /> 
+<ShipmentTagSerials TotalNumberOfRecords="">
+<ShipmentTagSerial BatchNo="" ContainerDetailKey="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" Quantity="" RevisionNo="" SerialNo="Required If Serial item" ShipByDate="" ShipmentLineKey="" ShipmentTagSerialKey="" /> 
+</ShipmentTagSerials>
+</ShipmentLine>
+<ShipmentLine ActualQuantity="Required" ItemDesc="" ItemID="Required"  IncidentNo="Required"  CacheID="" KitCode="" NetWeight="" NetWeightUom="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" OverShipQuantity="" PrimeLineNo="" ProductClass="" Quantity="" ReceivedQuantity="" ReleaseNo="" RequestedSerialNo="" ShipmentKey="" ShipmentLineKey="" ShipmentLineNo="" ShipmentSubLineNo="" ShortageQty="" SubLineNo="" UnitOfMeasure="" WaveNo="" isHistory="" UnitPrice="Required">
+<ShipmentLineInvAttRequest BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo="" /> 
+<ShipmentTagSerials TotalNumberOfRecords="">
+<ShipmentTagSerial BatchNo="" ContainerDetailKey="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" Quantity="" RevisionNo="" SerialNo="Required if serial item" ShipByDate="" ShipmentLineKey="" ShipmentTagSerialKey="" /> 
+</ShipmentTagSerials>
+</ShipmentLine>
+</ShipmentLines>
+</Shipment>

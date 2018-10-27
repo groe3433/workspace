@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ItemNodeDefn InboundClassification="" ItemID="" ItemNodeDefnKey="" VelocityCode="" Node="" OperationalConfigurationComplete="" OrganizationCode="" PickingType="" StorageType="" UnitOfMeasure="" >
+	<Item ItemKey="">
+		<PrimaryInformation  Description="" ItemType="" ProductLine="" ShortDescription=""/>
+		<ClassificationCodes/>
+	</Item>
+	<Extn/>
+  </ItemNodeDefn> 

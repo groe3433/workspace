@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2006, Sterling Commerce, Inc. All rights reserved. -->
+<preferences>
+    <common>
+        <lastDir>/opt/apps/projects/USFS/Yantra77HF12/Runtime/documentation/api_javadocs/XML</lastDir>
+    </common>
+    <portlet>
+        <listMaxRecords>5</listMaxRecords>
+        <apis>
+            <!-- All used APIs are remembered here -->
+            <api listElement="/OrderList/Order" name="getOrderList" entity="order" url="order.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderList/Order" name="getOrderList" entity="return" url="return.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderList/Order" name="getOrderList" entity="po" url="po.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E"/>
+            <api listElement="/InboxList/Inbox" name="getExceptionList" entity="exception" url="exception.detail%3FEntityKey%3D%3CInbox+InboxKey%3D%5C%22%24%40InboxKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderReleaseList/OrderRelease" name="getOrderReleaseList" entity="orderrelease" url="orderrelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderReleaseList/OrderRelease" name="getOrderReleaseList" entity="returnrelease" url="returnrelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderReleaseList/OrderRelease" name="getOrderReleaseList" entity="porelease" url="porelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E"/>
+            <api listElement="/Shipments/Shipment" name="getShipmentList" entity="shipment" url="shipment.detail%3FEntityKey%3D%3CShipment+ShipmentKey%3D%5C%22%24%40ShipmentKey%24%5C%22%2F%3E"/>
+            <api listElement="/Shipments/Shipment" name="getShipmentList" entity="poshipment" url="poshipment.detail%3FEntityKey%3D%3CShipment+ShipmentKey%3D%5C%22%24%40ShipmentKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderLineList/OrderLine" name="getOrderLineList" entity="orderline" url="orderline.detail%3FEntityKey%3D%3COrderLineDetail+OrderLineKey%3D%5C%22%24%40OrderLineKey%24%5C%22+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E"/>
+            <api listElement="/OrderInvoiceList/OrderInvoice" name="getOrderInvoiceList" entity="invoice" url="invoice.detail%3FEntityKey%3D%3CGetOrderInvoiceDetails+InvoiceKey%3D%5C%22%24%40InvoiceKey%24%5C%22%2F%3E"/>
+            <api listElement="/DeliveryPlans/DeliveryPlan" name="getDeliveryPlanList" entity="deliveryplan" url="deliveryplan.detail%3FEntityKey%3D%3CDeliveryPlan+DeliveryPlanKey%3D%5C%22%24%40DeliveryPlanKey%24%5C%22%2F%3E"/>
+            <api listElement="/InventoryList/InventoryItem" name="getInventoryItemList" entity="inventory" url="inventory.detail%3FEntityKey%3D%3CInventoryItem+ItemID%3D%5C%22%24%40ItemID%24%5C%22+OrganizationCode%3D%5C%22%24%2F%40OrganizationCode%24%5C%22+ProductClass%3D%5C%22%24%40ProductClass%24%5C%22+UnitOfMeasure%3D%5C%22%24%40UnitOfMeasure%24%5C%22%2F%3E"/>
+        </apis>
+        <urls>
+            <!-- All used URLs are remembered here -->
+            <url>order.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E</url>
+            <url>orderrelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E</url>
+            <url>orderline.detail%3FEntityKey%3D%3COrderLineDetail+OrderLineKey%3D%5C%22%24%40OrderLineKey%24%5C%22+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E</url>
+            <url>exception.detail%3FEntityKey%3D%3CInbox+InboxKey%3D%5C%22%24%40InboxKey%24%5C%22%2F%3E</url>
+            <url>po.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E</url>
+            <url>porelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E</url>
+            <url>return.detail%3FEntityKey%3D%3COrder+OrderHeaderKey%3D%5C%22%24%40OrderHeaderKey%24%5C%22%2F%3E</url>
+            <url>returnrelease.detail%3FEntityKey%3D%3COrderReleaseDetail+OrderReleaseKey%3D%5C%22%24%40OrderReleaseKey%24%5C%22%2F%3E</url>
+            <url>inventory.detail%3FEntityKey%3D%3CInventoryItem+ItemID%3D%5C%22%24%40ItemID%24%5C%22+OrganizationCode%3D%5C%22%24%2F%40OrganizationCode%24%5C%22+ProductClass%3D%5C%22%24%40ProductClass%24%5C%22+UnitOfMeasure%3D%5C%22%24%40UnitOfMeasure%24%5C%22%2F%3E</url>
+            <url>invoice.detail%3FEntityKey%3D%3CGetOrderInvoiceDetails+InvoiceKey%3D%5C%22%24%40InvoiceKey%24%5C%22%2F%3E</url>
+            <url>deliveryplan.detail%3FEntityKey%3D%3CDeliveryPlan+DeliveryPlanKey%3D%5C%22%24%40DeliveryPlanKey%24%5C%22%2F%3E</url>
+            <url>shipment.detail%3FEntityKey%3D%3CShipment+ShipmentKey%3D%5C%22%24%40ShipmentKey%24%5C%22%2F%3E</url>
+            <url>poshipment.detail%3FEntityKey%3D%3CShipment+ShipmentKey%3D%5C%22%24%40ShipmentKey%24%5C%22%2F%3E</url>
+        </urls>
+        <dataTypes>
+            <!-- All non string datatypes are remembered here -->
+            <TotalAmount>Double</TotalAmount>
+            <OrderDate>Date</OrderDate>
+            <Currency>Currency</Currency>
+            <GeneratedOn>Date</GeneratedOn>
+            <ResolveBy>Date</ResolveBy>
+        </dataTypes>
+        <rendererConfig>
+            <!-- This is used while generating portlet code. If you are writing custom renderers
+                (which is set in ydkconfig.xml), and if you need more properties, add them here.
+                These properties are captured by the standard UI using an XML editor -->
+            <workingDirectory>/opt/apps/Yantra77HF12/Runtime/webpages/portlets</workingDirectory>
+            <table>class=&quot;portletTable&quot; border=&quot;1&quot;</table>
+            <thead/>
+            <thr>class=&quot;portletTableHeader&quot;</thr>
+            <thd/>
+            <tbody/>
+            <tr>class=&quot;portletTableRow&quot;</tr>
+            <alttr>class=&quot;portletTableAltRow&quot;</alttr>
+            <td/>
+            <i18nRequired>N</i18nRequired>
+            <i18nTemplate>&lt;portlet:text bundle=&quot;myportal&quot; key=&quot;$key$&quot;&gt;$key$&lt;/portlet:text&gt;</i18nTemplate>
+            <baseUrl>/yantra/console/</baseUrl>
+            <linkPreHTML>N</linkPreHTML>
+            <linkPostHTML>N</linkPostHTML>
+        </rendererConfig>
+    </portlet>
+    
+  <configsynch>
+        <Settings MaxChangesToDisplay="100"/>
+        <SourceDatabases>
+            <Database Name="NWCG_MC"
+                className="oracle.jdbc.OracleDriver" dbType="oracle"
+                folder=""
+                jdbcURL="jdbc:oracle:thin:@10.117.15.101:1521:yantradv"
+                schema="nwcg_mc" user="readuser"/>
+            <Database Name="NWCG_FILE_CDT" className=""
+                dbType="XML"
+                folder="/opt/apps/projects/USFS/fromCVS/USFS/YantraCustom/database/cdt"
+                dbcURL="" schema="" user=""/>
+	</SourceDatabases>
+									    
+        <TargetDatabases>
+            <Database Name="NWCG_DEV" className="oracle.jdbc.OracleDriver"
+                dbType="oracle" folder=""
+                httpurl="http://10.117.15.101:9083/yantra/interop/InteropHttpServlet"
+                jdbcURL="jdbc:oracle:thin:@10.117.15.101:1521:yantradv"
+                schema="NWCG_DEV" user="NWCG_DEV"/>
+            <Database Name="NWCG_FILE_CDT" className="" dbType="XML"
+                folder="/opt/apps/projects/USFS/fromCVS/USFS/YantraCustom/database/cdt"
+                httpurl="http://host:port/yantra/interop/InteropHttpServlet"
+                jdbcURL="" schema="" user=""/>
+        </TargetDatabases>
+        <SourceTargetPrefs>
+            <SourceTargetPrefs>
+                <SourceTargetPair SourceDatabase="NWCG_MC" TargetDatabase="NWCG_DEV">
+                    <Transformations/>
+                    <Ignore>
+                        <Table Name="YFS_ZIP_CODE_LOCATION"/>
+                        <Table Name="YFS_CUSTOMER"/>
+			<Table Name="YFS_CONSUMER"/>
+			<Table Name="YFS_PERSON_INFO"/>
+                    </Ignore>
+                    <AppendOnly/>
+                </SourceTargetPair>
+            </SourceTargetPrefs>
+        </SourceTargetPrefs>
+    </configsynch>
+</preferences>

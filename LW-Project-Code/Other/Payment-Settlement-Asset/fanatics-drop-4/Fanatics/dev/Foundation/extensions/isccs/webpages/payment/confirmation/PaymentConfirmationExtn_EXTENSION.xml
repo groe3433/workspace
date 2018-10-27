@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="PaymentConfirmationExtn"
+        extnPackage="extn.payment.confirmation"
+        originalScreen="isccs.payment.confirmation.PaymentConfirmation"
+        originalScreenPackage="isccs.payment.confirmation" type="diffrential">
+        <Items>
+            <Button _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="btnAddPaymentMethod" resourceId="extnAddPaymentMethod"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

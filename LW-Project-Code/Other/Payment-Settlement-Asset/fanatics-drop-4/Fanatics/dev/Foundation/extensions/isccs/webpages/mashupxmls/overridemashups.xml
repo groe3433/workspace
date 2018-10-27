@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mashups>
+	<mashup cached="PAGE"
+		description="Returns the list of Cancellation Reason Codes defined for the provided enterprise"
+		endpoint="EP_CONFIG" id="cancelOrder_getReturnReasonCodes"
+		mashuptype="XAPI" skipDataProvider="false" transactional="true">
+		<classInformation name="com.ibm.isccs.order.mashups.SCCSAddSpecificDocumentType"/>
+		<API Name="getCommonCodeList">
+			<Input>
+				<CommonCode
+					CallingOrganizationCode="xml:scControllerInput:/Order/@EnterpriseCode"
+					CodeType="YCD_CANCEL_REASON"
+					DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" MaximumRecords="">
+					<OrderBy>
+						<Attribute Desc="N" Name="CodeShortDescription"/>
+					</OrderBy>
+				</CommonCode>
+			</Input>
+			<Template>
+				<CommonCodeList>
+					<CommonCode CodeName="" CodeShortDescription="" CodeValue=""/>
+				</CommonCodeList>
+			</Template>
+		</API>
+		<APINamespace inputNS="getCommonCodeList_input" outputNS="getCommonCodeList_output"/>
+		<AlternateResourceIds>
+			<AlternateResourceId altResourceId="ISCCSOC001"/>
+			<AlternateResourceId altResourceId="ISCCSSYS002"/>
+		</AlternateResourceIds>
+	</mashup>
+    <mashup
+        description="This mashup gets the complete order details ,and based on the no of person info elements coming in the output, HasMultipleAddresses attribute is populated to yes or no. This is used in address display screen to show information that there are multiple addresses of type personInfoShipTo."
+        endpoint="EP_ORDER" id="orderSummary_getCompleteOrderDetails"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order
+                    ApplicationCode="xml:ApplicationInfo:/ApplicationInfo@ApplicationCode"
+                    ApplicationVersion="xml:ApplicationInfo:/ApplicationInfo@ApplicationVersion"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" EnterpriseCode=""
+                    IgnorePendingChange="Y"
+                    OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" OrderNo=""/>
+            </Input>
+            <Template>
+                <Order BillToID="" BuyerUserID="" CarrierServiceCode=""
+                    CreatorOrganizationCode="" CustomerContactID=""
+                    CustomerEMailID="" CustomerFirstName=""
+                    CustomerLastName="" CustomerPhoneNo=""
+                    CustomerRewardsNo="" DisplayStatusDescription=""
+                    DocumentType="" EnterpriseCode="" OrderType="" EnteredBy="" EntryType=""
+                    ExchangeType="" HasPendingChanges="" HoldFlag=""
+                    MaxOrderStatusDesc="" MultipleStatusesExist=""
+                    OrderDate="" OrderHeaderKey="" OrderNo=""
+                    OverallStatus="" ReturnOrderHeaderKeyForExchange=""
+                    SellerOrganizationCode="" ShipToKey="" Status="" SupportLevel="">
+                	<OrderDates>
+						<OrderDate ActualDate="" CommittedDate="" 
+						DateTypeId="" ExpectedDate="" 
+						OrderHeaderKey="" OrderLineKey="" 
+						OrderReleaseKey="" RequestedDate=""/>
+					</OrderDates>
+                    <ReturnOrders>
+                        <ReturnOrder BillToID=""
+                            BuyerOrganizationCode="" BuyerUserId=""
+                            CustomerContactID="" CustomerEMailID=""
+                            CustomerFirstName="" CustomerLastName=""
+                            CustomerPONo="" CustomerPhoneNo=""
+                            CustomerZipCode=""
+                            DisplayStatusDescription="" DocumentType=""
+                            DraftOrderFlag="" EnterpriseCode=""
+                            EntryType="" HoldFlag=""
+                            MaxOrderStatusDesc=""
+                            MultipleStatusesExist="" OrderDate=""
+                            OrderHeaderKey="" OrderName="" OrderNo=""
+                            OverallStatus="" SellerOrganizationCode=""
+                            Status="" TaxExemptFlag=""
+                            TaxExemptionCertificate="" isHistory="">
+                            <PriceInfo Currency="" TotalAmount=""/>
+                            <OverallTotals GrandExchangeTotal=""
+                                GrandRefundTotal="" GrandTotal=""
+                                PendingRefundAmount="" RefundedAmount=""/>
+                            <PersonInfoBillTo AddressLine1=""/>
+                            <ExchangeOrders>
+                                <ExchangeOrder BillToID=""
+                                    BuyerOrganizationCode=""
+                                    BuyerUserId="" CustomerContactID=""
+                                    CustomerEMailID=""
+                                    CustomerFirstName=""
+                                    CustomerLastName="" CustomerPONo=""
+                                    CustomerPhoneNo=""
+                                    CustomerZipCode="" DocumentType=""
+                                    DraftOrderFlag="" EnterpriseCode=""
+                                    EntryType="" ExchangeType=""
+                                    MaxOrderStatusDesc=""
+                                    MultipleStatusesExist=""
+                                    OrderHeaderKey="" OrderName=""
+                                    OrderNo="" OverallStatus=""
+                                    SellerOrganizationCode="" Status=""
+                                    TaxExemptFlag=""
+                                    TaxExemptionCertificate="" isHistory="">
+                                    <PriceInfo Currency="" TotalAmount=""/>
+                                    <PersonInfoBillTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                    <PersonInfoShipTo AddressID=""
+                                    AddressLine1="" AddressLine2=""
+                                    City="" Company="" Country=""
+                                    CountryDesc="" DayPhone=""
+                                    Department="" EMailID=""
+                                    EveningPhone="" FirstName=""
+                                    IsAddressVerified=""
+                                    IsCommercialAddress=""
+                                    LastName="" MiddleName=""
+                                    MobilePhone="" PersonID=""
+                                    PersonInfoKey="" State=""
+                                    Suffix="" Title="" TitleDesc=""
+                                    ZipCode="" isHistory=""/>
+                                </ExchangeOrder>
+                            </ExchangeOrders>
+                            <PersonInfoShipTo AddressID=""
+                                AddressLine1="" AddressLine2="" City=""
+                                Company="" Country="" CountryDesc=""
+                                DayPhone="" Department="" EMailID=""
+                                EveningPhone="" FirstName=""
+                                IsAddressVerified=""
+                                IsCommercialAddress="" LastName=""
+                                MiddleName="" MobilePhone="" PersonID=""
+                                PersonInfoKey="" State="" Suffix=""
+                                Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                        </ReturnOrder>
+                    </ReturnOrders>
+                    <PriceInfo Currency="" TotalAmount=""/>
+                    <OverallTotals GrandTotal="" OrderHeaderKey=""/>
+                    <PersonInfoBillTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                    <OrderHoldTypes>
+                        <OrderHoldType HoldType="" Status=""/>
+                    </OrderHoldTypes>
+                    <Modifications>
+                        <Modification ModificationAllowed="" ModificationType=""/>
+                    </Modifications>
+                    <CustomAttributes CustomerOrderNo="" FraudStatus=""
+                        FraudStatusUserID="" IPAddress=""/>
+                    <PersonInfoShipTo AddressID="" AddressLine1=""
+                        AddressLine2="" City="" Company="" Country=""
+                        CountryDesc="" DayPhone="" Department=""
+                        EMailID="" EveningPhone="" FirstName=""
+                        IsAddressVerified="" IsCommercialAddress=""
+                        LastName="" MiddleName="" MobilePhone=""
+                        PersonID="" PersonInfoKey="" State="" Suffix=""
+                        Title="" TitleDesc="" ZipCode="" isHistory=""/>
+                </Order>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.order.mashups.SCCSGetCompleteOrderDetailsWithMultipleShipping"/>
+        <APINamespace
+            inputNS="orderSummary_getCompleteOrderDetails_input" outputNS="orderSummary_getCompleteOrderDetails_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCORD0001"/>
+        </AlternateResourceIds>
+    </mashup>
+    	<mashup cached=""
+        description="This mashup is called to massage the output of getCompleteOrderLineList API called when loading the shipment tracking page. The output is parsed to identify the different statuses of line and based on te values multiple panels are painted in UI."
+        endpoint="EP_ORDER"
+        id="lineTrack_getCompleteOrderLineDetails_Output"
+        mashuptype="XAPI" skipDataProvider="false" transactional="true">
+        <classInformation name="com.ibm.isccs.order.mashups.SCCSOrderLineTrackingMashup"/>
+        <API Name="getCompleteOrderLineDetails">
+            <Input>
+                <OrderLineDetail
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    EvaluateBundleParentLines="N" OrderLineKey=""/>
+            </Input>
+            <Template>
+                <OrderLine DeliveryMethod=""
+                    IsBundleCompletelyShipped="" IsBundleParent=""
+                    ItemGroupCode="" MaxLineStatusDesc=""
+                    OrderLineKey="" ReshipParentLineKey=""
+                    ReturnReasonCode="" Status="">
+                    <Order DocumentType="" EnterpriseCode="" HoldFlag="" OrderNo=""/>
+                    <PriceInfo Currency=""/>
+                    <Item UnitOfMeasure=""/>
+                    <OrderLineTranQuantity TransactionalUOM=""/>
+                    <PersonInfoShipTo AddressID="" AddressLine1="" AddressLine2="" 
+                    City="" Company="" Country="" CountryDesc="" DayPhone="" 
+                    Department="" EMailID="" EveningPhone="" FirstName="" 
+                    IsAddressVerified="" IsCommercialAddress="" 
+                    LastName="" MiddleName="" MobilePhone="" PersonID="" 
+                    PersonInfoKey="" State="" Suffix="" Title="" TitleDesc="" 
+                    ZipCode="" isHistory=""/>
+                    <OrderDates>
+			<OrderDate ActualDate="" CommittedDate="" 
+			DateTypeId="" ExpectedDate="" 
+			OrderHeaderKey="" OrderLineKey="" 
+			OrderReleaseKey="" RequestedDate=""/>
+		    </OrderDates>
+                    <LineTracking>
+                        <LineExceptions>
+                            <LineException ExceptionType="">
+                                <OrderDelay DelayDate="" PromisedDate=""/>
+                                <OrderHoldType HoldType=""
+                                    LastHoldTypeDate=""
+                                    OrderHeaderKey="" OrderLineKey=""/>
+                                <StopDeliveryRequestDetail
+                                    RequestedQty="" SuccessfulQty="">
+                                    <StopDeliveryRequest RequestDate=""/>
+                                </StopDeliveryRequestDetail>
+                                <OrderLine Createts="" ItemGroupCode=""
+                                    OrderedQty="" ReturnReason="">
+                                    <Order OrderHeaderKey="" DocumentType="" EnterpriseCode="" OrderNo="" OrderDate="" DraftOrderFlag="" />
+                                    <OrderLineTranQuantity OrderedQty="" TransactionalUOM=""/>
+                                </OrderLine>
+                            </LineException>
+                        </LineExceptions>
+                        <LineBreakups>
+                            <LineBreakup Quantity="" Status="">
+                                <OrderStatus Status="" StatusDate=""
+                                    StatusDescription="" StatusQty="">
+                                    <Details ExpectedShipmentDate=""/>
+                                    <ShipNode Description=""/>
+                                </OrderStatus>
+                                <ReshipOrderLine OrderLineKey=""/>
+                                <ShipNode Description="">
+                                    <ShipNodePersonInfo/>
+                                </ShipNode>
+                                <ShipmentLine ShipmentKey="" ShipmentLineKey="">
+                                    <Shipment ActualShipmentDate="" SCAC="" 
+                                    CarrierServiceCode=""
+                                    ExpectedDeliveryDate=""
+                                    ExpectedShipmentDate=""
+                                    ShipmentNo="" Status=""
+                                    TrackingNo="" URL=""/>
+                                </ShipmentLine>
+                                <ContainerDetail ContainerDetailsKey="">
+                                    <Container ContainerNo=""
+                                    ShipmentContainerKey=""
+                                    TrackingNo="" URL="">
+                                    	<Extn ExtnReturnTrackingNo="" />
+                                    </Container>
+                                </ContainerDetail>
+                                <PersonInfoShipTo AddressID="" AddressLine1="" AddressLine2="" 
+                                City="" Company="" Country="" CountryDesc="" DayPhone="" 
+                                Department="" EMailID="" EveningPhone="" FirstName="" 
+                                IsAddressVerified="" IsCommercialAddress="" 
+                                LastName="" MiddleName="" MobilePhone="" PersonID="" 
+                                PersonInfoKey="" State="" Suffix="" Title="" TitleDesc="" 
+                                ZipCode="" isHistory=""/>
+                            </LineBreakup>
+                        </LineBreakups>
+                    </LineTracking>
+                </OrderLine>
+            </Template>
+        </API>
+        <APINamespace inputNS="getCompleteOrderLineDetails_input" outputNS="getCompleteOrderLineDetails_input"/>
+        <Config>
+            <!-- For all Exception / Information / StatusPanelMap elements the attribute 
+					FulfillmentAlteration can be set as "Y" if each occurance of that scenario 
+					should be considered as an alteration to the normal fulfillment pipeline. 
+					Each occurance is added together and a sum is returned to the client in the 
+					attribute AlterationCount. In ISCCS this value is used to set the customer 
+					message and set text for screen readers. -->
+            <ExceptionPanelMapping>
+                <!-- ExceptionType is the type returned from the getCompleteOrderLineDetails 
+						API. -->
+                <Exception ExceptionType="Delay"
+                    FulfillmentAlteration="Y"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackDelay" PanelMode=""/>
+                <Exception ExceptionType="Hold"
+                    FulfillmentAlteration="Y"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackHold" PanelMode=""/>
+                <Exception ExceptionType="Reshipped"
+                    FulfillmentAlteration="Y"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackReshipped" PanelMode=""/>
+                <Exception ExceptionType="StopDelivery"
+                    FulfillmentAlteration="Y"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackStopDelivery" PanelMode=""/>
+                <Exception ExceptionType="Returned"
+                    FulfillmentAlteration="N" PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackReturned"/>
+            </ExceptionPanelMapping>
+            <InfoPanelMapping>
+                <!-- InformationType is one of the following: Reshipped, BundleParent, 
+						Return -->
+                <Information InformationType="Reship"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackReship" PanelMode=""/>
+                <Information InformationType="BundleParent"
+                    PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackBundleParent" PanelMode=""/>
+            </InfoPanelMapping>
+            <StatusPanelMapList>
+                <!-- Statuses are evaluated Greater than or equal to FromStatus. and 
+						Less than ToStatus -->
+                <!-- Statuses are evaluated in the order they appear in this XML. -->
+                <!-- Supported Child element names under StatusPanelMap are OrderLine, 
+						Shipment -->
+                <AllDeliveryMethods>
+                    <!-- 1300 and 1400 are special statuses in this mashup for the PanelID 
+							below. They will always be consolidated into a single Line Breakup. The Quantity 
+							will be the current backordered quantity. the 1400 statuses will be used 
+							on the UI to create a history of where the system has attempted to source 
+							the product from. If there is no quantity in 1300 then the 1400 statuses 
+							will be ignored completely. IF it is desired to have each backorder quantity 
+							and backordered from node quantity seperated in its own panel you need to 
+							create a custom panel and change the Panel ID below. -->
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        FulfillmentAlteration="Y"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackBackordered" PanelMode="Backordered">
+                        <!-- Backordered -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="1300" ToStatus="1400"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        FulfillmentAlteration="Y"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackBackordered" PanelMode="FromNode">
+                        <!-- Backordered from Node -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="1400" ToStatus="1400"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap PanelID="">
+                        <!-- Cancelled -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="9000" ToStatus="9000"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap PanelID="">
+                        <!-- Shorted -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="9020" ToStatus="9020"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                </AllDeliveryMethods>
+                <SHP>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackShipping" PanelMode="Processing">
+                        <!-- Shipped -->
+                        <StatusRanges>
+                            <OrderLine ToStatus="3700"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackShipping" PanelMode="Complete">
+                        <!-- Shipped -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="3700"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="RETURN_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackShipping" PanelMode="ReturnProcessing">
+                        <!-- Shipped -->
+                        <StatusRanges>
+                            <OrderLine ToStatus="3900"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="RETURN_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackShipping" PanelMode="ReturnComplete">
+                        <!-- Shipped -->
+                        <StatusRanges>
+                            <OrderLine FromStatus="3900"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                </SHP>
+                <PICK>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackPickup" PanelMode="Processing">
+                        <StatusRanges>
+                            <!-- Included In Shipment -->
+                            <OrderLine ToStatus="3700"/>
+                            <!-- Ready For Customer Pick -->
+                            <Shipment ToStatus="1100.70.06.30"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackPickup" PanelMode="Ready">
+                        <!-- Ready For Customer Pick -->
+                        <StatusRanges>
+                            <Shipment FromStatus="1100.70.06.30" ToStatus="1100.70.06.30"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="SALES_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackPickup" PanelMode="Complete">
+                        <StatusRanges>
+                            <OrderLine FromStatus="3700" ToStatus="3700.01"/>
+                        </StatusRanges>
+                    </StatusPanelMap>
+                    <StatusPanelMap DocumentType="RETURN_ORDER"
+                        PanelID="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackPickup" PanelMode="ReturnComplete"/>
+                </PICK>
+            </StatusPanelMapList>
+        </Config>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCORD0001"/>
+        </AlternateResourceIds>
+    </mashup>
+    <mashup
+        description="This mashup is called from the resolve holds page for massaging the input to changeOrder API required for resolving the holds associated with the current order or order line."
+        endpoint="EP_ORDER" id="resolveHolds_changeOrder"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeOrder">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrderHeaderKey="">
+                    <OrderHoldTypes>
+                        <OrderHoldType HoldType="" Status=""/>
+                    </OrderHoldTypes>
+                    <OrderLines>
+                        <OrderLine OrderLineKey="">
+                            <OrderHoldTypes>
+                                <OrderHoldType HoldType="" Status=""/>
+                            </OrderHoldTypes>
+                        </OrderLine>
+                    </OrderLines>
+                </Order>
+            </Input>
+            <Template>
+                <Order OrderHeaderKey=""/>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.order.mashups.SCCSResolveHoldsMashup"/>
+        <APINamespace inputNS="resolveHolds_changeOrder_input" outputNS="resolveHolds_changeOrder_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCORD0006"/>
+        </AlternateResourceIds>
+    </mashup>
+    <mashup
+        description="Retrieves the list of countries defined in the system to be used to populate a country drop down."
+        endpoint="EP_CONFIG" id="common_getCountryList"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCommonCodeList">
+            <Input>
+                <CommonCode CodeType="COUNTRYTYPE"
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" MaximumRecords="">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="CodeLongDescription"/>
+                    </OrderBy>
+                </CommonCode>
+            </Input>
+            <Template>
+                <CommonCodeList>
+                    <CommonCode CodeLongDescription="" CodeName=""
+                        CodeShortDescription="" CodeValue=""/>
+                </CommonCodeList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="common_getCountryList_input" outputNS="common_getCountryList_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCRET0002"/>
+            <AlternateResourceId altResourceId="ISCPROD00001"/>
+            <AlternateResourceId altResourceId="ISCORD0004"/>
+            <AlternateResourceId altResourceId="ISCCRTORD0001"/>
+            <AlternateResourceId altResourceId="ISCCSCFO01"/>
+            <AlternateResourceId altResourceId="ISCORD0010"/>
+            <AlternateResourceId altResourceId="ISCCUST0002"/>
+            <AlternateResourceId altResourceId="ISCCUST0003"/>
+            <AlternateResourceId altResourceId="ISCCUST0001"/>
+            <AlternateResourceId altResourceId="ISCCSSYS002"/>
+            <AlternateResourceId altResourceId="ISCCSSYS002"/>
+        </AlternateResourceIds>
+    </mashup>
+	<mashup
+        description="This is a custom mashup to fetch sales orders with pagination. This mashup adds the sales order document type to the input. If OrderHoldType element is present in the input,Status, StatusQryType and CallingOrganizationCode attributes are added to OrderHoldType element. If the HoldType is at the orderline level and if OrderLine element is present in the input, OrderHoldType element will be added to the OrderLine element."
+        endpoint="EP_ORDER" id="orderList_getOrderList"
+        mashuptype="XAPI" skipDataProvider="false" transactional="true">
+        <classInformation name="com.ibm.isccs.order.mashups.SCCSSalesOrderPaginatedMashup"/>
+        <API FlowName="OrderSearchService">
+            <Input>
+                <Order ApplyQueryTimeout="Y" BillToID=""
+                    CallingOrganizationCode="" CustomerEMailID=""
+                    CustomerEMailIDQryType="" CustomerFirstName=""
+                    CustomerLastName="" CustomerPONo=""
+                    CustomerPhoneNo="" CustomerZipCode=""
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode"
+                    DocumentType="" DraftOrderFlag="" EnterpriseCode=""
+                    FromOrderDate="" IgnoreOrdering="N"
+                    MaximumRecords="" OrderDate=""
+                    OrderDateQryType="DATERANGE" OrderName=""
+                    OrderNameQryType="" OrderNo="" QueryTimeout=""
+                    ReadFromHistory="" TaxExemptFlag=""
+                    TaxExemptionCertificate="" ToOrderDate="" AddressLine1="" AddressLine2="" FirstName="" ZipCode="" LastName="" EmailID="" IsBillingAddress="">
+                    <OrderHoldType HoldType="" Status="" StatusQryType=""/>
+                    <OrderLine>
+                        <OrderHoldType HoldType="" Status="" StatusQryType=""/>
+                    </OrderLine>
+                    <OrderBy>
+                        <Attribute Desc="Y" Name="OrderDate"/>
+                    </OrderBy>
+					<CustomAttributes CustomerOrderNo="" />
+					<ComplexQuery Operator="">
+						<Or>
+							<Exp Name="" QryType="" Value=""/>
+						</Or>
+					</ComplexQuery>
+                </Order>
+            </Input>
+            <Template>
+					<OrderList TotalNumberOfRecords ="" >
+						<Order MashupTemplateRef="OrderEditorInput" EntryType =""  CustomerFirstName =""  SellerOrganizationCode =""  MultipleStatusesExist =""  BuyerUserId =""  CustomerContactID =""  BillToID =""  TaxExemptionCertificate =""  OrderNo =""  CustomerPhoneNo =""  DraftOrderFlag =""  CustomerEMailID =""  DocumentType =""  MaxOrderStatusDesc =""  TaxExemptFlag =""  OrderHeaderKey =""  OrderDate =""  CustomerPONo =""  OverallStatus =""  Status =""  CustomerLastName =""  HoldFlag =""  CustomerZipCode =""  EnterpriseCode =""  isHistory =""  OrderName =""  BuyerOrganizationCode =""  DisplayStatusDescription ="" >
+							<OrderDates>
+								<OrderDate ActualDate =""  OrderHeaderKey =""  ExpectedDate =""  CommittedDate =""  OrderReleaseKey =""  OrderLineKey =""  RequestedDate =""  DateTypeId ="" />
+							</OrderDates>
+							<PriceInfo TotalAmount =""  Currency ="" />
+							<PersonInfoBillTo AddressLine1 ="" />
+							<CustomAttributes CustomerOrderNo ="" />
+							<PersonInfoShipTo EMailID =""  PersonInfoKey =""  Suffix =""  IsCommercialAddress =""  IsAddressVerified =""  CountryDesc =""  LastName =""  Country =""  DayPhone =""  ZipCode =""  Title =""  City =""  AddressID =""  TitleDesc =""  MiddleName =""  State =""  PersonID =""  FirstName =""  isHistory =""  EveningPhone =""  MobilePhone =""  Company =""  Department =""  AddressLine1 =""  AddressLine2 ="" />
+						</Order>
+					</OrderList>
+            </Template>
+        </API>
+        <APINamespace inputNS="getOrderList_input" outputNS="getOrderList_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCCUST0001"/>
+            <AlternateResourceId altResourceId="ISCORD0001"/>
+        </AlternateResourceIds>
+    </mashup>
+</mashups>

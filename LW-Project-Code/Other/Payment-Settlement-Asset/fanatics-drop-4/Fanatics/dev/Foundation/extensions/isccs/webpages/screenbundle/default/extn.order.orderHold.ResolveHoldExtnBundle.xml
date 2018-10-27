@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.order.orderHold.ResolveHoldExtnBundle" screenId="extn.order.orderHold.ResolveHoldExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="update_holds_Button_label"
+            bundleKey="extn_Reject" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="update_holds"/>
+        <BundleEntry bundleEntryId="extn_approvebtn_Button_label"
+            bundleKey="extn_Approve" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_approvebtn"/>
+        <BundleEntry bundleEntryId="extn_order_no_View_name"
+            bundleKey="OrderNum" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_order_no"/>
+        <BundleEntry bundleEntryId="extn_active_hold_status_View_name"
+            bundleKey="extn_Hold_Status" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_active_hold_status"/>
+        <BundleEntry bundleEntryId="extn_order_no_resolved_View_name"
+            bundleKey="OrderNum" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_order_no_resolved"/>
+        <BundleEntry bundleEntryId="extn_hold_status_View_name"
+            bundleKey="extn_Hold_Status" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_hold_status"/>
+    </BundleEntries>
+</ScreenBundle>

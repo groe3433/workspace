@@ -1,0 +1,13 @@
+/NWCGCheckIfRequestLinesArePresent.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGCheckOrderLineIdentifier.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGDiscardBlankLines.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGIncidentExistsCondition.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGIsICBSRInitiatedIssue.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineBackordered.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineConsolidated.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineForwarded.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineRetrieved.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineSubstituted.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGOrderLineUTF.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGPartiallyShipped.java/1.1/Wed May 28 16:09:17 2014//
+/NWCGROSSInitiatedOrder.java/1.1/Wed May 28 16:09:17 2014//

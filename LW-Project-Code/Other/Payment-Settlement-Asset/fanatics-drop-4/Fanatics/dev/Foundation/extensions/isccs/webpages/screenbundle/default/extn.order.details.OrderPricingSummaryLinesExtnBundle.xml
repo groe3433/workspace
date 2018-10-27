@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.order.details.OrderPricingSummaryLinesExtnBundle" screenId="extn.order.details.OrderPricingSummaryLinesExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_product_View_name"
+            bundleKey="extn_Product" bundleValueFn="_scSimpleBundle"
+            property="name" type="WIDGET" uId="extn_product"/>
+    </BundleEntries>
+</ScreenBundle>

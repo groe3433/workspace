@@ -1,0 +1,87 @@
+		<div>
+		 	<div data-dojo-type="sc/plat/dojo/widgets/Link" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'bCreate' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'findOrderPanel' , 
+		uId : 'extn_txtCustOrderNo' , 
+		_sc_extensibility_position : 'last'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Order_Number')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order.CustomAttributes.CustomerOrderNo'
+,
+		 namespace : 			'screenInput'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.CustomAttributes.CustomerOrderNo'
+,
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 namespace : 			'getOrderList'
+	}
+	]
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'txtOrderNo' , 
+		uId : 'extn_txtCustOrderNo' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtOrderNo'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('OrderNo')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtEmail_Order'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Billing_Email_address_starts_with')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtPhoneNo'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Customer_Billing_telephone')
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

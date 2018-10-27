@@ -1,0 +1,8 @@
+<WorkOrder QuantityRequested="" Modifyts="" DocumentType="" EnterpriseCode="" NodeKey="" ItemID="" ProductClass="" SellerOrganizationCode="" SerialNo="" ShipByDate="" Uom="">
+	<WorkOrderComponents>
+		<WorkOrderComponent ComponentQuantity="" ItemID="" ProductClass="" SerialNo="" ShipByDate="" Uom="">
+			<WorkOrderComponentTag BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo=""/> 
+		</WorkOrderComponent>
+  	</WorkOrderComponents>
+   <WorkOrderTag BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo=""/> 
+</WorkOrder>

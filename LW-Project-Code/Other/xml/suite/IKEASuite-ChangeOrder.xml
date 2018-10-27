@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEASuite-ChangeOrder" active="Y" description="Test Suite containing the test case for the IKEA Pilot">
+	<Tests>
+		<Test testFile="ChangeOrder/IKEA_ChangeOrder_QuantityChange_IT_Test.xml" />
+
+	</Tests>
+</Suite>

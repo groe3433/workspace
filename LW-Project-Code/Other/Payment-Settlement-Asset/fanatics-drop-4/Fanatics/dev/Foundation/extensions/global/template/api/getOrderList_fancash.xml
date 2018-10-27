@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Licensed Materials - Property of IBM
+IBM Sterling Selling And Fulfillment Suite
+(C) Copyright IBM Corp. 2005, 2013 All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ -->
+<!--getOrderList Output XML-->
+<OrderList FirstOrderHeaderKey="" LastOrderHeaderKey="" LastRecordSet="" ReadFromHistory="" TotalNumberOfRecords="" TotalOrderList="">
+	<Order Action="" ActualPricingDate="" AllAddressesVerified="" AllocationRuleID="" ApprovalCycle="" AuthorizationExpirationDate="" AuthorizedClient="" AutoCancelDate="" BillToID="" BillToKey="" BuyerMarkForNodeId="" BuyerOrganizationCode=""
+	       BuyerReceivingNodeId="" BuyerUserId="" CancelOrderOnBackorder="Y" CarrierAccountNo="" CarrierServiceCode="" CartId="" ChainType="" ChargeActualFreightFlag="" ComplimentaryGiftBoxQty="" CreatedAtNode="" Createts="" Createuserid="" CustCustPONo=""
+	       CustomerContactID="" CustomerDOB="" CustomerEMailID="" CustomerFirstName="" CustomerLastName="" CustomerPONo="" CustomerPhoneNo="" CustomerRewardsNo="" CustomerZipCode="" DefaultCustomerInformation="" DefaultTemplate="" DeliveryCode=""
+	       DepartmentCode="" Division="" DocumentType="" DraftOrderFlag="" DriverDate="" EnteredBy="" EnterpriseCode="" EntryType="" ExchangeType="" ExpirationDate="" FreightTerms="" HasChainedLines="" HasDeliveryLines="" HasDerivedChild=""
+	       HasDerivedParent="" HasPendingChanges="" HasProductLines="" HasServiceLines="" HoldFlag="" HoldReasonCode="" HoursBeforeNextIteration="" InStorePaymentRequired="" IsExpirationDateComputed="" IsExpirationDateOverridden="" IsLineShipComplete="Y"
+	       IsLineShipSingleNode="Y" IsShipComplete="Y" IsShipSingleNode="Y" LevelOfService="" LinkedSourceKey="" MaxOrderStatus="" MaxOrderStatusDesc="" MinOrderStatus="" MinOrderStatusDesc="" Modifyts="" Modifyuserid="" MultipleStatusesExist=""
+	       NextIterationDate="" NextIterationSeqNo="" NoOfAuthStrikes="" NotificationReference="" NotificationType="" NotifyAfterShipmentFlag="" OpportunityKey="" OptimizationType="" OrderComplete="" OrderDate="" OrderHeaderKey="" OrderName="" OrderNo=""
+	       OrderPurpose="" OrderType="" OriginalContainerKey="" OriginalTax="" OriginalTotalAmount="" OtherCharges="" OverallStatus="" PaymentRuleId="" PaymentStatus="" PendingChangesUserID="" PendingTransferIn="" PersonalizeCode="" PriceProgramKey=""
+	       PricingClassificationCode="" PriorityCode="" PriorityNumber="" ProcessPaymentOnReturnOrder="" PurgeHistoryDate="" Purpose="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate="" ReqShipDate="" ReturnByGiftRecipient=""
+	       ReturnOrderHeaderKeyForExchange="" Role="" SCAC="" SaleVoided="" ScacAndService="" ScacAndServiceKey="" SearchCriteria1="" SearchCriteria2="" SellerOrganizationCode="" ShipNode="" ShipToID="" ShipToKey="" SoldToKey="" SourceIPAddress=""
+	       SourceKey="" SourceType="" SourcingClassification="" Status="" TaxExemptFlag="" TaxExemptionCertificate="" TaxJurisdiction="" TaxPayerId="" TeamCode="" TermsCode="" TotalAdjustmentAmount="" VendorID="" isHistory="">
+		<PriceInfo Currency="" EnterpriseCurrency="" ReportingConversionDate="" ReportingConversionRate="" TotalAmount=""/>
+		<OrderLines TotalNumberOfRecords="">
+			<OrderLine Action="" AllocationDate="" AllocationLeadTime="" ApptStatus="" ApptWarning="" AvailableQtyForStopDelivery="" AwaitingDeliveryRequest="" BackorderNotificationQty="" BuyerMarkForNodeId="" BuyerReceivingNodeId="" CanAddServiceLines=""
+			           CarrierAccountNo="" CarrierServiceCode="" ChainedFromOrderHeaderKey="" ChainedFromOrderLineKey="" CommittedQuantity="" ConditionVariable1="" ConditionVariable2="" ConfigurationKey="" CustomerLinePONo="" CustomerPONo=""
+			           DeliveryCode="" DeliveryMethod="" DepartmentCode="" DependencyShippingRule="" DependentOnLineKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" DerivedFromOrderReleaseKey="" DispositionCode="" DistributionRuleId=""
+			           FillQuantity="" FirstIterationSeqNo="" FreightTerms="" FulfillmentType="" FutureAvailabilityDate="" GiftFlag="" GiftWrap="" GroupSequenceNumber="" HasChainedLines="" HasDeliveryLines="" HasDerivedChild="" HasServiceLines=""
+			           HoldFlag="" HoldReasonCode="" ImportLicenseExpDate="" ImportLicenseNo="" InStorePaymentRequired="" IntentionalBackorder="" InvoicedExtendedPrice="" InvoicedQty="" InvoicedQuantity="" IsBlindLine="N" IsBundleParent="" IsConfigured="N"
+			           IsFirmPredefinedNode="" IsPickUpNow="" IsPriceMatched="" ItemGroupCode="" ItemIsInHand="" ItemNotExist="" KitCode="" KitQty="" LastIterationSeqNo="" LevelOfService="" LineSeqNo="" LineType="" MaxLineStatus="" MaxLineStatusDesc=""
+			           MergeNode="" MinLineStatus="" MinLineStatusDesc="" MinShipByDate="" MultipleStatusesExist="" OpenQty="" OrderHeaderKey="" OrderLineKey="" OrderedQty="" OrigOrderLineKey="" OriginalOrderedQty="" OtherCharges="" OverallStatus=""
+			           PackListType="" ParentOfDependentGroup="" PersonalizeCode="" PersonalizeFlag="" PickableFlag="" PipelineKey="" PrimeLineNo="" ProcureFromNode="" PromisedApptEndDate="" PromisedApptStartDate="" Purpose="" ReceivingNode=""
+			           RemainingQty="" ReqCancelDate="" ReqDeliveryDate="" ReqShipDate="" ReservationID="" ReservationMandatory="" ReservationPool="" ReturnReason="" ReturnReasonLongDesc="" ReturnReasonShortDesc="" ReturnableQty="" SCAC=""
+			           ScacAndService="" ScacAndServiceKey="" SchedFailureReasonCode="" Segment="" SegmentType="" SerialNo="" ShipNode="" ShipToID="" ShipToKey="" ShipTogetherNo="" ShipmentConsolidationGroupId="" SourceFromOrganization="" SplitQty=""
+			           Status="" StatusQuantity="" SubLineNo="" SubstituteItemID="" SubstituteItemUOM="" Timezone="" TranDiscrepancyQty="" isHistory="">
+
+				<LineCharges>
+					<LineCharge AmountFromAddnlLinePrices="" ChargeAmount="" ChargeCategory="" ChargeName="" ChargeNameKey="" ChargePerLine="" ChargePerUnit="" InvoicedChargeAmount="" InvoicedChargePerLine="" InvoicedChargePerUnit="" IsBillable=""
+					            IsDiscount="" IsManual="Y" IsRefundable="" IsShippingCharge="" Reference="" RemainingChargeAmount="" RemainingChargePerLine="" RemainingChargePerUnit="">
+						<ChargeNameDetails Description=""/>
+						<ChargeCategoryDetails ChargeCategoryKey="" ConsiderForProfitMargin="" Description="" IsBillable="" IsDiscount="" IsRefundable=""/>
+						<ChargeBreakups>
+							<ChargeBreakup AwardId="" AwardType="" ChargeAmount="" ChargeBreakupKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" OrderHeaderKey=""/>
+						</ChargeBreakups>
+					</LineCharge>
+				</LineCharges>
+				<!-- LineCharge is not a template driven element. If the template contains 
+				either of LineCharge or LineTax elements, both will appear in the output, 
+				alongwith all their attributes. -->
+				<OrderStatuses>
+					<OrderStatus OrderHeaderKey="" OrderLineKey="" OrderLineScheduleKey="" OrderReleaseKey="" OrderReleaseStatusKey="" PipelineKey="" ReceivingNode="" ShipNode="" Status="" StatusDate="" StatusDescription="" StatusQty="" StatusReason=""
+					             TotalQuantity="">
+						<Details ExpectedDeliveryDate="" ExpectedShipmentDate="" OverrideItemID="" OverrideProductClass="" OverrideUnitOfMeasure="" ReceivingNode="" ShipByDate="" ShipNode="" TagNumber="">
+							<KitDetails>
+								<KitDetail OrderKitLineKey="" Quantity="" ShipByDate="" TagNumber="">
+									<KitDetailTranQuantity Quantity="" TransactionalUOM=""/>
+								</KitDetail>
+							</KitDetails>
+						</Details>
+						<OrderStatusTranQuantity StatusQty="" TotalQuantity="" TransactionalUOM=""/>
+						<ShipNode Description="" IdentifiedByParentAs="" OwnerKey=""/>
+					</OrderStatus>
+				</OrderStatuses>
+			</OrderLine>
+		</OrderLines>
+		<!-- RemainingTotals is a template-driven element but its attributes are not. The element can be removed from the template, and prevented from appearing in the output. But if the attributes are removed from the template, they will still be present in the output xml. -->
+		<CustomAttributes/>
+		<HeaderCharges>
+			<HeaderCharge ChargeAmount="" ChargeCategory="" ChargeName="" ChargeNameKey="" InvoicedChargeAmount="" IsBillable="" IsDiscount="" IsManual="Y" IsRefundable="" IsShippingCharge="" Reference="" RemainingChargeAmount="">
+				<ChargeNameDetails Description=""/>
+				<ChargeCategoryDetails ChargeCategoryKey="" ConsiderForProfitMargin="" Description="" IsBillable="" IsDiscount="" IsRefundable=""/>
+				<ChargeBreakups>
+					<ChargeBreakup AwardId="" AwardType="" ChargeAmount="" ChargeBreakupKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" OrderHeaderKey=""/>
+				</ChargeBreakups>
+			</HeaderCharge>
+		</HeaderCharges>
+	</Order>
+</OrderList>

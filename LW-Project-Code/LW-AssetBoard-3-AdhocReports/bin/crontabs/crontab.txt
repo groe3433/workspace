@@ -1,0 +1,81 @@
+###########################################################################
+######################### TOG Job Scheduler ###############################
+###########################################################################
+
+* * * * * /opt/ssfs/runtime/TOGCommonScripts/TOG-Job-Scheduler.sh
+00 06 * * 6 /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh TOG_JOB_SCHEDULER.log
+
+###########################################################################
+######## New Adhoc Report Cron Jobs #######################################
+###########################################################################
+
+######## Agent Server for the report generator ########
+
+#### Open Order
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Scripts/TOG-GenerateOpenOrdersReport.sh
+
+#### Order Reconciliation
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Scripts/TOG-RetrieveAndProcessFile.sh
+
+#### Back Order Summary
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sh
+
+#### Back Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sh
+
+#### Open Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sh
+
+#### Item Substitution Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sh
+
+######## Agent Server for the report emailer ########
+
+#### Open Order
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Scripts/TOG-EmailOpenOrderReport.sh
+
+#### Order Reconciliation
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Scripts/TOG-EmailOrderReconciliationReport.sh
+
+#### Back Order Summary
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Scripts/TOG-EmailBackOrderSummaryReport.sh
+
+#### Back Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Scripts/TOG-EmailBackOrderDetailReport.sh
+
+#### Open Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Scripts/TOG-EmailOpenOrderDetailReport.sh
+
+#### Item Substitution Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Scripts/TOG-EmailItemSubstitutionReport.sh
+
+######## Clean Agent Report Logs - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGOMSExtracts/cleanArchivedReports.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

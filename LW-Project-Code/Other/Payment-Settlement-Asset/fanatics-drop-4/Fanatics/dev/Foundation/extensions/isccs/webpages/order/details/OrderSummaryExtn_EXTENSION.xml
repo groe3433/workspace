@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderSummaryExtn"
+        extnPackage="extn.order.details"
+        originalScreen="isccs.order.details.OrderSummary"
+        originalScreenPackage="isccs.order.details" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_PrimaryInfoPanel"
+                class="detailsPrimaryInfoPanel" uId="extn_cust_Info">
+                <TableLayout cols="2" customClass="tableLayout-cols-2"/>
+            </ContentPane>
+            <ContentPane _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_PrimaryInfoPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="pnlPrimaryInfo" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="12"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="14"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="15"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="16"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="DST_AdditionalPanel" uId="extn_cust_Info"/>
+            <ContentPane _sc_extensibility_moveOrder="49"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder"
+                colspan="2" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="50"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="51"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="52"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="53"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="54"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="55"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_moveOrder="58"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="extn_OrderStatusPanel"/>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlOrderLines" title="$(_scSimpleBundle:extn_Items)"/>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnkTotalAmountDisplay" label="$(_scBundle:Label_TotalAmount)"/>
+            <Link _sc_extensibility_moveOrder="69"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="pnlStatusHolder" uId="lnkTotalAmountDisplay"/>
+            <Link _sc_extensibility_moveOrder="75"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Orderchannel" uId="lnkTotalAmountDisplay"/>
+            <DataLabel _sc_extensibility_moveOrder="19"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Custo_label"
+                label="$(_scBundle:CustomerNameClm)" uId="extn_Customer_name">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getCustomerName"
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomerName"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="20"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Customer_name"
+                label="$(_scBundle:extn_Fancash_Balance)" uId="extn_Fancash_Balance">
+                <BindingData>
+                    <CurrencyBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.PriceInfo.Currency"/>
+                    <SourceBinding
+                        namespace="extn_customerdetails_output" path="Customer.ExtnDataElement.FanCashBalance"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="23"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_cust_Info"
+                label="$(_scBundle:extn_Email_Address)" uId="extn_Email">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomerEMailID"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="39"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Account_Balance" uId="extn_Email"/>
+            <DataLabel _sc_extensibility_moveOrder="21"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Fancash_Balance"
+                label="$(_scBundle:extn_Account_Balance)" uId="extn_Account_Balance">
+                <BindingData>
+                    <CurrencyBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.PriceInfo.Currency"/>
+                    <SourceBinding
+                        namespace="extn_customerdetails_output" path="Customer.ExtnDataElement.AccountBalance"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="26"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Customer_Since"
+                label="$(_scBundle:extn_Guest_Account)" uId="extn_Is_Guest">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="getCustomerStatus"
+                        namespace="extn_customerdetails_output" path="Customer.ExtnDataElement.CustomerStatus"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="40"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Is_Guest"/>
+            <DataLabel _sc_extensibility_moveOrder="44"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Phone" uId="extn_Is_Guest"/>
+            <DataLabel _sc_extensibility_moveOrder="27"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Is_Guest"
+                label="$(_scBundle:extn_Rewards_Customer)" uId="extn_Is_Rewards">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomerRewardsNo"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="41"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Customer_Since" uId="extn_Is_Rewards"/>
+            <DataLabel _sc_extensibility_moveOrder="42"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Is_Guest" uId="extn_Is_Rewards"/>
+            <DataLabel _sc_extensibility_moveOrder="46"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Customer_Since" uId="extn_Is_Rewards"/>
+            <DataLabel _sc_extensibility_moveOrder="48"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Phone" uId="extn_Is_Rewards"/>
+            <DataLabel _sc_extensibility_moveOrder="24"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Email"
+                label="$(_scBundle:MobilePhone)" uId="extn_Phone">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomerPhoneNo"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="28"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Is_Rewards"
+                label="$(_scBundle:extn_Rewards_Customer_Since)" uId="extn_Rewards_Since">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_customerdetails_output" path="Customer.ExtnDataElement.CustomerSince"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="43"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Customer_Since" uId="extn_Rewards_Since"/>
+            <DataLabel _sc_extensibility_moveOrder="45"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Phone" uId="extn_Rewards_Since"/>
+            <DataLabel _sc_extensibility_moveOrder="47"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Phone" uId="extn_Rewards_Since"/>
+            <DataLabel _sc_extensibility_moveOrder="25"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Phone"
+                label="$(_scBundle:extn_Customer_Since)" uId="extn_Customer_Since">
+                <BindingData>
+                    <SourceBinding
+                        namespace="extn_customerdetails_output" path="Customer.ExtnDataElement.CustomerSince"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="36"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_OrderNo"
+                label="$(_scBundle:extn_Order_Number)" uId="extn_CustomerOrderNo">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomAttributes.CustomerOrderNo"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="70"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblEnterpriseCodeDisplay" uId="extn_CustomerOrderNo"/>
+            <DataLabel _sc_extensibility_moveOrder="71"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblChannelDisplay" uId="extn_CustomerOrderNo"/>
+            <DataLabel _sc_extensibility_moveOrder="73"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnkTotalAmountDisplay" uId="extn_CustomerOrderNo"/>
+            <DataLabel _sc_extensibility_moveOrder="74"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblOrderNo" uId="extn_CustomerOrderNo"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblOrderDateDisplay" renderHidden="true"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblChannelDisplay" renderHidden="true"/>
+            <DataLabel _sc_extensibility_moveOrder="29"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlPrimaryInfo"
+                label="$(_scBundle:OrderNo)" uId="extn_OrderNo">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.OrderNo"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="72"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblEnterpriseCodeDisplay" uId="extn_OrderNo"/>
+            <DataLabel _sc_extensibility_moveOrder="76"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnkTotalAmountDisplay" uId="extn_OrderNo"/>
+            <DataLabel _sc_extensibility_moveOrder="33"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlPrimaryInfo"
+                label="$(_scBundle:extn_Webstore)" uId="extn_Webstore">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.SellerOrganizationName"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="77"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnkTotalAmountDisplay" uId="extn_Webstore"/>
+            <DataLabel _sc_extensibility_moveOrder="30"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_OrderNo"
+                label="$(_scBundle:OrderDateCol)" scuiDataType="Text-50" uId="extn_Orderdate">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="getFormatOrderDate"
+                        namespace="getCompleteOrderDetails_output" path="Order.OrderDate"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="78"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnkTotalAmountDisplay" uId="extn_Orderdate"/>
+            <DataLabel _sc_extensibility_moveOrder="31"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Orderdate"
+                label="$(_scBundle:extn_Approval_Date)" uId="extn_Approvaldate">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getActualDate"
+                        namespace="getCompleteOrderDetails_output" path="Order.OrderDates.OrderDate.ActualDate"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="79"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Orderchannel" uId="extn_Approvaldate"/>
+            <DataLabel _sc_extensibility_moveOrder="37"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblEnterpriseCodeDisplay"
+                label="$(_scBundle:extn_Order_Channel)" uId="extn_Orderchannel">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.EntryType"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblEnterpriseCodeDisplay" renderHidden="true"/>
+            <DataLabel _sc_extensibility_moveOrder="32"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Approvaldate"
+                label="$(_scBundle:extn_Approved_By)" uId="extn_Approvedby">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getFraudUserId"
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomAttributes.FraudStatusUserID"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="80"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_Shippingmethod" uId="extn_Approvedby"/>
+            <DataLabel _sc_extensibility_moveOrder="38"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblEnterpriseCodeDisplay"
+                label="$(_scBundle:extn_Shipping_Method)" uId="extn_Shippingmethod">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CarrierServiceCode"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="34"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Webstore"
+                label="$(_scBundle:extn_IP_Address)" uId="extn_IPaddress">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.CustomAttributes.IPAddress"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="81"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblExchangeTypeDisplay" uId="extn_IPaddress"/>
+            <DataLabel _sc_extensibility_moveOrder="82"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblExchangeTypeDisplay" uId="extn_IPaddress"/>
+            <Image _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="imgOnHold" minSize="10" style="padding-left: 5px;"/>
+            <Image _sc_extensibility_moveOrder="60"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblStatus" uId="imgOnHold"/>
+            <Image _sc_extensibility_moveOrder="67"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_label_Status"
+                style="padding-left: 5px;" uId="imgOnHold"/>
+            <Label _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info"
+                class="primaryInformation" colspan="2"
+                label="$(_scSimpleBundle:blank)" uId="extn_Custo_label" value="$(_scSimpleBundle:CustomerInformation)"/>
+            <Label _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="13"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="17"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlPrimaryInfo" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_moveOrder="18"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_cust_Info" uId="extn_Custo_label"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblOrderNo" renderHidden="true"/>
+            <Label _sc_extensibility_moveOrder="61"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblStatus"
+                class=" floatLeft"
+                label="$(_scSimpleBundle:Label_Status)"
+                style="font-weight:bold"
+                title="$(_scSimpleBundle:Label_Status)"
+                uId="extn_Order_Status" value="$(_scBundle:Label_Status)"/>
+            <Label _sc_extensibility_moveOrder="62"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_OrderStatusPanel" uId="extn_Order_Status"/>
+            <Label _sc_extensibility_moveOrder="65"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblStatus" uId="extn_Order_Status"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblStatus" renderHidden="true"/>
+            <Label _sc_extensibility_moveOrder="59"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="imgOnHold" uId="lblStatus"/>
+            <Label _sc_extensibility_moveOrder="63"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Order_Status" uId="lblStatus"/>
+            <Label _sc_extensibility_moveOrder="64"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="imgOnHold" uId="lblStatus"/>
+            <Label _sc_extensibility_moveOrder="66"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblStatus"
+                class="primaryInformation floatLeft"
+                style="padding-left:110px"
+                title="$(_scSimpleBundle:Label_Status)" uId="extn_label_Status">
+                <BindingData>
+                    <SourceBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.DisplayStatus"/>
+                </BindingData>
+            </Label>
+            <Label _sc_extensibility_moveOrder="68"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="imgOnHold" uId="extn_label_Status"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="Customer panel Namespace"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_3" value="extn_customerdetails_output"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="It describes the intial values when function calls"
+                    eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="getCustomerInfo"/>
+                </Subscriber>
+                <Subscriber
+                    description="This method will show the hold type as tool tip"
+                    eventId="afterScreenInit" isExtn="true" sequence="52">
+                    <Handler methodName="getHoldTypeForToolTip"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

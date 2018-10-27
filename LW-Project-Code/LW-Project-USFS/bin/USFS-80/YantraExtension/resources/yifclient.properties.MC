@@ -1,0 +1,48 @@
+# Copyright 2006, Sterling Commerce, Inc. All rights reserved.
+#---------------------------------------------------------------------------
+# The properties associated with JNDI for performing an EJB api call are here
+#-----------------------------------------------------------------------------
+#for WebLogic
+#java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+#java.naming.provider.url=t3://<ipaddress>:<port>
+
+#for WebSphere
+java.naming.factory.initial=com.ibm.websphere.naming.WsnInitialContextFactory
+java.naming.provider.url=iiop://10.117.15.101:2811
+
+#java.naming.security.principal=
+#java.naming.security.credentials=
+#java.naming.referral=
+#java.naming.security.protocol=
+
+#This value has to be one of HTTP, HTTPS, EJB or LOCAL
+yif.apifactory.protocol=LOCAL
+
+
+yif.httpapi.url=http://10.117.15.101:9082/yantra/interop/InteropHttpServlet
+
+
+#Set the following properties if you are using HTTPS
+#Set the location of the key store file, if you are using client side digital certificates
+#javax.net.ssl.keyStore=
+#javax.net.ssl.keyStorePassword=
+#The following two properties should be set for server certificate authentication
+#The trust store is the location of the file where the server certificate root was imported
+#javax.net.ssl.trustStore=
+#javax.net.ssl.trustStorePassword=
+
+#If international charset is used and HTTP is the specified as the transport in
+#yif.apifactory.protocol for api invocation, the following system 
+#property should be set for the client jvm.
+#	file.encoding=UTF-8
+#Example java -Dfile.encoding=UTF-8 <clientClass being invoked>.
+
+#The following property has to be set for each api that has to be
+#invoked in a backward compatibility mode. 
+#The valid values for this property are ver32, ver40, ver45
+#yfs.api.<apiname>.version= 
+
+# This class will be used for encrypting and decrypting properties.
+# Refer to the javadocs for the YCPEncrypter interface for information about how to write your own property encrypter class
+#yfs.propertyencrypter.class=
+

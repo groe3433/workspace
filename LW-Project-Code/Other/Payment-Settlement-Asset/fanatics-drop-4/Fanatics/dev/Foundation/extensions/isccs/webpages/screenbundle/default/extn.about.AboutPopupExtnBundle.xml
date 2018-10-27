@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.about.AboutPopupExtnBundle" screenId="extn.about.AboutPopupExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="lblProductName_Label_value"
+            bundleKey="productName" bundleValueFn="_scSimpleBundle"
+            property="value" type="WIDGET" uId="lblProductName"/>
+    </BundleEntries>
+</ScreenBundle>

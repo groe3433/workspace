@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<project name="9.1 Place Agent Content" default="all" basedir=".">
+
+	<property file="deploy.properties" />
+	<property environment="env"/>
+
+	<tstamp>
+		<format property="TIMESTAMP" pattern="dd_MMM_yy_HH_mm_ss"/>
+	</tstamp>
+
+	<target name="all" description="Default All Target">
+		<antcall target="placeAgentContents" />
+		<antcall target="copySMCFSear" />
+		<antcall target="copyCustomerOverrides" />
+                <antcall target="deleteTMPdir" />		
+	</target>
+
+	<target name="placeAgentContents">
+		<unjar dest="${env.DEPLOY}/tmp/contents" src="${env.DEPLOY}/tmp/smcfs.ear" />
+
+		<move file="${env.DEPLOY}/tmp/contents/resources.jar" tofile="${env.YFS_HOME}/jar/platform/6_0/resources.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/entities.jar" tofile="${env.YFS_HOME}/jar/platform/6_0/entities.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/nwcg_icbs_br2.jar" tofile="${env.YFS_HOME}/jar/websphere/70/nwcg_icbs_br2.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/nwcg_ross_br2.jar" tofile="${env.YFS_HOME}/jar/websphere/70/nwcg_ross_br2.jar"/>
+		<chmod file="${env.YFS_HOME}/jar/platform/6_0/*.jar" perm="775"/>
+
+		<unjar dest="${env.DEPLOY}/tmp/contents/properties" src="${env.DEPLOY}/tmp/contents/properties.jar" />
+		<move file="${env.DEPLOY}/tmp/contents/properties/AGENTDynamicclasspath.cfg" tofile="${env.YFS_HOME}/properties/AGENTDynamicclasspath.cfg"/>
+		<move file="${env.DEPLOY}/tmp/contents/properties/APPDynamicclasspath.cfg" tofile="${env.YFS_HOME}/properties/APPDynamicclasspath.cfg"/>
+		<move file="${env.DEPLOY}/tmp/contents/properties/dynamicclasspath.cfg" tofile="${env.YFS_HOME}/properties/dynamicclasspath.cfg"/>
+		<move file="${env.DEPLOY}/tmp/contents/properties/ACTIVEMQDynamicclasspath.cfg" tofile="${env.YFS_HOME}/properties/ACTIVEMQDynamicclasspath.cfg"/>
+		<chmod file="${env.YFS_HOME}/properties/*.cfg" perm="775"/>
+
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mqjms.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mqjms.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/dhbcore.jar" tofile="${env.YFS_HOME}/jar/websphere/70/dhbcore.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.connector.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.connector.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jmqi.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jmqi.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.commonservices.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.commonservices.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.headers.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.headers.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.pcf.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.pcf.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jmqi.local.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jmqi.local.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jmqi.remote.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jmqi.remote.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jmqi.system.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jmqi.system.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.mq.jms.admin.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.jms.admin.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.commonservices.j2se.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.commonservices.j2se.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.commonservices.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.commonservices.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.jms.internal.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.jms.internal.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.jms.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.jms.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.matchspace.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.matchspace.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.provider.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.provider.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.ref.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.ref.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.wmq.common.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.wmq.common.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.wmq.factories.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.wmq.factories.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.wmq.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.wmq.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.msg.client.wmq.v6.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.wmq.v6.jar"/>
+
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.sib.utils.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.sib.utils.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.sib.server.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.sib.server.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.emf.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.emf.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.bootstrap.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.bootstrap.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.runtime.jar" tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.runtime.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.ws.admin.client_7.0.0.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.ws.admin.client_7.0.0.jar"/>
+		<move file="${env.DEPLOY}/tmp/contents/com.ibm.jaxws.thinclient_7.0.0.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.jaxws.thinclient_7.0.0.jar"/>
+
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.wmq.prereq_7.5.0.2.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.wmq.prereq_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.wmq.nls_7.5.0.2.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.wmq.nls_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.wmq_7.5.0.2.jar"
+			 tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.wmq_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.nls_7.5.0.2.jar"
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.nls_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.jms.prereq_7.5.0.2.jar"
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.jms.prereq_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.jms_7.5.0.2.jar"
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.jms_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.msg.client.osgi.commonservices.j2se_7.5.0.2.jar"
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.msg.client.osgi.commonservices.j2se_7.5.0.2.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/OSGi/com.ibm.mq.osgi.java_7.5.0.2.jar"
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.osgi.java_7.5.0.2.jar"/>		
+
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/com.ibm.mq.soap.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.soap.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/com.ibm.mq.tools.ras.jar" 
+			tofile="${env.YFS_HOME}/jar/websphere/70/com.ibm.mq.tools.ras.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/rmm.jar" tofile="${env.YFS_HOME}/jar/websphere/70/rmm.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/jms.jar" tofile="${env.YFS_HOME}/jar/websphere/70/jms.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/jta.jar" tofile="${env.YFS_HOME}/jar/websphere/70/jta.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/jndi.jar" tofile="${env.YFS_HOME}/jar/websphere/70/jndi.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/providerutil.jar" tofile="${env.YFS_HOME}/jar/websphere/70/providerutil.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/fscontext.jar" tofile="${env.YFS_HOME}/jar/websphere/70/fscontext.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/connector.jar" tofile="${env.YFS_HOME}/jar/websphere/70/connector.jar"/>
+		<copy file="${env.WEBSPHEREMQ_CLIENT_HOME}/ldap.jar" tofile="${env.YFS_HOME}/jar/websphere/70/ldap.jar"/>
+		<chmod file="${env.YFS_HOME}/jar/websphere/70/*.jar" perm="775"/>
+	</target>
+
+        <target name="copySMCFSear">
+                <echo>......Copy smcfs.ear to Sterling/external_deployments</echo>
+                <move file="${env.DEPLOY}/tmp/smcfs.ear"
+               		tofile="${env.YFS_HOME}/external_deployments/smcfs.ear"/>
+                <chmod file="${env.YFS_HOME}/external_deployments/smcfs.ear" perm="775"/>
+        </target>
+
+
+	<target name="copyCustomerOverrides">
+		<echo>......Copy customer_overrides.properties </echo>
+		<move file="${env.DEPLOY}/tmp/customer_overrides.properties.${project.environment}" 
+			tofile="${env.YFS_HOME}/properties/customer_overrides.properties"/>
+		<chmod file="${env.YFS_HOME}/properties/customer_overrides.properties" perm="775"/>
+	</target>
+
+	<target name="deleteTMPdir">
+		<echo>......Delete Deploy/tmp folder</echo>
+		<delete includeEmptyDirs="true">
+			<fileset dir="${env.DEPLOY}/tmp"/>
+		</delete>
+	</target>
+
+</project>

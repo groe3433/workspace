@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DBSchema>
+	<Entities>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Incident Order table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_INCIDENT_ORDER">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="INCIDENT_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="IncidentKey" Description=""/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="IncidentNo" Description=""/>
+				<Attribute ColumnName="INCIDENT_NAME" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="IncidentName" Description=""/>
+				<Attribute ColumnName="INCIDENT_ID" DataType="Text-10" Nullable="true" Size="10" Type="VARCHAR2" XMLName="IncidentId" Description="Incident ID"/>
+				<Attribute ColumnName="INCIDENT_HOST" DataType="Text-40" Nullable="true" Size="24" Type="VARCHAR2" XMLName="IncidentHost" Description=""/>
+				<Attribute ColumnName="INCIDENT_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentType" Description=""/>
+				<Attribute ColumnName="INCIDENT_SOURCE" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="IncidentSource" DefaultValue="'I'" Description=""/>
+				<Attribute ColumnName="INCIDENT_FS_ACCT_CODE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="IncidentFsAcctCode" Description=""/>
+				<Attribute ColumnName="INCIDENT_BLM_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentBlmAcctCode" Description=""/>
+				<Attribute ColumnName="INCIDENT_OTHER_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentOtherAcctCode" Description=""/>
+				<Attribute ColumnName="REGISTER_INTEREST_IN_ROSS" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="RegisterInterestInROSS" DefaultValue="'Y'" Description=""/>
+				<Attribute ColumnName="INCIDENT_LOCKED" DataType="CHAR" Nullable="true" Size="1" Type="CHAR" XMLName="IncidentLocked" Description=""/>
+				<Attribute ColumnName="GACC" DataType="Text-100" Description="GACC" Nullable="true" Size="100" Type="VARCHAR2" XMLName="GACC"/>
+				<Attribute ColumnName="CUSTOMER_NAME" DataType="Text-40" Description="Customer Name" Nullable="true" Size="40" Type="VARCHAR2" XMLName="CustomerName"/>
+				<Attribute ColumnName="YEAR" DataType="Text-10" Nullable="true" Size="10" DefaultValue="' '" Type="VARCHAR2" XMLName="Year" Description=""/>
+				<Attribute ColumnName="CUSTOMER_ID" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="CustomerId" Description="The Customer Id"/>
+				<Attribute ColumnName="PRIMARY_CACHE_ID" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="PrimaryCacheId" Description=""/>
+				<Attribute ColumnName="DATE_STARTED" DataType="TimeStamp" Nullable="false" Type="DATE" XMLName="DateStarted" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="DATE_CLOSED" DataType="TimeStamp" Nullable="true" Type="DATE" XMLName="DateClosed" Description=""/>
+				<Attribute ColumnName="IS_ACTIVE" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="IsActive" DefaultValue="'Y'" Description="Indicates the active state of the Incident/other order"/>
+				<Attribute ColumnName="OVERRIDE_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OverrideCode" Description=""/>
+				<Attribute ColumnName="IS_COST_SHARED" DataType="CHAR" Nullable="true" Size="1" Type="CHAR" XMLName="IsCostShared" DefaultValue="'N'" Description="Cost Shared across incidents"/>
+				<Attribute ColumnName="INCIDENT_TEAM_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentTeamType" Description=""/>
+				<!-- Added INCIDENT TEAM NAME as part of CR 139 -->
+				<Attribute ColumnName="INCIDENT_TEAM_NAME" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentTeamName" Description=""/>
+				<!-- This is the replaced incident number 1-->
+				<Attribute ColumnName="REPLACED_INCIDENT_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ReplacedIncidentNo" Description="The replaced Incident No."/>
+				<!-- This is the replaced incident number 2-->
+				<Attribute ColumnName="REPLACED_INCIDENT_NO_2" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ReplacedIncidentNo2" Description="The replaced Incident No."/>
+				<!-- Added for the other order identifier -->
+				<Attribute ColumnName="IS_OTHER_ORDER" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="IsOtherOrder" DefaultValue="'N'" Description="This is Y if its an other order"/>
+				<!-- Customer PO Number for other orders -->
+				<Attribute ColumnName="CUSTOMER_PO_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="CustomerPONo" Description="The Customer PO number"/>
+				<!-- Other order type -->
+				<Attribute ColumnName="OTHER_ORDER_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OtherOrderType" Description="Other order type"/>
+				<!-- The additional infor associated with the incident-->
+				<Attribute ColumnName="ADDITIONAL_INFO" DataType="Text-255" Description="Free form Additional Information" Nullable="true" Size="255" XMLName="AdditionalInfo"/>
+				<!-- The Phone number added on 6/29/2006 :Gautham-->
+				<Attribute ColumnName="PHONE_NO" DataType="Text-20" Description="The Incident related phone no" Nullable="true" Size="20" XMLName="PhoneNo"/>
+				<!-- The address foreign keys -->
+				<Attribute ColumnName="PERSON_INFO_SHIPTO_KEY" DataType="Key" Nullable="true" Size="24" Type="VARCHAR2" XMLName="PersonInfoShipToKey" Description="The Ship to Key"/>
+				<Attribute ColumnName="AGENCY" DataType="Text-25" Description="Customer Agency" Nullable="true" Size="25" Type="VARCHAR2" XMLName="Agency"/>
+				<Attribute ColumnName="DEPARTMENT" DataType="Text-25" Description="Customer Department" Nullable="true" Size="25" Type="VARCHAR2" XMLName="Department"/>
+				<Attribute ColumnName="PERSON_INFO_BILLTO_KEY" DataType="Key" Nullable="true" Size="24" Type="VARCHAR2" XMLName="PersonInfoBillToKey" Description="The Ship to Key"/>
+				<Attribute ColumnName="PERSON_INFO_DELIVERTO_KEY" DataType="Key" Nullable="true" Size="24" Type="VARCHAR2" XMLName="PersonInfoDeliverToKey" Description="The Ship to Key"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="MODIFICATION_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ModificationCode" Description="Captures the Modification Code"/>
+				<Attribute ColumnName="MODIFICATION_DESC" DataType="Text-200" Nullable="true" Size="200" Type="VARCHAR2" XMLName="ModificationDesc" Description="Description for the modification"/>
+				<Attribute ColumnName="REPLACED_INCIDENT_YEAR" DataType="Text-10" Nullable="true" Size="10" DefaultValue="' '" Type="VARCHAR2" XMLName="ReplacedIncidentYear" Description="Replaced Incident Year"/>
+				<Attribute ColumnName="REPLACED_INCIDENT_YEAR_2" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="ReplacedIncidentYear2" Description="Replaced Incident Year 2"/>
+				<!-- Get Incident Details design database extensions . Start -->
+				<Attribute ColumnName="ROSS_INCIDENT_STATUS" DataType="Text-40" Nullable="true" DefaultValue="' '" Size="40" Type="VARCHAR2" XMLName="ROSSIncidentStatus" Description="Captures the Incident's status in the ROSS system"/>
+				<Attribute ColumnName="ROSS_DISPATCH_ID" DataType="Text-40" Nullable="true" DefaultValue="' '" Size="40" Type="VARCHAR2" XMLName="ROSSDispatchID" Description="Dispatch ID of the incident in the ROSS system , used as reference in the ICBS"/>
+				<Attribute ColumnName="IS_COMPLEX_INDICATOR" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="IsComplexIndicator" DefaultValue="'Y'" Description="Mapped with complex indicator in the ROSS system. Used as reference in the ICBS."/>
+				<Attribute ColumnName="ROSS_FINANCIAL_CODE" DataType="Text-50" Nullable="true" DefaultValue="' '" Size="50" Type="VARCHAR2" XMLName="ROSSFinancialCode" Description="Account/Financial Code in the ROSS system, user will enter the ICBS specific account codes based on this attribute. Used as reference in ICBS."/>
+				<Attribute ColumnName="ROSS_FINANCIAL_FISCAL_YEAR" DataType="Text-5" Nullable="true" DefaultValue="' '" Size="5" Type="VARCHAR2" XMLName="ROSSFinancialFiscalYear" Description="Financial Fiscal Year in ROSS for the financial code, used as reference in ICBS"/>
+				<Attribute ColumnName="REQUEST_NO_BLOCK_START" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="RequestNoBlockStart" Description="Start number for request number block, all the ICBS initiated Request/Issue should fall under start and end request number"/>
+				<Attribute ColumnName="REQUEST_NO_BLOCK_END" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="RequestNoBlockEnd" Description="End number for request number block, all the ICBS initiated Request/Issue should fall under start and end request number"/>
+				<Attribute ColumnName="GEOGRAPHIC_COORD_LATITUDE" DataType="Text-200" Nullable="true" DefaultValue="' '" Size="200" Type="VARCHAR2" XMLName="GeographicCoordinateLatitude" Description="To capture ROSS GeographicCoordinateLatitude field for reference"/>
+				<Attribute ColumnName="GEOGRAPHIC_COORD_LONGITUDE" DataType="Text-200" Nullable="true" DefaultValue="' '" Size="200" Type="VARCHAR2" XMLName="GeographicCoordinateLongitude" Description="To capture ROSS GeographicCoordinateLongitude field for reference"/>
+				<Attribute ColumnName="LAST_UPDATED_FROM_ROSS" DataType="TimeStamp" Nullable="false" DefaultValue="sysdate" Type="DATE" XMLName="LastUpdatedFromROSS" Description="Captures the last time the incident information was fetched from ROSS."/>
+				<!-- Get Incident Details design database extensions .End -->
+				<!-- Additional atributes.start -->
+				<Attribute ColumnName="IS_SUPPRESSIVE" DataType="CHAR" Nullable="false" Size="1" Type="CHAR" XMLName="IsSuppressive" DefaultValue="'Y'" Description="Determines if a incident is suppressive or not"/>
+				<Attribute ColumnName="ICBS_FISCAL_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="ICBSFiscalYear" Description="ICBS Fiscal Year"/>
+				<Attribute ColumnName="LOCK_REASON" DataType="Text-100" Nullable="true"  Type="VARCHAR2" Size="100" DefaultValue="' '" XMLName="LockReason" Description="Name of message sent that is reason for Lock"/>
+				<!-- This is the replaced incident number 3-->
+				<Attribute ColumnName="REPLACED_INCIDENT_NO_3" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ReplacedIncidentNo3" Description="The replaced Incident No 3."/>
+				<Attribute ColumnName="REPLACED_INCIDENT_YEAR_3" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="ReplacedIncidentYear3" Description="Replaced Incident Year 3"/>
+				<!-- FBMS elements -->
+				<Attribute ColumnName="COST_CENTER" DataType="Text-10" Description="Cost Center" Nullable="true" Size="10" Type="VARCHAR2" XMLName="CostCenter" />
+				<Attribute ColumnName="WBS" DataType="Text-12" Description="WBS" Nullable="true" Size="12" Type="VARCHAR2" XMLName="WBS" />				
+				<Attribute ColumnName="FUNCTIONAL_AREA" DataType="Text-16" Description="Functional Area" Nullable="true"  Size="16" Type="VARCHAR2" XMLName="FunctionalArea"/>
+				<!-- end FBMS elements -->
+				<Attribute
+             ColumnName="SHIPPING_INSTRUCTIONS"
+             DataType="Comments"
+             Description="Shipping Instructions"
+             Nullable="true"
+             Size="1500"
+             Type="VARCHAR2"
+             XMLName="ShippingInstructions"/>
+             
+             <Attribute 
+			  ColumnName="SHIP_INSTR_CITY"
+              DataType="City"
+              Description="City for a Shipping Instruction shipping method"
+              Nullable="true"
+              XMLName="ShipInstrCity"/>
+              
+			<Attribute 
+			  ColumnName="SHIP_INSTR_STATE"
+              DataType="State"
+              Description="State for a Shipping Instruction shipping method"
+              Nullable="true"
+              XMLName="ShipInstrState"/>
+			  
+				<!-- Additional atributes.End -->
+			</Attributes>
+			<AuditReferences>
+				<Reference ColumnName="MODIFICATION_CODE"/>
+				<Reference ColumnName="MODIFICATION_DESC"/>
+			</AuditReferences>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_INCI_ORD_PK">
+				<Attribute ColumnName="INCIDENT_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="NWCG_INCI_ORD_I1" Unique="True">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="YEAR"/>
+				</Index>
+				<Index Name="NWCG_INCI_ORD_I2" Unique="False">
+					<Column Name="REPLACED_INCIDENT_NO"/>
+					<Column Name="REPLACED_INCIDENT_YEAR"/>
+					<Column Name="REPLACED_INCIDENT_NO_2"/>
+					<Column Name="REPLACED_INCIDENT_YEAR_2"/>
+					<Column Name="REPLACED_INCIDENT_NO_3"/>
+					<Column Name="REPLACED_INCIDENT_YEAR_3"/>	
+				</Index>
+			</Indices>
+			<!-- Relationship -->
+			<!-- ForeignKeys -->
+			<ForeignKeys>
+				<ForeignKey ParentTableName="YFS_PERSON_INFO" XMLName="YFSPersonInfoShipTo">
+					<Attribute ColumnName="PERSON_INFO_SHIPTO_KEY" ParentColumnName="PERSON_INFO_KEY"/>
+				</ForeignKey>
+				<ForeignKey ParentTableName="YFS_PERSON_INFO" XMLName="YFSPersonInfoBillTo">
+					<Attribute ColumnName="PERSON_INFO_BILLTO_KEY" ParentColumnName="PERSON_INFO_KEY"/>
+				</ForeignKey>
+				<ForeignKey ParentTableName="YFS_PERSON_INFO" XMLName="YFSPersonInfoDeliverTo">
+					<Attribute ColumnName="PERSON_INFO_DELIVERTO_KEY" ParentColumnName="PERSON_INFO_KEY"/>
+				</ForeignKey>
+			</ForeignKeys>
+			<!-- AuditReferences -->
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Stores a relationship between an item and supplier" HasHistory="TRUE" Prefix="NWCG_" TableName="NWCG_SUPPLIER_ITEM">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="SUPPLIERITEM_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="SupplierItemkey"/>
+				<Attribute ColumnName="SUPPLIER_ID" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="SupplierID" Description="Supplier Id"/>
+				<Attribute ColumnName="ITEM_ID" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="ItemID" Description="Item Id"/>
+				<Attribute ColumnName="PRODUCT_CLASS" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="ProductClass" Description="Product Class"/>
+				<Attribute ColumnName="UNIT_OF_MEASURE" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="UnitOfMeasure" Description="Unit Of Measure"/>
+				<Attribute ColumnName="SUPPLIER_PART_NO" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="SupplierPartNo" Description="Supplier Part Number"/>
+				<Attribute ColumnName="SUPPLIER_STANDARD_PACK" DataType="VARCHAR2" Nullable="false" Size="100" Type="VARCHAR2" XMLName="SupplierStandardPack" Description="Supplier Standard Pack"/>
+				<Attribute ColumnName="PREFERRED" DataType="Flag" Nullable="false" Type="Flag" XMLName="Preferred" DefaultValue="N" Description="Is Preferred Supplier"/>
+				<Attribute ColumnName="UNIT_COST" DataType="NUM-19-6" DefaultValue="0" Description="Unit Cost" Nullable="false" XMLName="UnitCost"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+				<!--added for cr 440 ks-->
+				<Attribute ColumnName="SUPPLIER_UOM" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="SupplierUOM" Description="Supplier Unit Of Measure"/>
+				<!-- end of 440 -->
+				<!-- added for CR 581 ML -->
+				<Attribute ColumnName="SHORT_DESCRIPTION" DataType="VARCHAR2" Nullable="true" Size="200" Type="VARCHAR2" XMLName="ShortDescription" Description="Cache Item Description"/>
+				<!-- end of 581 -->
+				<!-- added for CR 582 ML -->
+				<Attribute ColumnName="GLOBAL_ITEM_ID" DataType="VARCHAR2" Nullable="true" Size="128" Type="VARCHAR2" XMLName="GlobalItemID" Description="NSN"/>
+				<!-- end of 582 -->
+				<!-- added for CR 581 ML -->
+				<Attribute ColumnName="DESCRIPTION" DataType="VARCHAR2" Nullable="true" Size="200" Type="VARCHAR2"
+				XMLName="Description" Description="Cache Item Description"/>
+				<!-- end of 581 -->
+			
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_SUP_ITEM_PK">
+				<Attribute ColumnName="SUPPLIERITEM_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="NWCG_SUP_ITEM_I1" Unique="True">
+					<Column Name="SUPPLIER_ID"/>
+					<Column Name="ITEM_ID"/>
+				</Index>
+			</Indices>
+			<!-- AuditReferences -->
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Incident return table" HasHistory="True" Prefix="NWCG_" TableName="NWCG_INCIDENT_RETURN">
+			<Attributes>
+				<Attribute ColumnName="INCIDENT_RET_KEY" DataType="Key" Nullable="false" Size="24" XMLName="IncidentReturnKey" Description=""/>
+				<Attribute ColumnName="ITEM_ID" DataType="ItemID" Nullable="false" Size="40" Type="CHAR" XMLName="ItemID" Description=""/>
+				<Attribute ColumnName="QUANTITY_SHIPPED" DataType="Key" Nullable="false" Size="24" Type="Text-24" XMLName="QuantityShipped" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="UNIT_PRICE" DataType="Key" Nullable="false" Size="24" Type="Text-24" XMLName="UnitPrice" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="IncidentNo" Description=""/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description="Incident Year"/>
+				<Attribute ColumnName="TRACKABLE_ID" DataType="DocumentNo" Nullable="false" Size="40" Type="VARCHAR2" XMLName="TrackableID" Description=""/>
+				<Attribute ColumnName="CACHE_ID" DataType="Key" Nullable="false" Size="24" Type="Text-24" XMLName="CacheID" Description=""/>
+				<Attribute ColumnName="QUANTITY_RETURNED" DataType="NUM-14-4" Nullable="false" XMLName="QuantityReturned" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_RFI" DataType="NUM-14-4" Nullable="false" XMLName="QuantityRFI" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_NRFI" DataType="NUM-14-4" Nullable="false" XMLName="QuantityNRFI" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_UNS_RETURN" DataType="NUM-14-4" Nullable="false" XMLName="QuantityUnsRet" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_UNS_NWT_RETURN" DataType="NUM-14-4" Nullable="false" XMLName="QuantityUnsNwtReturn" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="DATE_ISSUED" DataType="TimeStamp" Nullable="false" Size="17" Type="DATETIME" XMLName="DateIssued" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="OVER_RECEIPT" DataType="Flag" Nullable="false" Size="1" Type="CHAR" XMLName="OverReceipt" DefaultValue="'N'" Description=""/>
+				<Attribute ColumnName="RECEIVED_AS_COMPONENT" DataType="Flag" Nullable="false" Size="1" Type="CHAR" XMLName="ReceivedAsComponent" DefaultValue="'N'" Description=""/>
+				<Attribute ColumnName="ISSUE_NO" DataType="Text-24" Nullable="true" Size="24" Type="VARCHAR2" XMLName="IssueNo" Description="Issue Number which generated this record"/>
+				<Attribute ColumnName="QUANTITY_RFI_REFURB" DataType="NUM-14-4" Nullable="false" XMLName="QuantityRFIRefurb" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_UNS_REFURB" DataType="NUM-14-4" Nullable="false" XMLName="QuantityUnsRefurb" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="QUANTITY_UNS_NWT_REFURB" DataType="NUM-14-4" Nullable="false" XMLName="QuantityUnsNwtRefurb" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This
+                element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_INC_RET_PK">
+				<Attribute ColumnName="INCIDENT_RET_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="INDEX_I1" Unique="False">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="CACHE_ID"/>
+					<Column Name="UNIT_PRICE"/>
+					<Column Name="TRACKABLE_ID"/>
+				</Index>
+				<Index Name="INDEX_I2" Unique="False">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="INCIDENT_YEAR"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="UNIT_PRICE"/>
+					<Column Name="CACHE_ID"/>
+				</Index>
+				<Index Name="INDEX_I3" Unique="False">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="CACHE_ID"/>
+					<Column Name="TRACKABLE_ID"/>
+				</Index>
+			</Indices>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Trackable Inventory Table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_TRACKABLE_ITEM">
+			<!-- table columns -->
+			<Attributes>
+
+			 <!-- as per design Radio_Kit_004390_Detail_Design-0224.doc-->
+
+		  <Attribute ColumnName="SYSTEM_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SystemNo" Description="System Number"/>
+
+		 <!--design Radio_Kit_004390_Detail_Design-0224.doc ends here -->
+
+				<Attribute ColumnName="TRACKABLE_ITEM_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="TrackableItemKey" Description="Unique key for Trackable Item"/>
+				<Attribute ColumnName="SERIAL_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="SerialNo" Description="This is the trackable ID - Property Number"/>
+				<Attribute ColumnName="ITEM_ID" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="ItemID" Description="Item ID - Cache Item"/>
+				<Attribute ColumnName="ITEM_SHORT_DESCRIPTION" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="ItemShortDescription" Description="Item ID - Short Description"/>
+				<Attribute ColumnName="UNIT_OF_MEASURE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="UnitOfMeasure" Description="Unit Of Measure"/>
+				<Attribute ColumnName="LOT_ATTRIBUTE_1" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotAttribute1" Description="Manufacturer s name."/>
+				<!-- JAY : THIS IS RENAMRED TO SECONDARY_SERIAL
+			 <Attribute
+             ColumnName="LOT_ATTRIBUTE_2"
+             DataType="Text-40"
+             Nullable="true"
+             Size="40"
+             Type="VARCHAR2"
+             XMLName="LotAttribute2"
+             Description="Manufacturer Serial" />
+			-->
+				<Attribute ColumnName="SECONDARY_SERIAL" DataType="Text-40" Nullable="false" DefaultValue="' '" Size="40" Type="VARCHAR2" XMLName="SecondarySerial" Description="Manufacturer Serial"/>
+				<Attribute ColumnName="LOT_ATTRIBUTE_3" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotAttribute3" Description="Model Name/Number"/>
+				<Attribute ColumnName="ACQUISITION_COST" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="AcquisitionCost" Description="This the most recent acquisition cost. If more than one property number has the same acquisition cost, multiple records are returned. - Acquisition Cost"/>
+				<Attribute ColumnName="ACQUISITION_DATE" DataType="Date" Nullable="true" Type="DATE" DefaultValue="sysdate" XMLName="AcquisitionDate" Description="This is the acquisition date/purchase date of the item from the vendor.- Acquisition Date"/>
+				<Attribute ColumnName="WO_SERVICE_COST" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="WOServiceCost" Description="This cost will be obtained from the last transaction. - WO Service Cost"/>
+				<Attribute ColumnName="OWNER_UNIT_ID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OwnerUnitID" Description="This is the cache that actually owns the property. TAG - Item Extenssion - Owner Unit ID"/>
+				<Attribute ColumnName="OWNER_UNIT_NAME" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OwnerUnitName" Description="Name of Owner Unit ID"/>
+				<Attribute ColumnName="SERIAL_STATUS" DataType="CHAR" Nullable="true" Size="1" Type="CHAR" XMLName="SerialStatus" Description="The following status codes will be defined: (I) Issued; (T) Transferred; (A) Available, but not in Kit; (K) In Kit; (D) Disposed; (W) Workordered; (P) Pending"/>
+				<Attribute ColumnName="SERIAL_STATUS_DESC" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SerialStatusDesc" Description="description for the status - The following status codes will be defined: (I) Issued; (T) Transferred; (A) Available, but not in Kit; (K) In Kit; (D) Disposed; (W) Workordered; (P) Pending"/>
+				<Attribute ColumnName="STATUS_CACHE_ID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="StatusCacheID" Description="If at Cache, Cache ID the item is contained at."/>
+				<Attribute ColumnName="STATUS_INCIDENT_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="StatusIncidentNo" Description="If at Incident, Incident number the item is assigned to."/>
+				<Attribute ColumnName="STATUS_INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Type="VARCHAR2" XMLName="StatusIncidentYear" Description="If at Incident, year of incident the item is contained at."/>
+				<Attribute ColumnName="STATUS_BUYER_ORGANIZATION_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="StatusBuyerOrganizationCode" Description="If at Incident, Customer Unit ID of the Incident the item is assigned to."/>
+				<Attribute ColumnName="LAST_INCIDENT_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastIncidentNo" Description="Incident number for the last transaction."/>
+				<Attribute ColumnName="LAST_INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="LastIncidentYear" Description="Year of last Incident."/>
+				<Attribute ColumnName="LAST_BUYER_ORGANIZATION_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastBuyerOrnanizationCode" Description="Customer ID (This is the shipping unit ID) of the last Incident."/>
+				<Attribute ColumnName="TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="Type" Description="The type of the last transaction. Need to get LOV from NWCG"/>
+				<Attribute ColumnName="LAST_DOCUMENT_NUMBER" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastDocumentNo" Description="Document number of last transaction for example, Issue number"/>
+				<Attribute ColumnName="LAST_TRANSACTION_DATE" DataType="Date" Nullable="true" Type="DATE" XMLName="LastTransactionDate" Description="Date of the last transaction."/>
+				<!-- added for CR 445 starts here -->
+				<Attribute ColumnName="LAST_ISSUE_PRICE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastIssuePrice" Description="This is the item price from yfs_item_price_set when this item was issued."/>
+				<!-- added for CR 445 ends here -->
+				<Attribute ColumnName="KIT_ITEM_ID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="KitItemID" Description="If item is part of kit, this is the item ID of the kit this component is part of"/>
+				<Attribute ColumnName="KIT_SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" XMLName="KitSerialNo" Description="If item is part of kit that has its own trackable ID, this is the trackable ID of the kit this component is part of"/>
+				<Attribute ColumnName="KIT_PRIMARY_ITEM_ID" DataType="Text-40" Nullable="true" Size="40" XMLName="KitPrimaryItemID" Description="The item ID of the primary kit (if applicable)"/>
+				<Attribute ColumnName="KIT_PRIMARY_SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="KitPrimarySerialNo" Description="The property number of the primary kit (if applicable)"/>
+				<Attribute ColumnName="BATCH_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="BatchNo" Description="Tag: Batch No"/>
+				<Attribute ColumnName="REVISION_NO" DataType="Text-40" Type="VARCHAR2" XMLName="RevisionNo" Nullable="true" Size="40" DefaultValue="' '" Description="Tag: Revision No"/>
+				<Attribute ColumnName="FS_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Type="VARCHAR2" Size="40" XMLName="FSAccountCode" Description="FS Account Code"/>
+				<Attribute ColumnName="OVERRIDE_CODE" DataType="Text-40" Description="Override code" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OverrideCode"/>
+				<Attribute ColumnName="BLM_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Type="VARCHAR2" Size="40" XMLName="BLMAccountCode" Description="BLM Account Code"/>
+				<Attribute ColumnName="OTHER_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Type="VARCHAR2" Size="40" XMLName="OtherAccountCode" Description="Other Account Code"/>
+				<Attribute ColumnName="MANUFACTURING_DATE" DataType="Date" Nullable="true" Type="DATE" XMLName="ManufacturingDate" Description="Manufacturer Date."/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="TRK_ITEM_KEY_PK">
+				<Attribute ColumnName="TRACKABLE_ITEM_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="SERIAL_NO_I1" Unique="True">
+					<Column Name="SERIAL_NO"/>
+					<Column Name="SECONDARY_SERIAL"/>
+				</Index>
+			</Indices>
+			<!-- Relationship -->
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="N" Description="Billing Transaction Table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_BILLING_TRANSACTION">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="SEQUENCE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="SequenceKey" Description="Sequence No"/>
+				<Attribute ColumnName="TRANS_TYPE" DataType="Text-24" Nullable="false" Size="40" Type="VARCHAR2" XMLName="TransType" Description="Type of Transaction"/>
+				<Attribute ColumnName="TRANS_DATE" DataType="TimeStamp" Nullable="false" Type="DATE" XMLName="TransDate" Description=""/>
+				<Attribute ColumnName="TRANS_QTY" DataType="NUM-14-4" Description="Transaction Qty" Nullable="false" XMLName="TransQty"/>
+				<Attribute ColumnName="TRANS_AMOUNT" DataType="NUM-19-6" Description="TransAmount" Nullable="false" XMLName="TransAmount"/>
+				<Attribute ColumnName="TRANSACTION_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="TransactionNo" Description="TransactionNo"/>
+				<Attribute ColumnName="TRANSACTION_HEADER_KEY" DataType="CHAR" Nullable="false" Size="24" Type="CHAR" XMLName="TransHeaderKey" Description="Order Header Identifier"/>
+				<Attribute ColumnName="TRANSACTION_LINE_KEY" DataType="CHAR" Nullable="false" Size="24" Type="CHAR" XMLName="TransLineKey" Description="Order Line Identifier"/>
+				<Attribute ColumnName="ENTERPRISE_CODE" DataType="CHAR" Nullable="false" Size="24" Type="CHAR" XMLName="EnterpriseCode" Description=""/>
+				<Attribute ColumnName="DOCUMENT_TYPE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="DocumentType" Description=""/>
+				<Attribute ColumnName="CACHE_ID" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="CacheId" Description="Cache Id"/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentNo" Description="IncidentNo"/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description="Incident Year"/>
+				<Attribute ColumnName="INCIDENT_NAME" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="IncidentName" Description="IncidentName"/>
+				<Attribute ColumnName="ITEM_ID" DataType="Text-40" Nullable="False" Size="40" Type="VARCHAR2" XMLName="ItemId" Description=""/>
+				<Attribute ColumnName="ITEM_CLASSIFICATION" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ItemClassification" Description=""/>
+				<Attribute ColumnName="ITEM_PRODUCT_LINE" DataType="Text-100" Nullable="true" Size="100" Type="VARCHAR2" XMLName="ItemProductLine" Description=""/>
+				<Attribute ColumnName="ITEM_DESCRIPTION" DataType="Text-200" Nullable="False" Size="200" Type="VARCHAR2" XMLName="ItemDescription" Description=""/>
+				<Attribute ColumnName="UOM" DataType="Text-40" Nullable="False" Size="40" Type="VARCHAR2" XMLName="UOM" Description="Unit of Measure"/>
+				<Attribute ColumnName="UNIT_COST" DataType="NUM-19-6" Description="Unit Cost" Nullable="false" XMLName="UnitCost"/>
+				<Attribute ColumnName="INCIDENT_FS_ACCT_CODE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="IncidentFsAcctCode" Description=""/>
+				<Attribute ColumnName="INCIDENT_FS_OVERRIDE_CODE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="IncidentFsOverrideCode" Description=""/>
+				<Attribute ColumnName="INCIDENT_BLM_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentBlmAcctCode" Description=""/>
+				<Attribute ColumnName="INCIDENT_OTHER_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentOtherAcctCode" Description=""/>
+				<Attribute ColumnName="IS_ACCOUNT_SPLIT" DataType="Text" Nullable="true" Size="1" Type="VARCHAR2" DefaultValue="N" XMLName="IsAccountSplit" Description=""/>
+				<Attribute ColumnName="SPLIT_AMT_NUMBER" DataType="NUM-2" Description="Split Amount Number" Nullable="false" DefaultValue="0" XMLName="SplitAmtNumber"/>
+				<Attribute ColumnName="LAST_FS_ACCT_CODE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="LastFsAcctCode" Description=""/>
+				<Attribute ColumnName="LAST_FS_OVERRIDE_CODE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="LastFsOverrideCode" Description=""/>
+				<Attribute ColumnName="LAST_BLM_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastBlmAcctCode" Description=""/>
+				<Attribute ColumnName="LAST_OTHER_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LastOtherAcctCode" Description=""/>
+				<Attribute ColumnName="DISPOSITION_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="DispositionCode" Description="Inventory Disposition Code"/>
+				<Attribute ColumnName="LOCATION_ID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LocationId" Description="Inventory Location Id"/>
+				<Attribute ColumnName="EXTRACT_TRANS_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ExtractTransNo" Description="Extract Transaction No"/>
+				<Attribute ColumnName="LAST_EXTRACT_DATE" DataType="TimeStamp" Nullable="true" Type="DATE" XMLName="LastExtractDate" Description=""/>
+				<Attribute ColumnName="IS_EXTRACTED" DataType="Text" Nullable="true" Size="1" Type="VARCHAR2" DefaultValue="N" XMLName="IsExtracted" Description=""/>
+				<Attribute ColumnName="IS_REVIEWED" DataType="Text" Nullable="true" Size="1" Type="VARCHAR2" DefaultValue="N" XMLName="IsReviewed" Description=""/>
+				<Attribute ColumnName="TRANSACTION_FISCAL_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="TransactionFiscalYear" Description="Transaction Fiscal Year"/>
+				<Attribute ColumnName="DOCUMENT_NO" DataType="Text-5" Nullable="true" Size="5" Type="VARCHAR2" XMLName="DocumentNo" Description="Document No"/>
+				<Attribute ColumnName="REASON_CODE" DataType="Text-100" Nullable="true" Size="100" Type="VARCHAR2" XMLName="ReasonCode" Description=""/>
+				<Attribute ColumnName="REASON_CODE_TEXT" DataType="Text-255" Nullable="true" Size="255" Type="VARCHAR2" XMLName="ReasonCodeText" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="TRANS_CREATEUSERID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="TransCreateUserId" Description="Transaction Create User Id"/>
+				<Attribute ColumnName="TRANS_MODIFYUSERID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="TransModifyUserId" Description="Transaction Modify User Id"/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_BLM_PK">
+				<Attribute ColumnName="SEQUENCE_KEY"/>
+			</PrimaryKey>
+		    <Indices>
+				<Index Name="NWCG_BLM_I1" Unique="False">
+					<Column Name="CACHE_ID"/>
+					<Column Name="TRANS_TYPE"/>
+					<Column Name="TRANSACTION_NO"/>
+					<Column Name="TRANS_DATE"/>
+				</Index>
+                <Index Name="NWCG_BLM_I2" Unique="False">
+					<Column Name="CACHE_ID"/>
+					<Column Name="TRANS_DATE"/>
+					<Column Name="TRANS_AMOUNT"/>
+					<Column Name="DOCUMENT_TYPE"/>
+					<Column Name="ITEM_PRODUCT_LINE"/>
+				</Index>				
+				<Index Name="NWCG_BLM_I3" Unique="False">
+					<Column Name="ITEM_ID"/>
+					<Column Name="ITEM_CLASSIFICATION"/>
+					<Column Name="ITEM_DESCRIPTION"/>
+					<Column Name="UOM"/>
+				</Index>			
+				<Index Name="NWCG_I4_CONSUME" Unique="False">
+					<Column Name="CACHE_ID"/>
+					<Column Name="TRANS_TYPE"/>
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="TRANSACTION_LINE_KEY"/>
+				</Index>	
+			</Indices>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="N" Description="Billing Transaction Post Extract" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_BILLING_TRANS_EXTRACT">
+			<!-- AuditRequired="N" is set after reviewing YFS_AUDIT records.  Updated Jeri.  Modified on 12/27/2013 -->	<!-- 	table columns -->
+			<Attributes>
+				<Attribute ColumnName="EXTRACT_SEQUENCE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="PostExtractSequenceKey" Description="Sequence No"/>
+				<!-- FBMS elements from modification-->
+				<Attribute ColumnName="BUSINESS_AREA" DataType="Text-4" Nullable="true" Size="4" Type="VARCHAR2" XMLName="BusinessArea" Description=""/>
+				<Attribute ColumnName="INTERFACE_TYPE" DataType="Text-2" Nullable="true" Size="2" Type="VARCHAR2" XMLName="InterfaceType" Description=""/>
+				<Attribute ColumnName="INTERFACE_POSTING_TYPE" DataType="Text-2" Nullable="true" Size="2" Type="VARCHAR2" XMLName="InterfacePostingType" Description=""/>
+				<Attribute ColumnName="DOCUMENT_DATE" DataType="TimeStamp" Nullable="true" Type="DATE" XMLName="DocumentDate" Description=""/>
+				<Attribute ColumnName="POSTING_DATE" DataType="TimeStamp" Nullable="true" Type="DATE" XMLName="PostingDate" Description=""/>
+				<Attribute ColumnName="FISCAL_PERIOD" DataType="Text-4" Nullable="true" Size="4" Type="VARCHAR2" XMLName="FiscalYear" Description=""/>
+				<Attribute ColumnName="REFERENCE_DOCUMENT_NUMBER" DataType="Text-35" Nullable="true" Size="35" Type="VARCHAR2" XMLName="ReferenceDocNumber" Description=""/>
+				<Attribute ColumnName="DOCUMENT_HEADER_TEXT" DataType="Text-25" Nullable="true" Size="25" Type="VARCHAR2" XMLName="DocHeaderText" Description=""/>
+				<Attribute ColumnName="POSTING_KEY" DataType="Text-2" Nullable="true" Size="2" Type="VARCHAR2" XMLName="PostingKey" Description=""/>
+				<Attribute ColumnName="GL_ACCOUNT_CODE" DataType="Text-10" Nullable="true" Size="10" Type="VARCHAR2" XMLName="GLAccountCode" Description=""/>
+				<Attribute ColumnName="ITEM_TEXT" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="ItemText" Description=""/>
+				<Attribute ColumnName="TRADING_PARTNER_COMPANY_ID" DataType="Text-6" Nullable="true" Size="6" Type="VARCHAR2" XMLName="TradingPartnerCompanyId" Description=""/>
+				<Attribute ColumnName="COST_CENTER" DataType="Text-10" Description="Cost Center" Nullable="true" Size="10" Type="VARCHAR2" XMLName="CostCenter" />
+				<Attribute ColumnName="WBS" DataType="Text-12" Description="WBS" Nullable="true" Size="12" Type="VARCHAR2" XMLName="WBS" />
+				<Attribute ColumnName="FUNCTIONAL_AREA" DataType="Text-16" Description="Functional Area" Nullable="true"  Size="16" Type="VARCHAR2" XMLName="FunctionalArea"/>
+				<Attribute ColumnName="ORDER_NUMBER" DataType="Text-12" Description="" Nullable="true" Size="12" Type="VARCHAR2" XMLName="OrderNum" />
+				<Attribute ColumnName="COMMITMENT_ITEM" DataType="Text-14" Description="" Nullable="true" Size="14" Type="VARCHAR2" XMLName="CommitmentItem" />
+				<Attribute ColumnName="FUNDS_CENTER" DataType="Text-16" Description="" Nullable="true"  Size="16" Type="VARCHAR2" XMLName="FundsCenter"/>
+				<Attribute ColumnName="FUND" DataType="Text-10" Description="" Nullable="true" Size="10" Type="VARCHAR2" XMLName="Fund" />
+				<Attribute ColumnName="DOC_NUM_FOR_EARMARKED_FUNDS" DataType="Text-10" Description="" Nullable="true" Size="10" Type="VARCHAR2" XMLName="DocNumForEarmarkedFunds" />
+				<Attribute ColumnName="EARMARKED_FUNDS_DOC_ITEM" DataType="NUM-19-6" Description="" Nullable="true" XMLName="EarmarkedFundsDocItem"/>
+				<Attribute ColumnName="AMOUNT_IN_DOC_CURRENCY" DataType="NUM-19-6" Description="" Nullable="true" XMLName="AmtInDocCurrency"/>
+				<Attribute ColumnName="INCIDENT_BLM_ACCT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentBlmAcctCode" Description=""/>
+				<Attribute ColumnName="TRANSACTION_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="TransactionNo" Description="TransactionNo"/>
+				<!-- end FBMS elements from modification-->
+				<Attribute ColumnName="EXTRACT_FILE_NAME" DataType="Text-100" Nullable="true" Size="100" Type="VARCHAR2" XMLName="ExtractFileName" Description="Extract File Name"/>
+				<Attribute ColumnName="PMS_TRANS_AMOUNT" DataType="NUM-19-6" Description="TransAmount" Nullable="true" XMLName="PMSTransAmount"/>
+				<Attribute ColumnName="TRANS_AMOUNT" DataType="NUM-19-6" Description="TransAmount" Nullable="true" XMLName="TransAmount"/>
+				<Attribute ColumnName="EXTRACT_TRANS_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ExtractTransNo" Description=""/>
+				<Attribute ColumnName="CACHE_ID" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="CacheId" Description="Cache Id"/>
+				<Attribute ColumnName="ACCT_CODE" DataType="Text-40" Nullable="True" Size="40" Type="VARCHAR2" XMLName="AcctCode" Description=""/>
+				<Attribute ColumnName="TOTAL_RECORDS" Nullable="false" DataType="NUM-14" XMLName="TotalRecords" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_BLM_PE_PK">
+				<Attribute ColumnName="EXTRACT_SEQUENCE_KEY"/>
+			</PrimaryKey>
+		</Entity>
+		<!-- Master Work Order for refurbishment -->
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Master Work Order table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_MASTER_WORK_ORDER">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="MASTER_WORK_ORDER_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="MasterWorkOrderKey" Description="Master Work Order Key - auto generated"/>
+				<Attribute ColumnName="MASTER_WORK_ORDER_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="MasterWorkOrderNo" Description="master work order number - will be same as the return number incase this master work order is from returns"/>
+				<Attribute ColumnName="NODE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="Node" Description="master work order node - node where this mwo will be executed"/>
+				<Attribute ColumnName="ENTERPRISE" DataType="Text-40" Nullable="true" Size="24" Type="VARCHAR2" XMLName="Enterprise" Description="enterprise who owns mwo"/>
+				<Attribute ColumnName="PURPOSE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="Purpose" Description="purpose of this mwo"/>
+				<Attribute ColumnName="MASTER_WORK_ORDER_TYPE" DataType="Text-15" Nullable="true" Size="15" Type="VARCHAR2" XMLName="MasterWorkOrderType" Description="mwo type - if it is a manual or a return"/>
+				<Attribute ColumnName="PRIORITY" DataType="Text-15" Nullable="true" Size="15" Type="VARCHAR2" XMLName="Priority" Description=""/>
+				<!-- removing this as no longer will be used
+            <Attribute
+             ColumnName="START_NO_EARLIER_THAN"
+              DataType="TimeStamp"
+             Nullable="true"
+             Type="DATE"
+             XMLName="StartNoEarlierThan"
+             Description="" />
+
+            <Attribute
+             ColumnName="FINISH_NO_LATER_THAN"
+              DataType="TimeStamp"
+             Nullable="true"
+             Type="DATE"
+             XMLName="FinishNoLaterThan"
+             Description="" />
+			-->
+				<Attribute ColumnName="SERVICE_ITEM_ID" DataType="Text-15" Description="always will be refurbishment" Nullable="true" Size="15" Type="VARCHAR2" XMLName="ServiceItemID"/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Description="Incident which for which the return is created" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentNo"/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description=""/>
+				<Attribute ColumnName="INCIDENT_NAME" DataType="Text-50" Description="Incident which for which the return is created" Nullable="true" Size="50" Type="VARCHAR2" XMLName="IncidentName"/>
+				<Attribute ColumnName="OVERRIDE_CODE" DataType="Text-5" Nullable="true" Size="5" Type="VARCHAR2" XMLName="OverrideCode" Description=""/>
+				<Attribute ColumnName="FS_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="FSAccountCode" Description=""/>
+				<Attribute ColumnName="BLM_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="BLMAccountCode" Description=""/>
+				<Attribute ColumnName="OTHER_ACCOUNT_CODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OtherAccountCode" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="INCIDENT_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentType" Description=""/>
+				<Attribute ColumnName="SOURCE_NODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SourceNode" Description="Source  cache"/>
+				<Attribute ColumnName="DESTINATION_NODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="DestinationNode" Description="Destination  cache"/>
+				<Attribute ColumnName="SOURCE_MWO_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SourceMWONo" Description="Source  Master Work Order No"/>
+				<Attribute ColumnName="DESTINATION_MWO_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="DestinationMWONo" Description="Destination  Master Work Order No"/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_MST_WO_PK">
+				<Attribute ColumnName="MASTER_WORK_ORDER_KEY"/>
+			</PrimaryKey>
+			  <Indices>
+				<Index Name="NWCG_MWO_PK_I1" Unique="False">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="INCIDENT_YEAR"/>
+					<Column Name="NODE"/>
+				</Index>
+			</Indices>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Master Work Order table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_MASTER_WORK_ORDER_LINE">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="MASTER_WORK_ORDER_LINE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="MasterWorkOrderLineKey" Description="Master Work Order Line Key - auto generated"/>
+				<Attribute ColumnName="MASTER_WORK_ORDER_KEY" DataType="Text-25" Nullable="false" Size="25" Type="CHAR" XMLName="MasterWorkOrderKey" Description="Master Work Order Key"/>
+				<Attribute ColumnName="ITEM_ID" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="ItemID" Description="Refurb Item ID"/>
+				<Attribute ColumnName="PRODUCT_CLASS" DataType="Text-15" Nullable="false" Size="15" Type="VARCHAR2" XMLName="ProductClass" Description="Product Class of the item"/>
+				<Attribute ColumnName="UNIT_OF_MEASURE" DataType="Text-15" Nullable="false" Size="15" Type="VARCHAR2" XMLName="UnitOfMeasure" Description=""/>
+				<Attribute ColumnName="ITEM_DESC" DataType="Text-250" Size="250" Nullable="false" Type="VARCHAR2" XMLName="ItemDesc" Description=""/>
+				<Attribute ColumnName="PRIMAY_SERIAL_NO" DataType="Text-100" Size="100" Nullable="true" Type="VARCHAR2" XMLName="PrimarySerialNo" Description=""/>
+				<Attribute ColumnName="SECONDARY_SERIAL_NO_1" DataType="Text-100" Size="100" Nullable="true" Type="VARCHAR2" XMLName="SecondarySerialNo1" Description=""/>
+				<Attribute ColumnName="ACTUAL_QUANTITY" DataType="NUM-19-6" Nullable="true" XMLName="ActualQuantity"/>
+				<Attribute ColumnName="REFURBISHED_QUANTITY" DataType="NUM-19-6" Nullable="true" XMLName="RefurbishedQuantity"/>
+				<Attribute ColumnName="TRANSFER_QTY" DataType="NUM-19-6" Nullable="true" XMLName="TransferQty" DefaultValue="0" Description="Refurb transfer quantity"/>
+				<!-- added for CR 462 starts here -->
+				<Attribute ColumnName="RFI_REFURB_QUANTITY" DataType="NUM-19-6" Nullable="true" XMLName="RFIRefurbQuantity"
+				Description="Master Work Order Line RFI Quantity Refurbished"/>
+				<Attribute ColumnName="UNS_REFURB_QUANTITY" DataType="NUM-19-6" Nullable="true" XMLName="UNSRefurbQuantity"
+				Description="Master Work Order Line Un Service able quantity"/>
+				<Attribute ColumnName="UNSNWT_REFURB_QUANTITY" DataType="NUM-19-6" Nullable="true" XMLName="UNSNWTRefurbQuantity"
+				Description="Master Work Order Line Un Service able quantity due to normal wear and tear"/>
+				<!-- added for CR 462 ends here -->
+				<Attribute ColumnName="REFURB_COST" DataType="NUM-20-2" Nullable="true"  XMLName="RefurbCost"/>
+				<Attribute ColumnName="STATUS" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="Status"/>
+				<!--tag  -->
+				<Attribute ColumnName="MANUFACTURER_NAME" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="ManufacturerName"/>
+				<Attribute ColumnName="MANUFACTURER_MODEL" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="ManufacturerModel"/>
+				<Attribute ColumnName="LOT_NO" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="LotNo"/>
+				<Attribute ColumnName="DISPLAY_MASTER_WO_COMPONENTS" DataType="Text-15" Nullable="true" Size="5" Type="VARCHAR2" XMLName="DisplayMasterWOComponents"/>
+				<Attribute ColumnName="REVISION_NO" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="RevisionNo"/>
+				<Attribute ColumnName="SHIP_BY_DATE" DataType="Date" Nullable="true" Type="DATE" XMLName="ShipByDate"/>
+				<Attribute ColumnName="BATCH_NO" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="BatchNo"/>
+				<Attribute ColumnName="OWNER_UNIT_ID" DataType="Text-50" Nullable="true" Size="50" Type="VARCHAR2" XMLName="OwnerUnitID"/>
+				<!-- tag-->
+				<!-- added for CR 606 Starts here -->
+				<Attribute ColumnName="IS_REPLACED_ITEM" DataType="Flag" Nullable="true" Type="Flag" XMLName="IsReplacedItem" DefaultValue="N" Description="Is Replaced Item"/>
+				<!-- added for CR 606 Ends here -->
+				<!-- BEGIN CR JB2 April 4, 2013 -->
+				<Attribute ColumnName="RECEIVING_PRICE" DataType="NUM-19-6" DefaultValue="0" Description="Receiving Price" Nullable="false" XMLName="ReceivingPrice" />
+				<Attribute ColumnName="RECEIPT_HEADER_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="ReceiptHeaderKey" Description="Receipt Header Key"/>
+				<Attribute ColumnName="RECEIPT_LINE_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="ReceiptLineKey" Description="Receipt Line Key"/>
+				<!-- END CR JB2 April 4, 2013 -->
+            <Attribute
+             ColumnName="START_NO_EARLIER_THAN"
+              DataType="TimeStamp"
+             Nullable="true"
+             Type="DATE"
+             XMLName="StartNoEarlierThan"
+             Description="" />
+
+            <Attribute
+             ColumnName="FINISH_NO_LATER_THAN"
+              DataType="TimeStamp"
+             Nullable="true"
+             Type="DATE"
+             XMLName="FinishNoLaterThan"
+             Description="" />
+             
+			-->
+				<Attribute ColumnName="NODE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="Node" Description="master work order node - node where this mwo will be executed"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_MST_WOLN_PK">
+				<Attribute ColumnName="MASTER_WORK_ORDER_LINE_KEY"/>
+			</PrimaryKey>
+			  <Indices>
+				<Index Name="NWCG_MWOLN_I1" Unique="False">
+					<Column Name="ITEM_ID"/>
+					<Column Name="MASTER_WORK_ORDER_KEY"/>
+				</Index>
+				<Index Name="NWCG_MWOLN_I2" Unique="False">
+					<Column Name="ITEM_ID"/>
+				</Index>				
+			</Indices>
+		</Entity>
+		<!-- END Master Work Order for refurbishment -->
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="NWCG Work Order Tags" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_WORK_ORDER_SERIAL_KIT">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="WORK_ORDER_TAGS_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="WorkOrderTagsKey" Description="Master Work Order Line Key - auto generated"/>
+				<Attribute ColumnName="QUANTITY" DataType="Text-24" Nullable="false" Size="24" Type="VARCHAR2" XMLName="Quantity" Description="Item Quantity"/>
+				<Attribute ColumnName="WORK_ORDER_COMPONENT_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="WorkOrderComponentKey" Description=""/>
+				<Attribute ColumnName="WORK_ORDER_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="WorkOrderKey" Description=""/>
+				<Attribute ColumnName="ITEM_ID" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="ItemID" Description="Refurb Item ID"/>
+				<Attribute ColumnName="PRODUCT_CLASS" DataType="Text-15" Nullable="false" Size="15" Type="VARCHAR2" XMLName="ProductClass" Description="Product Class of the item"/>
+				<Attribute ColumnName="UNIT_OF_MEASURE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="UnitOfMeasure" Description=""/>
+				<Attribute ColumnName="ENTERPRISE_CODE" DataType="Text-24" Nullable="false" Size="24" Type="VARCHAR2" XMLName="EnterpriseCode" Description="master work order node - node where this mwo will be executed"/>
+				<Attribute ColumnName="DOCUMENT_TYPE" DataType="Text-10" Nullable="true" Size="10" Type="VARCHAR2" XMLName="DocumentType" Description="enterprise who owns mwo"/>
+				<Attribute ColumnName="NODE_KEY" DataType="Text-24" Nullable="true" Size="24" Type="VARCHAR2" XMLName="NodeKey" Description="purpose of this mwo"/>
+				<Attribute ColumnName="SELLER_ORGANIZATION_CODE" DataType="Text-24" Nullable="true" Size="24" Type="VARCHAR2" XMLName="SellerOrganizationCode" Description="mwo type - if it is a manual or a return"/>
+				<Attribute ColumnName="SHIP_BY_DATE" DataType="Date" Nullable="true" Type="DATE" XMLName="ShipByDate"/>
+				<Attribute ColumnName="TAG_NUMBER" DataType="Text-120" Description="always will be refurbishment" Nullable="true" Size="120" Type="VARCHAR2" XMLName="TagNumber"/>
+				<Attribute ColumnName="LOT_NUMBER" DataType="Text-40" Description="Incident which for which the return is created" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotNumber"/>
+				<Attribute ColumnName="LOT_KEY_REFERENCE" DataType="Test-2000" Nullable="true" Size="2000" Type="VARCHAR2" XMLName="LotKeyReference" Description=""/>
+				<Attribute ColumnName="LOT_MANUFACTURE_DATE" DataType="Text-200" Description="Incident which for which the return is created" Nullable="true" Size="200" Type="VARCHAR2" XMLName="LotManufactureDate"/>
+				<Attribute ColumnName="LOT_ATTRIBUTE1" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotAttribute1" Description=""/>
+				<Attribute ColumnName="LOT_ATTRIBUTE2" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotAttribute2" Description=""/>
+				<Attribute ColumnName="LOT_ATTRIBUTE3" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="LotAttribute3" Description=""/>
+				<Attribute ColumnName="REVISION_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="RevisionNo" Description=""/>
+				<Attribute ColumnName="BATCH_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="BatchNo" Description=""/>
+				<Attribute ColumnName="SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SerialNo" Description=""/>
+				<Attribute ColumnName="PARENT_SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ParentSerialNo" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_1" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo1" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_2" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo2" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_3" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo3" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_4" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo4" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_5" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo5" Description=""/>
+				<Attribute ColumnName="SEC_SERIAL_NO_6" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SecondarySerialNo6" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_WO_TAGS_KEY">
+				<Attribute ColumnName="WORK_ORDER_TAGS_KEY"/>
+			</PrimaryKey>
+			<Indices>
+				<Index Name="NWCG_WOS_I1" Unique="false">
+					<Column Name="WORK_ORDER_KEY"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="SERIAL_NO"/>
+					<Column Name="PARENT_SERIAL_NO"/>
+					<Column Name="WORK_ORDER_COMPONENT_KEY"/>
+					<Column Name="MODIFYTS"/>
+				</Index>
+			</Indices>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="N" Description="NWCG Return Sequence No" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_SEQUENCE">
+			<!-- AuditRequired="N" is set after reviewing YFS_AUDIT records.  Updated Jeri.  Modified on 12/27/2013 --><!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="SEQUENCE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="SequenceKey" Description=""/>
+				<Attribute ColumnName="SEQUENCE_TYPE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="SequenceType" Description=""/>
+				<Attribute ColumnName="ORGANIZATION_ID" DataType="Text-20" Nullable="false" Size="20" Type="VARCHAR2" XMLName="OrganizationID" Description=""/>
+				<Attribute ColumnName="SEQUENCE_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="SequenceNo" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<PrimaryKey Name="NWCG_SEQ_KEY">
+				<Attribute ColumnName="SEQUENCE_KEY"/>
+			</PrimaryKey>
+			<Indices>
+				<Index Name="NWCG_SEQ_I1" Unique="True">
+					<Column Name="SEQUENCE_TYPE"/>
+					<Column Name="ORGANIZATION_ID"/>
+				</Index>
+			</Indices>
+		</Entity>
+		<!-- New table for get Incident Details - NWCG_INCIDENT_ORDER_CONTACT_INFO -->
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="NWCG Incident Order Contact Info table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_INCIDENT_ORDER_CON_INFO">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="CONTACT_INFO_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="ContactInfoKey" Description="Primary Key of the Contact Info"/>
+				<Attribute ColumnName="INCIDENT_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="IncidentOrderKey" Description="Key to the Incident Order. each row in this custom table should have a record in NWCG_INCIDENT_ORDER table"/>
+				<Attribute ColumnName="CONTACT" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="Contact" Description="Free text info on the Name of the contact - usualy a person's name or something like General Office Phone"/>
+				<Attribute ColumnName="CONTACT_INFO" DataType="Text-255" Nullable="false" Size="255" Type="VARCHAR2" XMLName="ContactInfo" Description="Free text contact info - i.e phone number"/>
+				<Attribute ColumnName="CONTACT_TYPE" DataType="Text-25" Nullable="false" Size="25" Type="VARCHAR2" XMLName="ContactType" Description="Type of contact, Shipping or Requesting"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_CON_KEY1">
+				<Attribute ColumnName="CONTACT_INFO_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="NWCG_SEQ_1" Unique="False">
+					<Column Name="INCIDENT_KEY"/>
+				</Index>
+			</Indices>
+			<!-- Relationship -->
+			<!-- ForeignKeys -->
+			<ForeignKeys>
+				<ForeignKey ParentTableName="NWCG_INCIDENT_ORDER">
+					<Attribute ColumnName="INCIDENT_KEY" ParentColumnName="INCIDENT_KEY"/>
+				</ForeignKey>
+			</ForeignKeys>
+		</Entity>
+		<!-- New table for get Incident Details - NWCG_ROSS_ACCOUNT_CODES -->
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="NWCG Incident Order ROSS Account Codes table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_ROSS_ACCOUNT_CODES">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="ROSS_ACCOUNT_CODE_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="ROSSAccountCodeKey" Description="Primary Key of the ROSS Account Code table"/>
+				<Attribute ColumnName="INCIDENT_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="IncidentOrderKey" Description="Key to the Incident Order. each row in this custom table should have a record in NWCG_INCIDENT_ORDER table"/>
+				<Attribute ColumnName="FINANCIAL_CODE" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="FinancialCode" Description="Financial Code"/>
+				<Attribute ColumnName="OWNING_AGENCY_NAME" DataType="Text-255" Nullable="false" Size="255" Type="VARCHAR2" XMLName="OwningAgencyName" Description="Owning Agency Name"/>
+				<Attribute ColumnName="FISCAL_YEAR" DataType="Text-25" Nullable="false" Size="25" Type="VARCHAR2" XMLName="FiscalYear" Description="Fiscal Year"/>
+				<Attribute ColumnName="PRIMARY_INDICATOR" DataType="Text-25" Nullable="false" Size="25" Type="VARCHAR2" XMLName="PrimaryIndicator" Description="Primary Indicator"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="LAST_FINANCIAL_CODE" DataType="Text-100" Nullable="true" Size="100" Type="VARCHAR2" XMLName="LastFinancialCode" Description="Last Financial Code which was active before this"/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="ROSS_ACCODE_KEY1">
+				<Attribute ColumnName="ROSS_ACCOUNT_CODE_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="NWCG_SEQ_2" Unique="False">
+					<Column Name="INCIDENT_KEY"/>
+				</Index>
+			</Indices>
+			<!-- Relationship -->
+			<!-- ForeignKeys -->
+			<ForeignKeys>
+				<ForeignKey ParentTableName="NWCG_INCIDENT_ORDER">
+					<Attribute ColumnName="INCIDENT_KEY" ParentColumnName="INCIDENT_KEY"/>
+				</ForeignKey>
+			</ForeignKeys>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="LPN RETURN TABLE" HasHistory="True" Prefix="NWCG_" TableName="NWCG_LPN_RETURN">
+			<Attributes>
+				<Attribute ColumnName="LPN_RETURN_KEY" DataType="Key" Nullable="false" Size="24" XMLName="LPNReturnKey" Description=""/>
+				<Attribute ColumnName="LPN_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="LPNNo" Description=""/>
+				<Attribute ColumnName="RETURN_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="ReturnNo" Description=""/>
+				<Attribute ColumnName="RETURN_HEADER_KEY" DataType="CHAR" Nullable="false" Size="24" Type="CHAR" XMLName="ReturnHeaderKey" Description="Return Header Identifier"/>
+				<Attribute ColumnName="RECEIPT_DATE" DataType="TimeStamp" Nullable="false" Type="DATE" XMLName="ReceiptDate" Description=""/>
+				<Attribute ColumnName="ITEM_ID" DataType="ItemID" Nullable="false" Size="40" Type="CHAR" XMLName="ItemID" Description=""/>
+				<Attribute ColumnName="UOM" DataType="Text-40" Nullable="False" Size="40" Type="VARCHAR2" XMLName="UOM" Description="Unit of Measure"/>
+				<Attribute ColumnName="UNIT_PRICE" DataType="NUM-19-6" Description="Unit Cost" Nullable="false" XMLName="UnitPrice"/>
+				<Attribute ColumnName="ITEM_CLASSIFICATION" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ItemClassification" Description=""/>
+				<Attribute ColumnName="ITEM_PRODUCT_LINE" DataType="Text-100" Nullable="true" Size="100" Type="VARCHAR2" XMLName="ItemProductLine" Description=""/>
+				<Attribute ColumnName="ITEM_DESCRIPTION" DataType="Text-200" Nullable="False" Size="200" Type="VARCHAR2" XMLName="ItemDescription" Description=""/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="IncidentNo" Description=""/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" DefaultValue="' '" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description="Incident Year"/>
+				<Attribute ColumnName="SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="SerialNo" Description=""/>
+				<Attribute ColumnName="CACHE_ID" DataType="Text-40" Nullable="false" Size="24" Type="Text-24" XMLName="CacheID" Description=""/>
+				<Attribute ColumnName="QUANTITY" DataType="NUM-14-4" Nullable="false" XMLName="Quantity" DefaultValue="0" Description=""/>
+				<Attribute ColumnName="DISPOSITION_CODE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="DispositionCode" Description=""/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This
+                element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="NWCG_LPN_RET_PK">
+				<Attribute ColumnName="LPN_RETURN_KEY"/>
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="LPN_RET_INDEX_I1" Unique="False">
+					<Column Name="LPN_NO"/>
+					<Column Name="RETURN_NO"/>
+					<Column Name="RETURN_HEADER_KEY"/>
+					<Column Name="ITEM_ID"/>
+				</Index>
+				<Index Name="LPN_RET_INDEX_I2" Unique="False">
+					<Column Name="ITEM_ID"/>
+					<Column Name="UNIT_PRICE"/>
+				</Index>	
+				<Index Name="LPN_RET_INDEX_I3" Unique="False">
+					<Column Name="RETURN_HEADER_KEY"/>
+				</Index>
+			</Indices>
+		</Entity>
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Issue Trackable Item List Table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_ISSUE_TRACKABLE_LIST">
+			<Attributes>
+				<Attribute ColumnName="SEQUENCE_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="SequenceKey" DefaultValue="' '" Description="Unique key for Issue Trackable List"/>
+				<Attribute ColumnName="ISSUE_NO" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="IssueNo" DefaultValue="' '" Description="Issue Number which generated this record"/>
+				<Attribute ColumnName="DOCUMENT_TYPE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="DocumentType" DefaultValue="' '" Description="Document Type"/>
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="IncidentNo" DefaultValue="' '" Description="IncidentNo"/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description="Incident Year"/>
+				<Attribute ColumnName="CACHE_ID" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="CacheId" DefaultValue="' '" Description="Cache Id"/>
+
+				<Attribute ColumnName="ITEM_ID" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="ItemId" DefaultValue="' '" Description="Item Id"/>
+				<Attribute ColumnName="ITEM_DESCRIPTION" DataType="Text-200" Nullable="false" Size="200" Type="VARCHAR2" XMLName="ItemDescription" DefaultValue="' '" Description="Item Description"/>
+				<Attribute ColumnName="SERIAL_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="SerialNo" DefaultValue="' '" Description="Trackable ID - Property Number"/>
+
+				<Attribute ColumnName="ORDER_HEADER_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="OrderHeaderKey" DefaultValue="' '" Description="Order Header Key"/>
+				<Attribute ColumnName="ORDER_LINE_KEY" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="OrderLineKey" DefaultValue="' '" Description="Order Line Key"/>
+
+				<Attribute ColumnName="PARENT_ITEM_ID_1" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="ParentItemID1" Description="First Parent Item ID"/>
+				<Attribute ColumnName="PARENT_SERIAL_NO_1" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ParentSerialNo1" Description="First Parent Serial No"/>
+				<Attribute ColumnName="PARENT_ITEM_ID_2" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="ParentItemID2" Description="Second Parent Item ID"/>
+				<Attribute ColumnName="PARENT_SERIAL_NO_2" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ParentSerialNo2" Description="Second Parent Serial No"/>
+				<Attribute ColumnName="PARENT_ITEM_ID_3" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="ParentItemID3" Description="Third Parent Item ID"/>
+				<Attribute ColumnName="PARENT_SERIAL_NO_3" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ParentSerialNo3" Description="Third Parent Serial No"/>
+
+				<Attribute ColumnName="NODE_LEVEL" DataType="PositiveShorterNumber" Nullable="true" Size="5" Type="NUMBER" XMLName="NodeLevel" Description="Level in Parent Child hierarchy: 1-Parent, 2-Child, 3-GrandChild"/>
+				<Attribute ColumnName="ISSUED_XFER" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="IssuedXfer" DefaultValue="' '" Description="Issue or Transfer"/>
+
+				<!-- Mandatory Attributes for Custom table -->				
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<PrimaryKey Name="SEQUENCE_KEY_PK">
+				<Attribute ColumnName="SEQUENCE_KEY"/>
+			</PrimaryKey>
+			<Indices>
+				<Index Name="NWCG_ITL_I1" Unique="false">
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="INCIDENT_YEAR"/>
+					<Column Name="CACHE_ID"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="SERIAL_NO"/>
+					<Column Name="PARENT_ITEM_ID_1"/>
+					<Column Name="PARENT_SERIAL_NO_1"/>
+					<Column Name="PARENT_ITEM_ID_2"/>
+					<Column Name="PARENT_SERIAL_NO_2"/>
+					<Column Name="NODE_LEVEL"/>
+					<Column Name="ISSUED_XFER"/>
+				</Index>
+			</Indices>
+		</Entity>
+
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="NWCG Pending Resource Reassignment" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_PENDING_RR">
+			<!-- table columns -->
+			<Attributes>
+				<Attribute ColumnName="PEND_RR_KEY" DataType="Key" Nullable="false" Size="24" XMLName="PendRRKey" Description=""/>
+				<Attribute ColumnName="DISTRIBUTION_ID" DataType="Text-100" Nullable="false" Size="100" Type="VARCHAR2" XMLName="DistributionID" Description="Unique ID across all the resource reassignment requests - not individual line" />
+				<Attribute ColumnName="MESSAGE" DataType="CLOB" Nullable="false" XMLName="Message" Description="Column to store Resource Reassignment Message" />
+	            <Attribute ColumnName="FROM_INCIDENT_NO" DataType="Text-40" Nullable="false" Size="100" Type="VARCHAR2" XMLName="FromIncidentNo" Description="From Incident number"/>
+				<Attribute ColumnName="FROM_INCIDENT_YEAR" DataType="Text-10" Nullable="false" Size="10" Type="VARCHAR2" XMLName="FromIncidentYear" Description="From Incident Year" />
+	            <Attribute ColumnName="FROM_REQUEST_NO" DataType="Text-20" Nullable="false" Size="20" Type="VARCHAR2" XMLName="FromRequestNo" Description="From Request number"/>
+	            <Attribute ColumnName="TO_INCIDENT_NO" DataType="Text-40" Nullable="false" Size="100" Type="VARCHAR2" XMLName="ToIncidentNo" Description="To Incident number"/>
+				<Attribute ColumnName="TO_INCIDENT_YEAR" DataType="Text-10" Nullable="false" Size="10" Type="VARCHAR2" XMLName="ToIncidentYear" Description="To Incident Year" />
+	            <Attribute ColumnName="TO_REQUEST_NO" DataType="Text-20" Nullable="false" Size="20" Type="VARCHAR2" XMLName="ToRequestNo" Description="To Request number"/>
+	            <Attribute ColumnName="STATUS" DataType="Text-40" Nullable="false" Size="100" Type="VARCHAR2" XMLName="Status" Description="Status - NOT_READY_TO_TRIGGER, READY_TO_TRIGGER, PROCESSED as of now"/>
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description="" />
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description="" />
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description="" />
+			</Attributes>
+			<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+			<PrimaryKey Name="PEND_RR_PKEY">
+				<Attribute ColumnName="PEND_RR_KEY" />
+			</PrimaryKey>
+			<!-- Indices -->
+			<Indices>
+				<Index Name="PEND_RR_INDEX_I1" Unique="False">
+					<Column Name="DISTRIBUTION_ID"/>
+				</Index>
+				<Index Name="PEND_RR_INDEX_I2" Unique="False">
+					<Column Name="FROM_INCIDENT_NO"/>
+					<Column Name="FROM_INCIDENT_YEAR"/>
+					<Column Name="FROM_REQUEST_NO"/>
+				</Index>
+			</Indices>
+		</Entity>
+		
+		<Entity ApiNeeded="Y" AuditRequired="Y" Description="Serial Record Table" HasHistory="TRUE" Prefix="NWCG" TableName="NWCG_SERIAL_RECORD">
+			<Attributes>
+				<Attribute ColumnName="SERIAL_RECORD_KEY" DataType="Key" Nullable="false" Size="24" Type="CHAR" XMLName="SerialTransKey" DefaultValue="' '" Description="Primary key for Serial Record Table"/>
+
+				<Attribute ColumnName="ORDER_NO" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="OrderNo" Description="Order Number"/>
+				<Attribute ColumnName="RECEIPT_NO" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="ReceiptNo" Description="Receipt Number"/>
+
+				<Attribute ColumnName="ORDER_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="OrderType" Description="Order Type"/>				
+				<Attribute ColumnName="DOCUMENT_TYPE" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="DocumentType" DefaultValue="' '" Description="Document Type"/>
+				<Attribute ColumnName="TRANSACTION_TYPE" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="TransactionType" Description="Transaction Type"/>				
+				
+				<Attribute ColumnName="INCIDENT_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="IncidentNo" Description="Incident Number"/>
+				<Attribute ColumnName="INCIDENT_YEAR" DataType="Text-10" Nullable="true" Size="10" Type="VARCHAR2" XMLName="IncidentYear" Description="Incident Year"/>
+
+				<Attribute ColumnName="NODE" DataType="Text-24" Nullable="false" Size="24" Type="CHAR" XMLName="Node" DefaultValue="' '" Description="Node"/>
+
+				<Attribute ColumnName="SERIAL_NO" DataType="Text-40" Nullable="false" Size="40" Type="VARCHAR2" XMLName="SerialNo" DefaultValue="' '" Description="Trackable ID"/>
+				<Attribute ColumnName="ITEM_ID" DataType="CHAR" Nullable="false" Size="40" Type="CHAR" XMLName="ItemId" DefaultValue="' '" Description="Item Id"/>
+
+				<Attribute ColumnName="ORDER_HEADER_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="OrderHeaderKey" Description="Order Header Key"/>
+				<Attribute ColumnName="RECEIPT_HEADER_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="ReceiptHeaderKey" Description="Receipt Header Key"/>
+
+				<Attribute ColumnName="ORDER_LINE_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="OrderLineKey" Description="Order Line Key"/>
+				<Attribute ColumnName="RECEIPT_LINE_KEY" DataType="Text-24" Nullable="true" Size="24" Type="CHAR" XMLName="ReceiptLineKey" Description="Receipt Line Key"/>
+
+				<Attribute ColumnName="PARENT_ITEM_ID" DataType="CHAR" Nullable="true" Size="40" Type="CHAR" XMLName="ParentItemID" Description="Parent Item ID"/>
+				<Attribute ColumnName="PARENT_SERIAL_NO" DataType="Text-40" Nullable="true" Size="40" Type="VARCHAR2" XMLName="ParentSerialNo" Description="Parent Serial No"/>
+				<Attribute ColumnName="NODE_LEVEL" DataType="PositiveShorterNumber" Nullable="true" Size="5" Type="NUMBER" XMLName="NodeLevel" Description="Level in Parent Child hierarchy: 1-Parent, 2-Child, 3-GrandChild"/>
+
+				<!-- Mandatory Attributes for Custom table -->				
+				<Attribute ColumnName="CREATETS" DataType="Createts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="MODIFYTS" DataType="Modifyts" Nullable="false" DefaultValue="sysdate" Description=""/>
+				<Attribute ColumnName="CREATEUSERID" DataType="Createuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="CREATEPROGID" DataType="Createprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" Nullable="false" DefaultValue="' '" Description=""/>
+				<Attribute ColumnName="LOCKID" DataType="Lockid" Nullable="false" Type="Lockid" DefaultValue="0" Description=""/>
+			</Attributes>
+			<PrimaryKey Name="SER_REC_KEY_PK">
+				<Attribute ColumnName="SERIAL_RECORD_KEY"/>
+			</PrimaryKey>
+			<Indices>
+				<Index Name="NWCG_SR_I1" Unique="false">
+					<Column Name="ORDER_NO"/>
+					<Column Name="RECEIPT_NO"/>
+					<Column Name="INCIDENT_NO"/>
+					<Column Name="INCIDENT_YEAR"/>
+					<Column Name="NODE"/>
+					<Column Name="ITEM_ID"/>
+					<Column Name="SERIAL_NO"/>
+					<Column Name="PARENT_ITEM_ID"/>
+					<Column Name="PARENT_SERIAL_NO"/>
+				</Index>
+			</Indices>
+		</Entity>
+
+	</Entities>
+</DBSchema>

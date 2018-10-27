@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Attributes>
+<Attribute Name="QtyPerLabel" DataType="PositiveQuantity" />
+<Attribute Name="NoOfLabels" DataType="PositiveQuantity" />
+<Attribute Name="EffortHours" DataType="NumberOfMinutes" />
+<Attribute Name="EffortMinutes" DataType="NumberOfMinutes" />
+<Attribute Name="DiscrepancyDate" DataType="Date" />
+<Attribute Name="DiscrepancyLevel" DataType="Flag" />
+<Attribute Name="DiscrepancyCode" DataType="CommonCode" />
+<Attribute Name="CheckedBy" DataType="UserId" />
+<Attribute Name="xml:/InventoryAudit/@FromDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/InventoryAudit/@ToDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/OrderCycleTime/@ToDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/OrderCycleTime/@ToDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/Returns/@FromDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/Returns/@ToDate" DataType="TimeStamp"/>
+
+<Attribute Name="xml:/Order/Extn/@ExtnReqDeliveryDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/Order/Extn/@ExtnIncidentNo" DataType="Text-100" />
+<Attribute Name="xml:/Order/Extn/@ExtnIncidentName" DataType="Text-100" />
+<Attribute Name="xml:/Order/Extn/@ExtnFsAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnBlmAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnOtherAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnBillingDoc" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnPhoneNo" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnRequisitionNo" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnShipAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnRecvAcctCode" DataType="Text-40" />
+
+<Attribute Name="xml:/Order/Extn/@ExtnRequisitionerName" DataType="Text-15" />
+<Attribute Name="xml:/Order/Extn/@ExtnRequisitionerNo" DataType="Text-15" />
+
+<Attribute Name="xml:/Order/Extn/@ExtnToIncidentNo" DataType="Text-100" />
+<Attribute Name="xml:/Order/Extn/@ExtnToIncidentName" DataType="Text-100" />
+<Attribute Name="xml:/Order/Extn/@ExtnToFsAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnToBlmAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnToOtherAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnToPhoneNo" DataType="Text-40" />
+<Attribute Name="xml:/Order/Extn/@ExtnCustAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/OrderLine/Extn/@ExtnTrackableId" DataType="Text-20" />
+<Attribute Name="xml:/OrderLine/Extn/@ExtnToReceive" DataType="Text-2" />
+<!-- Defect 1582 - Pay.Gov -->
+<Attribute Name="xml:/Order/ChargeTransactionDetails/ChargeTransactionDetail/@TransactionDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/Order/OrderStatuses/OrderStatus/@StatusDate" DataType="TimeStamp"/>
+
+<!-- Incident related entries -->
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentNo" DataType="Text-30" />
+<Attribute Name="xml:/NWCGIncidentOrder/@DateStarted" DataType="Date" />
+<Attribute Name="xml:/NWCGIncidentOrder/@DateClosed" DataType="Date" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentName" DataType="Text-100" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentFsAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentBlmAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentOtherAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentOtherAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentStatus" DataType="Text-1" />
+<Attribute Name="xml:/NWCGIncidentOrder/@ReplacedIncident" DataType="Text-100" />
+<Attribute Name="xml:/NWCGIncidentOrder/@AdditionalInfo" DataType="Text-255" />
+<Attribute Name="xml:/NWCGIncidentOrder/@IncidentTeamName" DataType="Text-40" />
+
+<!-- added for Supplier Item -->
+<Attribute Name="xml:/NWCGSupplierItem/@SupplierID" DataType="Text-40" />
+<Attribute Name="xml:/NWCGSupplierItem/@ProductClass" DataType="Text-40" />
+<Attribute Name="xml:/NWCGSupplierItem/@UnitOfMeasure" DataType="Text-40" />
+<Attribute Name="xml:/NWCGSupplierItem/@SupplierPartNo" DataType="Text-40" />
+<Attribute Name="xml:/NWCGSupplierItem/@SupplierStandardPack" DataType="Text-100" />
+<Attribute Name="xml:/NWCGSupplierItem/@UnitCost" DataType="Text-40" />
+<Attribute Name="xml:/NWCGSupplierItem/@Description" DataType="Text-200" />
+<Attribute Name="xml:/NWCGSupplierItem/@GlobalItemID" DataType="Text-128" />
+<Attribute Name="xml:/NWCGSupplierItem/@ShortDescription" DataType="Text-100" />
+
+<!-- Added for Inventory Adjustment Screen -->
+<Attribute Name="ReasonCode" DataType="Text-40" />
+
+<!-- end -->
+
+<Attribute Name="xml:/Item/Extn/@ExtnNatCriticalItem" DataType="Flag" />
+<Attribute Name="xml:/Customer/Extn/@ExtnActiveFlag" DataType="Flag" />
+
+<!--Changes For Shipments, Workorders-->
+<Attribute Name="xml:/Shipment/Extn/@ExtnTrackingNumbers" DataType="Text-250"/>
+<Attribute Name="xml:/WorkOrderComponent/Item/PrimaryInformation/@Description" DataType="Text-80"/>
+<Attribute Name="xml:/OrganizationList/Organization/Extn/@ExtnCacheAdjustAcctCode" DataType="Text-40"/>
+<Attribute Name="xml:/Shipment/Extn/@ExtnDriversName" DataType="Text-20"/>
+<Attribute Name="xml:/WorkOrder/Extn/@ExtnIncidentNo" DataType="Text-40" />
+<Attribute Name="xml:/WorkOrder/Extn/@ExtnFsAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/WorkOrder/Extn/@ExtnBlmAcctCode" DataType="Text-40" />
+<Attribute Name="xml:/WorkOrder/Extn/@ExtnOtherAcctCode" DataType="Text-40" />
+<!-- end -->
+
+<!-- Changes for Customer Details -->
+<Attribute Name="xml:/Customer/Extn/@ExtnOrganizationType" DataType="Text-100" />
+<Attribute Name="xml:/Customer/Extn/@ExtnGACC" DataType="Text-100" />
+<Attribute Name="xml:/Customer/Extn/@ExtnJurisdictionID" DataType="Text-40" />
+<Attribute Name="xml:/Customer/Extn/@ExtnJurisdictionName" DataType="Text-100" />
+<Attribute Name="xml:/Customer/Extn/@ExtnJurisdictionType" DataType="Text-40" />
+
+<!-- Changes for Shipment Dates -->
+<Attribute Name="xml:/Shipment/Extn/@ExtnEstimatedDepartDate" DataType="TimeStamp"/>
+<Attribute Name="xml:/Shipment/Extn/@ExtnEstimatedArrivalDate" DataType="TimeStamp"/>
+<!-- End of changes for Shipment Dates -->
+<!-- Trackable Inventory -->
+<Attribute Name="xml:/NWCGTrackableItem/@AcquisitionDate" DataType="Date" />
+<!-- End Trackable Inventory -->
+<!-- for CR 511 -->
+<Attribute DataType="Text-40" Name="xml:/NWCGIncidentOrder/@IncidentTeamType"/>
+<!--CR 511 ends here -->
+
+<!-- CR 502-->
+
+<!-- CR 502 -->
+
+<!-- CR 4390 -->
+
+<Attribute Name="xml:/Order/@SystemNumber" DataType="Text-6" />
+
+
+</Attributes>

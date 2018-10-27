@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.order.cancel.CancelOrderBaseScreenExtnBundle" screenId="extn.order.cancel.CancelOrderBaseScreenExtn">
+    <BundleEntries>
+        <BundleEntry
+            bundleEntryId="extn_fancashtxtbox_CurrencyTextBox_label"
+            bundleKey="extn_Fan_Cash" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_fancashtxtbox"/>
+        <BundleEntry
+            bundleEntryId="extn_fancashreason_FilteringSelect_label"
+            bundleKey="extn_Fan_Cash_Reason" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_fancashreason"/>
+        <BundleEntry bundleEntryId="cmbReasoncode_FilteringSelect_label"
+            bundleKey="extn_Cancellation_Reason_Code"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="cmbReasoncode"/>
+    </BundleEntries>
+</ScreenBundle>

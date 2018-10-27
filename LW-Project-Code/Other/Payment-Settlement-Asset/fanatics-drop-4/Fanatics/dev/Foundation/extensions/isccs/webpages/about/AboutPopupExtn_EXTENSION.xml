@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="AboutPopupExtn"
+        extnPackage="extn.about" originalScreen="isccs.about.AboutPopup"
+        originalScreenPackage="isccs.about" type="diffrential">
+        <Items>
+            <Image _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="imgLogo" imageSrc="../resources/css/icons/images/productlogo.png"/>
+            <GridX _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="versionlist" renderHidden="true"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblProductName" value="$(_scSimpleBundle:productName)"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblVersion" renderHidden="true"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblBuildNbr" renderHidden="true"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblDescription" renderHidden="true"/>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblCopyRight" renderHidden="true"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

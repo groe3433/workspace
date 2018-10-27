@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderList LastOrderHeaderKey="" LastRecordSet=""
+    ReadFromHistory="" TotalOrderList="">
+    <Order BillToID="" BuyerOrganizationCode=""
+        DocumentType="" DraftOrderFlag="" EnterpriseCode=""
+        HoldFlag="" MaxOrderStatusDesc=""
+        MultipleStatusesExist="" OrderDate=""
+        OrderHeaderKey="" OrderNo=""
+        SaleVoided="" SellerOrganizationCode="" Status="" isHistory="" ShipNode="" OrderType="">
+        <PriceInfo Currency="" TotalAmount=""/>
+		<Extn/>
+    </Order>
+</OrderList>

@@ -1,0 +1,237 @@
+<OrganizationList>
+	<Organization AccountWithHub="" AuthorityType=""
+		BillingAddressKey="" BusinessCalendarKey="" CapacityOrganizationCode=""
+		CatalogOrganizationCode="" ContactAddressKey="" CorporateAddressKey=""
+		CreatorOrganizationKey="" CustomerMaintainedExternally=""
+		CustomerMasterOrganizationCode="" DefaultDistributionRuleId=""
+		DefaultPaymentRuleId="" DefaultPriceProgramKey="" DunsNumber=""
+		InheritConfigFromEnterprise="" InventoryKeptExternally=""
+		InventoryOrganizationCode="" InventoryPublished="" IsEnterprise=""
+		IsHubOrganization="" IsLegalEntity="" IsNode="" IsSeller=""
+		IsSourcingKept="" IsTemplate="" IssuingAuthority="" ItemXrefRule=""
+		LocaleCode="" NumberOfChildren="" OrganizationCode="" OrganizationKey=""
+		OrganizationName="" OrganizationSuffix="" ParentOrganizationCode=""
+		PasswordPolicyKey="" PaymentProcessingReqd="" PrimaryEnterpriseKey=""
+		PrimarySicCode="" PrimaryUrl="" RequiresChainedOrder=""
+		RequiresChangeRequest="" ResourceIdentifier=""
+		StoreConfigOrganizationCode="" SupplyKeptExternally="" TaxExemptFlag=""
+		TaxExemptionCertificate="" TaxJurisdiction="" TaxpayerId=""
+		XrefAliasType="" XrefOrganizationCode="">
+		<Extn ExtnCancelOnBackorder="" />
+		<CorporatePersonInfo AddressID="" AddressLine1=""
+			AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+			AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+			Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt=""
+			EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+			IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude=""
+			MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+			PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title=""
+			UseCount="" VerificationStatus="" ZipCode="" />
+		<ContactPersonInfo AddressID="" AddressLine1=""
+			AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+			AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+			Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt=""
+			EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+			IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude=""
+			MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+			PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title=""
+			UseCount="" VerificationStatus="" ZipCode="" />
+		<BillingPersonInfo AddressID="" AddressLine1=""
+			AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+			AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+			Country="" DayFaxNo="" DayPhone="" Department="" EMailID="" ErrorTxt=""
+			EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+			IsCommercialAddress="" JobTitle="" LastName="" Latitude="" Longitude=""
+			MiddleName="" MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+			PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title=""
+			UseCount="" VerificationStatus="" ZipCode="" />
+		<OrgProtocolList>
+			<OrgProtocol OrgProtocolKey="" OrganizationKey=""
+				Password="" ProtocolKey="" ServerIp="" ServerPort="" UserId="">
+				<OrgProtocolReferenceList>
+					<OrgProtocolReference Name="" OrgProtocolKey=""
+						OrgProtocolReferenceKey="" Value="" />
+				</OrgProtocolReferenceList>
+			</OrgProtocol>
+		</OrgProtocolList>
+		<OrgRelationshipList>
+			<OrgRelationship FromOrgCode="" OrgRelationshipKey=""
+				RelationshipTypeID="" ToOrgCode="" />
+		</OrgRelationshipList>
+		<UserList>
+			<User Activateflag="" BillingaddressKey="" BusinessKey=""
+				ContactaddressKey="" CreatorOrganizationKey="" Imagefile=""
+				Localecode="" Loginid="" Longdesc="" MenuId="" NoteKey=""
+				OrganizationKey="" ParentUserKey="" Password="" PasswordPolicyKey=""
+				PreferenceKey="" Pwdlastchangedon="" Theme="" UserKey=""
+				UsergroupKey="" Username="" Usertype="">
+				<ContactPersonInfo AddressID="" AddressLine1=""
+					AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+					AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+					Country="" DayFaxNo="" DayPhone="" Department="" EMailID=""
+					ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+					IsCommercialAddress="" JobTitle="" LastName="" MiddleName=""
+					MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+					PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title=""
+					UseCount="" VerificationStatus="" ZipCode="" />
+				<BillingPersonInfo AddressID="" AddressLine1=""
+					AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+					AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+					Country="" DayFaxNo="" DayPhone="" Department="" EMailID=""
+					ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+					IsCommercialAddress="" JobTitle="" LastName="" MiddleName=""
+					MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+					PreferredShipAddress="" State="" Suffix="" TaxGeoCode="" Title=""
+					UseCount="" VerificationStatus="" ZipCode="" />
+				<QueueSubscriptionList>
+					<QueueSubscription QueueKey=""
+						QueueSubscriptionKey="" UserKey="" />
+				</QueueSubscriptionList>
+				<UserGroupLists>
+					<UserGroupList UserGroupListKey="" UserKey=""
+						UsergroupKey="" />
+				</UserGroupLists>
+				<UserDelegateList>
+					<UserDelegate ActiveFlag="" DelegateUserID=""
+						DelegationPurpose="" EffectiveEndDate="" EffectiveStartDate=""
+						IsPrimaryDelegate="" UserDelegateKey="" UserID="" />
+				</UserDelegateList>
+			</User>
+		</UserList>
+		<RelatedOrgList>
+			<OrgEnterprise EnterpriseOrganizationKey=""
+				OrgEnterpriseKey="" OrganizationKey="" />
+		</RelatedOrgList>
+		<EnterpriseOrgList>
+			<OrgEnterprise EnterpriseOrganizationKey=""
+				OrgEnterpriseKey="" OrganizationKey="" />
+		</EnterpriseOrgList>
+		<UserGroups>
+			<UserGroup BusinessKey="" GroupType="" OwnerKey=""
+				OwnerType="" TemplateGroup="" UsergroupDescription="" UsergroupId=""
+				UsergroupKey="" UsergroupName="">
+				<ResourcePermissionList>
+					<ResourcePermission ActivateFlag="" ResourceKey=""
+						ResourcePermissionKey="" UsergroupKey="" />
+				</ResourcePermissionList>
+				<UserGroupLists>
+					<UserGroupList UserGroupListKey="" UserKey=""
+						UsergroupKey="" />
+				</UserGroupLists>
+			</UserGroup>
+		</UserGroups>
+		<Enterprise Activateflag="" BillingaddressKey=""
+			CommercialContactKey="" ContactaddressKey="" CorporateaddressKey=""
+			EnterpriseKey="" Enterprisecode="" Enterprisename="" Latitude=""
+			LegalContactKey="" Localecode="" Logoimagefile="" Longdesc=""
+			Longitude="" NoteKey="" TaxpayerId="" UseDefaultDistribution=""
+			UseDefaultOrderStatusRules="" />
+		<OrgDocumentList>
+			<OrgDocument BackupProtocolKey="" DocumentFormatKey=""
+				OrgDocumentKey="" OrganizationKey="" ProtocolKey="" RoleDocumentKey=""
+				VariantReference1="" VariantReference2="" VariantReference3=""
+				VariantReference4="" VariantReference5="" />
+		</OrgDocumentList>
+		<DepartmentList>
+			<Department DepartmentAbbreviation="" DepartmentCode=""
+				DepartmentKey="" DepartmentName="" OrganizationCode="" />
+		</DepartmentList>
+		<Node AcceptanceRequired="" ActivateFlag="" AllowGiftWrap=""
+			CanShipToAllNodes="" CanShipToOtherAddresses="" ContactAddressKey=""
+			CurrentBolNumber="" DefaultDeclaredValue="" Description=""
+			ExportLicenseExpDate="" ExportLicenseNo="" ExportTaxpayerId="" GLN=""
+			GenerateBolNumber="" IdentifiedByParentAs="" InterfaceSubType=""
+			InterfaceType="" InventoryTracked="" Inventorytype=""
+			IsItemBasedAllocationAllowed="" Latitude="" Localecode="" Longitude=""
+			MaintainInventoryCost="" NodeOrgCode="" NodeType="" OwnerKey=""
+			OwnerType="" PicklistType="" ReceiptProcessingTime=""
+			ReceiptProcessingTimeForForwarding="" ReceivingNode=""
+			RequireTransferAcceptance="" ReturnCenterFlag="" ReturnsNode=""
+			ShipNode="" ShipNodeAddressKey="" ShipNodeClass="" ShipnodeKey=""
+			ShipnodeType="" ShippingNode="" SupplierKey="" ThreePlNode=""
+			TimeDiff="">
+			<ShipNodePersonInfo AddressID="" AddressLine1=""
+				AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+				AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+				Country="" DayFaxNo="" DayPhone="" Department="" EMailID=""
+				ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+				IsCommercialAddress="" JobTitle="" LastName="" Latitude=""
+				Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+				PersonInfoKey="" PreferredShipAddress="" State="" Suffix=""
+				TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode="" />
+			<ContactPersonInfo AddressID="" AddressLine1=""
+				AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5=""
+				AddressLine6="" AlternateEmailID="" Beeper="" City="" Company=""
+				Country="" DayFaxNo="" DayPhone="" Department="" EMailID=""
+				ErrorTxt="" EveningFaxNo="" EveningPhone="" FirstName="" HttpUrl=""
+				IsCommercialAddress="" JobTitle="" LastName="" Latitude=""
+				Longitude="" MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+				PersonInfoKey="" PreferredShipAddress="" State="" Suffix=""
+				TaxGeoCode="" Title="" UseCount="" VerificationStatus="" ZipCode="" />
+			<CanShipToNodeTypes>
+				<CanShipToNodeType NodeTypeID="" />
+			</CanShipToNodeTypes>
+		</Node>
+		<CarrierAttributes>
+			<Scac Account1="" Account2="" BillingAddressKey="" CommProtocol=""
+				ContactAddressKey="" CurrentTrackingNo="" HostInterfaceType=""
+				InternalReference1="" InternalReference2="" InternalReference3=""
+				InternalReference4="" InternalReference5="" Localecode=""
+				MaxTrackingNo="" MinTrackingNo="" OrganizationCode="" Scac=""
+				ScacDesc="" ScacKey="" ServerAddress1="" ServerAddress2=""
+				ServerPassword="" ServerUserid="" SystemIntgForDomesticReqd=""
+				SystemIntgForIntlReqd="" TrackNoAlgo="" />
+		</CarrierAttributes>
+		<PaymentRuleList>
+			<PaymentRule AuthRequiredBeforeSchedule=""
+				CollectExternalThroughAr="" CustomerAccountMaintainedInternally=""
+				DefaultFlag="" Description="" FinancialHandlingRequired=""
+				IgnorePaymentStatusForPurge="" InterfaceTime="" MerchantId=""
+				OrganizationCode="" PaymentRuleId="" PaymentRuleKey=""
+				PostponeReauthorization="" ReauthHoursBeforeAppointment=""
+				ReauthHoursBeforeRelease=""
+				UseChargeTransactionRequestsForAuthorization="" />
+		</PaymentRuleList>
+		<PaymentTypeList>
+			<PaymentType
+				AllowAuthorizationsToExceedSettlementRequest=""
+				AuthorizationExpirationHours="" AuthorizationReversalHours=""
+				AuthorizationReversalStrategy="" CashBackLimit=""
+				ChargeConsolAllowed="" ChargeInsteadOfAuth="" ChargeSequence=""
+				ChargeUpToAvailable="" DefaultForReturn="" HasAltRefundConstraint=""
+				MerchantId="" MinWaitTimeForConsol="" NewRefundPaymentType=""
+				NoProcessingRequired="" OrganizationCode=""
+				PartialReversalSupported="" PaymentTemplateType="" PaymentType=""
+				PaymentTypeDescription="" PaymentTypeGroup="" PaymentTypeKey=""
+				RefundConstraintOperator="" RefundConstraintPaymentType=""
+				RefundConstraintValue="" RefundItemID="" RefundItemUom=""
+				RefundRequiresFulfillment="" RefundSameAccount="" RefundSequence=""
+				ValidForReturn="" Voidable="" ZeroAmountAuthorizationSupported="" />
+		</PaymentTypeList>
+		<OrgRoleList>
+			<OrgRole OrganizationKey="" RoleKey="" />
+		</OrgRoleList>
+		<OrgServiceList>
+			<OrgService OrgServiceKey="" OrganizationKey=""
+				ServiceKey="" />
+		</OrgServiceList>
+		<BuyerInstructions>
+			<BuyerInstruction BuyerInstructionKey=""
+				BuyerInstructionText="" BuyerInstructionType="" BuyerSeqNo=""
+				OrganizationCode="" />
+		</BuyerInstructions>
+		<OrgThemeList>
+			<OrgTheme IsDefault="" OrgThemeKey="" OrganizationKey=""
+				ThemeID="" />
+		</OrgThemeList>
+		<EnterpriseCostPurposes>
+			<StandardPurpose CostFactorGroupKey="" />
+			<LandedPurpose CostFactorGroupKey="" />
+			<WIPPurpose CostFactorGroupKey="" />
+		</EnterpriseCostPurposes>
+		<SellerCostPurposes>
+			<StandardPurpose CostFactorGroupKey="" />
+			<LandedPurpose CostFactorGroupKey="" />
+		</SellerCostPurposes>
+	</Organization>
+</OrganizationList>

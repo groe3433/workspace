@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<Items ApplyDifferencesFlag="Y" ReasonCode="WMSSYNC"
+	ReasonText="WMS SYNC 20160606140450" ShipNode="EST" ValidateItemsFlag="N"
+	YantraMessageGroupID="SYNC_EST_20160606140450_382">
+	<Item InventoryOrganizationCode="Thirty-One" ItemID="KITSIGNSPP"
+		UnitOfMeasure="EACH">
+		<Supplies>
+			<Supply Quantity="100" SupplyType="ONHAND"></Supply>
+			<Supply Quantity="100" SupplyType="HELD"></Supply>
+			<Supply Quantity="100" SupplyType="INTRANSIT"></Supply>
+		</Supplies>
+	</Item>
+	<Item InventoryOrganizationCode="Thirty-One" ItemID="NCTRAININGSALES"
+		UnitOfMeasure="EACH">
+		<Supplies>
+			<Supply Quantity="1" SupplyType="ONHAND"></Supply>
+			<Supply Quantity="2" SupplyType="HELD"></Supply>
+			<Supply Quantity="30" SupplyType="INTRANSIT"></Supply>
+		</Supplies>
+	</Item>	
+	<Item InventoryOrganizationCode="Thirty-One" ItemID="8266213A0000"
+		UnitOfMeasure="EACH">
+		<Supplies>
+			<Supply Quantity="20000" SupplyType="ONHAND"></Supply>
+			<Supply Quantity="45" SupplyType="HELD"></Supply>
+			<Supply Quantity="4000" SupplyType="INTRANSIT"></Supply>
+		</Supplies>
+	</Item>
+</Items>

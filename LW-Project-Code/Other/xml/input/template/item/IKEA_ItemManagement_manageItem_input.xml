@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ItemList>
+    <Item Action="${Item.Action}"
+        ItemGroupCode="${Item.ItemGroupCode}" ItemID="${Item.ItemID}"
+        OrganizationCode="${Item.OrganizationCode}"
+            UnitOfMeasure="${Item.UnitOfMeasure}">
+     <PrimaryInformation
+            AssumeInfiniteInventory="${Item.PrimaryInformation.AssumeInfiniteInventory}"
+            ColorCode="${Item.PrimaryInformation.ColorCode}"
+            CostCurrency="${Item.PrimaryInformation.CostCurrency}"
+            Description="${Item.PrimaryInformation.Description}"
+            EffectiveEndDate="${Item.PrimaryInformation.EffectiveEndDate}"
+            EffectiveStartDate="${Item.PrimaryInformation.EffectiveStartDate}"
+            ImageID="${Item.PrimaryInformation.ImageID}"
+            ImageLocation="${Item.PrimaryInformation.ImageLocation}"
+            IsDeliveryAllowed="${Item.PrimaryInformation.IsDeliveryAllowed}"
+            IsPickupAllowed="${Item.PrimaryInformation.IsPickupAllowed}"
+            IsProcurementAllowed="${Item.PrimaryInformation.IsProcurementAllowed}"
+            IsReturnable="${Item.PrimaryInformation.IsReturnable}"
+            IsShippingAllowed="${Item.PrimaryInformation.IsShippingAllowed}"
+            PrimarySupplier="${Item.PrimaryInformation.PrimarySupplier}"
+            ProductLine="${Item.PrimaryInformation.ProductLine}"
+            ShortDescription="${Item.PrimaryInformation.ShortDescription}"
+            SizeCode="${Item.PrimaryInformation.SizeCode}"
+            Status="${Item.PrimaryInformation.Status}"
+            UnitCost="${Item.PrimaryInformation.UnitCost}"
+            UnitHeight="${Item.PrimaryInformation.UnitHeight}"
+            UnitHeightUOM="${Item.PrimaryInformation.UnitHeightUOM}"
+            UnitLength="${Item.PrimaryInformation.UnitLength}"
+            UnitLengthUOM="${Item.PrimaryInformation.UnitLengthUOM}"
+            UnitWeight="${Item.PrimaryInformation.UnitWeight}"
+            UnitWeightUOM="${Item.PrimaryInformation.UnitWeightUOM}"
+            UnitWidth="${Item.PrimaryInformation.UnitWidth}"
+            UnitWidthUOM="${Item.PrimaryInformation.UnitWidthUOM}"/>
+                              <InventoryParameters
+            ATPRule="${Item.InventoryParameters.ATPRule}"
+            InventoryMonitorRule="${Item.InventoryParameters.InventoryMonitorRule}"
+            LeadTime="${Item.InventoryParameters.LeadTime}"
+            NodeLevelInventoryMonitorRule="${Item.InventoryParameters.NodeLevelInventoryMonitorRule}"/>
+                              <Extn
+            ArticlePackages="${Item.Extn.ArticlePackages}"
+            ItemServiceAssociation="${Item.Extn.ItemServiceAssociation}" TransportMethodType="${Item.Extn.TransportMethodType}"/>
+               </Item> 
+</ItemList>

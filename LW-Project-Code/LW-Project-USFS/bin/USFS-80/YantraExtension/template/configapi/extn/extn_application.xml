@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FormDefs>
+<!-- removing this entry as this is moved as OOB YFS_ITEM extenssions-->
+<!--<Form Name="YCM00004" OverrideFormClassName="com.nwcg.extensions.YCMModifyNWCGItem"/>-->
+<Form Name="YCM00065" OverrideFormClassName="com.nwcg.icbs.yantra.ui.item.NWCGYCMItemNodeDefnDtl"/>
+</FormDefs>

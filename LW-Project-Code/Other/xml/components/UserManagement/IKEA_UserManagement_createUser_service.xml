@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_UserManagement_createUser_service" Active="Y" Description="IKEA UserManagement pushing message to queue then calling service to create user">
+	<Steps>
+		<Sequence Number="1" Delay="2">
+			<p1:Service Name="IKEASyncUserTest"></p1:Service>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_UserManagement_createUser.xml" Location="resources/xml/input/IKEA/UserManagement/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+		<Sequence Number="2">
+			<p1:Api Name="getUserList"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_UserManagement_getUserList.xml" Location="resources/xml/input/IKEA/UserManagement/">
+				</p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_UserManagement_getUserList.xml" Location="resources/xml/output/IKEA/UserManagement/"></p1:Document>
+			</p1:Documents>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH"
+					Expected="${User.Loginid}" Path="/UserList/User/@Loginid">
+				</p1:Validate>
+			</p1:Validations>
+			<p1:Parameters></p1:Parameters>
+		</Sequence>
+	</Steps>
+	<Parameters/>
+</Component>

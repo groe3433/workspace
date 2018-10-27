@@ -1,0 +1,116 @@
+<html>
+<body>
+<form name="frmUNSNWTLinesTrkID" target="/console/rfnwcgnwtreturns.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblHeader" size="40" subtype="Label"
+					tag="binding=lblTitle" value="UNSNWT Return Lines TID" type="text"
+					validate="false" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" name="lblReturnNo" size="40" subtype="Label"
+					tag="binding=xml:/NextReceiptNo/@ReceiptNo" value=""
+					inputbinding="xml:/NextReceiptNo/@ReceiptNo" type="text"
+					validate="false" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="9" name="lblItemID" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Item ID" /> 
+				<input col="11" name="lblItemIDVal" size="40"
+					subtype="Label" tag="binding=xml:/ItemList/Item/@ItemID" value=""
+					inputbinding="xml:/ItemList/Item/@ItemID"
+					outputbinding="xml:/ItemList/Item/@ItemID" 
+					type="text"
+					validate="false" /> 
+				<input col="19" size="15"
+					name="lblProductClass" subtype="Label"
+					tag="binding=xml:/ItemList/Item/PrimaryInformation/@DefaultProductClass"
+					type="hidden" validate="false" value=""
+					inputbinding="xml:/ItemList/Item/PrimaryInformation/@DefaultProductClass"
+					outputbinding="xml:/ItemList/Item/PrimaryInformation/@DefaultProductClass" />
+				<input col="19" size="15" name="lblUnitOfMeasure" subtype="Label"
+					tag="binding=xml:/ItemList/Item/@UnitOfMeasure" type="hidden"
+					validate="false" value=""
+					inputbinding="xml:/ItemList/Item/@UnitOfMeasure"
+					outputbinding="xml:/ItemList/Item/@UnitOfMeasure" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" size="40" name="lblItemDesc" subtype="Label"
+					tag="binding=xml:/ItemList/Item/PrimaryInformation/@Description"
+					inputbinding="binding=xml:/ItemList/Item/PrimaryInformation/@Description"
+					outputbinding="xml:/ItemList/Item/PrimaryInformation/@Description"
+					type="text" validate="false" value="" /></td>
+			</tr>
+
+
+
+			<tr>
+				<td><input col="1" size="20" name="lblTID" subtype="Label"
+					tag="binding=lblTID" type="text" validate="false"
+					value="Trackable ID" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" inputbinding="xml:/ReceiptLine/@TID"
+					name="txtTID" outputbinding="xml:/ReceiptLine/@TID" size="25"
+					subtype="Text" tag="binding=xml:/ReceiptLine/@TID" type="text"
+					validate="true" /></td>
+			</tr>
+
+			<tr>
+				<td><input col="1" size="9" name="lblQty" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Quantity" /> <input col="11" size="3" name="lblQtyVal"
+					subtype="Label" tag="binding=lblQtyVal" type="text"
+					validate="false" value="1" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" size="20" name="lblTotalTracableLines"
+					subtype="Label" tag="binding=lblTotalTracableLines" type="text"
+					validate="false" value="Trackable Ids Count" /> <input col="20"
+					size="5" name="lblTotalTracableLinesVal" subtype="Label"
+					tag="binding=xml:/Temp/@TrID" type="text" validate="false"
+					value="0" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" size="20" name="lblTotalLines"
+					subtype="Label" tag="binding=lblTotalLines" type="text"
+					validate="false" value="Total Lines" /> <input col="20" size="5"
+					name="lblTotalLinesVal" subtype="Label"
+					tag="binding=lblTotalLinesVal" type="text" validate="false"
+					value="0" /></td>
+			</tr>
+
+
+			<tr>
+				<td><input col="1" hotkey="F4" name="Go" size="15"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTAddItemInput"
+					validate="false" value="Add New Item" /></td>
+			</tr>
+
+
+
+			<tr>
+				<td><input col="1" hotkey="F7" name="ViewList" size="15"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTReturnList"
+					validate="false" value="View List" /> <input col="17" hotkey="F6"
+					name="ProcessReturn" size="15" subtype="Command" tag=" "
+					type="button"
+					url="/console/rfnwcgnwtreturns.ppc?action=frmUNSNWTProcessReturn"
+					validate="false" value="Process Return" /></td>
+
+			</tr>
+
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

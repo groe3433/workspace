@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-Github" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-Github" description="Get Github Files">
+	</target>	
+	
+	<target name="downloadLatestGithubFiles" depends="download-if-githubzip-doesnt-exists" if="git.not.present.download.it">		
+		<delete dir="${git.fetch.dir}/${git.pull.directory}" />
+		<exec executable="git" failifexecutionfails="true" errorproperty="" failonerror="true">
+			<arg value="clone"/>
+			<arg value="-b"/>
+			<arg value="${git.project.name}"/>
+			<arg value="${git.http}${git.username}:${git.password}@${git.hostname}/${git.repository}"/>
+			<arg value="${git.fetch.dir}/${git.pull.directory}"/>
+		</exec>
+	</target>
+	
+	<target name="download-if-githubzip-doesnt-exists">
+		<condition property="git.not.present.download.it">
+			<not>
+				<available file="${zip.location}/GitZipStaging/${git.zip.file}.zip" property="git.not.present.download.it" />
+			</not>
+		</condition>
+	</target>	
+
+	<target name="unzipDownloadedLatestGithubFiles" depends="unzip-if-githubzip-exists" if="git.present.unzip.it">		
+		<delete dir="${git.fetch.dir}/${git.pull.directory}" />
+		<unzip src="${zip.location}/GitZipStaging/${git.zip.file}.zip" dest="${git.fetch.dir}/${git.pull.directory}"/>
+	</target>	
+	
+	<target name="unzip-if-githubzip-exists">
+		<available file="${zip.location}/GitZipStaging/${git.zip.file}.zip" property="git.present.unzip.it" />
+	</target>
+	
+	<target name="zipDownloadedLatestGithubFiles" depends="zip-if-githubzip-doesnt-exists" if="git.present.dont.zip">		
+		<tstamp>
+			<format property="TOG_TIMESTAMP" pattern="MMMM-dd-yyyy-hh-mm-ss" offset="-7" unit="hour"/>
+		</tstamp>
+		<zip destfile="${git.fetch.dir}/${git.pull.directory}/${git.zip.file}-${TOG_TIMESTAMP}.zip">
+			<zipfileset dir="${git.fetch.dir}/${git.pull.directory}"/>
+		</zip>
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${git.zip.file}-${TOG_TIMESTAMP}.zip" tofile="${git.fetch.dir}/${git.zip.file}-${TOG_TIMESTAMP}.zip" />
+		<move file="${git.fetch.dir}/${git.pull.directory}/${git.zip.file}-${TOG_TIMESTAMP}.zip" tofile="${zip.location}/${git.zip.file}.zip" />
+		<chmod file="${zip.location}/${git.zip.file}.zip" perm="ugo+rx" />
+	</target>	
+	
+	<target name="zip-if-githubzip-doesnt-exists">
+		<condition property="git.present.dont.zip">
+			<not>
+				<available file="${zip.location}/GitZipStaging/${git.zip.file}.zip" property="git.present.dont.zip" />
+			</not>
+		</condition>
+	</target>
+</project>

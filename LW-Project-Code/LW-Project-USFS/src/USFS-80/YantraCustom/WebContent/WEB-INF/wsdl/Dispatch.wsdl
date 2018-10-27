@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:cad="http://nwcg.gov/services/dispatch/1.1" xmlns:tns="http://nwcg.gov/services/dispatch/wsdl/1.1" name="CAD_WSDL" targetNamespace="http://nwcg.gov/services/dispatch/wsdl/1.1">
+	<types>
+		<xs:schema version="1.1">
+			<xs:import namespace="http://nwcg.gov/services/dispatch/1.1" schemaLocation="Dispatch.xsd"/>
+			<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+		</xs:schema>
+	</types>
+	<message name="DeliverOperationResultsReq">
+		<part name="body" element="cad:DeliverOperationResultsReq"/>
+	</message>
+    
+	<message name="DeliverOperationResultsResp">
+		<part name="body" element="cad:DeliverOperationResultsResp"/>
+	</message>
+	<message name="DeliverNotificationReq">
+		<part name="body" element="cad:DeliverNotificationReq"/>
+	</message>
+	<message name="DeliverNotificationResp">
+		<part name="body" element="cad:DeliverNotificationResp"/>
+	</message>
+	<portType name="DispatchInterface">
+		<operation name="DeliverOperationResult">
+			<input message="tns:DeliverOperationResultsReq"/>
+			<output message="tns:DeliverOperationResultsResp"/>
+		</operation>
+		<operation name="DeliverNotification">
+			<input message="tns:DeliverNotificationReq"/>
+			<output message="tns:DeliverNotificationResp"/>
+		</operation>
+	</portType>
+	<binding name="DispatchBinding" type="tns:DispatchInterface">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="DeliverOperationResult">
+			<soap:operation soapAction="urn:#DeliverOperationResult" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeliverNotification">
+			<soap:operation soapAction="urn:#DeliverNotificationt" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="DispatchService">
+		<port name="DispatchPort" binding="tns:DispatchBinding">
+			<soap:address location="https://TBD:9999/tbd/dispatch/url_to_be_determined"/>
+		</port>
+	</service>
+</definitions>

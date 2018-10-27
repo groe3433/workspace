@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderEditorRTExtn"
+        extnPackage="extn.editors"
+        originalScreen="isccs.editors.OrderEditorRT"
+        originalScreenPackage="isccs.editors" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="ChangeProductVariation"
+                class="relatedTaskLink" uId="extn_manage_instruction" value="$(_scSimpleBundle:extn_Manage_Instructions)"/>
+            <Link _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="viewAllInvoices"
+                class="relatedTaskLink" resourceId="extnReviseShipDate"
+                uId="extn_revise_ship_date" value="$(_scSimpleBundle:extn_Revise_Ship_Date)"/>
+            <Link _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lnk_RT_createOrder"
+                resourceId="extnMRLFEE" uId="extn_waive_mrl" value="$(_scSimpleBundle:extn_mrl_fee_title)"/>
+            <Link ImageAlt="$(_scSimpleBundle:extn_Resend_Email)"
+                _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Emails"
+                appendToContextRoot="false" class="relatedTaskLink"
+                renderHidden="false" resourceId="extnEmails"
+                spanLabel="true"
+                title="$(_scSimpleBundle:extn_Resend_Email)"
+                uId="extn_ResendEmail" value="$(_scSimpleBundle:extn_Resend_Email)"/>
+			<TitlePane _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="relatedTaskContainer"
+                class="relatedTaskGroup innerTitlePane"
+                collapsible="false" open="true" spanLabel="true"
+                title="$(_scSimpleBundle:extn_Emails)"
+                toggleable="false" uId="extn_Emails"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="This method will open the manage instruction popup"
+                    eventId="extn_manage_instruction_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openManageInstructionPopup"/>
+                </Subscriber>
+                <Subscriber
+                    description="This method will open the wavie mrl fee popup"
+                    eventId="extn_waive_mrl_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="openWavieMRLFeePopup"/>
+                </Subscriber>
+                <Subscriber
+                    description="This method open Revise Ship Date in new wizard"
+                    eventId="extn_revise_ship_date_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openReviseShipDate"/>
+                </Subscriber>
+                <Subscriber eventId="extn_ResendEmail_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openEmailScreen"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

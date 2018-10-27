@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Shipment BaseDropStatus="${Shipment.BaseDropStatus}"
+    ShipmentNo="${Shipment.ShipmentNo}"
+    TransactionId="${Shipment.TransactionId}"
+        WorkOrderNo="${Shipment.WorkOrderNo}">
+   <ShipmentStatusAudit
+        ReasonCode="${Shipment.ShipmentStatusAudit.ReasonCode}"
+        ReasonText="${Shipment.ShipmentStatusAudit.ReasonText}" StatusDate="${Shipment.ShipmentStatusAudit.StatusDate}"/>
+</Shipment>

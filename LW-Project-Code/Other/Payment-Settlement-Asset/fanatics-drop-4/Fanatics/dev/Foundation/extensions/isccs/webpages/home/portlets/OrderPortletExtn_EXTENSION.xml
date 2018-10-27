@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderPortletExtn"
+        extnPackage="extn.home.portlets"
+        originalScreen="isccs.home.portlets.OrderPortlet"
+        originalScreenPackage="isccs.home.portlets" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="bCreate" renderHidden="true"/>
+            <TextField _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="findOrderPanel"
+                label="$(_scSimpleBundle:extn_Order_Number)" uId="extn_txtCustOrderNo">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding namespace="getOrderList"
+                            path="Order.CustomAttributes.CustomerOrderNo" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.CustomAttributes.CustomerOrderNo"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="txtOrderNo" uId="extn_txtCustOrderNo"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtOrderNo" label="$(_scSimpleBundle:OrderNo)"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtEmail_Order" label="$(_scBundle:extn_Billing_Email_address_starts_with)"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtPhoneNo" label="$(_scBundle:extn_Customer_Billing_telephone)"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="extn_txtCustOrderNo_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="orderSearchOnEnter"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

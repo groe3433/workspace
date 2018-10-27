@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEAInventorySuite" active="Y" description="Test Suite containing the test cases for the IKEA Inventory">
+        <Tests>
+                <Test testFile="InventoryAdjustment/IKEA_InventoryAdjustment_AdjustInventory_UT001.xml"/>
+		<!--		<Test testFile="InventoryAdjustment/IKEA_InventoryAdjustment_AdjustInventory_UT_002.xml"/>
+				<Test testFile="InventoryAdjustment/IKEA_InventoryAdjustment_AdjustInventory_UT_003.xml"/>
+				<Test testFile="InventoryAdjustment/IKEA_InventoryAdjustment_FindInventory_UT_005.xml"/>
+				<Test testFile="InventorySync/IKEA_Inventory_InventorySync_UT_001.xml"/>-->
+        </Tests>
+</Suite>   

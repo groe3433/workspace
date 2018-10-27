@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!-- getOrderDetail Input XML--> 
+  <Order DocumentType="" EnterpriseCode="" GetFundsAvailable="" OrderHeaderKey="" OrderNo="" BillToKey="" ShipToKey="" ShipNode="">
+  <OrderLines><OrderLine><Notes><Note/></Notes></OrderLine></OrderLines>
+  <Extn/>
+  </Order>

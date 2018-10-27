@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--getOrderDetail Output XML-->
+<Order BillToID=""
+    BuyerOrganizationCode="" CarrierServiceCode="" DocumentType=""
+    EnteredBy="" EnterpriseCode="" OrderDate="" OrderHeaderKey=""
+    OrderName="" OrderNo="" OrderType=""
+    OriginalTotalAmount="" ReqShipDate="" SCAC="" ScacAndService="" ScacAndServiceKey=""
+    SellerOrganizationCode="" ShipNode="" ReqDeliveryDate="">
+    <OrderLines>
+        <OrderLine
+            OrderHeaderKey="" OrderLineKey=""
+            OrderedQty="" OriginalOrderedQty="" SerialNo="" ShipNode="" ShippedQuantity="">
+            <Item ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ProductClass="" ProductLine="" UnitOfMeasure=""/>
+            <LineOverallTotals LineTotal="" Tax="" UnitPrice="" />
+            <Notes><Note/></Notes>
+			<Extn/>
+		</OrderLine>
+    </OrderLines>
+    <PersonInfoShipTo AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" City="" Company="" Country=""
+        DayPhone="" EveningPhone="" FirstName="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID="" State="" Suffix="" ZipCode="" HttpUrl=""/>
+    <PersonInfoBillTo AddressLine1="" AddressLine2="" AddressLine3="" AddressLine4="" AddressLine5="" City="" Company="" Country=""
+        DayPhone="" EveningPhone="" FirstName="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID="" State="" Suffix="" ZipCode="" HttpUrl=""/>
+    <AdditionalAddresses NumberOfAdditionalAddresses="">
+      <AdditionalAddress AddressType="" EntityAddressKey=""
+       EntityKey="" EntityParentKey="" EntityType="" PersonInfoKey="">
+         <PersonInfo AddressLine1="" AddressLine2=""
+                     AddressLine3="" AddressLine4="" AddressLine5=""
+                     AddressLine6="" AlternateEmailID="" Beeper=""
+                     City="" Company="" Country="" DayFaxNo=""
+                     DayPhone="" Department="" EMailID=""
+                     EveningFaxNo="" EveningPhone="" FirstName=""
+                     JobTitle="" LastName="" MiddleName=""
+                     MobilePhone="" OtherPhone="" PersonID=""
+                     PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+       </AdditionalAddress>
+     </AdditionalAddresses>
+	 <OrderDates>
+		<OrderDate ActualDate="" DateTypeId="" ExpectedDate="" OrderHeaderKey="" OrderLineKey="" OrderReleaseKey="" RequestedDate=""/>
+	 </OrderDates>
+     <OverallTotals GrandCharges="" GrandTotal="" LineSubTotal=""/>
+	<OrderStatuses>
+		<OrderStatus OrderHeaderKey="" OrderReleaseKey="" ReceivingNode="" ShipNode=""/>
+	</OrderStatuses>
+	<Notes NumberOfNotes="">
+       <Note NoteText="" Priority="" ReasonCode="" Tranid="" Tranname="" /> 
+    </Notes>
+	<Extn />
+</Order>

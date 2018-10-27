@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OrderLineList TotalNumberOfRecords="">
+  <OrderLine OrderHeaderKey="" OrderLineKey="" OrderedQty="" OriginalOrderedQty="" ProcureFromNode="" ReceivingNode="" ReqShipDate="" SCAC="" ScacAndService="" ScacAndServiceKey="" SerialNo="" ShipNode="" ShippedQuantity="">
+  <Extn />
+  <Notes NumberOfNotes="">
+     <Note NoteText="" Priority="" ReasonCode="" Tranid="" Tranname="" /> 
+  </Notes> 
+  </OrderLine>
+</OrderLineList>

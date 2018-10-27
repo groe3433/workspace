@@ -1,0 +1,17 @@
+<Promise CheckInventory="Y" OptimizationType="" OrganizationCode="">
+	<SuggestedOption>
+		<Option>
+			<PromiseLines>
+				<PromiseLine FulfillmentType="" ItemID="Required" UnitOfMeasure="" DeliveryMethod="" ProductClass="">
+					<Assignments>
+						<Assignment DeliveryDate="" ProductAvailDate="" Quantity="" ReservedQty="" ShipDate="" ShipNode=""/>
+					</Assignments>
+				</PromiseLine>
+			</PromiseLines>
+			<Interactions>
+				<Interaction Carrier="" CarrierServiceCode="" DeliveryDate="" DeliveryMethod="" ItemGroupCode="" ShipDate="">
+				</Interaction>
+			</Interactions>
+		</Option>
+	</SuggestedOption>
+</Promise>

@@ -1,0 +1,42 @@
+<Order CarrierServiceCode="" CustomerEMailID="" DocumentType=""
+	EnteredBy="" EnterpriseCode="" EntryType="" MaxOrderStatus=""
+	MinOrderStatus="" OrderDate="" OrderNo="" OrderType="" OriginalTax=""
+	OriginalTotalAmount="" OtherCharges="" SellerOrganizationCode="">
+	<PersonInfoBillTo AddressLine1="" AddressLine2=""
+		City="" Country="" EMailID="" FirstName="" LastName="" MiddleName=""
+		MobilePhone="" State="" ZipCode="" />
+	<PersonInfoShipTo AddressLine1="" AddressLine2=""
+		City="" Country="" EMailID="" FirstName="" LastName="" MiddleName=""
+		MobilePhone="" State="" ZipCode="" />
+	<ChargeTransactionDetails>
+		<ChargeTransactionDetail
+			AuthorizationExpirationDate="" AuthorizationID="" BookAmount=""
+			ChargeType="" CreditAmount="" OpenAuthorizedAmount="" RequestAmount="" TransferToOhKey="">
+                 <TransferFromOrder/>
+        </ChargeTransactionDetail>
+	</ChargeTransactionDetails>
+	<OrderLines>
+		<OrderLine OrderedQty="" OtherCharges="">
+			<Item ItemDesc="" ItemID="" ItemShortDesc="" UnitCost="" />
+			<LinePriceInfo UnitPrice="" />
+			<LineOverallTotals LineTotal="" />
+			<LineCharges>
+				<LineCharge ChargeCategory="" ChargeName=""
+					ChargePerLine="" ChargePerUnit="" RemainingChargeAmount=""
+					RemainingChargePerUnit="" />
+			</LineCharges>
+			<LineTaxes>
+				<LineTax ChargeCategory="" ChargeName="" ChargeNameKey=""
+					Tax="" TaxName="" TaxPercentage="" />
+			</LineTaxes>
+			<OrderStatuses>
+				<OrderStatus OrderHeaderKey="" OrderLineKey="" Status=""
+					StatusQty="" TotalQuantity="" />
+			</OrderStatuses>
+		</OrderLine>
+	</OrderLines>
+	<HeaderCharges>
+		<HeaderCharge ChargeAmount="" ChargeCategory="" />
+	</HeaderCharges>
+	<CustomAttributes CustomerOrderNo="" />
+</Order>

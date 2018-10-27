@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="AddressCaptureExtn"
+        extnPackage="extn.common.address.capture"
+        originalScreen="isccs.common.address.capture.AddressCapture"
+        originalScreenPackage="isccs.common.address.capture" type="diffrential">
+        <Items>
+            <FilteringSelect _sc_extensibility_moveOrder="23"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_Companyname"
+                label="$(_scSimpleBundle:Country_Region)"
+                required="true" uId="extn_Country">
+                <BindingData>
+                    <SourceBinding namespace="Address" path="PersonInfo.Title"/>
+                    <OptionsBinding
+                        descriptionField="CodeLongDescription"
+                        namespace="extn_getCountryList_output"
+                        path="CommonCodeList.CommonCode" valueField="CodeValue"/>
+                </BindingData>
+            </FilteringSelect>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="cmbState" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtFirstName" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtLastName" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtAddressLine1"
+                label="$(_scBundle:extn_Address_Line1)" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtAddressLine2"
+                label="$(_scBundle:AddressLine2)" required="false"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtCity" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtZipCode"
+                label="$(_scBundle:extn_Zip_Postal_Code)" required="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtEmailAddress"
+                label="$(_scBundle:extn_E_Mail)" required="false"/>
+            <TextField _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="txtState"
+                label="$(_scSimpleBundle:extn_Company_Name)" uId="extn_Companyname">
+                <BindingData>
+                    <SourceBinding namespace="Address" path="PersonInfo.Company"/>
+                    <TargetBindings>
+                        <TargetBinding namespace="PersonInfo_input"
+                            path="PersonInfo.Company" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txtState"
+                label="$(_scBundle:State)" renderHidden="true" required="true"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

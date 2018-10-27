@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderSearchExtn"
+        extnPackage="extn.order.search"
+        originalScreen="isccs.order.search.OrderSearch"
+        originalScreenPackage="isccs.order.search" type="diffrential">
+        <Items>
+            <TitlePane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlCustFields"
+                renderHidden="true" title="$(_scSimpleBundle:extn_Search_By_Customer_Billing_Info)"/>
+            <TitlePane _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="basicContentPane"
+                renderHidden="false"
+                title="$(_scSimpleBundle:extn_Search_By_Address)" uId="extn_addressFields"/>
+            <RadioButtonSet _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="radDraftOrderFlag" renderHidden="true"/>
+            <RadioButtonSet _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="radReadFromHistory" renderHidden="false"/>
+            <RadioButtonSet _sc_extensibility_moveOrder="13"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_emailId"
+                colspan="2" groupAlignment="horizontal"
+                label="$(_scBundle:extn_Billing_or_Shipping_Address)"
+                renderHidden="false" uId="extn_isBillingAdd">
+                <BindingData>
+                    <RadioBinding>
+                        <Option
+                            label="$(_scSimpleBundle:extn_Billing_Address)"
+                            scExtensibilityArrayItemId="extn_RadioBinding_0" value="Y"/>
+                        <Option
+                            label="$(_scSimpleBundle:PersonInfoShip)"
+                            scExtensibilityArrayItemId="extn_RadioBinding_1" value="N"/>
+                    </RadioBinding>
+                    <SourceBinding namespace="screenInput" path="Order.IsBillingAddress"/>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.IsBillingAddress" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                </BindingData>
+            </RadioButtonSet>
+            <TextField _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlOrderFields"
+                label="$(_scSimpleBundle:extn_Order_Number)" uId="extn_txt_cusordno">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.CustomAttributes.CustomerOrderNo" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.CustomAttributes.CustomerOrderNo"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlOrderFields" uId="extn_txt_cusordno"/>
+            <TextField _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlOrderFields" uId="extn_txt_cusordno"/>
+            <TextField _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="txt_orderNo2" uId="extn_txt_cusordno"/>
+            <TextField _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="txt_orderNo2" uId="extn_txt_cusordno"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txt_orderNo2" label="$(_scBundle:OrderNo)"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txt_custPoNo" renderHidden="true"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txt_custEmailId" label="$(_scBundle:extn_Billing_Email_address_starts_with)"/>
+            <TextField _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="txt_custPhone" label="$(_scBundle:extn_Customer_Billing_telephone)"/>
+            <TextField _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_addressFields"
+                label="$(_scSimpleBundle:FirstName)"
+                renderHidden="false" selectOnClick="true" uId="extn_firstName">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.FirstName" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.FirstName"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="extn_addressFields"
+                label="$(_scSimpleBundle:LastName)" renderHidden="false"
+                selectOnClick="true" uId="extn_lastName">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.LastName" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.LastName"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_lastName"
+                label="$(_scSimpleBundle:extn_Address_Line1)"
+                selectOnClick="true" uId="extn_addrsLine1">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.AddressLine1" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.AddressLine1"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_addrsLine1"
+                label="$(_scSimpleBundle:AddressLine2)"
+                renderHidden="false" selectOnClick="true" uId="extn_addrsLine2">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.AddressLine2" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.AddressLine2"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_addrsLine2"
+                label="$(_scBundle:ZipCode)" selectOnClick="true" uId="extn_postalCode">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.ZipCode" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.ZipCode"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="15"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_emailId"
+                label="$(_scBundle:CustomerPhoneNo)"
+                selectOnClick="true" uId="extn_txtTelephone">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.CustomerPhoneNo" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.CustomerPhoneNo"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="12"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_postalCode"
+                label="$(_scSimpleBundle:CustomerEmailStartsWith)"
+                renderHidden="false" selectOnClick="true" uId="extn_emailId">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.EmailID" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.EmailID"/>
+                </BindingData>
+            </TextField>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="extn_txt_cusordno_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_firstName_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_lastName_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_addrsLine1_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_addrsLine2_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_postalCode_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_emailId_onKeyUp" isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+                <Subscriber eventId="extn_txtTelephone_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

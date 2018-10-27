@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Draft_Order_Confirm.On_Success Event XML-->
+<Order BillToID="" BuyerOrganizationCode="" DocumentType="" 
+    EnterpriseCode="" OrderDate="" OrderHeaderKey=""
+    OrderNo="" OrderType="" Status="" ShipNode="" Createuserid="" Modifyuserid="">
+	<Extn/>
+    <OrderLines NumberOfOrderLines="">
+        <!--1 or more order
+        line-->
+        <OrderLine KitCode=""  LineType="" MaxLineStatus=""
+            OrderHeaderKey="" OrderLineKey=""
+            OrderedQty="" OriginalOrderedQty=""
+			PrimeLineNo="" SubLineNo="" ReqShipDate="">
+            <Item CostCurrency="" CountryOfOrigin="" CustomerItem=""
+                CustomerItemDesc="" ECCNNo="" HarmonizedCode="" ISBN=""
+                ItemDesc="" ItemID="" ItemShortDesc="" ItemWeight=""
+                ItemWeightUOM="" ManufacturerItem=""
+                ManufacturerItemDesc="" ManufacturerName="" NMFCClass=""
+                NMFCCode="" NMFCDescription="" ProductClass=""
+                ProductLine="" ScheduleBCode="" SupplierItem=""
+                SupplierItemDesc="" TaxProductCode="" UPCCode=""
+                UnitCost="" UnitOfMeasure=""/>
+ 		<Extn/>
+		<!-- Jay : Added this as the unit price was not getting populated in the system-->
+		<LinePriceInfo DiscountPercentage="" LineTotal=""
+                ListPrice="" RetailPrice="" TaxableFlag="" UnitPrice=""/>
+		</OrderLine>
+    </OrderLines>
+ </Order>

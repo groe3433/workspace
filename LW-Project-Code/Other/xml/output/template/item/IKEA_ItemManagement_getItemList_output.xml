@@ -1,0 +1,9 @@
+<ItemList CallingOrganizationCode="">
+    <Item ItemID="" OrganizationCode="Required" UnitOfMeasure="">
+        <Availability CurrentAvailableQty="">           
+            <AvailabilityInformation>
+                <AvailableInventory AvailableQuantity=""/>
+            </AvailabilityInformation>
+        </Availability>
+    </Item>
+</ItemList>

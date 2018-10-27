@@ -1,0 +1,174 @@
+		<div>
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+		 				data-ibmsc-uid="extn_Country"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '23' , 
+		_sc_extensibility_referenceUId : 'extn_Companyname' , 
+		uId : 'extn_Country' , 
+		required : true , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.Title'
+,
+		 namespace : 			'Address'
+	}
+,
+		 optionsBinding : 	{
+		 descriptionField : 			'CodeLongDescription'
+,
+		 valueField : 			'CodeValue'
+,
+		 path : 			'CommonCodeList.CommonCode'
+,
+		 namespace : 			'extn_getCountryList_output'
+	}
+	}
+,	
+			 	label : 			this.getSimpleBundleString('Country_Region')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+		 				data-ibmsc-uid="cmbState"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'cmbState' , 
+		required : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtFirstName"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtFirstName' , 
+		required : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtLastName"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtLastName' , 
+		required : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtAddressLine1"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtAddressLine1' , 
+		required : true  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Address_Line1')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtAddressLine2"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtAddressLine2' , 
+		required : false  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('AddressLine2')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtCity"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtCity' , 
+		required : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtZipCode"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtZipCode' , 
+		required : true  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Zip_Postal_Code')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtEmailAddress"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtEmailAddress' , 
+		required : false  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_E_Mail')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="extn_Companyname"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'txtState' , 
+		uId : 'extn_Companyname' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'PersonInfo.Company'
+,
+		 namespace : 			'PersonInfo_input'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 path : 			'PersonInfo.Company'
+,
+		 namespace : 			'Address'
+	}
+	}
+,	
+			 	label : 			this.getSimpleBundleString('extn_Company_Name')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+		 				data-ibmsc-uid="txtState"
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'txtState' , 
+		renderHidden : true , 
+		required : true  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('State')
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

@@ -1,0 +1,82 @@
+		<div>
+		 	<div data-dojo-type="idx/layout/TitlePane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'shipmentLinestitlepane'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	title : 			this.getSimpleBundleString('Title_ShipmentLines')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="gridx/Grid" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'tblShipmentLines'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	structure : 	[
+	 		{
+		 field : 			'extn_shipment_track'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 _sc_extensibility_moveOrder : 			'1'
+,
+		 _sc_extensibility_referenceUId : 			'tblColQuantity'
+,
+		 hidden : 			true
+,
+		 name : 			this.getSimpleBundleString('extn_Shipment_Tracking_Numbers')
+,
+		 uId : 			'extn_shipment_track'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProduct'
+,
+		 width : 			'35%'
+,
+		 uId : 			'tblColProduct'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColQuantity'
+,
+		 width : 			'15%'
+,
+		 uId : 			'tblColQuantity'
+	}
+,
+	 		{
+		 field : 			'extn_return_track'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 _sc_extensibility_moveOrder : 			'2'
+,
+		 _sc_extensibility_referenceUId : 			'extn_shipment_track'
+,
+		 hidden : 			true
+,
+		 name : 			this.getSimpleBundleString('extn_Return_Shipment_Tracking_Numbers1')
+,
+		 uId : 			'extn_return_track'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+	]
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

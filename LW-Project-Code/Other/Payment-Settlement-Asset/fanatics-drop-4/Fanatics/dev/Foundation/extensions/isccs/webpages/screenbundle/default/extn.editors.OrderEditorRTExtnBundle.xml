@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.editors.OrderEditorRTExtnBundle" screenId="extn.editors.OrderEditorRTExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="extn_manage_instruction_Link_value"
+            bundleKey="extn_Manage_Instructions"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_manage_instruction"/>
+        <BundleEntry bundleEntryId="extn_revise_ship_date_Link_value"
+            bundleKey="extn_Revise_Ship_Date"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_revise_ship_date"/>
+        <BundleEntry bundleEntryId="extn_waive_mrl_Link_value"
+            bundleKey="extn_mrl_fee_title"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_waive_mrl"/>
+    </BundleEntries>
+</ScreenBundle>

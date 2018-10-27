@@ -1,0 +1,39 @@
+<DBSchema Name="CustomDBExtensions"> 
+  <Entities> 
+	<Entity TableName="EXTN_FANATICS_MESSAGE_STORE" Prefix="EXTN" HasHistory="false" Description="Custom Table to backup the interface messages sent/imported into OMS" AuditRequired="N" ApiNeeded="Y">
+		<Attributes>
+			<Attribute Description="primary key for the custom table" XMLName="MsgStoreKey" Nullable="False" DefaultValue=" " DataType="Key" ColumnName="MSG_STORE_KEY"/>
+			<Attribute Description="" XMLName="ServiceName" Nullable="False" DefaultValue=" " DataType="Text-40" ColumnName="SERVICE_NAME"/>
+			<Attribute Description="The input XML to the service/sub flow." Nullable="false" DefaultValue="' '" DataType="CLOB" ColumnName="XML" XMLName="XML"/>
+			<Attribute Description="Stores the field/attribute name of key fields" XMLName="Field1" Nullable="True" DataType="Text-40" ColumnName="FIELD_1"/>
+			<Attribute Description="Stores the field/attribute name of key fields" XMLName="Field2" Nullable="True" DataType="Text-40" ColumnName="FIELD_2"/>
+			<Attribute Description="Stores the field/attribute name of key fields" XMLName="Field3" Nullable="True" DataType="Text-40" ColumnName="FIELD_3"/>
+			<Attribute Description="Stores the field/attribute name of key fields" XMLName="Field4" Nullable="True" DataType="Text-40" ColumnName="FIELD_4"/>
+			<Attribute Description="Stores the field/attribute name of key fields" XMLName="Field5" Nullable="True" DataType="Text-40" ColumnName="FIELD_5"/>
+			<Attribute Description="Stores the value of the key field identified by Field 1" XMLName="Value1" Nullable="True" DataType="Text-40" ColumnName="VALUE_1"/>
+			<Attribute Description="Stores the value of the key field identified by Field 2" XMLName="Value2" Nullable="True" DataType="Text-40" ColumnName="VALUE_2"/>
+			<Attribute Description="Stores the value of the key field identified by Field 3" XMLName="Value3" Nullable="True" DataType="Text-40" ColumnName="VALUE_3"/>
+			<Attribute Description="Stores the value of the key field identified by Field 4" XMLName="Value4" Nullable="True" DataType="Text-40" ColumnName="VALUE_4"/>
+			<Attribute Description="Stores the value of the key field identified by Field 5" XMLName="Value5" Nullable="True" DataType="Text-40" ColumnName="VALUE_5"/>
+			<Attribute Description="Create TimeStamp" DefaultValue="sysdate" DataType="TimeStamp" ColumnName="CREATETS"/>
+			<Attribute Description="Modify TimeStamp" DefaultValue="sysdate" DataType="TimeStamp" ColumnName="MODIFYTS"/>
+			<Attribute Description="Creating User ID" DefaultValue="' '" DataType="UserId" ColumnName="CREATEUSERID"/>
+			<Attribute Description="Modifying User ID" DefaultValue="' '" DataType="UserId" ColumnName="MODIFYUSERID"/>
+			<Attribute Description="Creating Program ID" DefaultValue="' '" DataType="ProgramID" ColumnName="CREATEPROGID"/>
+			<Attribute Description="Modifying Program ID" DefaultValue="' '" DataType="ProgramID" ColumnName="MODIFYPROGID"/>
+			<Attribute Description="Lock ID" DefaultValue="0" DataType="Lockid" ColumnName="LOCKID"/>
+		</Attributes>
+		<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+		<PrimaryKey Name="MSG_STORE_PK">
+			<Attribute ColumnName="MSG_STORE_KEY"/>
+		</PrimaryKey>
+		<!-- Indices -->
+		<Indices>
+			<Index Name="MSG_STORE_I1" Unique="False">
+				<Column Name="SERVICE_NAME"/>
+				<Column Name="CREATETS"/>
+			</Index>
+		</Indices>
+	</Entity>
+  </Entities> 
+</DBSchema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<project name="UpdateYantraEar" default="repackageJars" basedir=".">
+	<property file="build.properties" />
+	<property name="extDeployments" value="${yantra.home}/external_deployments" />
+	<target name="unjarYantra">
+		<unjar dest="${extDeployments}/yantraEar" src="${extDeployments}/yantra.ear" />
+		<unjar dest="${extDeployments}/yantraEar/resourcesJar" src="${extDeployments}/yantraEar/resources.jar" />
+		<unjar dest="${extDeployments}/yantraEar/yantraWar" src="${extDeployments}/yantraEar/yantra.war" />
+	</target>
+	<target name="addAdditionalFiles" depends="unjarYantra">
+		<mkdir dir="${extDeployments}/yantraEar/resourcesJar/global/template/event/extn" />
+		<copy file="${basedir}/../../YantraExtension/webpages/extn/yfc/NWCGrfutil.jspf" todir="${extDeployments}/yantraEar/yantraWar/yfc" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/event/extn/SCHEDULE.ON_SUCCESS.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/event/extn" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/event/extn/CONFIRM_SHIPMENT.ON_SUCCESS.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/event/extn" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/api/extn/getOrderDetails.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/api" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/api/extn/getWorkOrderDetails.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/api" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/api/extn/NWCGReports_getOrderDetails.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/api" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/event/extn/CONFIRM_WORK_ORDER.ON_SUCCESS.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/event/extn" />
+		<copy file="${extDeployments}/yantraEar/resourcesJar/template/event/extn/CONFIRM_WORK_ORDER.ON_WORK_ORDER_COMPLETION.xml" todir="${extDeployments}/yantraEar/resourcesJar/global/template/event/extn" />
+	</target>
+	<target name="updateWebXML" depends="addAdditionalFiles">
+		<fixcrlf srcDir="${extDeployments}/yantraEar/yantraWar/WEB-INF" includes="web.xml" eol="lf" eof="remove" />
+		<replaceregexp match="\s+" replace=" " flags="g" byline="false">
+			<fileset dir="${extDeployments}/yantraEar/yantraWar/WEB-INF" includes="web.xml" />
+			</replaceregexp>
+				<replace file="${extDeployments}/yantraEar/yantraWar/WEB-INF/web.xml">
+					<replacetoken><![CDATA[</servlet-mapping> <session-config>]]></replacetoken>
+					<replacevalue>
+						<![CDATA[	</servlet-mapping>
+						<!-- Added for the USFS AJAX Servlet -->
+						<servlet>
+							<servlet-name>AjaxServlet</servlet-name>
+							<display-name>AjaxServlet</display-name>
+							<description>AjaxServlet controller Servlet</description>
+							<servlet-class>com.nwcg.icbs.yantra.ajax.NWCGAjaxControllerServlet</servlet-class>
+						</servlet>
+						<servlet-mapping>
+							<servlet-name>AjaxServlet</servlet-name>
+							<url-pattern>/AjaxServlet</url-pattern>
+						</servlet-mapping>
+						<!-- End AJAX Servlet --><session-config>]]>
+					</replacevalue>
+				</replace>
+			</target>
+			<target name="repackageJars" depends="updateWebXML">
+				<delete file="${extDeployments}/yantraEar/yantra.war" />
+				<delete file="${extDeployments}/yantraEar/resources.jar" />
+				<delete file="${extDeployments}/yantra.ear" />
+				<jar destfile="${extDeployments}/yantraEar/yantra.war" basedir="${extDeployments}/yantraEar/yantraWar" update="true" />
+				<jar destfile="${extDeployments}/yantraEar/resources.jar" basedir="${extDeployments}/yantraEar/resourcesJar" update="true" />
+				<delete dir="${extDeployments}/yantraEar/yantraWar" />
+				<delete dir="${extDeployments}/yantraEar/resourcesJar" />
+				<jar destfile="${extDeployments}/yantra.ear" basedir="${extDeployments}/yantraEar" update="true" />
+				<delete dir="${extDeployments}/yantraEar" />
+			</target>
+		</project>

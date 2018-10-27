@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-ResourceEntitiesAndSmcfsEar" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-ResourceEntitiesAndSmcfsEar" description="build resource, entities, and smcfs ear">
+	</target>	
+	
+	<target name="buildSMCFSResourceJar" description="build smcfs resource jar">
+		<echo>Executing resourcejar</echo>
+		<exec executable="${Sterling.Home}/bin/deployer.${ext}" failonerror="true">
+			<arg value="-t"/>
+			<arg value="resourcejar"/>
+		</exec>
+	</target>
+
+	<target name="buildSMCFSEntitiesJar" description="build smcfs entities jar">
+		<echo>Executing entityDeployer</echo>
+		<exec executable="${Sterling.Home}/bin/deployer.${ext}" failonerror="true">
+			<arg value="-t"/>
+			<arg value="entitydeployer"/>
+		</exec>
+	</target>
+	
+	<target name="buildSMCFSEarFile" description="build smcfs ear file">		
+		<echo>Building smcfs.ear</echo>
+		<exec executable="${Sterling.Home}/bin/buildear.${ext}">
+			<arg value="-Dappserver=${appserver}"/>
+			<arg value="-Dwarfiles=${warfiles}"/>
+			<arg value="-Dsupport.multi.war=${support.multi.war}"/>
+			<arg value="-Dnowebservice=${nowebservice}"/>
+			<arg value="-Ddevmode=${devmode}"/>							  
+			<arg value="-Dnodocear=${nodocear}"/>
+			<arg value="-Dearfile=${earfile}"/>
+			<arg value="create-ear"/>							  
+		</exec>
+	</target>
+</project>

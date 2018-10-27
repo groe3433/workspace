@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:Environments xmlns:p="http://www.lightwellinc.com/stf-env.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-env.xsd ../../schemas/SterlingTestFramework-Environments.xsd ">
+	<Environment Default="Y" Name="LOCAL">
+		<SterlingEndpoint Url="http://localhost:7010/smcfs/interop/InteropHttpServlet"></SterlingEndpoint>
+		<Users>
+			<User Default="Y" UserName="weblogic" Password="weblogic1"></User>
+		</Users>
+		<JmsServers>
+			<JmsServer Name="WL_JMS" Default="Y" QueueConnectionFactory="AGENT_QCF" ProviderUrl="http://localhost:7010" ProviderType="WEBLOGIC"></JmsServer>
+			
+<JmsServer Name="WS_JMS" Default="N" QueueConnectionFactory="jms/QCF.LOCAL" ProviderUrl="corbaloc::localhost:7009" ProviderType="WEBLOGIC"></JmsServer>
+			<JmsServer Name="WMS_MQ" Default="N" QueueConnectionFactory="QCF_DHL" ProviderUrl="file:H:/eclipse-jee-luna-R-win32-x86_64/EclipseWorkSpace/STF/STF/resources/xml/environments/mq/local" ProviderType="FILE"></JmsServer>
+		</JmsServers>
+	</Environment>
+	<Environment Default="N" Name="QA">
+		<SterlingEndpoint Url="http://172.24.16.216:9080/smcfs/interop/InteropHttpServlet"></SterlingEndpoint>
+		<Users>
+			<User Default="Y" UserName="Lightwell_Support" Password="13458jla"></User>
+		</Users>
+		<JmsServers>
+			<JmsServer Name="WS_JMS" Default="Y" QueueConnectionFactory="jms/QCF" ProviderUrl="corbaloc::172.123.32.21:2811" ProviderType="WEBSPHERE"></JmsServer>
+			<JmsServer Name="WMS_MQ" Default="N" QueueConnectionFactory="QCF_DHL" ProviderUrl="file:resources/xml/environments/mq/dev" ProviderType="FILE"></JmsServer>
+		</JmsServers>
+	</Environment>
+</p:Environments>

@@ -1,0 +1,33 @@
+<DBSchema> 
+  <Entities> 
+	<Entity TableName="EXTN_REFUND_GIFT_CERT" Prefix="EXTN" HasHistory="false" Description="Fanatics Hang-off table to store the Gift Certificate Numbers and the PINs sent by the SVS system for the refund orders" AuditRequired="N" ApiNeeded="Y">
+		<Attributes>
+			<Attribute Description="Primary key for the Hang-Off table" XMLName="RefundGCKey" Nullable="False" DefaultValue="' '" DataType="Key" ColumnName="REFUND_GC_KEY"/>
+			<Attribute Description="Key of the Shipment of the Order" XMLName="ShipmentKey" Nullable="False" DefaultValue="' '" DataType="Key" ColumnName="SHIPMENT_KEY"/>
+			<Attribute Description="Shipment Number of the Order" XMLName="ShipmentNo" Nullable="False" DefaultValue="' '" DataType="Text-40" ColumnName="SHIPMENT_NO"/>
+			<Attribute Description="Enterprise Code" XMLName="EnterpriseCode" Nullable="False" DataType="Text-200" ColumnName="ENTERPRISE_CODE"/>
+			<Attribute Description="Order No" XMLName="OrderNo" Nullable="False" DataType="Text-40" ColumnName="ORDER_NO"/>
+			<Attribute Description="Key of the Order" XMLName="OrderHeaderKey" Nullable="False" DefaultValue="' '" DataType="Key" ColumnName="ORDER_HEADER_KEY"/>	
+                        <Attribute Description="Key of the Order Line" XMLName="OrderLineKey" Nullable="False" DefaultValue="' '" DataType="Key" ColumnName="ORDER_LINE_KEY"/>		
+			<Attribute Description="SVS Gift Certificate No" XMLName="GiftCertNo" Nullable="False" DataType="Text-200" ColumnName="GIFT_CERT_NO"/>
+			<Attribute Description="SVS Gift Certificate PIN" XMLName="GiftCertPIN" Nullable="False" DataType="Text-200" ColumnName="GIFT_CERT_PIN"/>
+			<Attribute Description="Create TimeStamp" DefaultValue="sysdate" DataType="TimeStamp" ColumnName="CREATETS"/>
+			<Attribute Description="Modify TimeStamp" DefaultValue="sysdate" DataType="TimeStamp" ColumnName="MODIFYTS"/>
+			<Attribute Description="Creating User ID" DefaultValue="' '" DataType="UserId" ColumnName="CREATEUSERID"/>
+			<Attribute Description="Modifying User ID" DefaultValue="' '" DataType="UserId" ColumnName="MODIFYUSERID"/>
+			<Attribute Description="Creating Program ID" DefaultValue="' '" DataType="ProgramID" ColumnName="CREATEPROGID"/>
+			<Attribute Description="Modifying Program ID" DefaultValue="' '" DataType="ProgramID" ColumnName="MODIFYPROGID"/>
+			<Attribute Description="Lock ID" DefaultValue="0" DataType="Lockid" ColumnName="LOCKID"/>
+		</Attributes>
+		<!-- PrimaryKey is a mandatory attribute in entity definition. This element can have ONLY ONE attribute element -->
+		<PrimaryKey Name="FAN_REFUND_GC_PK">
+			<Attribute ColumnName="REFUND_GC_KEY" XMLName="RefundGCKey"/>
+		</PrimaryKey>
+		
+		<Parent ParentTableName="YFS_SHIPMENT" XMLName="YFSShipment" >
+	                <Attribute ColumnName="SHIPMENT_KEY" ParentColumnName="SHIPMENT_KEY" />
+		 </Parent>
+		
+	</Entity>
+  </Entities> 
+</DBSchema>

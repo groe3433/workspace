@@ -1,0 +1,39 @@
+*/5 * * * * /home/wasuser/TOGScripts/checkAppServers.sh
+
+0 0 1 * * rm /opt/ssfs/runtime/logs/App_Status_Check.log
+
+
+
+##### Temporary Import Order Triggers (wasuser)
+15,45 * * * * /opt/ssfs/runtime/TOGExportMigrationOrders/Staging/CheckAndMoveFile.sh
+0,2,4,6 * * * * /opt/ssfs/runtime/TOGExportMigrationOrders/Staging/CallAPITester.sh
+30,32,34,36 1,3,5,7,9,11,13,15,17,19,21,23 * * * /opt/ssfs/runtime/TOGExportMigrationOrders/Staging/CallAPITester.sh
+
+##### Preprod Only (App Srv 1) - Only File Count and Queued File part. 
+10,20,40,50 * * * * /opt/ssfs/runtime/TOGExportMigrationOrders/Staging/Alert.sh
+
+
+##### Temporary Import Order Triggers (mqm) - Remove File Count and Queued File part on Preprod Only. 
+10,20,40,50 * * * * /var/mqm/TOGScripts/Alert.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

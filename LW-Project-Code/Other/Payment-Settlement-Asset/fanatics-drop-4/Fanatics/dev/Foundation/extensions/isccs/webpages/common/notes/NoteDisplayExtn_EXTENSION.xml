@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="NoteDisplayExtn"
+        extnPackage="extn.common.notes"
+        originalScreen="isccs.common.notes.NoteDisplay"
+        originalScreenPackage="isccs.common.notes" type="diffrential">
+        <Items>
+            <CheckBoxList _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="ckListStatus"
+                disabled="true" renderHidden="true"/>
+            <CheckBoxList _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="btnApplyFilter"
+                label="$(_scBundle:Exclude)" renderHidden="false"
+                scExcludeForDirtyCheck="true" spanLabel="true" uId="extn_ckListStatus">
+                <BindingData>
+                    <SourceBinding namespace="screenInput"/>
+                    <TargetBindings>
+                        <TargetBinding namespace="getNoteList_input"
+                            path="Note.Exclude" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <CheckBoxListBinding>
+                        <Option
+                            label="$(_scSimpleBundle:Include_Lower_Priority_Notes)"
+                            scExtensibilityArrayItemId="extn_CheckBoxListBinding_0" value="Priority"/>
+                        <Option label="$(_scSimpleBundle:Option_User)"
+                            scExtensibilityArrayItemId="extn_CheckBoxListBinding_1" value="UserNote"/>
+                        <Option label="$(_scSimpleBundle:System)"
+                            scExtensibilityArrayItemId="extn_CheckBoxListBinding_2" value="SystemNote"/>
+                    </CheckBoxListBinding>
+                </BindingData>
+            </CheckBoxList>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

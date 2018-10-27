@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_ModifyCalendarCDC_UT_013" Description="modify CDC Receiving Calendar.">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:Component Name="IKEA_Organization_CreateCDC_Component"></p1:Component>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Api Name="createCalendar"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_createCalendar_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>
+		<p:Sequence Number="3">
+			<p1:Api Name="getCalendarDetails"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_createCalendar_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_createCalendar_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+			</p1:Documents>
+		</p:Sequence>
+		<p:Sequence Number="4">
+			<p1:Api Name="getOrganizationHierarchy"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_getOrganization_input.xml"
+					Location="resources/xml/input/template/organization/">
+				</p1:Document>
+				<p1:Document Type="OUTPUT_TEMPLATE" FileName="IKEA_getOrganizationHierarchy_output.xml"
+					Location="resources/xml/output/template/organization/">
+				</p1:Document>
+				<p1:Validations>
+					<p1:Validate ValidationType="XPATH" Expected="${Calendar.CalendarDescription}" Path="//Calendar/@CalendarDescription"> </p1:Validate>
+				</p1:Validations>
+			</p1:Documents>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+	<p:GeneratedParameter Prefix="CDC.269-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+	<p:Parameter Key="Organization.Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Organization.Calendar.2.CalendarId" Type="INPUT" Value="${Organization.OrganizationCode}"/>
+	<p:Parameter Key="Calendar.CalendarDescription" Type="INPUT" Value="REC"  />
+    <p:Parameter Key="Calendar.CalendarId" Type="INPUT" Value="REC"  />
+    <p:Parameter Key="Calendar.OrganizationCode" Type="INPUT" Value="${Organization.OrganizationCode}" />
+    <p:Parameter Key="Calendar.EffectivePeriod.EffectiveFromDate" Type="INPUT" Value="2008-01-16"  />
+    <p:Parameter Key="Calendar.EffectivePeriod.EffectiveToDate" Type="INPUT" Value="2050-12-31" />
+    <p:Parameter Key="Calendar.Shift.ShiftEndTime" Type="INPUT" Value="16:00:00"  />
+    <p:Parameter Key="Calendar.Shift.ShiftName" Type="INPUT" Value="07:00:00-16:00:00"  />
+    <p:Parameter Key="Calendar.Shift.ShiftStartTime" Type="INPUT" Value="07:00:00"  />
+    <p:Parameter Key="Calendar.Shift.MondayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Calendar.Shift.TuesdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Calendar.Shift.WednesdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Calendar.Shift.ThursdayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Calendar.Shift.FridayValid" Type="INPUT" Value="N"  />
+    <p:Parameter Key="Calendar.Shift.SaturdayValid" Type="INPUT" Value="Y"  />
+    <p:Parameter Key="Calendar.Shift.SundayValid" Type="INPUT" Value="Y" /> 
+  </p:Parameters>
+</p:TestCase>

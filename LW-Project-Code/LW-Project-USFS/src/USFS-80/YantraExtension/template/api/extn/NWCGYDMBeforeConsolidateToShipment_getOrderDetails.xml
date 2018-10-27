@@ -1,0 +1,6 @@
+<Order OrderNo="" ReqShipDate="">
+	<OrderDates>
+	  <OrderDate ExpectedDate=""/> 
+	</OrderDates>
+	<Extn ExtnShipAcctCode="" ExtnIncidentYear="" ExtnIncidentNo=""/>
+</Order>

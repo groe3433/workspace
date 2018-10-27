@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField Binding="/Batch/@BatchNo" LabelFieldName="BatchBarCode" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@BatchNo" LabelFieldName="BatchNo" RepeatingElement=""/>
+    <LabelField Binding="/Batch/Tasks/Task/TaskReferences/@WaveNo" LabelFieldName="WaveNo" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@OrganizationCode" LabelFieldName="Node" RepeatingElement=""/>
+
+    <LabelField Binding="/Batch/@WorkOrderNo" LabelFieldName="WorkOrderNo" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@IssueNo" LabelFieldName="IssueNo" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@IncidentNo" LabelFieldName="IncidentNo" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@IncidentName" LabelFieldName="IncidentName" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@IncidentYear" LabelFieldName="IncidentYear" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@CustomerName" LabelFieldName="CustomerName" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@ShipToAddressLine1" LabelFieldName="ShipToAddressLine1" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@ShipToAddressLine2" LabelFieldName="ShipToAddressLine2" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@ShipToAddressCity" LabelFieldName="ShipToAddressCity" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@ShipToAddressState" LabelFieldName="ShipToAddressState" RepeatingElement=""/>
+    <LabelField Binding="/Batch/@ShipToAddressZip" LabelFieldName="ShipToAddressZip" RepeatingElement=""/>
+
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/@SourceLocationId" LabelFieldName="FromLocation" RepeatingElement="BatchTask"/>
+    
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/@SourceLPNNo" LabelFieldName="FromLPN" RepeatingElement="BatchTask"/>
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/Inventory/Item/PrimaryInformation/@Description" LabelFieldName="ItemDesc" RepeatingElement="BatchTask"/>
+
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/Inventory/@UnitOfMeasure" LabelFieldName="UOM" RepeatingElement="BatchTask"/>
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/Inventory/@ItemId" LabelFieldName="ItemId" RepeatingElement="BatchTask"/>
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/TaskReferences/@NoteText" LabelFieldName="NoteText" RepeatingElement="BatchTask"/>
+
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/@TotalQty" LabelFieldName="Quantity" RepeatingElement="BatchTask"/>
+    <LabelField Binding="/Batch/BatchTasks/BatchTask/@TargetLocationId" LabelFieldName="ToLocation" RepeatingElement="BatchTask"/>
+    <LabelField Binding="/Batch/References/Reference/@ReferenceName" LabelFieldName="Reference" RepeatingElement="Reference"/>
+    <LabelField Binding="/Batch/References/Reference/@ReferenceNo" LabelFieldName="ReferenceNo" RepeatingElement="Reference"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/Inventory/@SerialNo" LabelFieldName="SerialNo" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@LotNumber" LabelFieldName="LotNumber" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@TagBatchNo" LabelFieldName="TagBatchNo" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@RevisionNo" LabelFieldName="RevisionNo" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@LotNoReference" LabelFieldName="LotNoReference" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@BatchNoReference" LabelFieldName="BatchNoReference" RepeatingElement="BatchTask"/>
+	<LabelField Binding="/Batch/BatchTasks/BatchTask/TagReferences/@RevisionNoReference" LabelFieldName="RevisionNoReference" RepeatingElement="BatchTask"/>
+
+    <RepeatingFields>
+        <RepeatingField LabelFieldName="FromLocation" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="FromLPN" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="ItemDesc" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="UOM" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="ItemId" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="NoteText" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="Quantity" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="ToLocation" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+        <RepeatingField LabelFieldName="Reference" MaxFirstPage="4"
+            MaxLastPage="4" MaxMidPage="4" RepeatValuesOnEachPage="Y"/>
+        <RepeatingField LabelFieldName="ReferenceNo" MaxFirstPage="3"
+            MaxLastPage="3" MaxMidPage="3" RepeatValuesOnEachPage="Y"/>
+		<RepeatingField LabelFieldName="SerialNo" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="LotNumber" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="TagBatchNo" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="RevisionNo" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="LotNoReference" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="BatchNoReference" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+		<RepeatingField LabelFieldName="RevisionNoReference" MaxFirstPage="10"
+            MaxLastPage="10" MaxMidPage="10"/>
+    </RepeatingFields>
+</LabelFieldMap>

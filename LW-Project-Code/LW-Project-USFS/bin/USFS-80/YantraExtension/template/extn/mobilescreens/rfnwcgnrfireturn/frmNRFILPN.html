@@ -1,0 +1,31 @@
+<html>
+<body>
+<form name="frmNRFILPN" target="/console/rfnwcgnrfireturn.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="1" name="lblLPNNo" size="9" subtype="Label"
+					tag="binding=lblEquipment" type="text" validate="false"
+					value="Last LPN" /> <input col="11" inputbinding="xml:/LPN/@LPNNo"
+					name="lbltxtLPNNo" size="18" subtype="Label"
+					tag="binding=xml:/LPN/@LPNNo" type="text" validate="true" /></td>
+			</tr>
+			<tr>
+				<td><input col="1" hotkey="F3" name="Add More Items" size="15"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnrfireturn.ppc?action=frmNRFIAddItemInput"
+					validate="false" value="Add More Items" /> <input col="15"
+					hotkey="F3" name="Process Return" size="15" subtype="Command"
+					tag=" " type="button"
+					url="/console/rfnwcgnrfireturn.ppc?action=frmNRFIProcessReturn"
+					validate="false" value="Process Return" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

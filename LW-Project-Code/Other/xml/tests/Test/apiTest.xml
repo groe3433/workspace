@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="APIConnectionTest" Description="Test to check the API Connection with IKEA env">
+	<p:Tags>
+		<p:Tag Name="APIConnTest"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+	<p:Sequence Number="1">
+			<p1:Component Name="APIConnTestComponent"></p1:Component>
+		</p:Sequence>
+					
+	</p:Steps>
+	
+</p:TestCase>
+

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name = "BuildScripts" default="all-windows" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	<import file="buildSMCFS-CopyFiles.xml" />
+	<import file="buildSMCFS-Cleanup.xml" />
+	<import file="buildSMCFS-Github.xml" />	
+	<import file="buildSMCFS-CustomJARs.xml" />
+	<import file="buildSMCFS-ResourceEntitiesAndSmcfsEar.xml" />	
+	<import file="buildSMCFS-CustomAgentZip.xml" />
+	<import file="buildSMCFS-UDCDeploymentJar.xml" />	
+	<import file="buildSMCFS-RestartAndDeployAppServers.xml" />
+	<import file="buildSMCFS-CDTExportOrImport.xml" />
+
+	<path id="project.class.path">
+		<path refid="implementation.class.path" />
+	</path>
+
+	<path id="implementation.class.path">
+		<fileset dir="${Sterling.Home}/jar">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${Sterling.Home}/repository/eardata/platform/war/yfscommon">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${Sterling.Home}/repository/eardata/smcfs/war/yfscommon">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${Sterling.Home}/repository/eardata/config/war/yfscommon">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="all-windows" description="Building smcfs.ear (Local Windows Environment, add the targets you need only to save build time)">
+		<echo>Building smcfs.ear (Local Windows Environment)</echo>
+		<antcall target = "cleanupRuntimeFolder" />
+		<antcall target = "copyExtensions" />
+		<antcall target = "copyCustomerOverrides" />		
+		<antcall target = "buildSMCFSCustomCodeJar" />
+		<antcall target = "buildSMCFSResourceJar" />
+		<!--antcall target = "buildSMCFSEntitiesJar" /-->
+		<antcall target = "buildSMCFSEarFile" />	
+	</target>		
+	
+	<target name="all-linux" description="Builds smcfs.ear">
+		<echo>Builds smcfs.ear</echo>
+		<antcall target = "cleanupRuntimeFolder" />
+		<antcall target = "cleanupCustomAgentZipFile" />
+		<antcall target = "cleanupDownloadedGithubFiles" />		
+		<antcall target = "downloadLatestGithubFiles" />
+		<antcall target = "unzipDownloadedLatestGithubFiles" />
+		<antcall target = "zipDownloadedLatestGithubFiles" />
+		<antcall target = "copyYDKPrefs" />
+		<antcall target = "copyExtensions" />
+		<antcall target = "copyCustomerOverrides" />		
+		<antcall target = "buildSMCFSCustomCodeJar" />
+		<antcall target = "buildSMCFSResourceJar" />
+		<antcall target = "buildSMCFSEntitiesJar" />
+		<antcall target = "buildSMCFSEarFile" />		
+		<antcall target = "buildSMCFS-CustomAgentZip" />
+		<antcall target = "createUDCDeploymentJar" />
+		<antcall target = "deploySMCFSEarFileAndRestart_singleSrvEnv" />
+		<antcall target = "deploySMCFSEarFileAndRestart" />
+	</target>
+</project>

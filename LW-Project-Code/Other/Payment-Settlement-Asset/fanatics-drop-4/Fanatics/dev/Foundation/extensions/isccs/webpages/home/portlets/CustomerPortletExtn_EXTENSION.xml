@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="CustomerPortletExtn"
+        extnPackage="extn.home.portlets"
+        originalScreen="isccs.home.portlets.CustomerPortlet"
+        originalScreenPackage="isccs.home.portlets" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="portletPanel" renderHidden="true"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

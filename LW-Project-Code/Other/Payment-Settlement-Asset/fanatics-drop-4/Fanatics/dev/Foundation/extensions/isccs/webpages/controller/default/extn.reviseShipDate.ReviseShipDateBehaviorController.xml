@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.reviseShipDate.ReviseShipDateBehaviorController"
+    requestMethodSupported="POST" screenId="extn.reviseShipDate.ReviseShipDate">
+    <MashupRefs>
+		<MashupRef extnType="ADD" mashupId="extn_getCompleteOrderLineList_reviseShipDate"
+            mashupRefId="extn_getCompleteOrderLineList_reviseShipDate" permissionId=""/>
+        <MashupRef extnType="ADD"
+            mashupId="extn_ChangeOrderForReviseShipDate"
+            mashupRefId="extn_ChangeOrderForReviseShipDate" permissionId=""/>
+        <MashupRef extnType="ADD"
+            mashupId="extn_FanManageEmailEntry"
+            mashupRefId="extn_FanManageEmailEntry" permissionId=""/>
+    </MashupRefs>
+</Controller>

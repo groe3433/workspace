@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+     <LabelField DataType="Text" LabelFieldName="cacheId" Binding="/WorkOrder/@NodeKey" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="itemID" Binding="/WorkOrder/@ItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="Barc0001" Binding="/WorkOrder/@ItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shortDesc" Binding="/WorkOrder/PrimaryInformation/@ExtnReportDesc" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="extDesc" Binding="/WorkOrder/PrimaryInformation/@ExtendedDescription" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="cpageNo" Binding="/WorkOrder/PrimaryInformation/@PageNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="noOfPages" Binding="/WorkOrder/PrimaryInformation/@ExtnKitLabelQty" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="trackableID" Binding="/WorkOrder/WorkOrderActivityDtl/@SerialNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="Barc0006" Binding="/WorkOrder/WorkOrderActivityDtl/@SerialNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wt" Binding="/WorkOrder/PrimaryInformation/@UnitWeight" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="wtUom" Binding="/WorkOrder/PrimaryInformation/@UnitWeightUOM" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="dlt" Binding="/WorkOrder/PrimaryInformation/@DateLastTested" RepeatingElement="" Sequence="N"/>
+</LabelFieldMap>

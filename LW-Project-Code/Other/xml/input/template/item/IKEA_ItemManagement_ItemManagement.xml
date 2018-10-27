@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ItemList>
+<Item ItemGroupCode="${Item.ItemGroupCode}"
+        ItemID="${Item.ItemID}"
+        OrganizationCode="${Item.OrganizationCode}"
+            UnitOfMeasure="${Item.UnitOfMeasure}">
+<PrimaryInformation
+            BundleFulfillmentMode="${Item.PrimaryInformation.BundleFulfillmentMode}"
+            Description="${Item.PrimaryInformation.Description}"
+            EffectiveEndDate="${Item.PrimaryInformation.EffectiveEndDate}"
+            EffectiveStartDate="${Item.PrimaryInformation.EffectiveStartDate}"
+            IsDeliveryAllowed="${Item.PrimaryInformation.IsDeliveryAllowed}"
+            IsPickupAllowed="${Item.PrimaryInformation.IsPickupAllowed}"
+            IsProcurementAllowed="${Item.PrimaryInformation.IsProcurementAllowed}"
+            IsReturnable="${Item.PrimaryInformation.IsReturnable}"
+            IsShippingAllowed="${Item.PrimaryInformation.IsShippingAllowed}"
+            KitCode="${Item.PrimaryInformation.KitCode}"
+            ShortDescription="${Item.PrimaryInformation.ShortDescription}"
+            Status="${Item.PrimaryInformation.Status}"
+            UnitHeight="${Item.PrimaryInformation.UnitHeight}"
+            UnitHeightUOM="${Item.PrimaryInformation.UnitHeightUOM}"
+            UnitLength="${Item.PrimaryInformation.UnitLength}"
+            UnitLengthUOM="${Item.PrimaryInformation.UnitLengthUOM}"
+            UnitWeight="${Item.PrimaryInformation.UnitWeight}"
+            UnitWeightUOM="${Item.PrimaryInformation.UnitWeightUOM}"
+            UnitWidth="${Item.PrimaryInformation.UnitWidth}"
+            UnitWidthUOM="${Item.PrimaryInformation.UnitWidthUOM}"/>
+<InventoryParameters
+            ATPRule="${Item.InventoryParameters.ATPRule}"
+            InventoryMonitorRule="${Item.InventoryParameters.InventoryMonitorRule}"
+            LeadTime="${Item.InventoryParameters.LeadTime}"
+            NodeLevelInventoryMonitorRule="${Item.InventoryParameters.NodeLevelInventoryMonitorRule}"/>
+<Extn
+            ArticlePackages="${Item.Extn.ArticlePackages}"
+            HFB="${Item.Extn.HFB}"
+            IsParcelCombination="${Item.Extn.IsParcelCombination}"
+            ItemServiceAssociation="${Item.Extn.ItemServiceAssociation}"
+            PA="${Item.Extn.PA}"
+            SupplierItemType="${Item.Extn.SupplierItemType}" TransportMethodType="${Item.Extn.TransportMethodType}">
+</Extn>
+</Item>
+</ItemList>

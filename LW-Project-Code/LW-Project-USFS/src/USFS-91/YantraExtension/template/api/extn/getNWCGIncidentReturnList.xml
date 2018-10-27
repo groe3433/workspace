@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NWCGIncidentReturnList> 
+<NWCGIncidentReturn IncidentReturnKey="" ItemID="" QuantityShipped="" UnitPrice="" IncidentNo="" IncidentYear="" TrackableID="" 
+CacheID="" QuantityReturned="" QuantityRFI="" QuantityNRFI="" QuantityUnsRet="" QuantityUnsNwtReturn="" DateIssued="" 
+OverReceipt="" ReceivedAsComponent="" IssueNo="" QuantityRFIRefurb="" QuantityUnsRefurb="" QuantityUnsNwtRefurb="">
+</NWCGIncidentReturn>
+</NWCGIncidentReturnList>

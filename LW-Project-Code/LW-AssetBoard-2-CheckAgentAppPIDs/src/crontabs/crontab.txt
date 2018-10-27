@@ -1,0 +1,34 @@
+###########################################################################
+######## TOG Agent/Integration Server Validation ##########################
+###########################################################################
+
+######## Check Running Agents - Every 5 minutes ########
+######## If it sees an Agent that is DOWN or that is RUNNING with MULTIPLE Instances, it will attempt to start/restart correctly. 
+
+*/5 * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/checkAgentServers.sh
+
+###########################################################################
+######## TOG Agent Cron Jobs ##############################################
+###########################################################################
+
+######## Rotate Agent Logs (Agent 1/2) - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh Agent_Status_Check.log
+
+###########################################################################
+######## TOG App/Node/DM PID Validation ###################################
+###########################################################################
+
+*/5 * * * * /home/wasuser/TOGScripts/checkAppServers.sh
+
+0 0 1 * * rm /opt/ssfs/runtime/logs/App_Status_Check.log
+
+
+
+
+
+
+
+
+
+

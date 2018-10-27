@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<MultiApi> 
+   <API
+                FlowName="${MultiApi.API.FlowName}"> 
+      <Input> 
+         <OrderStatusChange
+                ShipAdviceNo="${MultiApi.API.Input.OrderStatusChange.ShipAdviceNo}"
+                ShipNode="${MultiApi.API.Input.OrderStatusChange.ShipNode}"
+                        TransactionId="${MultiApi.API.Input.OrderStatusChange.TransactionId}"> 
+            <OrderLines> 
+                <OrderLine
+                        BaseDropStatus="${MultiApi.API.Input.OrderStatusChange.OrderLines.OrderLine.1.BaseDropStatus}"
+                        ChangeForAllAvailableQty="${MultiApi.API.Input.OrderStatusChange.OrderLines.OrderLine.1.ChangeForAllAvailableQty}"
+                        PrimeLineNo="${MultiApi.API.Input.OrderStatusChange.OrderLines.OrderLine.1.PrimeLineNo}"
+        SubLineNo="${MultiApi.API.Input.OrderStatusChange.OrderLines.OrderLine.1.SubLineNo}"/> 
+            </OrderLines> 
+        </OrderStatusChange> 
+      </Input> 
+   </API> 
+   <API
+                FlowName="${MultiApi.API.2.FlowName}"> 
+      <Input> 
+         <OrderStatusChange
+                ShipAdviceNo="${MultiApi.API.2.Input.OrderStatusChange.ShipAdviceNo}"
+                ShipNode="${MultiApi.API.2.Input.OrderStatusChange.ShipNode}"
+                        TransactionId="${MultiApi.API.2.Input.OrderStatusChange.TransactionId}"> 
+            <OrderLines> 
+                <OrderLine
+                        BaseDropStatus="${MultiApi.API.2.Input.OrderStatusChange.OrderLines.OrderLine.1.BaseDropStatus}"
+                        PrimeLineNo="${MultiApi.API.2.Input.OrderStatusChange.OrderLines.OrderLine.1.PrimeLineNo}"
+                        Quantity="${MultiApi.API.2.Input.OrderStatusChange.OrderLines.OrderLine.1.Quantity}"
+                        ReasonCode="${MultiApi.API.2.Input.OrderStatusChange.OrderLines.OrderLine.1.ReasonCode}" SubLineNo="${MultiApi.API.2.Input.OrderStatusChange.OrderLines.OrderLine.1.SubLineNo}"/> 
+            </OrderLines> 
+        </OrderStatusChange> 
+      </Input> 
+   </API> 
+</MultiApi>

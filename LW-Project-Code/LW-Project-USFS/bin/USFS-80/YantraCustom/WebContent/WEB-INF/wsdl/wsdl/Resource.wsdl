@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://nwcg.gov/services/ross/resource/1.1" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:rsc="http://nwcg.gov/services/ross/resource/1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nwcg.gov/services/ross/resource/wsdl/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ResourceOrder_WSDL" targetNamespace="http://nwcg.gov/services/ross/resource/wsdl/1.1">
+	<types>
+		<xs:schema version="1.1">
+			<xs:import namespace="http://nwcg.gov/services/ross/resource/1.1" schemaLocation="../Resource.xsd"/>
+			<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="../RossCommon.xsd"/>
+			<xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="../RossSecurity.xsd"/>
+		</xs:schema>
+	</types>
+	<message name="AddPersonResourceQualificationReq">
+		<part element="rsc:AddPersonResourceQualificationReq" name="body"/>
+	</message>
+	<message name="AddPersonResourceQualificationResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="CreatePersonResourceReq">
+		<part element="rsc:CreatePersonResourceReq" name="body"/>
+	</message>
+	<message name="CreatePersonResourceResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="DeleteDuplicatePersonResourceReq">
+		<part element="rsc:DeleteDuplicatePersonResourceReq" name="body"/>
+	</message>
+	<message name="DeleteDuplicatePersonResourceResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="DeletePersonResourceReq">
+		<part element="rsc:DeletePersonResourceReq" name="body"/>
+	</message>
+	<message name="DeletePersonResourceResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="DeletePersonResourceQualificationReq">
+		<part element="rsc:DeletePersonResourceQualificationReq" name="body"/>
+	</message>
+	<message name="DeletePersonResourceQualificationResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="ReleaseResourceReq">
+		<part element="rsc:ReleaseResourceReq" name="body"/>
+	</message>
+	<message name="ReleaseResourceResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="ReplaceMasterRosterReq">
+		<part element="rsc:ReplaceMasterRosterReq" name="body"/>
+	</message>
+	<message name="ReplaceMasterRosterResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="ResourceExistsReq">
+		<part element="rsc:ResourceExistsReq" name="body"/>
+	</message>
+	<message name="ResourceExistsResp">
+		<part element="rsc:ResourceExistsResp" name="body"/>
+	</message>
+	<message name="ServicePingReq">
+		<part element="nwcg:ServicePingReq" name="body"/>
+	</message>
+	<message name="ServicePingResp">
+		<part element="nwcg:ServicePingResp" name="body"/>
+	</message>
+	<message name="UpdateResourceAvailabilityReq">
+		<part element="rsc:UpdateResourceAvailabilityReq" name="body"/>
+	</message>
+	<message name="UpdateResourceAvailabilityResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="UpdateResourceTravelReq">
+		<part element="rsc:UpdateResourceTravelReq" name="body"/>
+	</message>
+	<message name="UpdateResourceTravelResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="ResourceHeaderMessage">
+		<part element="wsse:Security" name="SecurityToken"/>
+		<part element="nwcg:MessageContext" name="MessageContext"/>
+	</message>
+	<message name="UpdatePersonResourceReq">
+		<part element="rsc:UpdatePersonResourceReq" name="body"/>
+	</message>
+	<message name="UpdatePersonResourceResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<message name="UpdatePersonResourceQualificationReq">
+		<part element="rsc:UpdatePersonResourceQualificationReq" name="body"/>
+	</message>
+	<message name="UpdatePersonResourceQualificationResp">
+		<part element="nwcg:MessageAcknowledgement" name="body"/>
+	</message>
+	<portType name="ResourceInterface">
+		<documentation>ResourceInterface PortType - operation response messages returned for synchronous operation</documentation>
+		<operation name="AddPersonResourceQualification">
+			<input message="tns:AddPersonResourceQualificationReq"/>
+			<output message="tns:AddPersonResourceQualificationResp"/>
+		</operation>
+		<operation name="CreatePersonResource">
+			<input message="tns:CreatePersonResourceReq"/>
+			<output message="tns:CreatePersonResourceResp"/>
+		</operation>
+		<operation name="DeleteDuplicatePersonResource">
+			<input message="tns:DeleteDuplicatePersonResourceReq"/>
+			<output message="tns:DeleteDuplicatePersonResourceResp"/>
+		</operation>
+		<operation name="DeletePersonResource">
+			<input message="tns:DeletePersonResourceReq"/>
+			<output message="tns:DeletePersonResourceResp"/>
+		</operation>
+		<operation name="DeletePersonResourceQualification">
+			<input message="tns:DeletePersonResourceQualificationReq"/>
+			<output message="tns:DeletePersonResourceQualificationResp"/>
+		</operation>
+		<operation name="ReleaseResource">
+			<input message="tns:ReleaseResourceReq"/>
+			<output message="tns:ReleaseResourceResp"/>
+		</operation>
+		<operation name="ReplaceMasterRoster">
+			<input message="tns:ReplaceMasterRosterReq"/>
+			<output message="tns:ReplaceMasterRosterResp"/>
+		</operation>
+		<operation name="ResourceExists">
+			<documentation>Synchronous ONLY.  Returns ResourceExistsResp.  Does not return nwcg:MessageAcknowledgement.</documentation>
+			<input message="tns:ResourceExistsReq"/>
+			<output message="tns:ResourceExistsResp"/>
+		</operation>
+		<operation name="ServicePing">
+			<input message="tns:ServicePingReq"/>
+			<output message="tns:ServicePingResp"/>
+		</operation>
+		<operation name="UpdatePersonResourceQualification">
+			<input message="tns:UpdatePersonResourceQualificationReq"/>
+			<output message="tns:UpdatePersonResourceQualificationResp"/>
+		</operation>
+		<operation name="UpdateResourceAvailability">
+			<input message="tns:UpdateResourceAvailabilityReq"/>
+			<output message="tns:UpdateResourceAvailabilityResp"/>
+		</operation>
+		<operation name="UpdatePersonResource">
+			<input message="tns:UpdatePersonResourceReq"/>
+			<output message="tns:UpdatePersonResourceResp"/>
+		</operation>
+		<operation name="UpdateResourceTravel">
+			<input message="tns:UpdateResourceTravelReq"/>
+			<output message="tns:UpdateResourceTravelResp"/>
+		</operation>
+	</portType>
+	<binding name="ResourceBinding" type="tns:ResourceInterface">
+		<documentation>Resource Binding - All request messages must contain SecurityToken and MessageContext headers and one request message in the body</documentation>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="AddPersonResourceQualification">
+			<soap:operation soapAction="urn:#AddPersonResourceQualification" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="CreatePersonResource">
+			<soap:operation soapAction="urn:#CreatePersonResource" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeleteDuplicatePersonResource">
+			<soap:operation soapAction="urn:#DeleteDuplicatePersonResource" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeletePersonResource">
+			<soap:operation soapAction="urn:#DeletePersonResource" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeletePersonResourceQualification">
+			<soap:operation soapAction="urn:#DeletePersonResourceQualification" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ReleaseResource">
+			<soap:operation soapAction="urn:ReleaseResource" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ReplaceMasterRoster">
+			<soap:operation soapAction="urn:ReplaceMasterRoster" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ResourceExists">
+			<soap:operation soapAction="urn:ResourceExists" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="ServicePing">
+			<soap:operation soapAction="urn#ServicePing" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdatePersonResourceQualification">
+			<soap:operation soapAction="urn:#UpdatePersonResourceQualification" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateResourceAvailability">
+			<soap:operation soapAction="urn:UpdateResourceAvailability" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdatePersonResource">
+			<soap:operation soapAction="urn:UpdatePersonResourcel" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateResourceTravel">
+			<soap:operation soapAction="urn:UpdateResourceTravel" style="document"/>
+			<input>
+				<soap:header message="tns:ResourceHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:ResourceHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="ResourceService">
+		<documentation>ResourcePort supports only SOAP 1.0 document/literal style messages posted via HTTPS. See additional documentation in WSDL text.</documentation>
+		<port binding="tns:ResourceBinding" name="ResourcePort">
+			<documentation>Integration Test Endpoint</documentation>
+			<soap:address location="http://localhost:9080/JAX-WS-Server/ResourceService"/>
+		</port>
+	</service>
+</definitions>

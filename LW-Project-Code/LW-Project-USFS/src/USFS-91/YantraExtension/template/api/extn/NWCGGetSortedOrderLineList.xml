@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLineList MaximumRecords="" FromPrimeLineNo="" ToPrimeLineNo="">
+   <OrderLine AwaitingDeliveryRequest="" ConditionVariable1="" ConditionVariable2="" 
+			CanAddServiceLines="" ChainedFromOrderHeaderKey="" ChainedFromOrderLineKey="" CurrentWorkOrderKey=""
+			DependentOnLineKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" GiftFlag="" HasChainedLines=""
+			HasDeliveryLines="" HasDerivedChild="" HasServiceLines="" ItemGroupCode="" KitCode="" MaxLineStatusDesc="" MultipleStatusesExist=""
+			OrderLineKey="" OrderHeaderKey="" ParentOfDependentGroup="" PrimeLineNo="" ReceivingNode="" ReqDeliveryDate="" ReqShipDate="" ShipNode="" Status="" 
+			SubLineNo="" MaxLineStatus="">			
+	   <Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="" UnitOfMeasure="">
+			<LanguageDescriptionList><LanguageDescription Description="" LocaleCode=""/></LanguageDescriptionList>
+	   </Item>
+	   <OrderLineTranQuantity OpenQty=""  OriginalOrderedQty="" OrderedQty="" ReceivedQty="" TransactionalUOM=""/>
+	   <Order OrderHeaderKey="" OrderNo="" MaxOrderStatus="" DocumentType="" Status="" OrderType=""/>
+	   <LineOverallTotals LineTotal=""/>
+	   <Instructions NumberOfInstructions=""><Instruction InstructionType="" InstructionText=""/></Instructions>
+       <KitLines><KitLine ItemID=""/></KitLines>
+       <WorkOrders NumberOfWorkOrders=""><WorkOrder WorkOrderKey=""/></WorkOrders>
+	   <AllowedModifications/>
+	   <Extn/>
+	   <Notes><Note/></Notes>
+	</OrderLine>
+</OrderLineList>

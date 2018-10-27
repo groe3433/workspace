@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle
+    screenBundleId="extn.common.address.display.AddressDisplayExtnBundle" screenId="extn.common.address.display.AddressDisplayExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="lblName_Label_label"
+            bundleKey="blank" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="lblName"/>
+        <BundleEntry bundleEntryId="extn_Companyname_Label_value"
+            bundleKey="extn_Company_Name"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_Companyname"/>
+        <BundleEntry bundleEntryId="extn_Email_Label_label"
+            bundleKey="Email" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_Email"/>
+        <BundleEntry bundleEntryId="extn_Email_Label_value"
+            bundleKey="Email" bundleValueFn="_scSimpleBundle"
+            property="value" type="WIDGET" uId="extn_Email"/>
+        <BundleEntry bundleEntryId="extn_Phone_Label_value"
+            bundleKey="extn_Phone" bundleValueFn="_scSimpleBundle"
+            property="value" type="WIDGET" uId="extn_Phone"/>
+    </BundleEntries>
+</ScreenBundle>

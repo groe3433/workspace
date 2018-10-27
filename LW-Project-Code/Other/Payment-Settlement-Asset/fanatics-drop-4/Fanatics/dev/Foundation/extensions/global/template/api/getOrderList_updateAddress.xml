@@ -1,0 +1,26 @@
+<OrderList> 
+    <Order BillToID="" CustomerRewardsNo="" EnterpriseCode="">
+        
+        <PersonInfoShipTo AddressID="" AddressLine1="" AddressLine2=""
+            AddressLine3="" AddressLine4="" AddressLine5=""
+            AddressLine6="" AlternateEmailID="" Beeper="" City=""
+            Company="" Country="" DayFaxNo="" DayPhone="" Department=""
+            EMailID="" EveningFaxNo="" EveningPhone="" FirstName=""
+            IsAddressVerified="" IsCommercialAddress="" JobTitle=""
+            LastName="" Latitude="" Longitude="" MiddleName=""
+            MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+            State="" Suffix="" TaxGeoCode="" Title="" ZipCode=""/>
+
+		<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2=""
+            AddressLine3="" AddressLine4="" AddressLine5=""
+            AddressLine6="" AlternateEmailID="" Beeper="" City=""
+            Company="" Country="" DayFaxNo="" DayPhone="" Department=""
+            EMailID="" EveningFaxNo="" EveningPhone="" FirstName=""
+            IsAddressVerified="" IsCommercialAddress="" JobTitle=""
+            LastName="" Latitude="" Longitude="" MiddleName=""
+            MobilePhone="" OtherPhone="" PersonID="" PersonInfoKey=""
+            State="" Suffix="" TaxGeoCode="" Title="" ZipCode=""/>
+       
+                 
+    </Order>
+</OrderList>

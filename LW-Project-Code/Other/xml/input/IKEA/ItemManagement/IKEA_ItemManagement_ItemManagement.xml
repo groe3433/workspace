@@ -1,0 +1,16 @@
+<ItemList>
+	<Item ItemID="${Item.ItemID}" ItemGroupCode="${Item.ItemGroupCode}" UnitOfMeasure="${Item.UOM}" OrganizationCode="${Item.OrganizationCode}" >
+		<PrimaryInformation  BundleFulfillmentMode="02" Description="${Item.PrimaryInformation.Description}" ShortDescription="${Item.PrimaryInformation.ShortDescription}"
+				EffectiveEndDate="${Item.PrimaryInformation.EffectiveEndDate}" EffectiveStartDate="${Item.PrimaryInformation.EffectiveStartDate}" IsDeliveryAllowed="${Item.PrimaryInformation.IsDeliveryAllowed}" 
+				IsPickupAllowed="${Item.PrimaryInformation.IsPickupAllowed}" IsReturnable="${Item.PrimaryInformation.IsReturnable}" IsShippingAllowed="${Item.PrimaryInformation.IsShippingAllowed}" 
+				KitCode="${Item.PrimaryInformation.KitCode}" Status="${Item.PrimaryInformation.Status}" UnitHeight="${Item.PrimaryInformation.UnitHeight}" 
+				UnitHeightUOM="${Item.PrimaryInformation.UnitHeightUOM}" IsProcurementAllowed="${Item.PrimaryInformation.IsProcurementAllowed}" UnitLength="${Item.PrimaryInformation.UnitLength}" 
+				UnitLengthUOM="${Item.PrimaryInformation.UnitLengthUOM}" UnitWeight="${Item.PrimaryInformation.UnitWeight}" 
+				UnitWeightUOM="${Item.PrimaryInformation.UnitWeightUOM}" UnitWidth="${Item.PrimaryInformation.UnitWidth}" UnitWidthUOM="${Item.PrimaryInformation.UnitWidthUOM}" />
+		<InventoryParameters  ATPRule="${Item.InventoryParameters.ATPRule}" InventoryMonitorRule="${Item.InventoryParameters.InventoryMonitorRule}" LeadTime="${Item.InventoryParameters.LeadTime}"
+				NodeLevelInventoryMonitorRule="${Item.InventoryParameters.NodeLevelInventoryMonitorRule}" />
+		<Extn SupplierItemType="${Item.Extn.SupplierItemType}" ArticlePackages="${Item.Extn.ArticlePackages}" HFB="${Item.Extn.HFB}" PA="${Item.Extn.PA}" 
+				ItemServiceAssociation="${Item.Extn.ItemServiceAssociation}" TransportMethodType="${Item.Extn.TransportMethodType}" IsParcelCombination="${Item.Extn.IsParcelCombination}">
+		</Extn>
+	</Item>
+</ItemList>

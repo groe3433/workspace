@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.emails.EmailsInitController" 
+    requestMethodSupported="POST" screenId="extn.emails.Emails">
+	<MashupRefs>
+		<MashupRef extnType="ADD" mashupId="extn_getCompleteEXTNFanEmail_shipment"
+            mashupRefId="extn_getCompleteEXTNFanEmail_shipment" permissionId=""/>
+		<MashupRef extnType="ADD" mashupId="extn_getCompleteEXTNFanEmail_confirmation"
+            mashupRefId="extn_getCompleteEXTNFanEmail_confirmation" permissionId=""/> 
+    </MashupRefs>
+ </Controller>
+

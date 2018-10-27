@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="CarrierServicePopupExtn"
+        extnPackage="extn.order.fulfillmentSummary"
+        originalScreen="isccs.order.fulfillmentSummary.CarrierServicePopup"
+        originalScreenPackage="isccs.order.fulfillmentSummary" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_carrierService"
+                renderHidden="false" resourceId="extnOverrideShipCharge" uId="extn_pane"/>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="carrierService" renderHidden="true"/>
+            <FilteringSelect _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="carrierService"
+                autoComplete="true" class="levelOfService"
+                hasDownArrow="true"
+                label="$(_scSimpleBundle:Level_of_Service)"
+                scuiDataType="CarrierServiceCode" uId="extn_carrierService">
+                <BindingData>
+                    <SourceBinding namespace="CarrierServiceSourceData" path="CarrierServiceList.CarrierServiceCode"/>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="gerCarrierServiceOutput"
+                            path="CarrierServiceCode" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <OptionsBinding addEmptyOption="true"
+                        descriptionField="CarrierServiceDesc"
+                        namespace="CarrierServiceData"
+                        path="CarrierServiceList.CarrierService"
+                        readDescFromBundle="false" valueField="CarrierServiceCode"/>
+                </BindingData>
+            </FilteringSelect>
+            <CheckBox _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_override_label"
+                style="padding-left:32px" uId="extn_override_check">
+                <BindingData>
+                    <CheckedValue value="Y"/>
+                    <SourceBinding
+                        namespace="extn_getCompleteOrderDetails" path="Order.CustomAttributes.OverrideShippingCharge"/>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="gerCarrierServiceOutput"
+                            path="OverrideShippingCharge" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <UncheckedValue value="N"/>
+                </BindingData>
+            </CheckBox>
+            <Label _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_pane"
+                uId="extn_override_label" value="$(_scBundle:extn_Override_Shipping_Charge1)"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source description="extn_getShippingCharge_output"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_4" value="extn_getShippingCharge_output"/>
+                <Source isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_5" value="extn_getCompleteOrderDetails"/>
+            </SourceNamespaces>
+        </Namespaces>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="This method will store the screen input in the custom model"
+                    eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="populateOverrideShippingModel"/>
+                </Subscriber>
+                <Subscriber eventId="extn_carrierService_onChange"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="carrierServiceOnChange"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Init>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getShippingCharge"
+                    mashupRefId="extn_getShippingCharge" sourceNamespace="extn_getShippingCharge_output"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

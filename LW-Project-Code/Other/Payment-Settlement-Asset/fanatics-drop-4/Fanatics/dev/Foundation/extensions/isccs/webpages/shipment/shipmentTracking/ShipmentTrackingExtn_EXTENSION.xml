@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipmentTrackingExtn"
+        extnPackage="extn.shipment.shipmentTracking"
+        originalScreen="isccs.shipment.shipmentTracking.ShipmentTracking"
+        originalScreenPackage="isccs.shipment.shipmentTracking" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            field="extn_product"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="65%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

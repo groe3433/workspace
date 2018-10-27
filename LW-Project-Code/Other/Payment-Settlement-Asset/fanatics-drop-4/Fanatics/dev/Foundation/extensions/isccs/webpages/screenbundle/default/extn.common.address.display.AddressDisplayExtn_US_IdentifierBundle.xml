@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle identifierId="US"
+    screenBundleId="extn.common.address.display.AddressDisplayExtnBundle" screenId="extn.common.address.display.AddressDisplayExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="lblName_Label_label"
+            bundleKey="extn_Company_Name"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="lblName"/>
+    </BundleEntries>
+</ScreenBundle>

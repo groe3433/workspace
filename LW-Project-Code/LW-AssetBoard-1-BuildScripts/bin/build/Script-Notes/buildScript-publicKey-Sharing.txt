@@ -1,0 +1,36 @@
+######## Build script needs to SCP the Agent zip file from App1 to App2, Agent1, and Agent2. 
+######## To make this happen, the 4 servers need to share each other's public keys. 
+
+######## Here are your 4 Servers:
+#### QA
+# qusjc01togdomapp01.sjc01.caas.local
+# qusjc01togdomapp02.sjc01.caas.local
+# qusjc01togagtapp01.sjc01.caas.local
+# qusjc01togagtapp02.sjc01.caas.local
+#### Preprod
+# suwdc01togdomapp01.wdc01.caas.local
+# suwdc01togdomapp02.wdc01.caas.local
+# suwdc01togagtapp01.wdc01.caas.local
+# suwdc01togagtapp02.wdc01.caas.local
+
+######## Step 1, on each server: (cmd will create .ssh folder if one doesn't exists)
+cd /home/wasuser
+ssh-keygen -t rsa -b 2048
+# Hit Enter for "Enter file in which to save the key..."
+# Hit Enter for "Enter passphrase (empty for no passphrase)..."
+# Hit enter for "Enter same passphrase again..."
+#### i.e. don't set a passphrase. 
+
+######## Step 2, copy public key to .ssh folder on other 3 servers (as 775) and cat contents to authorized_keys
+cat <your_public_key>.pub >> authorized_keys
+#### End result is authorized_keys should have 3 entries. (i.e. If you are on App1, it should have App2's, Agent1's, and Agent2's public keys) 
+
+######## Step 3, now you can run the below SCP commands. 
+#### QA
+scp /tmp/TOGZipContents.zip wasuser@qusjc01togdomapp02.sjc01.caas.local:/home/wasuser/TOGScripts
+scp /tmp/TOGZipContents.zip wasuser@qusjc01togagtapp01.sjc01.caas.local:/home/wasuser/TOGScripts
+scp /tmp/TOGZipContents.zip wasuser@qusjc01togagtapp02.sjc01.caas.local:/home/wasuser/TOGScripts
+#### Preprod
+scp /tmp/TOGZipContents.zip wasuser@suwdc01togdomapp02.wdc01.caas.local:/home/wasuser/TOGScripts
+scp /tmp/TOGZipContents.zip wasuser@suwdc01togagtapp01.wdc01.caas.local:/home/wasuser/TOGScripts
+scp /tmp/TOGZipContents.zip wasuser@suwdc01togagtapp02.wdc01.caas.local:/home/wasuser/TOGScripts

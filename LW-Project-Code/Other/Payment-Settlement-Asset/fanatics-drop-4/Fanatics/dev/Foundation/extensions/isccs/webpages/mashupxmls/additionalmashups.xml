@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mashups>
+	<mashup
+	description="This mashup is to get the DispositionCode that are there on the Order"
+	endpoint="EP_ORDER" id="extn_ReturnSummaryLines_getReceiptLineList"
+	mashuptype="XAPI" skipDataProvider="false" transactional="Y">
+	<classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+	<API Name="getReceiptLineList">
+		<Input>
+			<ReceiptLine OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey" OrderNo="xml:scControllerInput:/Order/@OrderNo" />
+		</Input>
+		<Template>
+			<ReceiptLineList>
+				<ReceiptLine OrderHeaderKey="" OrderNo="" OrderLineKey="" DispositionCode="" />
+			</ReceiptLineList>
+		</Template>
+	</API>
+	<APINamespace inputNS="extn_getReceiptLineList_input" outputNS="extn_getReceiptLineList_output"/>
+	</mashup>
+	<mashup
+        description="This mashup will invoke getCommonCode for Return reason code."
+        endpoint="EP_ORDER" id="extn_OrderTotal_getCompleteOrderDetails"
+        mashuptype="XAPI"
+        resourceId="" transactional="true">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey"/>
+            </Input>
+            <Template>
+                <Order OrderHeaderKey="">
+                    <HeaderTaxes>
+                        <HeaderTax ChargeCategory="" ChargeName="" Tax="" TaxName="" TaxPercentage=""/>
+                    </HeaderTaxes>
+					<HeaderCharges>
+                        <HeaderCharge ChargeAmount="" ChargeCategory="" ChargeName="" IsDiscount=""/>
+                    </HeaderCharges>
+                    <OrderLines>
+                        <OrderLine OrderLineKey="">
+                            <LineTaxes>
+                                <LineTax ChargeCategory="" ChargeName="" Tax="" TaxName=""/>
+                            </LineTaxes>
+                            <LineCharges>
+                                <LineCharge ChargeCategory="" ChargeName="" ChargePerLine="" IsDiscount=""/>
+                            </LineCharges>
+                        </OrderLine>
+                    </OrderLines>
+					<OverallTotals LineSubTotal="" GrandTotal="" GrandTax=""/>
+                </Order>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace
+            inputNS="extn_OrderTotal_getCompleteOrderDetails_input" outputNS="extn_OrderTotal_getCompleteOrderDetails_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup 
+	description="This mashup is called from the resolve holds page for massaging the input to changeOrder API required for resolving the holds associated with the current order or order line."
+        endpoint="EP_ORDER" id="extn_resolveHolds_changeOrder"
+        mashuptype="XAPI" skipDataProvider="false" transactional="true">
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <API Name="changeOrder">
+            <Input>
+                <Order
+                    DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" OrderHeaderKey="">
+                    <OrderLines>
+                        <OrderLine OrderLineKey="">
+                            <OrderHoldTypes>
+                                <OrderHoldType HoldType="" Status=""/>
+                            </OrderHoldTypes>
+                        </OrderLine>
+                    </OrderLines>
+                    <OrderHoldTypes>
+                        <OrderHoldType HoldType="" Status=""/>
+                    </OrderHoldTypes>
+                </Order>
+				
+            </Input>
+            <Template>
+                <Order OrderHeaderKey=""/>
+            </Template>
+        </API>
+        <APINamespace inputNS="changeOrder_input" outputNS="changeOrder_output"/>
+        <AlternateResourceIds>
+            <AlternateResourceId altResourceId="ISCORD0006"/>
+        </AlternateResourceIds>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_chargetransaction_getEXTNFanEmail"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+	        <API FlowName="GetGiftcardItems">
+	            <Input>
+	                <EXTNFanEmail OrderHeaderKey="xml:scControllerInput:Order/@OrderHeaderKey" />
+	            </Input>
+				<Template>
+					<OrderLineList>
+						<OrderLine OrderLinekey="">
+							<ItemDetails ItemID="">
+								<PrimaryInformation ShortDescription=""/>
+							</ItemDetails>
+							<LinePriceInfo UnitPrice=""/>
+						</OrderLine>
+					</OrderLineList>
+				</Template>
+	        </API>
+	        <classInformation name="com.ibm.isccs.order.mashups.SCCSFSGetCompleteOrderLineListPaginatedMashup"/>
+	        <APINamespace inputNS="extn_chargetransaction_getEXTNFanEmail_input" outputNS="extn_chargetransaction_getEXTNFanEmail_output"/>
+	        <AlternateResourceIds/>
+	</mashup>
+	<mashup description="This is a paginated mashup is called when calling the getOrderListAPI to fetch the return orders in return search screen." endpoint="EP_ORDER" id="extn_return_getOrderList" mashuptype="XAPI" resourceId="" transactional="true">
+		<API Name="getOrderList">
+			<Input>
+				<Order ApplyQueryTimeout="Y" BillToID="" CustomerEMailID="" CustomerFirstName="" CustomerLastName="" CustomerPhoneNo="" CustomerZipCode="" DisplayLocalizedFieldInLocale="xml:CurrentUser:/User/@Localecode" DocumentType="" DraftOrderFlag="" EnterpriseCode="" FromOrderDate="" IgnoreOrdering="N" MaximumRecords="" OrderName="" OrderNameQryType="" OrderNo="" OrganizationCode="" ReadFromHistory="" ToOrderDate="">
+					<PaymentMethod DisplayCreditCardNo=""/>
+					<OrderLine>
+						<DerivedFrom OrderHeaderKey="" OrderNo=""/>
+					</OrderLine>
+					<CustomAttributes CustomerOrderNo=""/>
+				</Order>
+			</Input>
+			<Template>
+				<OrderList>
+					<Order BillToID="" BuyerOrganizationCode="" BuyerUserId="" CustomerContactID="" CustomerEMailID="" CustomerFirstName="" CustomerLastName="" CustomerPONo="" CustomerPhoneNo="" CustomerZipCode="" DisplayStatusDescription="" DocumentType="" DraftOrderFlag="" EnterpriseCode="" EntryType="" HoldFlag="" MaxOrderStatusDesc="" MultipleStatusesExist="" OrderDate="" OrderHeaderKey="" OrderName="" OrderNo="" OverallStatus="" SellerOrganizationCode="" Status="" TaxExemptFlag="" TaxExemptionCertificate="" isHistory="">
+						<PriceInfo Currency="" TotalAmount=""/>
+						<PersonInfoBillTo AddressID="" AddressLine1="" AddressLine2="" City="" Company="" Country="" CountryDesc="" DayPhone="" Department="" EMailID="" EveningPhone="" FirstName="" IsAddressVerified="" IsCommercialAddress="" LastName="" MiddleName="" MobilePhone="" PersonID="" PersonInfoKey="" State="" Suffix="" Title="" TitleDesc="" ZipCode="" isHistory=""/>
+						<ExchangeOrders>
+							<ExchangeOrder DocumentType="" OrderHeaderKey="" OrderNo=""/>
+						</ExchangeOrders>
+						<PersonInfoShipTo AddressID="" AddressLine1="" AddressLine2="" City="" Company="" Country="" CountryDesc="" DayPhone="" Department="" EMailID="" EveningPhone="" FirstName="" IsAddressVerified="" IsCommercialAddress="" LastName="" MiddleName="" MobilePhone="" PersonID="" PersonInfoKey="" State="" Suffix="" Title="" TitleDesc="" ZipCode="" isHistory=""/>
+					</Order>
+				</OrderList>
+			</Template>
+		</API>
+		<classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+		<APINamespace inputNS="getOrderList_input" outputNS="getOrderList_output"/>
+	</mashup>
+	
+	<mashup description="Mashup to get the personinfo of the customer" endpoint="EP_ORDER" id="extn_return_getPersonInfoList" mashuptype="XAPI" resourceId="" transactional="true">
+		<API Name="getPersonInfoList">
+			<Input>
+				<PersonInfo ZipCode="" Title="" TaxGeoCode="" TableType="" Suffix="" State="" PersonInfoKey="" PersonID="" OtherPhone="" MobilePhone="" MiddleName="" MaximumRecords="" LastName="" JobTitle="" IsCommercialAddress="" HttpUrl="" FirstName="" EveningPhone="" EveningFaxNo="" EMailID="" Department="" DayPhone="" DayFaxNo="" Country="" Company="" ColonyId="" City="" Beeper="" AlternateEmailID="" AddressLine6="" AddressLine5="" AddressLine4="" AddressLine3="" AddressLine2="" AddressLine1="" AddressID=""/>
+			</Input>
+			<Template>
+				<PersonInfoList TotalNumberOfRecords="">
+				<PersonInfo PersonInfoKey="" MiddleName="" LastName="" FirstName="" EMailID="" AlternateEmailID="" AddressLine6="" AddressLine5="" AddressLine4="" AddressLine3="" AddressLine2="" AddressLine1="" AddressID=""/>
+				</PersonInfoList>
+			</Template>
+		</API>
+		<classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+		<APINamespace inputNS="getPersonInfoList_input" outputNS="getPersonInfoList_output"/>
+	</mashup>
+		<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_changeEXTNFanEmail"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanChangeEmailEntryservice">
+            <Input>
+                <EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+            </Input>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_changeEXTNFanEmail_input" outputNS="extn_changeEXTNFanEmail_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup description="This is a paginated mashup is called when calling the getOrderListAPI to fetch the return orders in return search screen." endpoint="EP_ORDER" id="extn_email_getOrderDetails" mashuptype="XAPI" resourceId="" transactional="true">
+		<API Name="getOrderDetails">
+			<Input>
+				<Order OrderHeaderKey="" OrderNo=""/>
+			</Input>
+			<Template>
+				<Order CarrierServiceCode=""
+					CustomerEMailID=""
+					DisplayStatus="" DocumentType=""
+					EnterpriseCode="" MaxOrderStatus="" MinOrderStatus=""
+					OrderDate="" OrderNo=""
+					OrderType="" OriginalTax=""
+					OriginalTotalAmount="" OtherCharges="" OrganizationCode="">
+					<CustomAttributes CustomerOrderNo=""/>
+					<PersonInfoShipTo AddressLine1=""
+						AddressLine2="" City="" Country=""
+						CountryDesc="" EMailID=""
+						FirstName="" LastName="" MiddleName=""
+						MobilePhone="" State="" ZipCode=""/>
+					<HeaderTaxes/>
+					<OrderLines>
+						<OrderLine OrderedQty="" OtherCharges="">
+							<LineTaxes>
+								<LineTax ChargeCategory="" ChargeName=""
+									ChargeNameKey="" InvoicedTax=""
+									Reference_1="" Reference_2="" Reference_3=""
+									RemainingTax="" Tax=""
+									TaxName="" TaxPercentage=""/>
+							</LineTaxes>
+							<Item ItemDesc="" ItemID=""
+								ItemShortDesc="" UnitCost=""/>
+							<LinePriceInfo UnitPrice=""/>
+							<LineOverallTotals Charges="" Discount=""
+								ExtendedPrice="" LineTotal=""
+								OptionPrice="" PricingQty="" Tax="" UnitPrice=""/>
+							<OrderStatuses>
+								<OrderStatus
+									OrderHeaderKey=""
+									OrderLineKey=""
+									Status="" StatusQty="" TotalQuantity=""/>
+							</OrderStatuses>
+						</OrderLine>
+					</OrderLines>
+					<PersonInfoBillTo AddressLine1=""
+						AddressLine2="" City="" Country=""
+						CountryDesc="" EMailID=""
+						FirstName="" LastName="" MiddleName=""
+						MobilePhone="" State="" ZipCode=""/>
+					<HeaderCharges>
+						<HeaderCharge ChargeAmount=""
+							ChargeCategory=""
+							ChargeCategoryDescription="" ChargeName=""
+							ChargeNameKey="" InvoicedChargeAmount=""
+							IsBillable="" IsDiscount="" Reference="" RemainingChargeAmount=""/>
+					</HeaderCharges>
+				</Order>
+			</Template>
+		</API>
+		<classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+		<APINamespace inputNS="getOrderDetails_input" outputNS="getOrderDetails_output"/>
+	</mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_createEXTNFanEmail"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanCreateEmailEntry">
+            <Input>
+                <EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+            </Input>
+			<Template>
+				<EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_createEXTNFanEmail_input" outputNS="extn_createEXTNFanEmail_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_getEXTNFanEmail"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanGetListEmailEntry">
+            <Input>
+                <EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+            </Input>
+			<Template>
+				<EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getEXTNFanEmail_input" outputNS="extn_getEXTNFanEmail_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_getCompleteEXTNFanEmail_shipment"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanGetListEmailEntryCallCeter">
+            <Input>
+                <EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="xml:scControllerInput:Order/@OrderHeaderKey" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="Confirm Shipment Success" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+            </Input>
+			<Template>
+				<EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getCompleteEXTNFanEmail_shipment_input" outputNS="extn_getCompleteEXTNFanEmail_shipment_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_getCompleteEXTNFanEmail_confirmation"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanGetListEmailEntryCallCeter">
+            <Input>
+                <EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="xml:scControllerInput:Order/@OrderHeaderKey" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="Create Order Success" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+            </Input>
+			<Template>
+				<EXTNFanEmail OrganizationCode="" OrderNo="" OrderHeaderKey="" MsgXml="" EmailID="" Modifyuserid="" Modifyts="" Modifyprogid="" Lockid="" EmailType="" EmailStatus="" EmailKey="" Createuserid="" Createts="" Createprogid=""/>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getCompleteEXTNFanEmail_confirmation_input" outputNS="extn_getCompleteEXTNFanEmail_confirmation_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCommonCode for Return reason code."
+        endpoint="EP_ORDER" id="extn_getMRLReasonCodes"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCommonCodeList">
+            <Input>
+                <CommonCode CodeType="MRLReason">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="CodeShortDescription"/>
+                    </OrderBy>
+                </CommonCode>
+            </Input>
+            <Template>
+                <CommonCodeList>
+                    <CommonCode CodeName="" CodeShortDescription="" CodeValue=""/>
+                </CommonCodeList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getMRLReasonCodes_input" outputNS="extn_getMRLReasonCodes_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup
+        description="This mashup will invoke change order to store mrl reason code"
+        endpoint="EP_ORDER" id="extn_ChangeOrderForMRL"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeOrder">
+            <Input>
+                <Order OrderHeaderKey="">
+					<CustomAttributes IsMRLFeeWaived="" MRLFeeWaiverReason=""/>
+				</Order>
+            </Input>
+            <Template/>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_ChangeOrderForMRL_input" outputNS="extn_ChangeOrderForMRL_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCompleteOrderDetails to fetch the instructions for the order"
+        endpoint="EP_ORDER" id="extn_getCompleteOrderDetails_manageInstruction"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCompleteOrderDetails">
+            <Input>
+                <Order OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey"/>
+            </Input>
+            <Template>
+				<Order OrderHeaderKey="">
+					<Instructions>
+						<Instruction InstructionText="" InstructionType="" InstructionDetailKey=""/>
+					</Instructions>
+				</Order>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getCompleteOrderDetails_input" outputNS="extn_getCompleteOrderDetails_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update instruction"
+        endpoint="EP_ORDER" id="extn_ChangeOrderForManageInstruction"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeOrder">
+            <Input>
+                <Order OrderHeaderKey="">
+					<Instructions>
+						<Instruction Action="" InstructionText="" InstructionType="" InstructionDetailKey=""/>
+					</Instructions>
+				</Order>
+            </Input>
+            <Template>
+				<Order OrderHeaderKey="">
+					<Instructions>
+						<Instruction InstructionText="" InstructionType="" InstructionDetailKey=""/>
+					</Instructions>
+				</Order>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_ChangeOrderForManageInstruction_input" outputNS="extn_ChangeOrderForManageInstruction_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCompleteOrderDetails to fetch the orderline details"
+        endpoint="EP_ORDER" id="extn_getCompleteOrderLineList_reviseShipDate"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCompleteOrderLineList">
+            <Input>
+                <OrderLine OrderHeaderKey="xml:scControllerInput:/Order/@OrderHeaderKey"/>
+            </Input>
+            <Template>
+				<OrderLineList>
+                    <OrderLine AvailableQty=""
+                        MashupTemplateRef="CommonOrderLineForFS">
+                        <CustomAttributes RevisedShipDateReason=""/>
+						<OrderDates>
+							<OrderDate ExpectedDate="" DateTypeId=""/>
+						</OrderDates>
+						<ItemDetails>
+                            <PrimaryInformation BundleFulfillmentMode=""
+                                ExtendedDisplayDescription="" ImageID=""
+                                ImageLocation="" ShortDescription=""/>
+                        </ItemDetails>
+                    </OrderLine>
+                </OrderLineList>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.order.mashups.SCCSFSGetCompleteOrderLineListPaginatedMashup"/>
+        <APINamespace inputNS="extn_getCompleteOrderLineList_input" outputNS="extn_getCompleteOrderLineList_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_ChangeOrderForReviseShipDate"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="changeOrder">
+            <Input>
+                <Order OrderHeaderKey="">
+					<OrderLines>
+						<OrderLine OrderLineKey="">
+							<CustomAttributes RevisedShipDateReason=""/>
+							<OrderDates>
+								<OrderDate ExpectedDate="" DateTypeId="REVISED_SHIP_DATE"/>
+							</OrderDates>
+						</OrderLine>
+					</OrderLines>
+				</Order>
+            </Input>
+            <Template>
+				<Order OrderHeaderKey="">
+				</Order>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_ChangeOrderForReviseShipDate_input" outputNS="extn_ChangeOrderForReviseShipDate_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+    <mashup
+        description="This mashup will invoke change order to update revise ship date"
+        endpoint="EP_ORDER" id="extn_FanManageEmailEntry"
+        mashuptype="XSERVICE" resourceId="" transactional="true">
+        <API FlowName="FanManageEmailEntry"> 
+            <Input>
+                <Order OrderHeaderKey="">
+					<OrderLines>
+						<OrderLine OrderLineKey="">
+							<CustomAttributes RevisedShipDateReason=""/>
+							<OrderDates>
+								<OrderDate ExpectedDate="" DateTypeId="REVISED_SHIP_DATE"/>
+							</OrderDates>
+						</OrderLine>
+					</OrderLines>
+				</Order>
+            </Input>
+            <Template>
+				<Order OrderHeaderKey="">
+				</Order>
+			</Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_FanManageEmailEntry_input" outputNS="extn_FanManageEmailEntry_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCommonCode for Revised shipdate reason code."
+        endpoint="EP_ORDER" id="extn_getReviseShipDateReasonCode"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCommonCodeList">
+            <Input>
+                <CommonCode CodeType="REVISESHIPDATEREASON">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="CodeShortDescription"/>
+                    </OrderBy>
+                </CommonCode>
+            </Input>
+            <Template>
+                <CommonCodeList>
+                    <CommonCode CodeName="" CodeShortDescription="" CodeValue=""/>
+                </CommonCodeList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getReviseShipDateReasonCode_input" outputNS="extn_getReviseShipDateReasonCode_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCommonCode for fancash reason code."
+        endpoint="EP_ORDER" id="extn_getFanCashReasonCode"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCommonCodeList">
+            <Input>
+                <CommonCode CodeType="FanCashReason">
+                    <OrderBy>
+                        <Attribute Desc="N" Name="CodeShortDescription"/>
+                    </OrderBy>
+                </CommonCode>
+            </Input>
+            <Template>
+                <CommonCodeList>
+                    <CommonCode CodeName="" CodeShortDescription="" CodeValue=""/>
+                </CommonCodeList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getFanCashReasonCode_input" outputNS="extn_getFanCashReasonCode_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+	<mashup
+        description="This mashup will invoke getCommonCode for Shipping Charges."
+        endpoint="EP_ORDER" id="extn_getShippingCharge"
+        mashuptype="XAPI" resourceId="" transactional="true">
+        <API Name="getCommonCodeList">
+            <Input>
+                <CommonCode CodeType="ShippingCharges">
+                </CommonCode>
+            </Input>
+            <Template>
+                <CommonCodeList>
+                    <CommonCode CodeShortDescription="" CodeValue=""/>
+                </CommonCodeList>
+            </Template>
+        </API>
+        <classInformation name="com.ibm.isccs.common.mashups.SCCSBaseMashup"/>
+        <APINamespace inputNS="extn_getShippingCharge_input" outputNS="extn_getShippingCharge_output"/>
+        <AlternateResourceIds/>
+    </mashup>
+</mashups>

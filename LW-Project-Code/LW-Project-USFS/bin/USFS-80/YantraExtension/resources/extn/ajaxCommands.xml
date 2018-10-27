@@ -1,0 +1,570 @@
+<Commands>
+   <Command Name="PingROSSWebservice" APIName="com.nwcg.icbs.yantra.pingService.NWCGTestPingService" APIType="CUSTOM_API">
+      <InputTemplate>
+         <ServicePingReq/>
+      </InputTemplate>
+      <ApiOutputTemplate/>
+   </Command>
+   <!--Validate the SNumbers-->
+   <Command Name="ValidateRequestNumber" APIName="NWCGValidateRequestNumber" APIType="FLOW">
+      <InputTemplate>
+         <ValidationRequest RequestNo="xml:ExtnRequestNumber" IncidentNo="xml:ExtnIncidentNo" IncidentYear="xml:ExtnIncidentYear" SystemOfOrigin="xml:ExtnSystemOfOrigin"/>
+      </InputTemplate>
+      <ApiOutputTemplate/>
+   </Command>
+   <!--Get the biiling address from the organization specified-->
+   <Command Name="getBillingAddress" APIName="getOrganizationHierarchy" APIType="API">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:/Order/@BuyerOrganizationCode"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationCode="">
+            <BillingPersonInfo/>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Get the biiling address from the organization specified for C-C Transfer-->
+   <Command Name="getBillingAddress2" APIName="getOrganizationHierarchy" APIType="API">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:/Order/@ReceivingNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationCode="">
+            <BillingPersonInfo/>
+            <Node>
+               <ShipNodePersonInfo/>
+            </Node>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Populate the account codes from the organization specified for C-C Transfer-->
+   <Command Name="getAccountCodes" APIName="NWCGUpdateAccountCodes" APIType="FLOW">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:ReceivingNode" ExtnIncidentNo="xml:ExtnIncidentNo" ExtnIncidentYear="xml:ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationCode="">
+            <Extn/>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getShipNodeAccountCodes" APIName="NWCGUpdateShipNodeAccountCodes" APIType="FLOW">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:ShipNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationCode="">
+            <Extn/>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Get the biiling address from the organization specified-->
+   <Command Name="getCustShipAddress" APIName="getCustomerDetails" APIType="API">
+      <InputTemplate>
+         <Customer CustomerID="xml:/NWCGIncidentOrder/@CustomerId" OrganizationCode="NWCG"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Customer CustomerID="" OrganizationCode="">
+            <Extn/>
+            <Consumer>
+               <BillingPersonInfo/>
+            </Consumer>
+            <CustomerAdditionalAddressList>
+               <CustomerAdditionalAddress>
+                  <PersonInfo/>
+               </CustomerAdditionalAddress>
+            </CustomerAdditionalAddressList>
+         </Customer>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getCustomerDetails" APIName="getCustomerDetails" APIType="API">
+      <InputTemplate>
+         <Customer CustomerID="xml:/Order/@BillToID" OrganizationCode="NWCG"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Customer CustomerID="" OrganizationCode="">
+            <Extn/>
+            <Consumer>
+               <BillingPersonInfo/>
+            </Consumer>
+            <CustomerAdditionalAddressList>
+               <CustomerAdditionalAddress>
+                  <PersonInfo/>
+               </CustomerAdditionalAddress>
+            </CustomerAdditionalAddressList>
+         </Customer>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getCustomerDetailsNoAddress" APIName="getCustomerDetails" APIType="API">
+      <InputTemplate>
+         <Customer CustomerID="xml:/Order/@BillToID" OrganizationCode="NWCG"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Customer CustomerID="" OrganizationCode="">
+            <Extn/>
+         </Customer>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Get the customer list-->
+   <!--CR 272 ks 2008-10-13 added <Extn/> in output template-->
+   <Command Name="getCustomerList" APIName="getCustomerList" APIType="API">
+      <InputTemplate>
+         <Customer CustomerID="xml:/Customer/@CustomerID"></Customer>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <CustomerList>
+            <Customer>
+               <Consumer>
+                  <BillingPersonInfo/>
+               </Consumer>
+               <Extn/>
+            </Customer>
+         </CustomerList>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Get the customer list-->
+   <Command Name="getCustomerListForCreation" APIName="getCustomerList" APIType="API">
+      <InputTemplate>
+         <Customer CustomerID="xml:/CUSTOMER_PREFIX_ID"></Customer>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <CustomerList>
+            <Customer>
+               <Consumer>
+                  <BillingPersonInfo/>
+               </Consumer>
+            </Customer>
+         </CustomerList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="NWCGGetIncidentOrderList" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/Order/Extn/@ExtnIncidentNo" Year="xml:/Order/Extn/@ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getIncidentDetails" APIName="NWCGGetIncidentOrderService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/Order/Extn/@ExtnIncidentNo" Year="xml:/Order/Extn/@ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getIncidentDetailsInAdjustLocation" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/AdjustLocationInventory/Audit/@Reference2" Year="xml:/AdjustLocationInventory/Audit/@Reference5"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <NWCGIncidentOrder/>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getToIncidentDetails" APIName="NWCGGetIncidentOrderService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/Order/Extn/@ExtnToIncidentNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--Jay: commenting it duplicate entry .For autopopulating Incident Name on C-C transfer
+   	<Command Name="NWCGGetIncidentOrderList2" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/Order/Extn/@ExtnIncidentNo" />
+      </InputTemplate>
+      <ApiOutputTemplate>
+		  <NWCGIncidentOrder/>
+      </ApiOutputTemplate>
+   	</Command>-->
+   <Command Name="getOrderDetails" APIName="getOrderDetails" APIType="API">
+      <InputTemplate>
+         <Order EnterpriseCode="NWCG" OrderNo="xml:/RossInfo/@OrderNumber"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Order>
+            <OrderLines>
+               <OrderLine>
+                  <Extn/>
+               </OrderLine>
+            </OrderLines>
+            <Extn/>
+         </Order>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Populate the item details on the orderlines panel-->
+   <Command Name="PopulateItemDetails" APIName="NWCGPopulateItemDetailsService" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" Node="xml:ShipNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="PopulateItemDetailsWithRFIQuantities" APIName="NWCGPopulateItemDetailsWithRFIService" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" Node="xml:ShipNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getOrderLineListWithRFI" APIName="NWCGGetOrderLineListWithRFI" APIType="FLOW">
+      <InputTemplate>
+         <OrderLine PrimeLineNoQryType="BETWEEN" FromPrimeLineNo="xml:/FromPrimeLineNo" ToPrimeLineNo="xml:/ToPrimeLineNo">
+            <Order OrderHeaderKey="xml:/OrderHeaderKey"/>
+         </OrderLine>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <OrderLineList>
+            <OrderLine AwaitingDeliveryRequest="" ConditionVariable1="" ConditionVariable2="" CanAddServiceLines="" ChainedFromOrderHeaderKey="" ChainedFromOrderLineKey="" CurrentWorkOrderKey="" DependentOnLineKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" GiftFlag="" HasChainedLines="" HasDeliveryLines="" HasDerivedChild="" HasServiceLines="" ItemGroupCode="" KitCode="" MaxLineStatusDesc="" MultipleStatusesExist="" OrderLineKey="" ParentOfDependentGroup="" PrimeLineNo="" ReceivingNode="" ReqDeliveryDate="" ReqShipDate="" ShipNode="" Status="" SubLineNo="" MaxLineStatus="">
+               <Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="">
+                  <LanguageDescriptionList>
+                     <LanguageDescription Description="" LocaleCode=""/>
+                  </LanguageDescriptionList>
+               </Item>
+               <OrderLineTranQuantity OpenQty="" OriginalOrderedQty="" OrderedQty="" ReceivedQty="" TransactionalUOM=""/>
+               <LineOverallTotals LineTotal=""/>
+               <Instructions NumberOfInstructions="">
+                  <Instruction InstructionType="" InstructionText=""/>
+               </Instructions>
+               <KitLines>
+                  <KitLine ItemID=""/>
+               </KitLines>
+               <WorkOrders NumberOfWorkOrders="">
+                  <WorkOrder WorkOrderKey=""/>
+               </WorkOrders>
+               <AllowedModifications/>
+               <Extn/>
+               <Notes>
+                  <Note/>
+               </Notes>
+            </OrderLine>
+         </OrderLineList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getOrderLineList" APIName="getOrderLineList" APIType="API">
+      <InputTemplate>
+         <OrderLine PrimeLineNoQryType="BETWEEN" FromPrimeLineNo="xml:/FromPrimeLineNo" ToPrimeLineNo="xml:/ToPrimeLineNo">
+            <Order OrderHeaderKey="xml:/OrderHeaderKey"/>
+         </OrderLine>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <OrderLineList>
+            <OrderLine AwaitingDeliveryRequest="" ConditionVariable1="" ConditionVariable2="" CanAddServiceLines="" ChainedFromOrderHeaderKey="" ChainedFromOrderLineKey="" CurrentWorkOrderKey="" DependentOnLineKey="" DerivedFromOrderHeaderKey="" DerivedFromOrderLineKey="" GiftFlag="" HasChainedLines="" HasDeliveryLines="" HasDerivedChild="" HasServiceLines="" ItemGroupCode="" KitCode="" MaxLineStatusDesc="" MultipleStatusesExist="" OrderLineKey="" ParentOfDependentGroup="" PrimeLineNo="" ReceivingNode="" ReqDeliveryDate="" ReqShipDate="" ShipNode="" Status="" SubLineNo="" MaxLineStatus="">
+               <Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="">
+                  <LanguageDescriptionList>
+                     <LanguageDescription Description="" LocaleCode=""/>
+                  </LanguageDescriptionList>
+               </Item>
+               <OrderLineTranQuantity OpenQty="" OriginalOrderedQty="" OrderedQty="" ReceivedQty="" TransactionalUOM=""/>
+               <LineOverallTotals LineTotal=""/>
+               <Instructions NumberOfInstructions="">
+                  <Instruction InstructionType="" InstructionText=""/>
+               </Instructions>
+               <KitLines>
+                  <KitLine ItemID=""/>
+               </KitLines>
+               <WorkOrders NumberOfWorkOrders="">
+                  <WorkOrder WorkOrderKey=""/>
+               </WorkOrders>
+               <AllowedModifications/>
+               <Extn/>
+               <Notes>
+                  <Note/>
+               </Notes>
+            </OrderLine>
+         </OrderLineList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="NWCGGetSortedOrderLineList" APIName="NWCGGetSortedOrderLineList" APIType="FLOW">
+      <InputTemplate>
+         <OrderLine PrimeLineNoQryType="BETWEEN" FromPrimeLineNo="xml:/FromPrimeLineNo" ToPrimeLineNo="xml:/ToPrimeLineNo">
+            <Order OrderHeaderKey="xml:/OrderHeaderKey"/>
+         </OrderLine>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="PopulateItemPODetails" APIName="NWCGPopulateItemPODetails" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" SupplierID="xml:SupplierID" Node="xml:ShipNode">
+            <Extn ExtnNSN="xml:NSN"/>
+         </Item>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getOrganizationAccountCode" APIName="getOrganizationList" APIType="API">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:/Order/@ReceivingNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationCode="">
+            <Extn/>
+            <BillingPersonInfo/>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getOwnerAgency" APIName="getOrganizationHierarchy" APIType="API">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:/Order/@ShipNode"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationKey="">
+            <Extn ExtnOwnerAgency="" ExtnShipAcctCode=""/>
+         </Organization>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Populate the item details for Adjust Inventory Module-->
+   <Command Name="getNodeItemDetails" APIName="getNodeItemDetails" APIType="API">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" Node="xml:ShipNode" OrganizationCode="NWCG" UnitOfMeasure="xml:UOM"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Item ItemID="" UnitOfMeasure="">
+            <PrimaryInformation KitCode=""/>
+            <InventoryParameters IsSerialTracked=""/>
+         </Item>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Populate the item details for Work Order, Component Check-->
+   <Command Name="getItemDetailsForWO" APIName="getItemDetails" APIType="API">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" OrganizationCode="NWCG" UnitOfMeasure="xml:Uom"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Item ItemID="" UnitOfMeasure="">
+            <Components/>
+         </Item>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Populate the QtyAvailableToBuild on Work Order, Kitting-->
+   <Command Name="getQtyAvailToBuild" APIName="NWCGGetQtyAvailToBuildService" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" Uom="xml:Uom" PC="xml:PC" Node="xml:Node"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--Added for Incident to Incident transfer-->
+   <Command Name="getItemList" APIName="getItemList" APIType="API">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <ItemList>
+            <Item ItemID="" UnitOfMeasure="">
+               <PrimaryInformation ProductLine="" KitCode="" NumSecondarySerials="" ShortDescription="" DefaultProductClass=""/>
+               <InventoryParameters IsSerialTracked="" TimeSensitive=""/>
+               <InventoryTagAttributes BatchNo="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo=""/>
+            </Item>
+         </ItemList>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Added for supplier Item-->
+   <Command Name="populateItemAttribute" APIName="getItemList" APIType="API">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <ItemList>
+            <Item UnitOfMeasure="" GlobalItemID="">
+               <PrimaryInformation DefaultProductClass="" Description="" ShortDescription=""/>
+            </Item>
+         </ItemList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getSerialList_recordcount" APIName="getSerialList" APIType="API">
+      <InputTemplate>
+         <Serial SerialNo="xml:SerialNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <SerialList>
+            <Serial SerialNo="" SecondarySerial1="" LocationId="">
+               	<TagDetail LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" RevisionNo=""/>
+            </Serial>
+         </SerialList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getSerialList" APIName="getSerialList" APIType="API">
+      <InputTemplate>
+         <Serial SerialNo="xml:SerialNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <!--Jay: Commenting out may be issue with getSerialList running into loop
+	  <SerialList RequestId="">
+		<Serial ShipNode="" AtNode="" />
+	  </SerialList>-->
+      </ApiOutputTemplate>
+   </Command>
+   <!--End Incident to Incident transfer-->
+   <!--Added for returns-->
+   <!--Following command is to get the kit componenets**********-->
+   <!--<Command Name="getItemCompDetailsForRet" APIName="NWCGgetItemCompDetails" APIType="FLOW">-->
+   <Command Name="getItemCompDetailsForRet" APIName="NWCGgetItemCompDetailsService" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" CallingOrganizationCode="NWCG" RetQty="xml:RetQty"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--Following command is to get the Incident# using issue number**********-->
+   <Command Name="getIssueIncidentNo" APIName="NWCGgetIssueIncidentService" APIType="FLOW">
+      <InputTemplate>
+         <Order OrderNo="xml:OrderNo" EnterpriseCode="NWCG"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Order BillToKey="" DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo="" ShipToKey="">
+            <Extn ExtnIncidentName="" ExtnBlmAmount="" ExtnFsAmount="" ExtnIncidentNo="" ExtnOtherAmount=""/>
+         </Order>
+      </ApiOutputTemplate>
+   </Command>
+   <!--Following command is to check if the serial number is unique**********-->
+   <Command Name="checkSerialNo" APIName="NWCGIsSerialUniqueService" APIType="FLOW">
+      <InputTemplate>
+         <Serial IncidentNo="xml:IncidentNo" IncidentYear="xml:IncidentYear" IssueNo="xml:IssueNo" AtNode="Y" SecondarySerial1="xml:SecSerialNo" SerialNo="xml:SerialNo">
+            <InventoryItem InventoryOrganizationCode="NWCG" ItemID="xml:ItemID" ProductClass="xml:PC" UnitOfMeasure="xml:UOM"/>
+         </Serial>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getComponentSerials" APIName="NWCGgetItemCompDetailsService" APIType="FLOW">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" CallingOrganizationCode="NWCG" RetQty="xml:RetQty"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--<Command Name="getIncidentDetailsForReturns" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">-->
+   <Command Name="getIncidentDetailsForReturns" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:ExtnIncidentNo" Year="xml:ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getOrderList" APIName="getOrderList" APIType="API">
+      <InputTemplate>
+         <Order OrderNo="xml:OrderNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <OrderList>
+            <Order OrderNo="" DocumentType="">
+               <Extn/>
+            </Order>
+         </OrderList>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="getOrderList_ForwardOrder" APIName="getOrderList" APIType="API">
+      <InputTemplate>
+         <Order OrderNo="xml:OrderNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <OrderList>
+            <Order>
+               <Extn ExtnIncidentNo="" ExtnIncidentYear="" />
+            </Order>
+         </OrderList>
+      </ApiOutputTemplate>
+   </Command>   
+   <Command Name="NWCGIncidentOrder_ForwardOrder" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:IncidentNo" Year="xml:IncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <NWCGIncidentOrder IncidentBlmAcctCode="" />
+      </ApiOutputTemplate>
+   </Command>
+   <!--End For Returns-->
+   <!--Added for WorkOrders-->
+   <Command Name="getWorkOrderCodes" APIName="NWCGGetIncidentOrderListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/WorkOrder/Extn/@ExtnIncidentNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <NWCGIncidentOrder ExtnFsAcctCode="" ExtnBlmAcctCode="" ExtnOtherAcctCode=""/>
+      </ApiOutputTemplate>
+   </Command>
+   <Command Name="ComputePriceForItem" APIName="computePriceForItem" APIType="API">
+      <InputTemplate>
+         <ComputePriceForItem Currency="USD" ItemID="xml:ItemID" Uom="xml:Uom" ProductClass="xml:ProductClass" OrganizationCode="NWCG" PriceProgramName="NWCG_PRICE_PROGRAM"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <ComputePriceForItem>
+            <ItemPriceSet ListPrice=""/>
+         </ComputePriceForItem>
+      </ApiOutputTemplate>
+   </Command>
+   <!--End WorkOrders-->
+   <!--Incident to Incident Transfer-->
+   <Command Name="NWCGGetTrackableItemListService" APIName="NWCGGetTrackableItemListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGTrackableItem SerialNo="xml:SerialNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate/>
+   </Command>
+   <!---Suryasnat: Added command file entry for check box functionality using AJAX-->
+   <Command Name="UpdateNWCGMasterWorkOrderLine" APIName="NWCGMasterWorkOrderLineService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGMasterWorkOrderLine MasterWorkOrderLineKey="xml:MasterWorkOrderLineKey" DisplayMasterWOComponents="xml:DisplayMasterWOComponents"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--Validation of Return No-->
+   <Command Name="validateReturnNo" APIName="NWCGValidateReturnNoService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGSequence OrganizationID="xml:CacheID" SequenceType="RETURN" SequenceNo="xml:ReturnNo"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--2.1 Enhancement-->
+   <Command Name="getOrganizationName" APIName="getOrganizationList" APIType="API">
+      <InputTemplate>
+         <Organization OrganizationCode="xml:/NWCGSupplierItem/@SupplierID"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <Organization OrganizationName=""/>
+      </ApiOutputTemplate>
+   </Command>
+   <!--CR 207 IncidentTypes KS-->
+   <Command Name="getCommonCodeList" APIName="getCommonCodeList" APIType="API">
+      <InputTemplate>
+         <CommonCode CodeValue="xml:CommonCode" CodeType="xml:CodeType"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <CommonCodeList>
+            <CommonCode CodeShortDescription=""/>
+         </CommonCodeList>
+      </ApiOutputTemplate>
+   </Command>
+   <!--CR 916 getIncidentDetailsForIssueType-->
+   <Command Name="getIncidentDetailsForIssueCreate" APIName="NWCGGetIncidentDtlsForIssueCreateService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGIncidentOrder IncidentNo="xml:/Order/Extn/@ExtnIncidentNo" Year="xml:/Order/Extn/@ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--CR 916 CheckPrimFinCodeAndUpdateIssue-->
+   <Command Name="checkPrimFinCodeAndUpdateIssue" APIName="NWCGChkPrimFinCodeAndUpdtIssueService" APIType="FLOW">
+      <InputTemplate>
+         <Order IncidentKey="xml:IncidentKey" OrderHeaderKey="xml:OrderHeaderKey" HoldDueToFinCode="xml:HoldDueToFinCode"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <Command Name="getNextSubstRequestNoForOrderLine" APIName="NWCGGetNextSubstRequestNoForOrderLineService" APIType="FLOW">
+      <InputTemplate>
+         <OrderLine NumberOfRequests="xml:NumberOfRequests" OrderLineKey="xml:OrderLineKey" ExtnRequestNo="xml:ExtnRequestNo" ExtnBaseRequestNo="xml:ExtnBaseRequestNo" ExtnIncidentNo="xml:ExtnIncidentNo" ExtnIncidentYear="xml:ExtnIncidentYear"/>
+      </InputTemplate>
+      <ApiOutputTemplate></ApiOutputTemplate>
+   </Command>
+   <!--CR 582 - Populate Item NSN-->
+   <Command Name="populateItemNSN" APIName="getItemDetails" APIType="API">
+      <InputTemplate>
+         <Item ItemID="xml:ItemID" OrganizationCode="NWCG" UnitOfMeasure="xml:Uom"/>
+      </InputTemplate>
+      <ApiOutputTemplate>
+         <CommonCodeList>
+            <CommonCode CodeShortDescription=""/>
+         </CommonCodeList>
+      </ApiOutputTemplate>
+   </Command>
+   <!--CR 727 - Split Account Code for Returns-->
+   <Command Name="getBilllingTransactionList" APIName="NWCGCustomGetBillingTransactionListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGBillingTransaction TransactionNo="xml:IssueNo" IncidentBlmAcctCode="" TransType=""/>
+      </InputTemplate>
+      <ApiOutputTemplate/>
+   </Command>
+   <Command Name="getBilllingAccountListForReturns" APIName="NWCGGetBillingAccountListService" APIType="FLOW">
+      <InputTemplate>
+         <NWCGBillingTransaction TransactionNo="xml:IssueNo" IncidentBlmAcctCode="" TransType=""/>
+      </InputTemplate>
+      <ApiOutputTemplate/>
+   </Command>
+</Commands>

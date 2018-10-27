@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+Name: 			IKEA_manageOrganizationHierarchy_Supplier_input.xml
+Description:	This is the input template for Supplier
+Author:			David Aspin
+Date:			11-30-2016
+-->
+<Organization
+    CapacityKeptExternally="${Organization.CapacityKeptExternally}"
+    CapacityOrganizationCode="${Organization.CapacityOrganizationCode}"
+    CatalogOrganizationCode="${Organization.CatalogOrganizationCode}"
+    InventoryKeptExternally="${Organization.InventoryKeptExternally}"
+    InventoryOrganizationCode="${Organization.InventoryOrganizationCode}"
+    InventoryPublished="${Organization.InventoryPublished}"
+    IsLegalEntity="${Organization.IsLegalEntity}"
+    LocaleCode="${Organization.LocaleCode}"
+    Operation="${Organization.Operation}"
+    OrganizationCode="${Organization.OrganizationCode}"
+    OrganizationName="${Organization.OrganizationName}"
+    ParentOrganizationCode="${Organization.ParentOrganizationCode}"
+        PrimaryEnterpriseKey="${Organization.PrimaryEnterpriseKey}">
+<CorporatePersonInfo
+        City="${Organization.CorporatePersonInfo.City}"
+        Country="${Organization.CorporatePersonInfo.Country}"
+        State="${Organization.CorporatePersonInfo.State}"
+        ZipCode="${Organization.CorporatePersonInfo.ZipCode}"/> 
+<Node
+        CanShipToAllNodes="${Organization.Node.CanShipToAllNodes}"
+        InventoryTracked="${Organization.Node.InventoryTracked}"
+        Inventorytype="${Organization.Node.Inventorytype}"
+        IsFulfillmentNode="${Organization.Node.IsFulfillmentNode}"
+        NodeType="${Organization.Node.NodeType}"
+        ProcureToShipAllowed="${Organization.Node.ProcureToShipAllowed}"
+            ReceiptProcessingTime="${Organization.Node.ReceiptProcessingTime}"/> 
+<OrgRoleList>
+<OrgRole
+            RoleKey="${Organization.OrgRoleList.OrgRole.RoleKey}"/> 
+<OrgRole
+            RoleKey="${Organization.OrgRoleList.OrgRole.2.RoleKey}"/> 
+</OrgRoleList>
+<EnterpriseOrgList>
+  <OrgEnterprise
+            EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.EnterpriseOrganizationKey}"/> 
+  <OrgEnterprise
+        EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.2.EnterpriseOrganizationKey}"/> 
+</EnterpriseOrgList>
+<Calendar
+        CalendarDescription="${Organization.Calendar.CalendarDescription}"
+        CalendarId="${Organization.Calendar.CalendarId}"
+                OrganizationCode="${Organization.Calendar.OrganizationCode}">
+<EffectivePeriods>
+<EffectivePeriod
+                EffectiveFromDate="${Organization.Calendar.EffectivePeriods.EffectivePeriod.EffectiveFromDate}"
+                        EffectiveToDate="${Organization.Calendar.EffectivePeriods.EffectivePeriod.EffectiveToDate}">
+<Shifts>
+  <Shift
+                        FridayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.FridayValid}"
+                        MondayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.MondayValid}"
+                        SaturdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SaturdayValid}"
+                        ShiftEndTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftEndTime}"
+                        ShiftName="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftName}"
+                        ShiftStartTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftStartTime}"
+                        SundayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SundayValid}"
+                        ThursdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ThursdayValid}"
+                        TuesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.TuesdayValid}" WednesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.WednesdayValid}"/> 
+  </Shifts>
+  </EffectivePeriod>
+  </EffectivePeriods>
+  <CalendarDayExceptions/> 
+  </Calendar>
+  <Extn/> 
+  </Organization>

@@ -1,0 +1,92 @@
+		<div>
+		 	<div data-dojo-type="gridx/Grid" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'OLST_listGrid'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	structure : 	[
+	 		{
+		 field : 			'extn_disposition'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		sFieldBinding : 	{
+		 dynamicBindingFunc : 			'getDispostionCode'
+,
+		 path : 			'OrderLineKey'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'1'
+,
+		 _sc_extensibility_referenceUId : 			'tblColUnitPrice'
+,
+		 width : 			'12%'
+,
+		 name : 			this.getSimpleBundleString('extn_Return_Disposition')
+,
+		 uId : 			'extn_disposition'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'move'
+,
+		 _sc_extensibility_moveOrder : 			'2'
+,
+		 _sc_extensibility_referenceUId : 			'tblColDeliveryMethod'
+,
+		 uId : 			'extn_disposition'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 field : 			'extn_product'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+,
+		 dynamicBindingFunc : 			'getProductHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'3'
+,
+		 _sc_extensibility_referenceUId : 			'tblColOriginalOrderNo'
+,
+		 width : 			'35%'
+,
+		 name : 			this.getSimpleBundleString('extn_Product')
+,
+		 uId : 			'extn_product'
+,
+		 _sc_extensibility_position : 			'before'
+	}
+,
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProductAddItems'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColProductAddItems'
+	}
+	]
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

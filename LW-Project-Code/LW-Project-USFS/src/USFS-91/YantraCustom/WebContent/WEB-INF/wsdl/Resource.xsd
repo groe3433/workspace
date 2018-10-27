@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Mike Roadifer (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns:rsc="http://nwcg.gov/services/ross/resource/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" targetNamespace="http://nwcg.gov/services/ross/resource/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified"  version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Schema containing message definitions for the ROSS Rsource Service (v 1.0)</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="ResourceOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Common response structure for resource operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Key information identifying which resource the operation took place for.  This key is provided in all cases, unless a failure occurred when packaging the key data.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>*************    Resource Operation Request Message Definitions     *****************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="UpdateResourceAvailabilityReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Update Resource Availability Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource to update</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceAvailability" type="nwcg:ResourceAvailabilityType">
+					<xs:annotation>
+						<xs:documentation>Indicates how the resource should be statused</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateResourceAvailabilityResp" type="rsc:ResourceOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Update Resource Availability Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReleaseResourceReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Release Resource Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to release the resource from</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource to release</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ReleaseData" type="nwcg:ResourceReleaseType">
+					<xs:annotation>
+						<xs:documentation>Information needed to accomplish release</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReleaseResourceResp" type="rsc:ResourceOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Release Resource Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="UpdateResourceTravelReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Update Resource Travel Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request/assignment travel is to be modified for</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource to update travel for</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="MobilizationActualTimeOfArrival" type="xs:dateTime">
+					<xs:annotation>
+						<xs:documentation>Time that the resource actually arrived 'At Scene'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateResourceTravelResp" type="rsc:ResourceOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Update Resource Travel Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReplaceMasterRosterReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Replace Master Roster Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ParentPosition" type="nwcg:MasterRosterPosition">
+					<xs:annotation>
+						<xs:documentation>Identifies the resource and the position at the parent/root position of the master roster.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ChildPosition" type="nwcg:MasterRosterPosition" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Identifies the resource and the position pairs at the child positions of the master roster.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReplaceMasterRosterResp" type="rsc:ResourceOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Replace Master Roster Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>*************    OPERATIONS ADDED FOR QUALIFICATION INTERFACE     *****************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="CreatePersonResourceReq">
+		<xs:annotation>
+			<xs:documentation>Used to create a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource to be created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonResource" type="nwcg:PersonResourceCreateType">
+					<xs:annotation>
+						<xs:documentation>Information needed to create the person resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreatePersonResourceResp">
+		<xs:annotation>
+			<xs:documentation>Response when creating a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the person resource that was created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdatePersonResourceReq">
+		<xs:annotation>
+			<xs:documentation>Used to update a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource to be updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PersonResource" type="nwcg:PersonResourceUpdateType">
+					<xs:annotation>
+						<xs:documentation>Updated information for a person resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdatePersonResourceResp">
+		<xs:annotation>
+			<xs:documentation>Response when updating a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Updated key information of the person resource that was updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeletePersonResourceReq">
+		<xs:annotation>
+			<xs:documentation>Used to delete a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource to delete</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeletePersonResourceResp">
+		<xs:annotation>
+			<xs:documentation>Response when deleting a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the resource that was deleted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddPersonResourceQualificationReq">
+		<xs:annotation>
+			<xs:documentation>Used to add one or more qualifcations to a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource to which the qualification is being added</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceQualification" type="nwcg:ResourceQualificationType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>A qualification to add to the person resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddPersonResourceQualificationResp">
+		<xs:annotation>
+			<xs:documentation>Response when adding a qualification to an overhead (person) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the resource to which the qualification was added</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdatePersonResourceQualificationReq">
+		<xs:annotation>
+			<xs:documentation>Used to update the qualification of a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource to be updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceQualification" type="nwcg:ResourceQualificationUpdateType">
+					<xs:annotation>
+						<xs:documentation>An updated qualification of the person resource</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdatePersonResourceQualificationResp">
+		<xs:annotation>
+			<xs:documentation>Response when updating a qualification for a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the resource for which the qualification was updated</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeletePersonResourceQualificationReq">
+		<xs:annotation>
+			<xs:documentation>Used to delete a qualification from a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource from which the qualification will be deleted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CatalogItem" type="nwcg:CatalogItemType">
+					<xs:annotation>
+						<xs:documentation>The catalog item of the qualification to be deleted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeletePersonResourceQualificationResp">
+		<xs:annotation>
+			<xs:documentation>Response when deleting a qualification from a person (overhead) resource</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the resource from which the qualification was deleted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteDuplicatePersonResourceReq">
+		<xs:annotation>
+			<xs:documentation>Used to delete a person (overhead) resource that is a known duplicate</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DuplicateResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the duplicate person resource to delete</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data (including the Resource Clearinghouse ID) of the person resource remaining after the delete</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeleteDuplicatePersonResourceResp">
+		<xs:annotation>
+			<xs:documentation>Response when deleting a person (overhead) resource that is a known duplicate</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information of the resource remaining after the delete</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResourceExistsReq">
+		<xs:annotation>
+			<xs:documentation>Used to determine if a resource exists</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType">
+					<xs:annotation>
+						<xs:documentation>Key data of the resource to check for</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResourceExistsResp">
+		<xs:annotation>
+			<xs:documentation>Response when determining if a resource exists</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key data of the resource found</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="OwningSystem" type="nwcg:ApplicationSystemType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The application system that owns the resource, or that manages the data for the resource.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>****************Person Resource Registration Operation Message Definitions MOVED TO ResourceClearinghouse.xsd on 12/21/2006 ********************</xs:documentation>
+	</xs:annotation>
+</xs:schema>

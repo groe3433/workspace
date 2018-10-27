@@ -1,0 +1,138 @@
+<webappext:WebAppExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappext="webappext.xmi" xmlns:webapplication="webapplication.xmi" xmi:id="WebApp_ID_Ext">
+  <webApp href="WEB-INF/web.xml#WebApp_ID"/>
+  <extendedServlets xmi:id="ServletExtension_1">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_1"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_2">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_2"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_3">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_3"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_4">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_4"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_5">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_5"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_6">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_6"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_7">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_7"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_8">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_8"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_9">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_9"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_11">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_11"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_12">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_12"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_13">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_13"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_14">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_14"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_15">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_15"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_16">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_16"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_17">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_17"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_18">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_18"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_19">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_19"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_20">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_20"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_21">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_21"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_22">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_22"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_23">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_23"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_25">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_25"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_26">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_26"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_27">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_27"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_28">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_28"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_30">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_30"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_31">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_31"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_32">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_32"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_33">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_33"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_34">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_34"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_35">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_35"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_36">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_36"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_37">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_37"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_38">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_38"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_39">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_39"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_40">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_40"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_41">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_41"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_42">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_42"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_43">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_43"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_44">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_44"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_45">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_45"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_46">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_46"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_47">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_47"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_48">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_48"/>
+  </extendedServlets>
+</webappext:WebAppExtension>

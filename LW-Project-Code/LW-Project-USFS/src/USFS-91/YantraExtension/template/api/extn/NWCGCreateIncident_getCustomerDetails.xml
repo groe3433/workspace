@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Customer CustomerID="">
+  <Extn ExtnGACC="" ExtnCustomerName="" ExtnUnitType="" ExtnAgency="" ExtnDepartment=""/>
+  <Consumer BillingAddressKey=""/>
+</Customer>

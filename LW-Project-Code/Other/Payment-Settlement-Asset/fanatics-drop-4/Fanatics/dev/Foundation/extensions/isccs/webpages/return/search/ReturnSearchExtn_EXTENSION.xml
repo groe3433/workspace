@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnSearchExtn"
+        extnPackage="extn.return.search"
+        originalScreen="isccs.return.search.ReturnSearch"
+        originalScreenPackage="isccs.return.search" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="SST_GenericContentContainer" colspan="1"/>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="cb_orderEnterprise" style="padding-right:380px;"/>
+            <TextField _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="cb_orderEnterprise"
+                label="$(_scBundle:extn_Customer_Order_Number)"
+                selectOnClick="true" style="padding-right:20px;" uId="extn_customer_order_no">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding
+                            namespace="getAdvancedOrderList_input"
+                            path="Order.CustomAttributes.CustomerOrderNo" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <SourceBinding namespace="screenInput" path="Order.CustomAttributes.CustomerOrderNo"/>
+                </BindingData>
+            </TextField>
+            <TextField _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="SST_GenericContentContainer" uId="extn_customer_order_no"/>
+            <TextField _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="cb_orderEnterprise" uId="extn_customer_order_no"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber description="Call the API"
+                    eventId="extn_customer_order_no_onKeyUp"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="SST_invokeApiOnEnter"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

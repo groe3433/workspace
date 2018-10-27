@@ -1,0 +1,57 @@
+<Item CanUseAsServiceTool="N" GlobalItemID=""
+    InheritAttributesFromClassification="Y" IsShippingCntr="N"
+    ItemGroupCode="PROD" ItemID="JJ" ItemKey="20071101145819841400"
+    OrganizationCode="NWCG" UnitOfMeasure="BE">
+    <PrimaryInformation AssumeInfiniteInventory="N"
+        CapacityPerOrderedQty="0.00" CapacityQuantityStrategy=""
+        CapacityUOM="" ComputedUnitCost="0.00" CostCurrency="USD"
+        CountryOfOrigin="" CreditWOReceipt="N" DefaultProductClass=""
+        Description="" ExtendedDescription=""
+        FixedCapacityQtyPerLine="0.00" FixedPricingQtyPerLine="0.00"
+        InvoiceBasedOnActuals="N" InvolvesSegmentChange="N"
+        IsAirShippingAllowed="Y" IsDeliveryAllowed="N"
+        IsFreezerRequired="N" IsHazmat="N" IsParcelShippingAllowed="Y"
+        IsPickupAllowed="N" IsReturnService="N" IsReturnable="N"
+        IsShippingAllowed="N" IsStandaloneService="" ItemType=""
+        KitCode="" ManufacturerItem="" ManufacturerItemDesc=""
+        ManufacturerName="" MasterCatalogID="" MaxOrderQuantity="12.33"
+        MinOrderQuantity="1.00" MinimumCapacityQuantity="0.00"
+        NumSecondarySerials="0" OrderingQuantityStrategy="ENT"
+        PricingQuantityConvFactor="0.00" PricingQuantityStrategy="IQTY"
+        PricingUOM="BE" PricingUOMStrategy="INV" PrimarySupplier=""
+        ProductLine="" RequiresProdAssociation="N" ReturnWindow="0"
+        RunQuantity="0.00" SerializedFlag="N" ServiceTypeID=""
+        ShortDescription="JJ" Status="3000" TaxableFlag="N"
+        UnitCost="0.00" UnitHeight="0.00" UnitHeightUOM=""
+        UnitLength="0.00" UnitLengthUOM="" UnitVolume="0.00"
+        UnitVolumeUOM="" UnitWeight="0.00" UnitWeightUOM=""
+        UnitWidth="0.00" UnitWidthUOM=""/>
+    <InventoryParameters ATPRule="" AdvanceNotificationTime="0"
+        DefaultExpirationDays="0" InventoryMonitorRule=""
+        IsFifoTracked="N" IsSerialTracked="N" LeadTime="0"
+        MinNotificationTime="0" NodeLevelInventoryMonitorRule=""
+        ProcessingTime="0" TagControlFlag="N" TimeSensitive="N"/>
+    <ClassificationCodes CommodityCode="" ECCNNo="" HarmonizedCode=""
+        HazmatClass="" NAICSCode="" NMFCClass="" NMFCCode=""
+        OperationalConfigurationComplete="N" PickingType=""
+        PostingClassification="" Schedule_B_Code="" StorageType=""
+        TaxProductCode="" UNSPSC="" VelocityCode=""/>
+    <ContainerInformation CapacityVolume="0.00" CapacityVolumeUom=""
+        MaxCntrWeight="0.00" MaxCntrWeightUom="" VolumeAllowance="0.00"/>
+    <Extn ExtnNatCriticalItem="N" ExtnPublishToRoss="N"
+        ExtnRossResourceItem="N" ExtnStandardPack="4" ExtnRefurbRequired="N"/>
+    <ItemAliasList/>
+    <ItemExclusionList/>
+    <AdditionalAttributeList/>
+    <LanguageDescriptionList/>
+    <Components/>
+    <AlternateUOMList/>
+    <ItemInstructionList/>
+    <ItemOptionList/>
+    <ItemServiceAssocList/>
+    <ItemServiceSkillList/>
+    <ContainerBuyerAssociationList/>
+    <ContainerItemAssociationList/>
+    <CategoryList/>
+    <InheritedAttributes/>
+</Item>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderPricingSummaryExtn"
+        extnPackage="extn.order.details"
+        originalScreen="isccs.order.details.OrderPricingSummary"
+        originalScreenPackage="isccs.order.details" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlLineDetailHolder" renderHidden="false"/>
+            <ContentPane _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="pnlAdjustmentsLine"/>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlLineAdjustments" renderHidden="true"/>
+            <ContentPane _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="pnlLineAdjustments"/>
+            <ContentPane _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="pnlAdjustments"/>
+            <ContentPane _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="pnlHeaderAdjustments"/>
+            <DataLabel _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_charges"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:LineTaxes)" uId="extn_lineTaxes">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getLineTaxes"
+                        namespace="adjustments_output" path="OrderLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_fancash"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:Charges)" uId="extn_charges">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getLineCharges"
+                        namespace="adjustments_output" path="OrderLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_fancash" uId="extn_charges"/>
+            <DataLabel _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblNoAdjustments"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:extn_Fan_Cash)" uId="extn_fancash">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getFancashAmount"
+                        namespace="adjustments_output" path="OrderLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_charges"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:Discounts)" uId="extn_discount">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getLineDiscounts"
+                        namespace="adjustments_output" path="OrderLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblTotalLine"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:extn_Appeasements)" uId="extn_Appeasements">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="getLineAppeasements"
+                        namespace="adjustments_output" path="OrderLine"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_headerCharges"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:HeaderTaxes)" uId="extn_headerTaxes">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getHeaderTaxes"
+                        namespace="getCompleteOrderDetails_output" path="Order"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblNoHdrAdjustments"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:extn_Header_Charges)" uId="extn_headerCharges">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="getHeaderCharges"
+                        namespace="getCompleteOrderDetails_output" path="Order"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_headerCharges"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:Discounts)" uId="extn_headerDiscounts">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="getHeaderDiscounts"
+                        namespace="getCompleteOrderDetails_output" path="Order"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_headerDiscounts"
+                class="numericLabel blockComponent"
+                label="$(_scSimpleBundle:extn_Appeasements)" uId="extn_headerAppeasements">
+                <BindingData>
+                    <SourceBinding
+                        dynamicBindingFunc="getHeaderAppeasements"
+                        namespace="getCompleteOrderDetails_output" path="Order"/>
+                </BindingData>
+            </DataLabel>
+            <ScreenRef _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="scrfOrderTotal"
+                className="OrderTotal" handleInit="true" packageName="isccs.order.details"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="this method gets invoked from pricingsummaryline screen"
+                    eventId="loadPricingSummaryAdj" isExtn="true" sequence="51">
+                    <Handler methodName="loadPricingSummaryAdj"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Init>
+                <MashupRef callSequence="1"
+                    mashupId="pricingSummary_getCompleteOrderDetails"
+                    mashupRefId="getCompleteOrderDetails" sequence="5" sourceNamespace="getCompleteOrderDetails_output"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

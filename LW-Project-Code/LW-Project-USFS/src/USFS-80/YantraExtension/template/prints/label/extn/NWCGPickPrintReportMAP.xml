@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text"  
+        LabelFieldName="ShipmentNo" Binding="/Shipment/@shipmentNo" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="ShipNode" Binding="/Shipment/@ShipNode" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="BuyerOrg" Binding="/Shipment/@BuyerOrganizationName" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="SellerOrg" Binding="/Shipment/@SellerOrganizationName" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="ItemId" Binding="/Shipment/ItemPickList/Item/@ItemID" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="SKUID" Binding="/Shipment/ItemPickList/Item/@SKUId" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text"
+        LabelFieldName="ProductClass" Binding="/Shipment/ItemPickList/Item/@ProductClass" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text" Binding="/Shipment/ItemPickList/Item/@UnitOfMeasure"
+        LabelFieldName="UOM" RepeatingElement="" Sequence="N"/>
+    <LabelField  DataType="Text" Binding="/Shipment/ItemPickList/Item/@Quantity"
+        LabelFieldName="RequestedQty" RepeatingElement="" Sequence="N"/>
+	<LabelField  DataType="Text"
+        LabelFieldName="Location" Binding= 
+		"/Shipment/ItemPickList/Item/LocationInventoryList/LocationInventory/@LocationId" RepeatingElement="LocationInventory" Sequence="N"/>
+	<LabelField  DataType="Text"   Binding= 		"/Shipment/ItemPickList/Item/LocationInventoryList/LocationInventory/ItemInventoryDetailList/ItemInventoryDetail/@InventoryStatus"
+        LabelFieldName="Status" RepeatingElement="LocationInventory" Sequence="N"/>
+	<LabelField  DataType="Text" Binding="/Shipment/ItemPickList/Item/LocationInventoryList/LocationInventory/ItemInventoryDetailList/ItemInventoryDetail/@Quantity"
+        LabelFieldName="QTY" RepeatingElement="LocationInventory" Sequence="N"/>
+	<RepeatingFields>
+        <RepeatingField LabelFieldName="Location" MaxFirstPage="12"
+            MaxLastPage="0" MaxMidPage="19"/>
+        <RepeatingField LabelFieldName="Status" MaxFirstPage="12"
+            MaxLastPage="0" MaxMidPage="19"/>
+        <RepeatingField LabelFieldName="QTY" MaxFirstPage="12"
+            MaxLastPage="0" MaxMidPage="19"/>
+     </RepeatingFields>
+</LabelFieldMap>
+

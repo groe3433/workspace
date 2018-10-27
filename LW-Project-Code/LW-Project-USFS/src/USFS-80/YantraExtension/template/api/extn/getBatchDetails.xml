@@ -1,0 +1,39 @@
+<Batch ActivityGroupId="" BatchKey="" ReceiptNo="" BatchNo=""
+	BatchStatusDesc="" CountRequestNo="" EquipmentType="" MoveRequestNo=""
+	Node="" OrganizationCode="" ShipmentNo="" Status="" TaskType=""
+	WaveNo="" Modifyuserid="" WorkOrderNo="" IssueNo="" IncidentNo=""
+	IncidentName="" IncidentYear="" CustomerName="" ShipToAddressLine1="" ShipToAddressLine2=""
+	ShipToAddressCity="" ShipToAddressState="" ShipToAddressZip="">
+	<EquipmentType>
+		<EquipmentTypeDetails>
+			<EquipmentTypeDetail />
+		</EquipmentTypeDetails>
+	</EquipmentType>
+	<BatchLocations>
+		<BatchLocation CartLocationId="" SlotNumber="" ShipmentKey=""
+			ShipmentContainerKey="">
+			<Container ShipmentContainerKey="" ContainerNo="">
+				<Corrugation ItemID="" />
+			</Container>
+		</BatchLocation>
+	</BatchLocations>
+	<Tasks>
+		<Task SourceLocationId="" SourceZoneId="" SourceSortSequence=""
+			TargetZoneId="" TargetLocationId="" TargetSortSequence=""
+			OrganizationCode="" TaskStatus="" TargetLPNNo="">
+			<Inventory SourceCaseId="" SourcePalletId="" TargetCaseId=""
+				TargetPalletId="" ItemId="" UnitOfMeasure="" ProductClass=""
+				Quantity="" TagNumber="" SerialNo="">
+				<TagAttributes />
+				<Item ItemID="" UnitOfMeasure="">
+					<PrimaryInformation Description="" />
+				</Item>
+			</Inventory>
+			<TaskReferences ReceiptNo="" WaveNo="" BatchNo=""
+				MoveRequestNo="" ShipmentNo="" CountRequestNo=""
+				ShipmentContainerKey="" ShipmentKey="" OrderLineKey=""/>
+			<BatchLocation />
+			<Shipment ShipmentKey="" ShipmentSortLocationId="" />
+		</Task>
+	</Tasks>
+</Batch>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ResolveHoldExtn"
+        extnPackage="extn.order.orderHold"
+        originalScreen="isccs.order.orderHold.ResolveHold"
+        originalScreenPackage="isccs.order.orderHold" type="diffrential">
+        <Items>
+            <Button _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="update_holds" label="$(_scSimpleBundle:extn_Reject)"/>
+            <Button _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="extn_approvebtn" uId="update_holds"/>
+            <Button _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="update_holds"
+                class="isccsScreen idxSpecialButton floatRight saveButtonAlign resolveHoldSaveButton"
+                label="$(_scSimpleBundle:extn_Approve)" uId="extn_approvebtn"/>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="activeHolds">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="3"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="Enabled"
+                            field="extn_order_no"
+                            name="$(_scSimpleBundle:OrderNum)"
+                            uId="extn_order_no" width="15%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getCustomerOrderNumber" path="OrderNo"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="activeHolds_tblColProducts"
+                            hidden="true" uId="activeHolds_tblColProducts"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="activeHolds_tblColOpenAlerts"
+                            hidden="true" uId="activeHolds_tblColOpenAlerts"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="activeHolds_tblColReasonTexts"
+                            hidden="true" uId="activeHolds_tblColReasonTexts"/>
+                        <View _sc_extensibility_moveOrder="7"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="activeHolds_tblColHoldDescriptions"
+                            field="extn_active_hold_status"
+                            name="$(_scSimpleBundle:extn_Hold_Status)"
+                            uId="extn_active_hold_status" width="25%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getHoldStatus" path="Status"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="activeHolds_tblColHoldDescriptions"
+                            uId="activeHolds_tblColHoldDescriptions" width="20%"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="resolvedHolds">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="4"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="resolvedHolds_tblColProducts"
+                            field="extn_order_no_resolved"
+                            name="$(_scSimpleBundle:OrderNum)"
+                            uId="extn_order_no_resolved" width="15%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getCustomerOrderNumber" path="OrderNo"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="resolvedHolds_tblColProducts"
+                            hidden="true" uId="resolvedHolds_tblColProducts"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="resolvedHolds_AppliedTo"
+                            hidden="false" uId="resolvedHolds_AppliedTo"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="resolvedHolds_tblColReasonTexts"
+                            hidden="true" uId="resolvedHolds_tblColReasonTexts"/>
+                        <View _sc_extensibility_moveOrder="5"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="resolvedHolds_HoldTypeDescription" uId="extn_order_no_resolved"/>
+                        <View _sc_extensibility_moveOrder="6"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="resolvedHolds_HoldTypeDescription"
+                            field="extn_hold_status"
+                            name="$(_scSimpleBundle:extn_Hold_Status)"
+                            uId="extn_hold_status" width="25%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getHoldStatus" path="Status"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="resolvedHolds_HoldTypeDescription"
+                            uId="resolvedHolds_HoldTypeDescription" width="25%"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="This method will invoke the OOTB save method to approve the hold."
+                    eventId="extn_approvebtn_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="save"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+        <MashupRefs>
+            <Behavior>
+                <MashupRef mashupId="resolveHolds_changeOrder" mashupRefId="resolveHolds_changeOrder"/>
+            </Behavior>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

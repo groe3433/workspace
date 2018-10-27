@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="API Connection Test" active="Y" description="Test Suite containing the test case for testing connection with IKEA via APItesters">
+	<Tests>
+		<Test testFile="Test/apiTest.xml"/>
+	</Tests>
+</Suite>

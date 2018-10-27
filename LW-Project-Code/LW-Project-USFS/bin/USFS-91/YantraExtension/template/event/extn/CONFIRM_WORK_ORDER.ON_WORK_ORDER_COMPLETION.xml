@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkOrder ApptStatus="" ApptStatusDescription="" CaseId=""
+    DocumentType="" EnterpriseCode="" ExecutionBy=""
+    ExecutionDuration="" ExecutionStartTime="" FinishNoLaterThan=""
+    InvUpdateActivityCode="" ItemID="" LastExecutionSuccess=""
+    NextAlertTs="" NodeKey="" NumOfAttempts="" OpenWorkOrderFlag=""
+    OrderLineKey="" PalletId="" PipeLineKey="" PreCallStatus=""
+    PreCallStatusDescription="" Priority="" ProductClass=""
+    PromisedApptEndDate="" PromisedApptStartDate="" Purpose=""
+    QuantityAllocated="" QuantityCompleted="" QuantityReleased=""
+    QuantityRemoved="" QuantityRequested="" ReasonCode=""
+    ReasonCodeDescription="" ReasonText="" Segment="" SegmentType=""
+    SerialNo="" ServiceItemDescription="" ServiceItemGroupCode=""
+    ServiceItemID="" ServiceUom="" ShipByDate="" ShipmentKey=""
+    ShipmentNo="" StartNoEarlierThan="" Status="" StatusDate=""
+    StatusDescription="" Uom="" WorkOrderKey="" WorkOrderNo="" Createuserid="" Modifyuserid="">
+    <OrderLine OrderLineKey="" OrderedQty="" Timezone="" StationId=" " StationType=" " LocationId=" ">
+        <Order DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
+    </OrderLine>
+    <Item GlobalItemID="" ItemGroupCode="" ItemID="" ItemKey=""
+        OrganizationCode="" UnitOfMeasure="">
+        <PrimaryInformation Description="" ExtendedDescription=""
+            InvolvesSegmentChange="" ItemType="" KitCode=""
+            ProductLine="" RunQuantity="" SerializedFlag="" ShortDescription=""/>
+    </Item>
+    <WorkOrderStatusAudits>
+        <WorkOrderStatusAudit AuditTransactionId="" AuditUserId=""
+            Comments="" NewStatus="" NewStatusDate="" OldStatus=""
+            OldStatusDate="" ReasonCode="" ReasonCodeDescription=""
+            Tranname="" TransactionId="" WorkOrderKey="" WorkOrderStatusAuditKey="">
+            <OldStatus Description=""/>
+            <NewStatus Description=""/>
+        </WorkOrderStatusAudit>
+    </WorkOrderStatusAudits>
+    <PersonInfo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <Status Description="" OwnerKey="" ProcessTypeKey=""
+        RequiresCollaboration="" Status="" StatusKey="" StatusName="" StatusType=""/>
+    <WorkOrderTag BatchNo="" LotAttribute1="" LotAttribute2=""
+        LotAttribute3="" LotKeyReference="" LotNumber=""
+        ManufacturingDate="" RevisionNo="" WorkOrderKey="" WorkOrderTagKey=""/>
+</WorkOrder>

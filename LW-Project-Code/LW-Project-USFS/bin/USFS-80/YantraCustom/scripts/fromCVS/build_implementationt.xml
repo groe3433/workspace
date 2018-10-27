@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<project name="NWCG-ICBS specefic project file" default="packaging" basedir=".">
+
+<!-- Build file for Yantra Consulting projects -->
+
+	<!--Initialization Block-->
+	<!--End Initialization Block--> 	
+	
+	<path id="implementation.class.path">	    
+		<!--
+		<fileset dir="${project.yantracustom.dir}/resources/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		-->
+		<!--
+		<fileset dir="${project.devhome.dir}/resources/mq/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		-->
+		
+		<fileset dir="${env.WS_HOME}/lib" >
+			<include name="**/*.jar"/>
+		</fileset>
+
+		<fileset dir="${env.WS_HOME}/runtimes" >
+			<include name="**/*.jar"/>
+		</fileset>
+
+	</path>
+
+	<target name="-pre-clean">
+	</target>
+
+	<target name="-post-make-dir">
+	</target>	
+
+	<target name="-post-cvs-fetch"></target>
+
+	<target name="-pre-copy-files"></target>
+
+	<target name="-post-copy-files">
+	</target>
+
+	<target name="-pre-build-project-clean"></target>
+
+	<target name="-post-build-project-clean">
+	 <antcall target="create-custom-report-views"/>
+	</target>
+	
+  	<target name="create-custom-report-views">
+         <echo>Creating/Updating Cognos views in Master DB</echo>
+          <exec dir="${project.yantracustom.dir}/database/sql" executable="sqlplus" failonerror="yes">
+            <arg value="${db.mc.user}/${db.mc.password}@${db.mc.sid}" />
+            <arg value="@${project.yantracustom.dir}/database/sql/NWCG_view_custom.sql" />
+          </exec>
+
+          <echo>Creating/Updating Cognos views in Build DB</echo>
+          <exec dir="${project.yantracustom.dir}/database/sql" executable="sqlplus" failonerror="yes">
+            <arg value="${db.build.user}/${db.build.password}@${db.build.sid}" />
+            <arg value="@${project.yantracustom.dir}/database/sql/NWCG_view_custom.sql" />
+          </exec>
+
+	</target>	
+	<target name="-pre-build-project-dev"></target>
+
+	<target name="-post-build-project-dev"></target>
+
+	<target name="-pre-alter-db"></target>
+
+	<target name="-post-alter-db"></target>
+
+	<target name="-pre-release"></target>
+
+	<target name="-post-release">
+		<antcall target="clean-release-archive"/>
+	</target>
+
+	<target name="clean-release-archive" description="Cleans the Release archive as per onsite requirements">
+
+		<antcall target="clean-tmp"/>
+
+		<unzip src="${release.archive.name}" dest="${tmp}"/>
+		<delete file="${tmp}/${release.yantra.dir}/lib/${project.name}.jar"/>
+
+		<delete dir="${tmp}/samplebuildscripts"/>
+
+		<move file="${tmp}/${release.yantra.dir}/resources/extn/yantraimpl.properties" 
+			tofile="${tmp}/${release.yantra.dir}/resources/extn/yantraimpl.properties.sample"/>
+	
+		<zip destfile="${tmp}/db/masterconfig_cdt_${release.version}.zip" basedir="${tmp}/db" includes="cdt/**"/>
+		
+		<delete dir="${tmp}/db/cdt"/>
+
+		<zip destfile="${release.archive.name}" update="false" basedir="${tmp}"/>
+		
+		<antcall target="clean-tmp"/>
+
+	</target>
+	
+	
+	<target name="-pre-create-ear"> 
+	</target>		
+
+	<target name="-post-create-ear" >
+	</target>
+	
+	<target name="checkstyle" 
+		  description="Generates a report of standard code convention violations." if="codereview.checkstyle.dir">
+	
+		<taskdef resource="checkstyletask.properties"
+         classpath="${codereview.checkstyle.dir}/checkstyle-all-4.0-beta6.jar"/>
+
+		<checkstyle config="${codereview.checkstyle.rule.xml}"
+			failureProperty="checkstyle.failure"
+			failOnViolation="false">
+	      <formatter type="xml" toFile="${project.devhome.dir}/dist/checkstyle_report.xml"/>
+	      <fileset dir="${project.devhome.dir}/src" includes="**/*.java" excludes="**/sim/**/*.java"/>
+	    </checkstyle>
+
+	    <style in="${project.yantracustom.dir}/dist/checkstyle_report.xml" out="${project.yantracustom.dir}/dist/checkstyle_report.html" style="${codereview.checkstyle.dir}/contrib/checkstyle-simple.xsl"/>
+
+		<delete file="${project.yantracustom.dir}/dist/checkstyle_report.xml"/>
+	  </target>
+
+	<target name="pmd" description="Runs PMD to identify unused mehtods, fields" if="codereview.pmd.dir">
+    
+		<path id="pmd.class.path">	    
+			<fileset dir="${codereview.pmd.dir}/lib">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+
+		<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask" classpathref="pmd.class.path"/>
+
+		<pmd rulesetfiles="${codereview.pmd.rule.xml}" shortFilenames="true">
+			<formatter type="xml" toFile="${project.devhome.dir}/dist/pmd_report.xml"/>
+			<fileset dir="${project.devhome.dir}/src" includes="**/*.java" excludes="**/sim/**/*.java"/>
+		</pmd>
+
+		<xslt in="${project.yantracustom.dir}/dist/pmd_report.xml" style="${codereview.pmd.dir}/etc/xslt/wz-pmd-report.xslt"
+			out="${project.yantracustom.dir}/dist/pmd_report.html" />
+	
+		<delete file="${project.yantracustom.dir}/dist/pmd_report.xml"/>
+	</target>
+
+	<target name="copy-version-txt">
+  		<copy file="${env.YFS_HOME}/bin/version.txt" todir="${env.YFS_HOME}/webpages/extn" failonerror="No"/>
+    </target>
+    
+    <target name="copy-build-properties">
+  		<copy file="${project.yantracustom.dir}/scripts/build.properties" todir="${env.YFS_HOME}/resources/extn" failonerror="No" />
+    </target>
+    
+</project>

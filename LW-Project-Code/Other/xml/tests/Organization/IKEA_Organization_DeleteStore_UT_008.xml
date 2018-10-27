@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd" 
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="IKEA_Organization_DeleteStore_UT_008" Description="Create and delete Store with proper input data.">
+	<p:Steps>
+		<p:Sequence Number="1">
+			<p1:NestedTest Name="IKEA_Organization_CreateStore_UT_002"></p1:NestedTest>
+		</p:Sequence>
+		<p:Sequence Number="2">
+			<p1:Component Name="IKEA_Organization_DeleteOrganization_Component"></p1:Component>
+		</p:Sequence>
+	</p:Steps>
+  <p:Parameters>
+		<p:GeneratedParameter Prefix="STO.895-" Suffix="" Key="Organization.OrganizationCode" Type="INPUT"/>
+  </p:Parameters>
+</p:TestCase>

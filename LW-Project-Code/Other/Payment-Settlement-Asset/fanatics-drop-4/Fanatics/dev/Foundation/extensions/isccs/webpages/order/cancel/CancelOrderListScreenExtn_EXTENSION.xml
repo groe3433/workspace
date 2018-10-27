@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="CancelOrderListScreenExtn"
+        extnPackage="extn.order.cancel"
+        originalScreen="isccs.order.cancel.CancelOrderListScreen"
+        originalScreenPackage="isccs.order.cancel" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            field="extn_order_no"
+                            name="$(_scSimpleBundle:extn_Order_Number)"
+                            uId="extn_order_no" width="45%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColHasInvoiced"
+                            name="$(_scSimpleBundle:extn_Has_Been_Charged)" uId="tblColHasInvoiced"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColStatus"
+                            hidden="true" uId="tblColStatus"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColDeliveryMethod"
+                            hidden="true" uId="tblColDeliveryMethod"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

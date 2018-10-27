@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:TestCase xmlns:p="http://www.lightwellinc.com/stf-test.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-test.xsd ../../../schemas/SterlingTestFramework-Test.xsd "
+	Active="Y" Name="Two Line Order to Shipped" Description="Create Valid Two Line Order, Schedule and Release and Ship it">
+	<p:Tags>
+		<p:Tag Name="Create Order"></p:Tag>
+	</p:Tags>
+	<p:Steps>
+	<p:Sequence Number="1">
+			<p1:Component Name="Create Two Line Order"></p1:Component>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expected="Created"	Path="/Order/@Status">
+				</p1:Validate>
+			</p1:Validations>
+			<p1:Parameters>
+				<p1:GeneratedParameter Prefix="IKEA" Suffix="TEST" Key="Order.OrderNo" Type="INPUT"/>
+			</p1:Parameters>
+		</p:Sequence>
+		
+		<p:Sequence Number="2">
+			<p1:Component Name="Schedule Order"></p1:Component>
+		</p:Sequence>
+		
+		<p:Sequence Number="3">
+			<p1:Component Name="Release Order"></p1:Component>
+		</p:Sequence>
+	
+	  	<p:Sequence Number="4">
+			<p1:Component Name="Create Shipment"></p1:Component>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expected="${Shipment.ShipmentNo}"	Path="/Shipment/@ShipmentNo">
+				</p1:Validate>
+			</p1:Validations>
+			<p1:Parameters>
+				<p1:GeneratedParameter Prefix="" Suffix="" Key="Shipment.ShipmentNo" Type="INPUT"/>
+			</p1:Parameters>
+		</p:Sequence> 
+		
+		<p:Sequence Number="5">
+			<p1:Component Name="Confirm Shipment"></p1:Component>
+			<p1:Validations>
+				<p1:Validate ValidationType="XPATH" Expected="${Shipment.ShipmentNo}"	Path="/Shipment/@ShipmentNo">
+				</p1:Validate>
+			</p1:Validations>
+		</p:Sequence> 
+				
+	</p:Steps>
+	
+</p:TestCase>

@@ -1,0 +1,217 @@
+<html>
+    <body>
+        <form name="frmPickLocationConfirmation" target="/console/rfretrieval.ppc">
+            <table border="1">
+                <tr>
+                    <td>
+                        <table border="0" width="300">
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/Task/@EquipmentId"
+                                    name="txtEquipmentId"
+                                    outputbinding="xml:/Task/@EquipmentId"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@EquipmentId"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/Task/@NewTaskKey"
+                                    name="txtTaskKey"
+                                    outputbinding="xml:/Task/@TaskKey"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@TaskKey"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/Task/@ActivityGroupId"
+                                    name="txtActivityGroup"
+                                    outputbinding="xml:/Task/@ActivityGroupId"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@ActivityGroupId"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/Task/@EnterpriseKey"
+                                    name="txtEnterprise"
+                                    outputbinding="xml:/Task/@EnterpriseKey"
+                                    size="10" subtype="Hidden"
+                                    tag="binding=xml:/Task/@EnterpriseKey"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/@BuiltPalletId"
+                                    name="txtBuiltPalletId"
+                                    outputbinding="xml:/TaskList/Task/@BuiltPalletId"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/TaskList/Task/@BuiltPalletId"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/@BuiltCaseId"
+                                    name="txtBuiltCaseId"
+                                    outputbinding="xml:/TaskList/Task/@BuiltCaseId"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/TaskList/Task/@BuiltCaseId"
+                                    type="hidden" validate="false"/>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/Inventory/@Quantity"
+                                    name="txtQty"
+                                    outputbinding="xml:/TaskList/Task/Inventory/@Quantity"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/TaskList/Task/Inventory/@Quantity"
+                                    type="hidden" validate="false"/>
+                                    <input col="1" name="lblPick" size="7" subtype="Label" value="Mobile_Pick-"
+                                    type="text" validate="false"/>
+                                    <input col="8"
+                                    inputbinding="xml:/TaskList/Task/@TaskType"
+                                    name="txtTaskType"
+                                    outputbinding="xml:/TaskList/Task/@TaskType"
+                                    size="12" subtype="Label"
+                                    tag="binding=xml:/TaskList/Task/@TaskType"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+							 <tr>
+                                <td>
+								 <input col="1" name="lblIssueNumber" size="7" subtype="Label" value="Issue#-"
+                                    type="text" validate="false"/>
+                                    <input col="11"
+                                    inputbinding="xml:/TaskList/Task/TaskReferences/@OrderNo"
+                                    name="txtOrderNo"
+                                    outputbinding="xml:/TaskList/Task/TaskReferences/@OrderNo"
+                                    size="35"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/TaskReferences/@OrderNo"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" name="lblLocation"
+                                    size="20" subtype="Label"
+                                    tag="binding=lblLocation"
+                                    type="text" validate="false" value="Mobile_Location"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/@SourceLocationId"
+                                    name="txtSuggestedLocationId"
+                                    outputbinding="xml:/TaskList/Task/@SuggestedLocationId"
+                                    size="20"
+                                    subtype="ProtectedText"
+                                    tag="binding=xml:/TaskList/Task/@SuggestedLocationId"
+                                    type="text" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/TaskList1/Task/@SourceLocationId"
+                                    name="txtLocationId"
+                                    outputbinding="xml:/Task/@SourceLocationId"
+                                    size="20" subtype="Text"
+                                    tag="binding=xml:/Task/@SourceLocationId"
+                                    type="text" validate="true"/>
+                                </td>
+                            </tr>
+							<tr>
+                                <td>
+                                    <input col="1"
+                                    name="lblReasonCode"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=lblReasonCode"
+                                    type="hidden" validate="false" value="Mobile_PPC_Reason_Code"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/Task/Exception/@ReasonCode"
+                                    name="txtReasonCode"
+                                    outputbinding="xml:/Task/@HoldReasonCode"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/Task/@HoldReasonCode"
+                                    type="hidden" validate="true"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" name="lblPickFromLPN"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=lblPickFromLPN"
+                                    type="hidden" validate="false" value="Mobile_LPN"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1"
+                                    inputbinding="xml:/TaskList/Task/Inventory/@SuggestedSourceLPN"
+                                    name="txtSuggestedSourceLPN"
+                                    outputbinding="xml:/TaskList/Task/Inventory/@SuggestedSourceLPN"
+                                    size="20"
+                                    subtype="Hidden"
+                                    tag="binding=xml:/TaskList/Task/Inventory/@SuggestedSourceLPN"
+                                    type="hidden" validate="false"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" defaultoutput="false"
+                                    inputbinding="xml:/TaskList1/Task/Inventory/@SourceLPN"
+                                    name="txtSourceLPN"
+                                    outputbinding="xml:/Task/Inventory/@SourceLPN"
+                                    size="20" subtype="Hidden"
+                                    tag="binding=xml:/Task/Inventory/@SourceLPN"
+                                    type="hidden" validate="true"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F3" name="Go"
+                                    size="3" subtype="Command"
+                                    tag=" " type="button"
+                                    url="/console/rfretrieval.ppc?action=frmInventoryDetail"
+                                    validate="false" value="Mobile_Go"/>
+                                    <input col="4" hotkey="F8"
+                                    name="Deposit" size="7"
+                                    subtype="Command" tag=" "
+                                    type="button"
+                                    url="/console/rfretrieval.ppc?action=frmSkipTask"
+                                    validate="false" value="Mobile_Deposit"/>
+                                    <input col="11" hotkey="F7"
+                                    name="CloseCase" size="10"
+                                    subtype="Command" tag=" "
+                                    type="button"
+                                    url="/console/rfretrieval.ppc?action=frmCloseCase"
+                                    validate="false" value="Mobile_Close_Case"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input col="1" hotkey="F6"
+                                    name="ClosePallet" size="9"
+                                    subtype="Command" tag=""
+                                    type="button"
+                                    url="/console/rfretrieval.ppc?action=frmClosePallet"
+                                    validate="false" value="Mobile_Close_Plt"/>
+                                    <input col="11" hotkey="F4"
+                                    name="Exception" size="9"
+                                    subtype="Command" type="button"
+                                    url="/console/rfretrieval.ppc?action=frmAdjustQuantityForPickException"
+                                    validate="false" value="Mobile_Exception"/>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                    <input col="11" hotkey="F5"
+                                    name="Issue" size="11"
+                                    subtype="Command" type="button"
+                                    url="/console/rfretrieval.ppc?action=frmIssueDetails"
+                                    validate="false" value="Issue Details"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

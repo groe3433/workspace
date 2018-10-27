@@ -1,0 +1,4 @@
+/opt/IBM/WebSphere/AppServer/profiles/omprofile/bin/wsadmin.sh -user wasadmin -password was1Admin -f deployTOG.py smcfsdev /opt/ssfs/runtime/external_deployments/smcfs.ear dusjc01togdomall01Node01 server1 dusjc01togdomall01.sjc01.caas.local smcfs webserver1
+
+/opt/IBM/WebSphere/AppServer/profiles/omprofile/bin/wsadmin.sh -user wasadmin -password was1Admin -f deployTOG.py smcfsdev /opt/ssfs/runtime/external_deployments/smcfs.ear dusjc01togdomall01Node01 server1 dusjc01togdomall01.sjc01.caas.local smcfs webserver1 dusjc01togdomall02Node01
+

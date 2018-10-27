@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="CancelOrderBaseScreenExtn"
+        extnPackage="extn.order.cancel"
+        originalScreen="isccs.order.cancel.CancelOrderBaseScreen"
+        originalScreenPackage="isccs.order.cancel" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblnoCancellation" uId="extn_cancel_pane">
+                <TableLayout cols="2" customClass="tableLayout-cols-2"/>
+            </ContentPane>
+            <CurrencyTextBox _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="update_order"
+                label="$(_scBundle:extn_Fan_Cash)" required="true" uId="extn_fancashtxtbox">
+                <BindingData>
+                    <CurrencyBinding
+                        namespace="getCompleteOrderDetails_output" path="Order.PriceInfo.Currency"/>
+                    <TargetBindings>
+                        <TargetBinding namespace="extn_fancashModel"
+                            path="Order.FanCash" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                </BindingData>
+            </CurrencyTextBox>
+            <CurrencyTextBox _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="cancelType" uId="extn_fancashtxtbox"/>
+            <CurrencyTextBox _sc_extensibility_moveOrder="3"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="update_order" uId="extn_fancashtxtbox"/>
+            <CurrencyTextBox _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="cmbReasoncode" uId="extn_fancashtxtbox"/>
+            <CurrencyTextBox _sc_extensibility_moveOrder="9"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="cmbReasoncode" uId="extn_fancashtxtbox"/>
+            <FilteringSelect _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="cmbReasoncode"
+                label="$(_scBundle:extn_Fan_Cash_Reason)"
+                required="true" uId="extn_fancashreason">
+                <BindingData>
+                    <TargetBindings>
+                        <TargetBinding namespace="extn_fancashModel"
+                            path="Order.FanCashReason" scExtensibilityArrayItemId="extn_TargetBindings_0"/>
+                    </TargetBindings>
+                    <OptionsBinding descriptionField="CodeValue"
+                        namespace="extn_getFanCashReasonCode_output"
+                        path="CommonCodeList.CommonCode" valueField="CodeValue"/>
+                </BindingData>
+            </FilteringSelect>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="cmbReasoncode" label="$(_scBundle:extn_Cancellation_Reason_Code)"/>
+            <FilteringSelect _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_fancashtxtbox" uId="extn_fancashreason"/>
+            <FilteringSelect _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="extn_cancel_pane" uId="cmbReasoncode"/>
+            <FilteringSelect _sc_extensibility_moveOrder="11"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="cancelType" uId="extn_fancashreason"/>
+            <RadioButtonSet _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_fancashtxtbox" uId="cancelType"/>
+        </Items>
+        <Namespaces>
+            <SourceNamespaces>
+                <Source
+                    description="This namespace will hold the cancellation reason code"
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_SourceNamespaces_8" value="extn_getFanCashReasonCode_output"/>
+            </SourceNamespaces>
+            <TargetNamespaces>
+                <Target
+                    description="This model will hold the fancash and fancash reason code."
+                    isExtn="true"
+                    scExtensibilityArrayItemId="extn_TargetNamespaces_2" value="extn_fancashModel"/>
+            </TargetNamespaces>
+        </Namespaces>
+        <MashupRefs>
+            <Init>
+                <MashupRef extnType="ADD"
+                    mashupId="cancelOrder_getCompleteOrderDetails"
+                    mashupRefId="getCompleteOrderDetails" sourceNamespace="getCompleteOrderDetails_output"/>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getFanCashReasonCode"
+                    mashupRefId="extn_getFanCashReasonCode" sourceNamespace="extn_getFanCashReasonCode_output"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

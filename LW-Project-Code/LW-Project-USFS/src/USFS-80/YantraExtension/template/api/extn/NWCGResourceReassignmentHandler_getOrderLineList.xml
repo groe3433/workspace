@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLineList TotalLineList="">
+	<OrderLine OrderHeaderKey="" OrderLineKey="" OrderedQty="" ConditionVariable1="" ConditionVariable2="" MaxLineStatus="" Status="" ShipNode="">
+		<Extn/>
+		<Item ItemID="" ProductClass="" UnitOfMeasure=""/>
+		<OrderLineTranQty OrderedQty="" TransactionalUOM=""/>
+		<Order OrderHeaderKey="" ShipNode="" OrderNo="" MaxOrderStatus="" DocumentType="" ReqDeliveryDate="">
+			<Extn/>
+			<YFSPersonInfoBillTo/>
+			<YFSPersonInfoShipTo/>
+		</Order>		
+	</OrderLine>
+</OrderLineList>

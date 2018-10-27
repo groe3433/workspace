@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Item ItemGroupCode="" ItemID="" GlobalItemID="" ItemKey="" OrganizationCode="Required" UnitOfMeasure="">
+	<PrimaryInformation DefaultProductClass="" Description="" IsHazmat="" ItemType="" PrimaryEnterpriseCode="" ShortDescription="" ExtendedDescription="" SerializedFlag="" UnitCost="" UnitVolume="" UnitVolumeUOM="" UnitWeight="" UnitWeightUOM=""/>
+	<Components>
+		<Component ComponentDescription="" ComponentItemID="" ComponentItemKey="" ComponentOrganizationCode="" ComponentUnitOfMeasure="" ItemKey="" KitQuantity="" />
+	</Components>
+	<ClassificationCodes HazmatClass=""/>
+	<HazmatInformation CargoAir="" Exception="" HazardClass="" HazmatComplianceKey="" Label="" PackingGroup="" PassengerAir="" ProperShippingName="" QtyBulk="" QtyNonBulk="" SortOrder="" SpecialProvisions="" Symbols="" UNNumber="" Vessel="" VesselSP="" />
+	<ItemInstructionList>
+       <ItemInstruction InstructionCode="" InstructionText="" InstructionType="" ItemInstructionKey="" ItemKey="" SeqNo="" /> 
+    </ItemInstructionList>
+	<Extn />
+</Item>

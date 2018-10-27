@@ -1,0 +1,8 @@
+<Receipt ArrivalDateTime="" DocumentType="" DriverName="" EnterpriseCode="" MaximumRecords="" NumOfCartons="" NumOfPallets="" OpenReceiptFlag="" ReadFromHistory="" ReceiptDate="" ReceiptHeaderKey="" ReceiptNo="" ReceivingDock="" ReceivingNode="" ShipmentKey="" Status="" TrailerLPNNo="" isHistory="">
+<ReceiptLines>
+  <ReceiptLine AvailableForTranQuantity="" BatchNo="" CaseId="" CountryOfOrigin="" DispositionCode="" EnterpriseCode="" FifoNo="" InspectedBy="" InspectionComments="" InspectionDate="" IsInspectionPending="" ItemID="" LocationId="" LotAttribute1="" LotAttribute2="" LotAttribute3="" LotKeyReference="" LotNumber="" ManufacturingDate="" NetWeight="" NetWeightUom="" OrderHeaderKey="" OrderLineKey="" OrderNo="" OrderReleaseKey="" OrigReceiptLineKey="" OriginalQuantity="" PalletId="" PrimeLineNo="" ProductClass="" Quantity="" ReceiptHeaderKey="" ReceiptLineKey="" ReceiptLineNo="" ReleaseNo="" RevisionNo="" SerialNo="" ShipByDate="" ShipmentContainerKey="" ShipmentLineKey="" ShipmentLineNo="" ShipmentSubLineNo="" SubLineNo="" TransactionId="" TransactionName="" UnitOfMeasure="" > 
+   <Extn/>
+  </ReceiptLine>
+</ReceiptLines>
+<Extn/>
+</Receipt>

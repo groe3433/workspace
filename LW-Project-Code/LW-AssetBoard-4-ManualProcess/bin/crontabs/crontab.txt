@@ -1,0 +1,39 @@
+###########################################################################
+######################### TOG Job Scheduler ###############################
+###########################################################################
+
+* * * * * /opt/ssfs/runtime/TOGCommonScripts/TOG-Job-Scheduler.sh
+00 06 * * 6 /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh TOG_JOB_SCHEDULER.log
+
+###########################################################################
+######## New Manual Process Agent Trigger Cron Jobs #######################
+###########################################################################
+
+* * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/TOGTriggerAgent/triggerReleaseAgent.sh
+* * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleAgent.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

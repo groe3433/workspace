@@ -1,0 +1,307 @@
+		<div>
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'pnlLineDetailHolder' , 
+		renderHidden : false  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'remove' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : '_extensibilityHiddenWidgetsHolder' , 
+		uId : 'pnlAdjustmentsLine' , 
+		_sc_extensibility_position : 'first'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'pnlLineAdjustments' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'remove' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : '_extensibilityHiddenWidgetsHolder' , 
+		uId : 'pnlLineAdjustments' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'remove' , 
+		_sc_extensibility_moveOrder : '9' , 
+		_sc_extensibility_referenceUId : '_extensibilityHiddenWidgetsHolder' , 
+		uId : 'pnlAdjustments' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'remove' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : '_extensibilityHiddenWidgetsHolder' , 
+		uId : 'pnlHeaderAdjustments' , 
+		_sc_extensibility_position : 'last'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '5' , 
+		_sc_extensibility_referenceUId : 'extn_charges' , 
+		uId : 'extn_lineTaxes' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('LineTaxes')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'OrderLine'
+,
+		 dynamicBindingFunc : 			'getLineTaxes'
+,
+		 namespace : 			'adjustments_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'extn_fancash' , 
+		uId : 'extn_charges' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Charges')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'OrderLine'
+,
+		 dynamicBindingFunc : 			'getLineCharges'
+,
+		 namespace : 			'adjustments_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '4' , 
+		_sc_extensibility_referenceUId : 'extn_fancash' , 
+		uId : 'extn_charges' , 
+		_sc_extensibility_position : 'before'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'lblNoAdjustments' , 
+		uId : 'extn_fancash' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Fan_Cash')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'OrderLine'
+,
+		 dynamicBindingFunc : 			'getFancashAmount'
+,
+		 namespace : 			'adjustments_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'extn_charges' , 
+		uId : 'extn_discount' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Discounts')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'OrderLine'
+,
+		 dynamicBindingFunc : 			'getLineDiscounts'
+,
+		 namespace : 			'adjustments_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '6' , 
+		_sc_extensibility_referenceUId : 'lblTotalLine' , 
+		uId : 'extn_Appeasements' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Appeasements')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'OrderLine'
+,
+		 dynamicBindingFunc : 			'getLineAppeasements'
+,
+		 namespace : 			'adjustments_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '8' , 
+		_sc_extensibility_referenceUId : 'extn_headerCharges' , 
+		uId : 'extn_headerTaxes' , 
+		_sc_extensibility_position : 'before'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('HeaderTaxes')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order'
+,
+		 dynamicBindingFunc : 			'getHeaderTaxes'
+,
+		 namespace : 			'getCompleteOrderDetails_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '7' , 
+		_sc_extensibility_referenceUId : 'lblNoHdrAdjustments' , 
+		uId : 'extn_headerCharges' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Header_Charges')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order'
+,
+		 dynamicBindingFunc : 			'getHeaderCharges'
+,
+		 namespace : 			'getCompleteOrderDetails_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '9' , 
+		_sc_extensibility_referenceUId : 'extn_headerCharges' , 
+		uId : 'extn_headerDiscounts' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Discounts')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order'
+,
+		 dynamicBindingFunc : 			'getHeaderDiscounts'
+,
+		 namespace : 			'getCompleteOrderDetails_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		'class' : 'numericLabel blockComponent' , 
+		_sc_extensibility_moveOrder : '10' , 
+		_sc_extensibility_referenceUId : 'extn_headerDiscounts' , 
+		uId : 'extn_headerAppeasements' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Appeasements')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order'
+,
+		 dynamicBindingFunc : 			'getHeaderAppeasements'
+,
+		 namespace : 			'getCompleteOrderDetails_output'
+	}
+	}
+			}
+		}
+	 					}">
+		 	</div>  
+			<div data-dojo-type="sc/plat/dojo/widgets/ControllerWidget"
+				data-dojo-props="data_dojo_props_diff: {
+				packageName: 'isccs.order.details',
+				className: 'OrderTotal',
+				handleInit: true,
+			_sc_extensibility_operation: 'change',
+			_sc_extensibility_referenceUId: 'scrfOrderTotal',
+			scExtensionDataFn: function() {
+				return {
+				}
+			}}">
+	</div>
+		</div>

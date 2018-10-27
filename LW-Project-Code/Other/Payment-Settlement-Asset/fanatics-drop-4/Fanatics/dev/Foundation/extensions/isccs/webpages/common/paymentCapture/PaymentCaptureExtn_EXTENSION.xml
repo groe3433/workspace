@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="PaymentCaptureExtn"
+        extnPackage="extn.common.paymentCapture"
+        originalScreen="isccs.common.paymentCapture.PaymentCapture"
+        originalScreenPackage="isccs.common.paymentCapture" type="diffrential">
+        <Items>
+            <Button _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="chkSaveAgainstCustomer"
+                label="$(_scSimpleBundle:Apply)" showLabel="true"
+                spanLabel="true" uId="extn_popup_btnNext"/>
+            <Button _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="Popup_btnNext"
+                disabled="true" renderHidden="true"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="This method will validate if the user have the permission to use paypal payment method"
+                    eventId="afterScreenInit" isExtn="true" sequence="51">
+                    <Handler methodName="validateUserForPayPal"/>
+                </Subscriber>
+                <Subscriber eventId="extn_popup_btnNext_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="onTokenize"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+	<MashupRefs>
+            <Behavior>
+                <MashupRef extnType="ADD"
+                    mashupId="extn_getPaymentEncoding" mashupRefId="extn_getPaymentEncoding"/>
+            </Behavior>
+        </MashupRefs>
+        <Properties>
+        	<Property initialValue="6000" name="widgetProcessingTime" type="Number"/>
+        </Properties>
+    </ScreenExtension>
+</ExtensionMetaData>

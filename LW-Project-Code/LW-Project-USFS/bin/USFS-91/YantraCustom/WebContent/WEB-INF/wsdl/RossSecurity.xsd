@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 U (http://www.altova.com) by Mark Carlson (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="RossSecurityUtility.xsd"/>
+	<xs:complexType name="UsernameTokenType_old">
+		<xs:annotation>
+			<xs:documentation>Previous version of UsernameTokenType - deprecated</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Username" type="xs:string" form="qualified"/>
+			<xs:element ref="wsse:Password"/>
+			<xs:element name="Nonce" type="xs:string" form="qualified"/>
+			<xs:element name="Created" type="xs:dateTime" form="qualified"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UsernameTokenType">
+		<xs:annotation>
+			<xs:documentation>UsernameToken complex type that conforms to WS-Security 1.0 specification</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Username" type="xs:string" form="qualified"/>
+			<xs:element ref="wsse:Password"/>
+			<xs:element name="Nonce" type="xs:string" form="qualified"/>
+			<xs:element ref="wsu:Created"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="UsernameToken" type="wsse:UsernameTokenType">
+		<xs:annotation>
+			<xs:documentation>UsernameToken element that conforms to WS-Security 1.0 specification</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Password" type="wsse:PasswordType">
+		<xs:annotation>
+			<xs:documentation>WS-Security Password element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="PasswordType">
+		<xs:annotation>
+			<xs:documentation>PasswordType complex type containing the password string and a Type element</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Type" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="wsse:PasswordText"/>
+							<xs:enumeration value="wsse:PasswordDigest"/>
+							<xs:enumeration value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"/>
+							<xs:enumeration value="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="SecurityType_old">
+		<xs:annotation>
+			<xs:documentation>Previous version of SecurityType - deprecated</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UsernameToken" type="wsse:UsernameTokenType_old" form="qualified"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SecurityType">
+		<xs:annotation>
+			<xs:documentation>Security complex type that confirms to WS-Security 1.0 specification</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="UsernameToken" type="wsse:UsernameTokenType" form="qualified"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Security_old" type="wsse:SecurityType_old">
+		<xs:annotation>
+			<xs:documentation>Previous version of Security element - deprecated</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Security" type="wsse:SecurityType">
+		<xs:annotation>
+			<xs:documentation>Security element type that confirms to WS-Security 1.0 specification</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

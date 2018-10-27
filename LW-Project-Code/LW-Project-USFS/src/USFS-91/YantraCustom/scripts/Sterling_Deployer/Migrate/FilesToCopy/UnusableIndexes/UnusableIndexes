@@ -1,0 +1,57 @@
+#### This is step 39.c in our Sterling Migration (8.0 - 9.1) document. 
+
+#### If this query returns ANY results, we need to rebuild the indexes specified in the INDEX_NAME column so that they are "usuable". 
+select * from dba_indexes where status = 'UNUSABLE';
+
+#### Note, in all migrations so far, this seems to be a master list of indexes that are typically found to be "unusable". 
+Alter Index YFS_SUB_FLOW_TMP_PK rebuild online;
+Alter Index YFS_SUB_FLOW_PK rebuild online;
+Alter Index YFS_SUB_FLOW_I1 rebuild online;
+Alter Index YFS_GRAPH_UI_PK rebuild online;
+Alter Index YFS_GRAPH_UI_I1 rebuild online;
+Alter Index YFS_INBOX_PK rebuild online;
+Alter Index YFS_INBOX_I2 rebuild online;
+Alter Index YFS_AGENT_TEMPLATE_I1 rebuild online;
+Alter Index YFS_INBOX_I3 rebuild online;
+Alter Index YFS_INBOX_I4 rebuild online;
+Alter Index YFS_INBOX_I5 rebuild online;
+Alter Index YFS_INBOX_I6 rebuild online;
+Alter Index YFS_INBOX_I7 rebuild online;
+Alter Index YFS_INBOX_I8 rebuild online;
+Alter Index YFS_INBOX_I9 rebuild online;
+Alter Index YFS_INBOX_I1 rebuild online;
+Alter Index YFS_AGENT_CRITERIA_TEMPLATE_PK rebuild online;
+Alter Index YFS_AGENT_CRITERIA_PK rebuild online;
+Alter Index YFS_AGENT_CRITERIA_ID_I1 rebuild online;
+Alter Index YFS_BASE_DOCUMENT_TEMPLATE_PK rebuild online;
+Alter Index YFS_BASE_DOCUMENT_TEMPLATE_I1 rebuild online;
+Alter Index YFS_DOCUMENT_PARAMS_PK rebuild online;
+Alter Index YFS_DOCUMENT_PARAMS_I1 rebuild online;
+Alter Index YFS_EXPORT_PK rebuild online;
+Alter Index YFS_EXPORT_I1 rebuild online;
+Alter Index YFS_EXPORT_I2 rebuild online;
+Alter Index YFS_SAVED_SEARCH_PK rebuild online;
+Alter Index YFS_SAVED_SEARCH_I1 rebuild online;
+Alter Index YFS_DEVICE_PK rebuild online;
+Alter Index YFS_DEVICE_I1 rebuild online;
+Alter Index YFS_DEVICE_TYPE_TEMPLATE_PK rebuild online;
+Alter Index YFS_DEVICE_TYPE_TEMPLATE_I1 rebuild online;
+Alter Index YFS_BATCH_PK rebuild online;
+Alter Index YFS_BATCH_I1 rebuild online;
+Alter Index YFS_BATCH_I2 rebuild online;
+Alter Index YFS_BASE_DOCUMENT_PARAMS_PK rebuild online;
+Alter Index YFS_B_DOCPARAMS_I1 rebuild online;
+Alter Index YFS_DOCUMENT_TEMPLATE_PK rebuild online;
+Alter Index YFS_DOCUMENT_TEMPLATE_I1 rebuild online;
+Alter Index YFS_AUDIT_PK rebuild online;
+Alter Index YFS_AUDIT_I1 rebuild online;
+Alter Index NWCG_IB_MSG_KEY rebuild online;
+Alter Index NWCG_IB_MSG_I2 rebuild online;
+Alter Index NWCG_IB_MSG_I3 rebuild online;
+Alter Index NWCG_IB_MSG_CREATETS rebuild online;
+Alter Index NWCG_IB_MSG_MODIFYTS rebuild online;
+Alter Index NWCG_OB_MSG_KEY rebuild online;
+Alter Index NWCG_OB_MSG_I2 rebuild online;
+Alter Index NWCG_OB_MSG_I3 rebuild online;
+Alter Index NWCG_OB_MSG_CREATETS rebuild online;
+Alter Index NWCG_OB_MSG_MODIFYTS rebuild online;

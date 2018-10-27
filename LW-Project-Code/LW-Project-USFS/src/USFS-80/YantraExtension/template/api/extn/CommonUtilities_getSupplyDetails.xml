@@ -1,0 +1,9 @@
+<Item ItemID="" ProductClass="" ShortDescription="" UnitOfMeasure="">
+	<ShipNodes>
+		<ShipNode AvailableQty="">
+			<Supplies>
+				<Supply AvailableQty="" SupplyType="" TotalQuantity=""/>
+			</Supplies>
+		</ShipNode>
+	</ShipNodes>
+</Item>

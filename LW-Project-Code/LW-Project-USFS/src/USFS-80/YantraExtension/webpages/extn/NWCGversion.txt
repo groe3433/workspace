@@ -1,0 +1,2 @@
+Release Version: ICBSR V 0.47.1
+Release Date: 01/10/2008

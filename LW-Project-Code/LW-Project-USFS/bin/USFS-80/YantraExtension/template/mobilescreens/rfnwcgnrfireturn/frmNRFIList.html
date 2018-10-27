@@ -1,0 +1,60 @@
+<html>
+<body>
+<form name="frmNRFIList" target="/console/rfnwcgnrfireturn.ppc">
+<table border="1">
+	<tr>
+		<td>
+		<table border="0" width="300">
+			<tr>
+				<td><input col="10" mandatory="false" size="20" subtype="Label"
+					tag="binding=lblREturnItemList" type="text" validate="false"
+					value="NRFI Return Item List" /></td>
+			</tr>
+			<tr />
+			<tr>
+				<td><input col="1" mandatory="false" size="20" subtype="Label"
+					tag="binding=lblItemList" type="text" validate="false"
+					value="Item List" /></td>
+			</tr>
+			<tr>
+				<td>
+				<table binding="/ReturnItemList/@Item" col="1" gridcols="6"
+					gridrows="5" id="Item" mandatory="false" name="gridReturnItemList"
+					namespace="ReturnItemList" size="20"
+					tag="binding=gridReturnItemList" validate="false">
+					<tr>
+						<td><input colno="0" colName=" " size="0" type="hidden"
+							value="/console/rfnwcgnrfireturn.ppc?action=frmNRFIDeleteFromTempQ" />
+						<input colno="1" colName="1" inputbinding="xml:/Item/@ItemID"
+							outputbinding="xml:/Item/@ItemID" size="0" type="hidden" /> <input
+							colno="2" colName="1" inputbinding="xml:/Item/@Quant"
+							outputbinding="xml:/Item/@Quant" size="0" type="hidden" /> <input
+							colno="3" colName="1" inputbinding="xml:/Item/@LPNNo"
+							outputbinding="xml:/Item/@LPNNo" size="0" type="hidden" /> <input
+							colno="4" colName="Item/Track ID"
+							inputbinding="xml:/Item/@ItemID" size="15" type="text" /> <input
+							colno="5" colName="Qty" inputbinding="xml:/Item/@Quant" size="5"
+							type="text" /> <input colno="6" colName="LPNNo"
+							inputbinding="xml:/Item/@LPNNo" size="15" type="text" /></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr />
+			<tr />
+			<tr />
+			<tr />
+			<tr />
+			<tr>
+				<td><input col="1" hotkey="F4" name="Go" size="15"
+					subtype="Command" tag=" " type="button"
+					url="/console/rfnwcgnrfireturn.ppc?action=frmNRFIAddItemInput"
+					validate="false" value="Add New Item" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</body>
+</html>

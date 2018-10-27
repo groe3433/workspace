@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:cat="http://nwcg.gov/services/ross/catalog/1.1" xmlns:ns="http://nwcg.gov/services/ross/catalog/1.1" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nwcg.gov/services/ross/catalog/wsdl/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Catalog_WSDL" targetNamespace="http://nwcg.gov/services/ross/catalog/wsdl/1.1">
+	<types>
+		<xs:schema version="1.1">
+			<xs:import namespace="http://nwcg.gov/services/ross/catalog/1.1" schemaLocation="../Catalog.xsd"/>
+			<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="../RossCommon.xsd"/>
+			<xs:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="../RossSecurity.xsd"/>
+		</xs:schema>
+	</types>
+	<message name="CreateCatalogItemReq">
+		<part element="cat:CreateCatalogItemReq" name="body"/>
+	</message>
+	<message name="CreateCatalogItemResp">
+		<part element="cat:CreateCatalogItemResp" name="body"/>
+	</message>
+	<message name="DeleteCatalogItemReq">
+		<part element="cat:DeleteCatalogItemReq" name="body"/>
+	</message>
+	<message name="DeleteCatalogItemResp">
+		<part element="cat:DeleteCatalogItemResp" name="body"/>
+	</message>
+	<message name="GetCatalogItemReq">
+		<part element="cat:GetCatalogItemReq" name="body"/>
+	</message>
+	<message name="GetCatalogItemResp">
+		<part element="cat:GetCatalogItemResp" name="body"/>
+	</message>
+	<message name="UpdateCatalogItemReq">
+		<part element="cat:UpdateCatalogItemReq" name="body"/>
+	</message>
+	<message name="UpdateCatalogItemResp">
+		<part element="cat:UpdateCatalogItemResp" name="body"/>
+	</message>
+	<message name="CatalogHeaderMessage">
+		<part element="wsse:Security" name="SecurityToken"/>
+		<part element="nwcg:MessageContext" name="MessageContext"/>
+	</message>
+	<portType name="CatalogInterface">
+		<documentation>CatalogInterface PortType - operation response messages returned for synchronous operation</documentation>
+		<operation name="CreateCatalogItem">
+			<input message="tns:CreateCatalogItemReq"/>
+			<output message="tns:CreateCatalogItemResp"/>
+		</operation>
+		<operation name="DeleteCatalogItem">
+			<input message="tns:DeleteCatalogItemReq"/>
+			<output message="tns:DeleteCatalogItemResp"/>
+		</operation>
+		<operation name="GetCatalogItem">
+			<input message="tns:GetCatalogItemReq"/>
+			<output message="tns:GetCatalogItemResp"/>
+		</operation>
+		<operation name="UpdateCatalogItem">
+			<input message="tns:UpdateCatalogItemReq"/>
+			<output message="tns:UpdateCatalogItemResp"/>
+		</operation>
+	</portType>
+	<binding name="CatalogBinding" type="tns:CatalogInterface">
+		<documentation>Catalog Binding - All request messages must contain SecurityToken and MessageContext headers and one request message in the body</documentation>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="CreateCatalogItem">
+			<soap:operation soapAction="urn:#CreateCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="DeleteCatalogItem">
+			<soap:operation soapAction="urn:#DeleteCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetCatalogItem">
+			<soap:operation soapAction="urn:#GetCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="UpdateCatalogItem">
+			<soap:operation soapAction="urn:#UpdateCatalogItem" style="document"/>
+			<input>
+				<soap:header message="tns:CatalogHeaderMessage" part="SecurityToken" use="literal"/>
+				<soap:header message="tns:CatalogHeaderMessage" part="MessageContext" use="literal"/>
+				<soap:body parts="body" use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="CatalogService">
+		<documentation>CatalogPort supports only SOAP 1.0 document/literal style messages posted via HTTPS. See additional documentation in WSDL text.</documentation>
+		<port binding="tns:CatalogBinding" name="CatalogPort">
+			<documentation>Integration Test Endpoint</documentation>
+			<soap:address location="http://localhost:9080/JAX-WS-Server/CatalogService"/>
+		</port>
+	</service>
+</definitions>

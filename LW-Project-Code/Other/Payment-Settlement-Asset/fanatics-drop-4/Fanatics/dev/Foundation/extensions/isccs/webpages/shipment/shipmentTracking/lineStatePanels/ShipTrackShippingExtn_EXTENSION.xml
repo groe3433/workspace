@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ShipTrackShippingExtn"
+        extnPackage="extn.shipment.shipmentTracking.lineStatePanels"
+        originalScreen="isccs.shipment.shipmentTracking.lineStatePanels.ShipTrackShipping"
+        originalScreenPackage="isccs.shipment.shipmentTracking.lineStatePanels" type="diffrential">
+        <Items>
+            <ContentPane _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="pnlAdditionalInfo" colspan="2"/>
+            <ContentPane _sc_extensibility_operation="change" _sc_extensibility_referenceUId="pnlAdditionalLineInfo"/>
+            <ContentPane _sc_extensibility_operation="change" _sc_extensibility_referenceUId="pnlGridContainer"/>
+            <ContentPane _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlAdditionalInfo" uId="pnlGridContainer"/>
+            <ContentPane _sc_extensibility_moveOrder="5"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlAdditionalInfo" uId="pnlGridContainer"/>
+            <ContentPane _sc_extensibility_moveOrder="6"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlAdditionalLineInfo" uId="pnlGridContainer"/>
+            <ContentPane _sc_extensibility_moveOrder="7"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="last"
+                _sc_extensibility_referenceUId="pnlAdditionalInfo" uId="pnlGridContainer"/>
+            <ContentPane _sc_extensibility_moveOrder="8"
+                _sc_extensibility_operation="move"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblContainerNo" uId="pnlGridContainer"/>
+            <Link _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lnkTrackingNo" renderHidden="false"/>
+            <DataLabel _sc_extensibility_moveOrder="10"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="lblQuantityValue"
+                label="$(_scSimpleBundle:CarrierService)" uId="extn_lblCarrierValue">
+                <BindingData>
+                    <SourceBinding namespace="TrackingData" path="ShipmentLine.Shipment.CarrierServiceCode"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="2"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="pnlTrackingNo"
+                label="$(_scBundle:extn_Shipment_Method)" uId="extn_ship_method">
+                <BindingData>
+                    <SourceBinding namespace="TrackingData" path="ShipmentLine.Shipment.SCAC"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_moveOrder="4"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="extn_ship_method"
+                label="$(_scBundle:extn_Return_Shipment_Tracking_Number)" uId="extn_return_tracking_no">
+                <BindingData>
+                    <SourceBinding namespace="TrackingData" path="ContainerDetail.Container.Extn.ExtnReturnTrackingNo"/>
+                </BindingData>
+            </DataLabel>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblStatusValue" renderHidden="true"/>
+            <DataLabel _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblCarrierValue" renderHidden="true"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber eventId="extn_lnkTrackingNo_onClick"
+                    isExtn="true" sequence="51">
+                    <Handler methodName="openTrackingUrl"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

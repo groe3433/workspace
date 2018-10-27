@@ -1,0 +1,15 @@
+<!-- ReceivedAsComponent = This flag is to indicate that the kit item was received as components.
+							FYI - A Kit can be received as component or as whole kit 
+	IsComponent	 = This flag is set to indicate that the receipt is for a component. ie this item
+					was shipped out as part of a kit item.	--> 
+					
+<Return  IncidentNo="Required" CacheID="Name Of The Node" LocationId="Receiving Dock" EnterpriseCode="Required">
+<ReturnLines>
+<!-- Added DispostionCode in the receipt line-->
+<ReturnLine	BatchNo="" DispositionCode="Not Required" ItemID="Required" LotAttribute1="" LotAttribute2="" 
+LotAttribute3="" LotKeyReference="" LotNumber=""   ProductClass="Required" TagNumber="" UnitOfMeasure="Required" 
+QuantityNRFI="Required(>=0)" QuantityRFI="Required(>=0)" QuantityReturned="Required(>=0)" 
+QuantityShipped="Required(>=0)" QuantityUnsNwtReturn="Required(>=0)"  QuantityUnsRet="Required(>=0)" 
+ReceivedAsComponent="Y/N" TrackableID="Required If Serially Tracked" UnitPrice="" IsComponent="True/False"/>
+</ReturnLines>
+</Return>

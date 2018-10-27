@@ -1,0 +1,350 @@
+<div class="sc-platform-screen-default manageInstruction">
+<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="
+						
+		spanLabel: true,'class' : 'isccsScreen',
+		colspan : 1,
+		layoutAlign: 'top',
+		uId : 'extn_ManageInstruction' 
+	 					">
+		 	
+   <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="style : 'padding-left: 10px;', 'class' : 'primaryTitlePane',	spanLabel : true ,
+		uId : 'pnlPrimaryInfo'
+ ">
+<div data-dojo-type="idx/form/RadioButtonSet" data-dojo-props="	groupAlignment : 'horizontal' , 
+		sortByLabel : false , 
+		name : 'instructionType' , 
+		uId : 'instructionType'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_instructionType')
+,	
+			 	bindingData : 	{
+				sourceBinding : 	{
+		 path : 			'InstructionType'
+,
+		 namespace : 			'resetModel'
+	}
+,
+		 radioBinding : 	{
+		 options : 	[
+	 		{
+		 label : 			this.getSimpleBundleString('extn_freeze')
+,
+		 value : 			this.getSimpleBundleString('extn_freeze')
+	}
+,
+	 		{
+		 label : 			this.getSimpleBundleString('extn_packslip')
+,
+		 value : 			this.getSimpleBundleString('extn_packslip')
+	}
+	]
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.Instructions.Instruction.InstructionType'
+,
+		 namespace : 			'extn_ChangeOrderForManageInstruction'
+	}
+	]
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/Textarea" data-dojo-props="		cols : 40 , 
+		'class' : 'noteText' , 
+		uId : 'txtInstructionText', 
+		required : true 
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_instructionText')
+,	
+			 	bindingData : 	{
+				sourceBinding : 	{
+		 path : 			'InstructionText'
+,
+		 namespace : 			'resetModel'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.Instructions.Instruction.InstructionText'
+,
+		 namespace : 			'extn_ChangeOrderForManageInstruction'
+	}
+	]
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="dijit/form/Button" data-dojo-props="		'class' : 'addIconButton' , 
+		colspan : 1 , 
+		uId : 'addInstruction' , 
+		iconClass : 'icon-add'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Add_Item')
+			}
+		}
+"></div>
+</div>
+ <div data-dojo-type="sc/plat/dojo/layout/AdvancedTableLayout" data-dojo-props="	'class' : 'orderpricingsummarylines',	showLabels : false , 
+		cols : 2 , 
+		customClass : 'returnReviewLines'  
+ ">
+<div data-dojo-type="gridx/Grid" data-dojo-props="		spanLabel : true , 
+		autoWidth : false , 
+		uId : 'grdInstructions' , 
+		autoHeight : true , 
+		cacheClass : 'gridx/core/model/cache/Async'  
+ 			 , modules : 	[
+	 		{
+		 moduleClass : 			'gridx/modules/ColumnWidth'
+,
+		 autoResize : 			true
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/HLayout'
+	}
+	]
+		,scParamDataFn :
+		 function() { 
+			return { 
+			 	toolBar : 	[
+	]
+,	
+			 	structure : 	[
+	 		{
+		 field : 			'InstructionType'
+,
+		 uId : 			'vwInstructionType'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'InstructionType'
+	}
+	}
+,
+		 width : 			'30%'
+,
+		 name : 			this.getSimpleBundleString('extn_instructionType')
+	}
+,
+	 		{
+		 field : 			'InstructionText'
+,
+		 uId : 			'vwInstructionText'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'InstructionText'
+	}
+	}
+,
+		 width : 			'60%'
+,
+		 name : 			this.getSimpleBundleString('extn_instructionText')
+	}
+,
+	 		{
+		 field : 			'InstructionDetailKey'
+,
+		 uId : 			'tblColInstructionDetailKey'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'InstructionDetailKey'
+	}
+,
+		 tFieldBinding : 	{
+		 path : 			'InstructionDetailKey'
+	}
+	}
+,
+		 unique : 			true
+,
+		 width : 			'0%'
+,
+		 name : 			'InstructionDetailKey'
+	},
+	 		{
+		 field : 			'DeleteInstruction'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 hasLinkImage : 			true
+,
+		 tooltipDynamicBindingFunc : 			'getAltForDeleteInstruction'
+,
+		 stylingInfoClassName : 			'OrderUtils'
+,
+		 stylingInfoPackage : 			'isccs.utils'
+,
+		 dynamicBindingFunc : 			'getCellImageForDeleteOrderLineIconForLink'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 stylingInfoFunc : 			'handleDeleteOrderLineIconForLink'
+,
+		 dynamicBindingClassName : 			'OrderUtils'
+,
+		 tooltipDynamicBindingClassName : 			'CustomUtils'
+,
+		 tooltipDynamicBindingPackage : 			'extn.utils'
+	}
+	}
+,
+		 aria_label : 			this.getSimpleBundleString('arialabel_delete_orderline_Link')
+,
+		 linkField : 			true
+,
+		 width : 			'8%'
+,
+		 name : 			this.getSimpleBundleString('blank')
+,
+		 uId : 			'DeleteInstruction'
+	}
+	]
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'Order.Instructions.Instruction'
+,
+		 namespace : 			'extn_getCompleteOrderDetails_output'
+	}
+,
+		 targetBinding : 	[
+	]
+	}
+,	
+			 	bodyLoadingInfo : 			this.getSimpleBundleString('Loading')
+,	
+			 	bodyEmptyInfo : 			this.getSimpleBundleString('NoSearchResults')
+			}
+		}
+"></div>
+<div data-dojo-type="idx/layout/ContentPane" data-dojo-props="style : 'padding-left: 10px;',	spanLabel : true , 
+		'class' : 'floatRight inline' , 
+		uId : 'updateButtonContainer'  
+ ">
+<div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSpecialButton floatRight saveButtonAlign' , 
+		showLabel : true , 
+		disabled : true,
+		uId : 'updateInstruction'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Update')
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/RadioButtonSet" data-dojo-props="		groupAlignment : 'horizontal' , 
+		sortByLabel : false , 
+		name : 'instructionTypeUpd' , 
+		uId : 'instructionTypeUpd'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_instructionType')
+,	
+			 	bindingData : 	{
+				sourceBinding : 	{
+		 path : 			'InstructionType'
+,
+		 namespace : 			'selectedInstruction'
+	}
+,
+		 radioBinding : 	{
+		 options : 	[
+	 		{
+		 label : 			this.getSimpleBundleString('extn_freeze')
+,
+		 value : 			this.getSimpleBundleString('extn_freeze')
+	}
+,
+	 		{
+		 label : 			this.getSimpleBundleString('extn_packslip')
+,
+		 value : 			this.getSimpleBundleString('extn_packslip')
+	}
+	]
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.Instructions.Instruction.InstructionType'
+,
+		 namespace : 			'extn_ChangeOrderForManageInstructionUpd'
+	}
+	]
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/Textarea" data-dojo-props="		cols : 40 , 
+		'class' : 'noteText' , 
+		uId : 'txtInstructionTextUpd', 
+		required : true 
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_instructionText')
+,	
+			 	bindingData : 	{
+				sourceBinding : 	{
+		 path : 			'InstructionText'
+,
+		 namespace : 			'selectedInstruction'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.Instructions.Instruction.InstructionText'
+,
+		 namespace : 			'extn_ChangeOrderForManageInstructionUpd'
+	}
+	]
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="sc/plat/dojo/widgets/Label" data-dojo-props="		spanLabel : true , 
+		uId : 'lblInstructionKey' , 
+		renderHidden : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	value : 			this.getSimpleBundleString('Label_addlinesToOrder_orderBeyondStatus')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'InstructionDetailKey'
+,
+		 namespace : 			'selectedInstruction'
+	},
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order.Instructions.Instruction.InstructionDetailKey'
+,
+		 namespace : 			'extn_ChangeOrderForManageInstructionUpd'
+	}
+	]
+	}
+			}
+		}
+"></div>
+ </div>
+</div>
+</div>
+			

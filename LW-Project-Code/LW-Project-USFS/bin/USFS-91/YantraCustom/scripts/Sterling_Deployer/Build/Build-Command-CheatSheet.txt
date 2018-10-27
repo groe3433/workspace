@@ -1,0 +1,3 @@
+./BuildICBS.sh buildicbsjar
+./BuildICBS.sh buildresourcejar
+./BuildICBS.sh build-smcfs

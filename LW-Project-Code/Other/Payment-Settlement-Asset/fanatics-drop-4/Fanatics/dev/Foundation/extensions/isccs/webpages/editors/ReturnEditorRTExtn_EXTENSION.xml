@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="ReturnEditorRTExtn"
+        extnPackage="extn.editors"
+        originalScreen="isccs.editors.ReturnEditorRT"
+        originalScreenPackage="isccs.editors" type="diffrential">
+        <Items>
+            <Link _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="after"
+                _sc_extensibility_referenceUId="WhyWasICharged_Return"
+                resourceId="extnMRLFEE" uId="extn_waive_mrl_fee" value="$(_scSimpleBundle:extn_mrl_fee_title)"/>
+        </Items>
+        <Subscribers>
+            <Local>
+                <Subscriber
+                    description="This method will open the wavie mrl fee popup"
+                    eventId="extn_waive_mrl_fee_onClick" isExtn="true" sequence="51">
+                    <Handler methodName="openWavieMRLFeePopup"/>
+                </Subscriber>
+            </Local>
+        </Subscribers>
+    </ScreenExtension>
+</ExtensionMetaData>

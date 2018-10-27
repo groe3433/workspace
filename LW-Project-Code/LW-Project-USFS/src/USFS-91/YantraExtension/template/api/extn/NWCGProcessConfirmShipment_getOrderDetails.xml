@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Order OrderNo="" ReqShipDate="">
+	<Extn />
+	<OrderLines>
+		<OrderLine OrderLineKey="" PrimeLineNo="">
+			<Item ItemID="" UnitOfMeasure="" ProductClass="" />
+			<LinePriceInfo ActualPricingQty="" LineTotal=""
+				ListPrice="" OrderedPricingQty="" PricingUOM="" RetailPrice=""
+				UnitPrice="" />
+			<Extn ExtnSystemNo="" />
+		</OrderLine>
+	</OrderLines>
+</Order>

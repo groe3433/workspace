@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+	<configsynch>
+		<Settings MaxChangesToDisplay="100" ReportsDir="">
+			<AuditDeployment ValidateLockid="N" ValidateOldValues="Y" ValidateRecordExistsBeforeDelete="Y"/>
+		</Settings>
+		<SourceDatabases>
+			<Database Name="FANATICS_FILE_CDT" className="" dbType="xml" folder="/opt/IBM/CDT" jdbcURL="" schema="" user=""/>
+			<Database Name="FANATICS_MASTER_CFG" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@52.71.225.108:1521:fanstdev" schema="OMSMC94" user="OMSMC94"/>
+			<Database Name="FANATICS_DEV" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@52.71.225.108:1521:fanstdev" schema="FANUSRDV" user="fanusrdv"/>
+			<Database Name="FANATICS_QA" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@10.157.174.71:1521:fanstdev" schema="QA1OMS" user="QA1OMS"/>
+			<Database Name="FANATICS_QC" className="oracle.jdbc.OracleDriver" dbType="oracle" folder=""
+			          jdbcURL="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = qc-or-scan.fanatics.corp)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = qc1omsoltp)))" schema="STERLING" user="sterling"/>
+			<Database Name="FANATICS_PROD" className="oracle.jdbc.OracleDriver" dbType="oracle" folder=""
+			          jdbcURL="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = iad-or-scan.fanatics.corp)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = STRLN_TXN)))" schema="STERLING" user="sterling"/>
+		</SourceDatabases>
+		<TargetDatabases>
+			<Database Name="FANATICS_FILE_CDT" className="" dbType="xml" folder="/opt/IBM/CDT" jdbcURL="" schema="" user=""/>
+			<Database Name="FANATICS_LOCAL" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@localhost:1521:orcl" schema="sterling" user="sterling"/>
+			<Database Name="FANATICS_DEV" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@52.71.225.108:1521:fanstdev" schema="FANUSRDV" user="fanusrdv"/>
+			<Database Name="FANATICS_QA" className="oracle.jdbc.OracleDriver" dbType="oracle" folder="" jdbcURL="jdbc:oracle:thin:@10.157.174.71:1521:fanstdev" schema="QA1OMS" user="QA1OMS"/>
+			<Database Name="FANATICS_QC" className="oracle.jdbc.OracleDriver" dbType="oracle" folder=""
+			          jdbcURL="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = qc-or-scan.fanatics.corp)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = qc1omsoltp)))" schema="STERLING" user="sterling"/>
+			<Database Name="FANATICS_PROD" className="oracle.jdbc.OracleDriver" dbType="oracle" folder=""
+			          jdbcURL="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = iad-or-scan.fanatics.corp)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = STRLN_TXN)))" schema="STERLING" user="sterling"/>
+		</TargetDatabases>
+		<SourceTargetPrefs>
+			<SourceTargetPrefs>
+				<SourceTargetPair SourceDatabase="FANATICS_MASTER_CFG" TargetDatabase="FANATICS_FILE_CDT">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_MASTER_CFG" TargetDatabase="FANATICS_DEV">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_MASTER_CFG" TargetDatabase="FANATICS_QA">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_MASTER_CFG" TargetDatabase="FANATICS_QC">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_MASTER_CFG" TargetDatabase="FANATICS_PROD">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_FILE_CDT" TargetDatabase="FANATICS_DEV">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_FILE_CDT" TargetDatabase="FANATICS_QA">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_FILE_CDT" TargetDatabase="FANATICS_QC">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_FILE_CDT" TargetDatabase="FANATICS_PROD">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_DEV" TargetDatabase="FANATICS_FILE_CDT">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_QA" TargetDatabase="FANATICS_FILE_CDT">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_QC" TargetDatabase="FANATICS_FILE_CDT">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+				<SourceTargetPair SourceDatabase="FANATICS_PROD" TargetDatabase="FANATICS_FILE_CDT">
+					<Ignore>
+						<Table Name="YFS_ITEM_PRICE_SET"/>
+						<Table Name="YFS_ITEM"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+						<Table Name="YFS_CATEGORY_ITEM"/>
+					</Ignore>
+					<AppendOnly>
+						<Table Name="YFS_ORGANIZATION"/>
+						<Table Name="YFS_SHIP_NODE"/>
+						<Table Name="YFS_VENDOR"/>
+						<Table Name="YFS_CONSUMER"/>
+						<Table Name="YFS_CUSTOMER_CONTACT"/>
+						<Table Name="YFS_CUSTOMER_PAYMENT_METHOD"/>
+						<Table Name="YFS_CUSTOMER_ADDNL_ADDRESS"/>
+						<Table Name="YFS_CUSTOMER_SCH_PREFERENCE"/>
+						<Table Name="YFS_CUSTOMER_SLOT_PREFERENCE"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY_GRP"/>
+						<Table Name="YFS_TRANSACTION_DEPENDENCY"/>
+						<Table Name="YFS_ORG_ENTERPRISE"/>
+						<Table Name="YFS_PERSON_INFO"/>
+						<Table Name="YFS_ESP_TERMS"/>
+						<Table Name="YFS_ALLOCATION_RULE"/>
+						<Table Name="YFS_SERVICE_SLOT_GROUP"/>
+						<Table Name="YFS_SOURCING_CONFIG"/>
+						<Table Name="YFS_ENT_NODE_TYPE"/>
+						<Table Name="YFS_INV_NODE_TYPE"/>
+						<Table Name="YFS_ROUTING_GUIDE"/>
+						<Table Name="YFS_ROUTING_GUIDE_DETAIL"/>
+						<Table Name="YFS_ROUTING_GUIDE_ATTR"/>
+						<Table Name="YFS_ROUTING_GUIDE_DTL_CARRIER"/>
+						<Table Name="YFS_INBOUND_COMPLIANCE"/>
+						<Table Name="YFS_OUTBOUND_CONSTRAINTS"/>
+						<Table Name="YFS_BUYER_INSTRUCTION"/>
+						<Table Name="YFS_USER_GROUP"/>
+						<Table Name="YFS_USER_GROUP_LIST"/>
+						<Table Name="YFS_DATA_SECURITY_GROUP"/>
+						<Table Name="YFS_DATA_SECURITY_DOC_TYPE"/>
+						<Table Name="YFS_ITEM_ALIAS"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSC_SKILL"/>
+						<Table Name="YFS_ITEM_SERVICE_ASSOC"/>
+						<Table Name="YFS_ITEM_SERVICE_SKILL"/>
+						<Table Name="YFS_ITEM_UOM"/>
+						<Table Name="YFS_ITEM_UOM_MASTER"/>
+						<Table Name="YFS_ITEM_INSTRUCTION"/>
+						<Table Name="YFS_ITEM_INSTRUCTION_CODE"/>
+						<Table Name="YFS_ITEM_SHIP_NODE"/>
+					</AppendOnly>
+				</SourceTargetPair>
+			</SourceTargetPrefs>
+		</SourceTargetPrefs>
+	</configsynch>
+</preferences>

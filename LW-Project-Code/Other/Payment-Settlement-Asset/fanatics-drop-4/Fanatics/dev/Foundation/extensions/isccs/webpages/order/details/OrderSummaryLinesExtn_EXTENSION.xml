@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderSummaryLinesExtn"
+        extnPackage="extn.order.details"
+        originalScreen="isccs.order.details.OrderSummaryLines"
+        originalScreenPackage="isccs.order.details" type="diffrential">
+        <Items>
+            <GridX _sc_extensibility_operation="change" _sc_extensibility_referenceUId="OLST_listGrid">
+                <Structure>
+                    <Layout>
+                        <View _sc_extensibility_moveOrder="1"
+                            _sc_extensibility_operation="change"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColQuantity"
+                            uId="tblColQuantity" width="9%"/>
+                        <View _sc_extensibility_moveOrder="2"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColUnitPrice"
+                            field="extn_PromisedShipDate"
+                            name="$(_scSimpleBundle:extn_Promised_Ship_Date)"
+                            uId="extn_Promisedshipdate" width="20%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="CustomUtils"
+                                    dynamicBindingFunc="getDateFromOrderDate"
+                                    dynamicBindingPackage="extn.utils" path="PROMISED_SHIP_DATE"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="3"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_Promisedshipdate"
+                            field="extn_Revisedshipdate"
+                            name="$(_scSimpleBundle:extn_Revised_Ship_Date_Reason1)"
+                            uId="extn_Revisedshipdate" width="20%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getRevisedShipDateAndReason" path="REVISED_SHIP_DATE"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="4"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_Revisedshipdate"
+                            field="extn_Revisedshipdatereason"
+                            hidden="true"
+                            name="$(_scSimpleBundle:extn_Shipped_Date)" uId="extn_Revisedshipdatereason"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColDeliveryMethod"
+                            hidden="true" uId="tblColDeliveryMethod"/>
+                        <View _sc_extensibility_moveOrder="5"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_Revisedshipdatereason"
+                            field="extn_fulfillmentlocation"
+                            name="$(_scSimpleBundle:extn_Fulfillment_Location)"
+                            uId="extn_fulfillmentlocation" width="15%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getShipNodeFromShipment" path="Shipment.ShipNode"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="6"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColPrimeLineNo"
+                            field="extn_product" hidden="false"
+                            name="$(_scSimpleBundle:extn_Product)"
+                            uId="extn_product" width="36%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getProductHTML"
+                                    dynamicBindingPackage="isccs.utils" path="ItemDetails.PrimaryInformation.ShortDescription"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            hidden="true" uId="tblColProductAddItems"/>
+                        <View _sc_extensibility_moveOrder="7"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="tblColProductAddItems"
+                            field="extn_Item_Line"
+                            name="$(_scSimpleBundle:extn_Item_Line_)"
+                            uId="extn_Item_Line" width="7%">
+                            <BindingData>
+                                <SourceBinding path="PrimeLineNo"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColPrimeLineNo"
+                            hidden="true" uId="tblColPrimeLineNo"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColUnitPrice"
+                            name="$(_scSimpleBundle:UnitPrice)"
+                            uId="tblColUnitPrice" width="8%"/>
+                        <View _sc_extensibility_moveOrder="8"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColStatus"
+                            field="extn_Linestatus"
+                            name="$(_scSimpleBundle:extn_Line_Status)"
+                            uId="extn_Linestatus" width="13%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingClassName="OrderLineUtils"
+                                    dynamicBindingFunc="getStatusHTML"
+                                    dynamicBindingPackage="isccs.utils" path="DisplayStatus"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColStatus"
+                            hidden="true" uId="tblColStatus"/>
+                        <View _sc_extensibility_moveOrder="9"
+                            _sc_extensibility_operation="insert"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_fulfillmentlocation"
+                            field="extn_shipdate"
+                            name="$(_scSimpleBundle:extn_Shipped_Date)"
+                            uId="extn_shipdate" width="20%">
+                            <BindingData>
+                                <SourceBinding
+                                    dynamicBindingFunc="getActualShipDateFromShipment" path="Shipment.ActualShipmentDate"/>
+                            </BindingData>
+                        </View>
+                        <View _sc_extensibility_moveOrder="10"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="before"
+                            _sc_extensibility_referenceUId="extn_fulfillmentlocation" uId="extn_shipdate"/>
+                        <View _sc_extensibility_moveOrder="11"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="extn_Item_Line" uId="extn_product"/>
+                        <View _sc_extensibility_operation="change"
+                            _sc_extensibility_referenceUId="tblColExpectedOn"
+                            uId="tblColExpectedOn" width="14%"/>
+                        <View _sc_extensibility_moveOrder="12"
+                            _sc_extensibility_operation="move"
+                            _sc_extensibility_position="after"
+                            _sc_extensibility_referenceUId="tblColUnitPrice" uId="tblColQuantity"/>
+                    </Layout>
+                </Structure>
+            </GridX>
+        </Items>
+        <MashupRefs>
+            <Init>
+                <MashupRef
+                    mashupId="OrderSummaryLines_getCompleteOrderLineList"
+                    mashupRefId="getCompleteOrderLineList_Init"
+                    pageSize="1" pageSizeType="OrderLine"
+                    paginationStrategy="NEXTPAGE" sourceNamespace="getCompleteOrderLineList_output"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

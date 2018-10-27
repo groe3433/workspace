@@ -1,0 +1,1 @@
+select * from OMCTMETA.PT_OpenOrder_Report_Temp;

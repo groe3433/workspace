@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataTypes>
+   <DataType Name="NatCriticalItem" Size="1" Type="CHAR">
+        <UIType Size="1" UITableSize="1" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="PublishToRoss" Size="1" Type="CHAR">
+        <UIType Size="1" UITableSize="1" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="RossResourceItem" Size="1" Type="CHAR">
+        <UIType Size="1" UITableSize="1" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="OwnerUnitId" Size="10" Type="VARCHAR2">
+        <UIType Size="10" UITableSize="10" DisplayInUI="false"/>
+    </DataType>
+	<DataType Name="IATAProperShippingName" Size="512" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="IATAHazardClass" Size="15" Type="VARCHAR2">
+        <UIType Size="15" UITableSize="10" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="IATAUNNumber" Size="10" Type="CHAR">
+        <UIType Size="10" UITableSize="10" DisplayInUI="true"/>
+    </DataType>
+   <DataType Name="IATAPackingGroup" Size="5" Type="VARCHAR2">
+        <UIType Size="5" UITableSize="5" DisplayInUI="true"/>
+    </DataType>
+    <DataType Name="ExtnCacheType" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnOwnerAgency" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnFiscalYear" Size="5" Type="CHAR">
+        <UIType Size="5" UITableSize="5" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnDocumentNo" Size="5" Type="CHAR">
+        <UIType Size="5" UITableSize="5" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnBillingTransFileName" Size="100" Type="VARCHAR2">
+        <UIType Size="100" UITableSize="100" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnCacheStartDate" Size="20" Type="DATE">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+    <DataType Name="ReasonCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40"/>
+    </DataType>
+
+	<DataType Name="ExtnCacheShipAcctCode" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+
+	<DataType Name="ExtnCacheReceiveAcctCode" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+
+	<DataType Name="ExtnCacheAdjustAcctCode" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+
+	<DataType Name="ExtnCacheOffsetAcctCode" Size="40" Type="CHAR">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+
+    <DataType Name="DocumentNum" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40"/>
+    </DataType>
+
+    <DataType Name="IncidentTeamName" Size="40" Type="VARCHAR2">
+    	<UIType Size="40" UITableSize="40"/>
+    </DataType>
+    <DataType Name="CustAcctCode" Size="40" Type="VARCHAR2">
+    	<UIType Size="40" UITableSize="40"/>
+    </DataType>
+    
+    <DataType Name="ExtnStandardPack" Size="20" Type="VARCHAR2">
+    	<UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+    <DataType Name="ExtnKitLabelQty" Size="20" Type="VARCHAR2">
+    	<UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnEstimatedArrivalDate" Size="25" Type="DATETIME">
+        <UIType Size="25" UITableSize="25" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="ExtnEstimatedDepartDate" Size="25" Type="DATETIME">
+        <UIType Size="25" UITableSize="25" DisplayInUI="true"/>
+    </DataType>
+    <DataType Name="ExtnOverrideCode" Size="20" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+    <DataType Name="SA Override Code" Size="20" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+	<DataType Name="RA Override Code" Size="20" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnFSTransferShipAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnFSTransferSAOverrideCode" Size="20" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnBLMTransferShipAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnOtherTransferShipAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnFSTransferOrderAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>    
+    
+    <DataType Name="ExtnFSTransferOrderOverrideCode" Size="20" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>   
+    
+    <DataType Name="ExtnBLMTransferOrderAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>    
+    
+    <DataType Name="ExtnOtherTransferOrderAcctCode" Size="40" Type="VARCHAR2">
+        <UIType Size="40" UITableSize="40" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="ExtnReportDesc" Size="200" Type="VARCHAR2">
+        <UIType Size="20" UITableSize="20" DisplayInUI="true"/>
+    </DataType>         
+    
+    <DataType Name="ExtnToReceive" Size="1" Type="CHAR">
+        <UIType Size="1" UITableSize="1" DisplayInUI="true"/>
+    </DataType>
+    
+    <DataType Name="RefurbRequired" Size="4" Type="VARCHAR2">
+        <UIType Size="4" UITableSize="4" DisplayInUI="true"/>
+    </DataType>         
+   
+</DataTypes>

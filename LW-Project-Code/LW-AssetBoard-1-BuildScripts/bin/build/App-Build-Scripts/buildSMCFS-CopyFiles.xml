@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-CopyFiles" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-CopyFiles" description="Copying Custom Files">
+	</target>	
+	
+	<target name ="copyExtensions" description ="Copy Tog Custom Extensions to SterlingHome-Extensions">
+	<echo>Copy Extensions</echo>
+		<echo>Copy Custom Webages</echo>
+		<copy todir="${Sterling.Home}/extensions/global/webpages">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/webpages">
+			</fileset>
+		</copy>			
+		<echo>Copy Entities</echo>
+		<copy todir="${Sterling.Home}/extensions/global/entities">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/entities">
+			</fileset>
+		</copy>	
+		<echo>Copy Resources</echo>
+		<copy todir="${Sterling.Home}/extensions/global/resources">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/resources">
+			</fileset>
+		</copy>
+		<echo>Copy Custom API Templates</echo>
+		<copy todir="${Sterling.Home}/extensions/global/template/api">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/api">
+			</fileset>
+		</copy>		
+		<echo>Copy Custom Resources</echo>
+		<copy todir="${Sterling.Home}/extensions/global/template/resource">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/resource">
+				<include name="**/*.xml"/>
+			</fileset>
+		</copy>	
+		<echo>Copy Custom Events</echo>
+		<copy todir="${Sterling.Home}/extensions/global/template/event">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/event">
+			</fileset>
+		</copy>			
+		<echo>Copy Datatypes</echo>
+		<copy todir="${Sterling.Home}/extensions/global/etc">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/etc"> 
+			</fileset>
+		</copy>			
+		<echo>Copy TOG Theme</echo>
+		<copy todir="${Sterling.Home}/repository/eardata/platform/war/css">
+			<fileset dir="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/template/resource"> 
+				<include name="**/*.css"/>
+			</fileset>
+		</copy>	
+	</target>	
+
+	<target name="copyYDKPrefs" description="Copy ydkprefs.xml from GitHub Checkout">
+		<echo>Copy ydkprefs.xml</echo>
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogCustomDir}/src/build/CDT/${project.build.environment}/ydkprefs.xml" todir="${Sterling.Home}/resources/ydkresources" />
+	</target>	
+	
+	<target name="copyCustomerOverrides" description="Copy customer_overrides.properties from GitHub Checkout and place under SterlingHome-Properties">
+		<echo>Copy customer_overrides.properties</echo>
+		<copy file="${git.fetch.dir}/${git.pull.directory}/${RepoTogExtensionsDir}/extensions/properties/customer_overrides.properties" todir="${Sterling.Home}/properties" />
+	</target>	
+</project>

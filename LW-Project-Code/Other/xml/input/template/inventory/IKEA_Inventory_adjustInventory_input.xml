@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<Items>
+	<Item AccountNo="${Item.AccountNo}"
+        AdjustmentType="${Item.AdjustmentType}"
+        Availability="${Item.Availability}" Currency="${Item.Currency}"
+        ETA="${Item.ETA}" FromETA="${Item.FromETA}"
+        FromLotNumber="${Item.FromLotNumber}"
+        FromSegment="${Item.FromSegment}"
+        FromSegmentType="${Item.FromSegmentType}"
+        FromShipByDate="${Item.FromShipByDate}"
+        FromSupplyLineReference="${Item.FromSupplyLineReference}"
+        FromSupplyReference="${Item.FromSupplyReference}"
+        FromSupplyReferenceType="${Item.FromSupplyReferenceType}"
+        FromSupplyType="${Item.FromSupplyType}" ItemID="${Item.ItemID}"
+        LotAttribute1="${Item.LotAttribute1}"
+        LotAttribute2="${Item.LotAttribute2}"
+        LotAttribute3="${Item.LotAttribute3}"
+        LotKeyReference="${Item.LotKeyReference}"
+        LotNumber="${Item.LotNumber}"
+        ManufacturingDate="${Item.ManufacturingDate}"
+        OrganizationCode="${Item.OrganizationCode}"
+        ProductClass="${Item.ProductClass}" Quantity="${Item.Quantity}"
+        ReasonCode="${Item.ReasonCode}" ReasonText="${Item.ReasonText}"
+        Reference_1="${Item.Reference_1}"
+        Reference_2="${Item.Reference_2}"
+        Reference_3="${Item.Reference_3}"
+        Reference_4="${Item.Reference_4}"
+        Reference_5="${Item.Reference_5}"
+        RemoveInventoryNodeControl="${Item.RemoveInventoryNodeControl}"
+        Segment="${Item.Segment}" SegmentType="${Item.SegmentType}"
+        ShipByDate="${Item.ShipByDate}" ShipNode="${Item.ShipNode}"
+        SupplyType="${Item.SupplyType}" UnitCost="${Item.UnitCost}"
+        UnitOfMeasure="${Item.UnitOfMeasure}"
+        UpdateVelocity="${Item.UpdateVelocity}"
+            UseHotSKUFeature="${Item.UseHotSKUFeature}">
+		<FromTag/>
+		<Tag LotNumber="${Item.Tag.LotNumber}"/>
+	</Item>
+</Items>

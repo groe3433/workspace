@@ -1,0 +1,20 @@
+<OrderList>
+	<Order BillToID="" BuyerOrganizationCode="" BuyerUserId=""
+		CustomerContactID="" CustomerEMailID="" CustomerFirstName=""
+		CustomerLastName="" CustomerPONo="" CustomerPhoneNo=""
+		CustomerZipCode="" DisplayStatusDescription="" DocumentType=""
+		DraftOrderFlag="" EnterpriseCode="" EntryType="" HoldFlag=""
+		MaxOrderStatusDesc="" MultipleStatusesExist="" OrderDate=""
+		OrderHeaderKey="" OrderName="" OrderNo="" OverallStatus=""
+		SellerOrganizationCode="" Status="" TaxExemptFlag=""
+		TaxExemptionCertificate="" isHistory="">
+		<PriceInfo Currency="" TotalAmount="" />
+		<PersonInfoBillTo AddressLine1="" />
+		<PersonInfoShipTo AddressID="" AddressLine1=""
+			AddressLine2="" City="" Company="" Country="" CountryDesc=""
+			DayPhone="" Department="" EMailID="" EveningPhone="" FirstName=""
+			IsAddressVerified="" IsCommercialAddress="" LastName="" MiddleName=""
+			MobilePhone="" PersonID="" PersonInfoKey="" State="" Suffix="" Title=""
+			TitleDesc="" ZipCode="" isHistory="" />
+	</Order>
+</OrderList>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text" LabelFieldName="incidentNo" Binding="/Incident/@IncidentNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="incidentName" Binding="/Incident/@IncidentName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="incidentYear" Binding="/Incident/@Year" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="incidentHost" Binding="/Incident/@IncidentHost" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="incidentType" Binding="/Incident/@IncidentType" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="cacheId" Binding="/Incident/@UserCacheID" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="dateStarted" Binding="/Incident/@DateStarted" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="returnNo" Binding="/Incident/@ReturnNo" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="Barc0001" Binding="/Incident/@ReturnNo" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="FSAcctCode" Binding="/Incident/@IncidentFsAcctCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="OverrideCode" Binding="/Incident/@OverrideCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="BLMAcctCode" Binding="/Incident/@IncidentBlmAcctCode" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="OtherAcctCode" Binding="/Incident/@IncidentOtherAcctCode" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="customerName" Binding="/Incident/@CustomerName" RepeatingElement="" Sequence="N"/>
+
+	<LabelField DataType="Text" LabelFieldName="customerNo" Binding="/Incident/YFSPersonInfoShipTo/@PersonID" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="CLastName" Binding="/Incident/YFSPersonInfoShipTo/@LastName" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="CFirstName" Binding="/Incident/YFSPersonInfoShipTo/@FirstName" RepeatingElement="" Sequence="N"/>
+	<LabelField DataType="Text" LabelFieldName="customerPhone" Binding="/Incident/YFSPersonInfoShipTo/@DayPhone" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine1" Binding="/Incident/YFSPersonInfoShipTo/@AddressLine1" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToAddrLine2" Binding="/Incident/YFSPersonInfoShipTo/@AddressLine2" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToCity" Binding="/Incident/YFSPersonInfoShipTo/@City" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToState" Binding="/Incident/YFSPersonInfoShipTo/@State" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="shipToZipCode" Binding="/Incident/YFSPersonInfoShipTo/@ZipCode" RepeatingElement="" Sequence="N"/>
+        
+</LabelFieldMap>

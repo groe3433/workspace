@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderLineList CreateCacheTransferFlag="" CreateIssueFlag="">
+	<OrderLine DeliveryCode="" MaxLineStatusDesc=""
+		MultipleStatusesExist="" OrderHeaderKey="" OrderLineKey=""
+		PrimeLineNo="" ReceivingNode="" ReqCancelDate="" ReqDeliveryDate=""
+		ReqShipDate="" ShipNode="" Status="" SubLineNo="" isHistory="">
+		<Extn />
+		<Order BuyerOrganizationCode="" EnterpriseCode="" HoldFlag=""
+			OrderNo="" SellerOrganizationCode="" DocumentType="">
+			<PriceInfo Currency="" TotalAmount="" />
+			<Extn />
+		</Order>
+		<Item ItemDesc="" ItemID="" ItemShortDesc="" ProductClass="" />
+		<OrderLineTranQuantity OrderedQty="" TransactionalUOM="" />
+	</OrderLine>
+</OrderLineList>

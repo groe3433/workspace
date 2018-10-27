@@ -1,0 +1,99 @@
+# Copyright 2006, Sterling Commerce, Inc. All rights reserved.
+############################################################################
+# Any property can be encrypted or decrypted by implementing the 
+# YCPEncrypter java interface. See Yantra 7x Javadocs for details about
+# this interface.
+# To execute the class that implements the YCPEncrypter interface you
+# must set the yfs.propertyencrypter.class property in the yfs.properties
+# file. This class must be accessible through the CLASSPATH environment
+# variable.
+# In order to trigger decryption, you must append .encrypted to any
+# property you want to decrypt in the management.properties file.
+############################################################################
+
+
+###########################################
+# PingTime in seconds the Integration/AgentServer will use
+# to ping the RemoteManager to see if its connection is still 
+# valid.
+###########################################
+#yfs.remote.pingtime=
+
+###########################################
+# Reconnect Time in seconds the Integration/AgentServer will use
+# to attemt reconnect tries if the initial registration with the
+# RemoteManager fails
+###########################################
+#yfs.remote.reconnecttime=
+
+############################################################################
+# Application servers and Agent servers cleanup the jndi tree on startup.
+# Set this property to true/uncomment, to disable cleanup of JNDI.
+############################################################################
+#jndi.nocleanup=true
+
+#Set these properties for the JNDI lookup used for systems management
+#The provider url should point to the admin server for WebLogic and to the relevant
+#place for WebSphere.
+#Any security related properties should be set by uncommenting the
+#relevant properties below
+
+#Additional properties can be added to this list by prefixing the standard java property
+#with <yfsjndi.jmx>. For example if you need to add a property when accessing the provider url
+#called java.naming.factory.control to this list, then add an entry in this file called 
+#yfsjndi.jmx.java.naming.factory.control=<property value>
+
+#for WebLogic, 
+#yfsjndi.jmx.java.naming.provider.url=t3://<ipAddress>:<port>
+#yfsjndi.jmx.java.naming.factory.initial=weblogic.jndi.WLInitialContextFactory
+
+#for WebSphere
+yfsjndi.jmx.java.naming.provider.url=corbaloc::10.117.15.101:2812
+yfsjndi.jmx.java.naming.factory.initial=com.ibm.websphere.naming.WsnInitialContextFactory
+
+#Uncomment the following property to disable caching of JNDI objects by websphere 
+#yfsjndi.jmx.com.ibm.websphere.naming.jndicache.cacheobject=none
+
+# Uncomment and set the following properties for security principal and credentials
+# The user identifier of a user with access to your JNDI tree.
+#yfsjndi.jmx.java.naming.security.principal=
+
+# The password specified for the user with access to your JNDI tree.
+#yfsjndi.jmx.java.naming.security.credentials=
+
+#yfsjndi.jmx.java.naming.referral=
+#yfsjndi.jmx.java.naming.security.protocol=
+
+
+#The security credentials needed while looking up the DataSource using JNDI.
+#Additional properties can be added to this list by prefixing the standard java property
+#with <yfsjndi.datasource>. For example if you need to add a property when accessing the provider url
+#called java.naming.factory.control to this list, then add an entry in this file called 
+#yfsjndi.datasource.java.naming.factory.control=<property value>
+#
+
+#yfsjndi.datasource.java.naming.security.principal=
+#yfsjndi.datasource.java.naming.security.credentials=
+#yfsjndi.datasource.java.naming.referral=
+#yfsjndi.datasource.java.naming.security.protocol=
+
+# The user can set security related properties here for Queue lookups
+# If the JNDI for JMS queues is maintained by a particular server, set the
+# the following properties for authenticating any queue lookups. The user
+#can name the JNDI provider using the yfsjndi.<AnyUserDefinedAlias> property.
+#For example: a providee url t3://localhost:7001 may be set to yfsjndi.ProductionServerQueuesProviderURL.
+#Please note <ProductionServerQueuesProviderURL> in " yfsjndi.ProductionServerQueuesProviderURL" is 
+#user defined and can be set to any meaningful name. All subsequent properties in the file with prefix 
+#yfsjndi.ProductionServerQueuesProviderURL will be plugged into the context before doing the JNDI lookup.
+
+#Additional properties can be added to this list by prefixing the standard java property
+#with yfsjndi.<AnyUserDefinedAlias>. For example if you need to add a property when accessing the provider url
+#called java.naming.factory.control to this list, then add an entry in this file called 
+#yfsjndi.datasource.java.naming.factory.control=<property value>
+
+
+#yfsjndi.<AnyUserDefinedAlias>=t3://localhost:7001
+#yfsjndi.<AnyUserDefinedAlias>.java.naming.security.principal=
+#yfsjndi.<AnyUserDefinedAlias>.java.naming.security.credentials=
+#yfsjndi.<AnyUserDefinedAlias>.java.naming.referral=
+#yfsjndi.<AnyUserDefinedAlias>.java.naming.security.protocol=

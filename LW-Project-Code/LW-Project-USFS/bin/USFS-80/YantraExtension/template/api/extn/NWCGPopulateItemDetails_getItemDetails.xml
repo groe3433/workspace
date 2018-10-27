@@ -1,0 +1,7 @@
+<ItemList>
+	<Item ItemID="" ItemKey="" OrganizationCode="" UnitOfMeasure="" GlobalItemID="">
+	  <PrimaryInformation DefaultProductClass="" ProductLine="" Description="" ShortDescription="" /> 
+	  <InventoryParameters  IsSerialTracked=""/>
+	  <Extn ExtnRossResourceItem="" ExtnPublishToRoss=""/>
+	</Item>
+</ItemList>

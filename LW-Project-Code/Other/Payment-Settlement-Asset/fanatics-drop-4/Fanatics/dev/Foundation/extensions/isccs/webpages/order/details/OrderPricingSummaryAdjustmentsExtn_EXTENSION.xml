@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="OrderPricingSummaryAdjustmentsExtn"
+        extnPackage="extn.order.details"
+        originalScreen="isccs.order.details.OrderPricingSummaryAdjustments"
+        originalScreenPackage="isccs.order.details" type="diffrential">
+        <Items>
+            <Label _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="lblDescription" renderHidden="true"/>
+            <Label _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="insert"
+                _sc_extensibility_position="before"
+                _sc_extensibility_referenceUId="lblAmount"
+                class="spanLabel inline" uId="extn_lblDescription">
+                <BindingData>
+                    <SourceBinding dynamicBindingFunc="applyCouponDesc"
+                        namespace="Adjustments" path="Adjustments.Description"/>
+                </BindingData>
+            </Label>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

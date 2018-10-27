@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="AddressCapturePageExtn"
+        extnPackage="extn.common.address.capture"
+        originalScreen="isccs.common.address.capture.AddressCapturePage"
+        originalScreenPackage="isccs.common.address.capture" type="diffrential">
+        <Items>
+            <FilteringSelect _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="cmbCountry"
+                renderHidden="false" required="true"/>
+            <RadioButtonSet _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="radSelectOrEdit" renderHidden="false"/>
+        </Items>
+    </ScreenExtension>
+</ExtensionMetaData>

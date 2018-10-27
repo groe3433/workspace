@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+Name: 			IKEA_manageOrganizationHierarchy_CDC_input.xml
+Description:	This is the input template for CDC
+Author:			David Aspin
+Date:			11-30-2016
+-->
+<Organization
+    CapacityKeptExternally="${Organization.CapacityKeptExternally}"
+    CapacityOrganizationCode="${Organization.CapacityOrganizationCode}"
+    CatalogOrganizationCode="${Organization.CatalogOrganizationCode}"
+    InventoryKeptExternally="${Organization.InventoryKeptExternally}"
+    InventoryOrganizationCode="${Organization.InventoryOrganizationCode}"
+    InventoryPublished="${Organization.InventoryPublished}"
+    IsLegalEntity="${Organization.IsLegalEntity}"
+    LocaleCode="${Organization.LocaleCode}"
+    Operation="${Organization.Operation}"
+    OrganizationCode="${Organization.OrganizationCode}"
+    OrganizationName="${Organization.OrganizationName}"
+    ParentOrganizationCode="${Organization.ParentOrganizationCode}"
+        PrimaryEnterpriseKey="${Organization.PrimaryEnterpriseKey}">
+<CorporatePersonInfo
+        City="${Organization.CorporatePersonInfo.City}"
+        Country="${Organization.CorporatePersonInfo.Country}"
+        State="${Organization.CorporatePersonInfo.State}"
+        ZipCode="${Organization.CorporatePersonInfo.ZipCode}"/> 
+<Node
+        CanShipToAllNodes="${Organization.Node.CanShipToAllNodes}"
+        InventoryTracked="${Organization.Node.InventoryTracked}"
+        Inventorytype="${Organization.Node.Inventorytype}"
+        IsFulfillmentNode="${Organization.Node.IsFulfillmentNode}"
+        NodeType="${Organization.Node.NodeType}"
+        ProcureToShipAllowed="${Organization.Node.ProcureToShipAllowed}"
+            ReceiptProcessingTime="${Organization.Node.ReceiptProcessingTime}"/> 
+<OrgRoleList>
+<OrgRole
+            RoleKey="${Organization.OrgRoleList.OrgRole.RoleKey}"/> 
+</OrgRoleList>
+<EnterpriseOrgList>
+  <OrgEnterprise
+            EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.EnterpriseOrganizationKey}"/> 
+  <OrgEnterprise
+            EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.2.EnterpriseOrganizationKey}"/> 
+  <OrgEnterprise
+        EnterpriseOrganizationKey="${Organization.EnterpriseOrgList.OrgEnterprise.3.EnterpriseOrganizationKey}"/> 
+</EnterpriseOrgList>
+<Calendar
+        CalendarDescription="${Organization.Calendar.CalendarDescription}"
+        CalendarId="${Organization.Calendar.CalendarId}"
+                OrganizationCode="${Organization.Calendar.OrganizationCode}">
+<EffectivePeriods>
+<EffectivePeriod
+                EffectiveFromDate="${Organization.Calendar.EffectivePeriods.EffectivePeriod.EffectiveFromDate}"
+                        EffectiveToDate="${Organization.Calendar.EffectivePeriods.EffectivePeriod.EffectiveToDate}">
+<Shifts>
+  <Shift
+                        FridayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.FridayValid}"
+                        MondayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.MondayValid}"
+                        SaturdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SaturdayValid}"
+                        ShiftEndTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftEndTime}"
+                        ShiftName="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftName}"
+                        ShiftStartTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftStartTime}"
+                        SundayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.SundayValid}"
+                        ThursdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.ThursdayValid}"
+                        TuesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.TuesdayValid}"
+                        WednesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.WednesdayValid}"/> 
+  <Shift
+                        FridayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.FridayValid}"
+                        MondayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.MondayValid}"
+                        SaturdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.SaturdayValid}"
+                        ShiftEndTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftEndTime}"
+                        ShiftName="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftName}"
+                        ShiftStartTime="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftStartTime}"
+                        SundayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.SundayValid}"
+                        ThursdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ThursdayValid}"
+                        TuesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.TuesdayValid}"
+        WednesdayValid="${Organization.Calendar.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.WednesdayValid}"/> 
+  </Shifts>
+  </EffectivePeriod>
+  </EffectivePeriods>
+  <CalendarDayExceptions/> 
+  </Calendar>
+<Calendar
+        CalendarDescription="${Organization.Calendar.2.CalendarDescription}"
+        CalendarId="${Organization.Calendar.2.CalendarId}"
+                OrganizationCode="${Organization.Calendar.2.OrganizationCode}">
+<EffectivePeriods>
+<EffectivePeriod
+                EffectiveFromDate="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.EffectiveFromDate}"
+                        EffectiveToDate="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.EffectiveToDate}">
+<Shifts>
+  <Shift
+                        FridayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.FridayValid}"
+                        MondayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.MondayValid}"
+                        SaturdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.SaturdayValid}"
+                        ShiftEndTime="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftEndTime}"
+                        ShiftName="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftName}"
+                        ShiftStartTime="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.ShiftStartTime}"
+                        SundayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.SundayValid}"
+                        ThursdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.ThursdayValid}"
+                        TuesdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.TuesdayValid}"
+                        WednesdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.WednesdayValid}"/> 
+  <Shift
+                        FridayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.FridayValid}"
+                        MondayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.MondayValid}"
+                        SaturdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.SaturdayValid}"
+                        ShiftEndTime="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftEndTime}"
+                        ShiftName="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftName}"
+                        ShiftStartTime="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ShiftStartTime}"
+                        SundayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.SundayValid}"
+                        ThursdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.ThursdayValid}"
+                        TuesdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.TuesdayValid}" WednesdayValid="${Organization.Calendar.2.EffectivePeriods.EffectivePeriod.Shifts.Shift.2.WednesdayValid}"/> 
+  </Shifts>
+  </EffectivePeriod>
+  </EffectivePeriods>
+  <CalendarDayExceptions/> 
+  </Calendar>
+  <Extn/> 
+  </Organization>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.order.details.OrderSummaryExtnBundle" screenId="extn.order.details.OrderSummaryExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="pnlOrderLines_ContentPane_title"
+            bundleKey="extn_Items" bundleValueFn="_scSimpleBundle"
+            property="title" type="WIDGET" uId="pnlOrderLines"/>
+        <BundleEntry bundleEntryId="lnkTotalAmountDisplay_Link_label"
+            bundleKey="Label_TotalAmount" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="lnkTotalAmountDisplay"/>
+        <BundleEntry bundleEntryId="extn_Customer_name_DataLabel_label"
+            bundleKey="CustomerNameClm" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Customer_name"/>
+        <BundleEntry
+            bundleEntryId="extn_Fancash_Balance_DataLabel_label"
+            bundleKey="extn_Fancash_Balance" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Fancash_Balance"/>
+        <BundleEntry bundleEntryId="extn_Email_DataLabel_label"
+            bundleKey="extn_Email_Address" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Email"/>
+        <BundleEntry
+            bundleEntryId="extn_Account_Balance_DataLabel_label"
+            bundleKey="extn_Account_Balance" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Account_Balance"/>
+        <BundleEntry bundleEntryId="extn_Is_Guest_DataLabel_label"
+            bundleKey="extn_Guest_Account" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Is_Guest"/>
+        <BundleEntry bundleEntryId="extn_Is_Rewards_DataLabel_label"
+            bundleKey="extn_Rewards_Customer" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Is_Rewards"/>
+        <BundleEntry bundleEntryId="extn_Phone_DataLabel_label"
+            bundleKey="MobilePhone" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Phone"/>
+        <BundleEntry bundleEntryId="extn_Rewards_Since_DataLabel_label"
+            bundleKey="extn_Rewards_Customer_Since"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="extn_Rewards_Since"/>
+        <BundleEntry bundleEntryId="extn_Customer_Since_DataLabel_label"
+            bundleKey="extn_Customer_Since" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Customer_Since"/>
+        <BundleEntry
+            bundleEntryId="extn_CustomerOrderNo_DataLabel_label"
+            bundleKey="extn_Order_Number" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_CustomerOrderNo"/>
+        <BundleEntry bundleEntryId="extn_OrderNo_DataLabel_label"
+            bundleKey="OrderNo" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_OrderNo"/>
+        <BundleEntry bundleEntryId="extn_Webstore_DataLabel_label"
+            bundleKey="extn_Webstore" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Webstore"/>
+        <BundleEntry bundleEntryId="extn_Orderdate_DataLabel_label"
+            bundleKey="OrderDateCol" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Orderdate"/>
+        <BundleEntry bundleEntryId="extn_Approvaldate_DataLabel_label"
+            bundleKey="extn_Approval_Date" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Approvaldate"/>
+        <BundleEntry bundleEntryId="extn_Orderchannel_DataLabel_label"
+            bundleKey="extn_Order_Channel" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Orderchannel"/>
+        <BundleEntry bundleEntryId="extn_Approvedby_DataLabel_label"
+            bundleKey="extn_Approved_By" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Approvedby"/>
+        <BundleEntry bundleEntryId="extn_Shippingmethod_DataLabel_label"
+            bundleKey="extn_Shipping_Method" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_Shippingmethod"/>
+        <BundleEntry bundleEntryId="extn_IPaddress_DataLabel_label"
+            bundleKey="extn_IP_Address" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_IPaddress"/>
+        <BundleEntry bundleEntryId="extn_Custo_label_Label_label"
+            bundleKey="blank" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_Custo_label"/>
+        <BundleEntry bundleEntryId="extn_Custo_label_Label_value"
+            bundleKey="CustomerInformation"
+            bundleValueFn="_scSimpleBundle" property="value"
+            type="WIDGET" uId="extn_Custo_label"/>
+        <BundleEntry bundleEntryId="extn_Order_Status_Label_label"
+            bundleKey="Label_Status" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_Order_Status"/>
+        <BundleEntry bundleEntryId="extn_Order_Status_Label_title"
+            bundleKey="Label_Status" bundleValueFn="_scSimpleBundle"
+            property="title" type="WIDGET" uId="extn_Order_Status"/>
+        <BundleEntry bundleEntryId="extn_Order_Status_Label_value"
+            bundleKey="Label_Status" bundleValueFn="_scBundle"
+            property="value" type="WIDGET" uId="extn_Order_Status"/>
+        <BundleEntry bundleEntryId="extn_label_Status_Label_title"
+            bundleKey="Label_Status" bundleValueFn="_scSimpleBundle"
+            property="title" type="WIDGET" uId="extn_label_Status"/>
+    </BundleEntries>
+</ScreenBundle>

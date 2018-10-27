@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="buildSMCFS-RestartAndDeployAppServers" basedir=".">
+
+	<property file = "buildSMCFS.properties" />
+	
+	<target name="buildSMCFS-RestartAndDeployAppServers" description="restart and deploy or just restart app servers">
+	</target>
+	
+	<target name="restartSMCFS" description="restart the application servers">
+		<antcall target = "restartSMCFSAppServers" />
+		<antcall target = "restartSMCFSAppServer_singleSrvEnv" />
+	</target>	
+	
+	<target name="No-App-Srv-2">
+		<condition property="app-srv-2-not-available">
+			<equals arg1="${WebSphereAppNode02}" arg2="dummy" />
+		</condition>
+	</target>
+	
+	<target name="App-Srv-2">
+		<condition property="app-srv-2-available">
+			<not>
+				<equals arg1="${WebSphereAppNode02}" arg2="dummy" />
+			</not>
+		</condition>
+	</target>		
+	
+	<target name="deploySMCFSEarFileAndRestart" depends="App-Srv-2" if="app-srv-2-available">
+		<echo>Restarting Cluster Members and Reinstalling the ear file</echo>
+		<exec executable="${WEBSPHERE_HOME}/profiles/omprofile/bin/wsadmin.${ext}" failonerror="true">
+			<arg value="-user"/>
+			<arg value="${WebSphereConsoleUser}"/>
+			<arg value="-password"/>
+			<arg value="${WebSphereConsolePassword}"/>
+			<arg value="-f"/>
+			<arg value="${WebSphereDeployRestartScript}"/>
+			<arg value="${WebSphereSterlingAppName}"/>
+			<arg value="${WebSphereSterlingEarDir}/${WebSphereSterlingEarFile}"/>
+			<arg value="${WebSphereAppNode01}"/>
+			<arg value="${WebSphereAppName}"/>
+			<arg value="${WebSphereAppCell01}"/>
+			<arg value="${WebSphereAppCluster}"/>
+			<arg value="${WebSphereAppServerModule}"/>
+			<arg value="${WebSphereAppNode02}"/>
+		</exec>
+	</target>
+	
+	<target name="deploySMCFSEarFileAndRestart_singleSrvEnv" depends="No-App-Srv-2" if="app-srv-2-not-available">
+		<echo>Restarting Cluster Members and Reinstalling the ear file</echo>
+		<exec executable="${WEBSPHERE_HOME}/profiles/omprofile/bin/wsadmin.${ext}" failonerror="true">
+			<arg value="-user"/>
+			<arg value="${WebSphereConsoleUser}"/>
+			<arg value="-password"/>
+			<arg value="${WebSphereConsolePassword}"/>
+			<arg value="-f"/>
+			<arg value="${WebSphereDeployRestartScript}"/>
+			<arg value="${WebSphereSterlingAppName}"/>
+			<arg value="${WebSphereSterlingEarDir}/${WebSphereSterlingEarFile}"/>
+			<arg value="${WebSphereAppNode01}"/>
+			<arg value="${WebSphereAppName}"/>
+			<arg value="${WebSphereAppCell01}"/>
+			<arg value="${WebSphereAppCluster}"/>
+			<arg value="${WebSphereAppServerModule}"/>
+		</exec>
+	</target>
+	
+	<target name="restartSMCFSAppServers" depends="App-Srv-2" if="app-srv-2-available">
+		<echo>Restarting Cluster Members</echo>
+		<exec executable="${WEBSPHERE_HOME}/profiles/omprofile/bin/wsadmin.${ext}" failonerror="true">
+			<arg value="-user"/>
+			<arg value="${WebSphereConsoleUser}"/>
+			<arg value="-password"/>
+			<arg value="${WebSphereConsolePassword}"/>
+			<arg value="-f"/>
+			<arg value="${WebSphereRestartScript}"/>
+			<arg value="${WebSphereSterlingAppName}"/>
+			<arg value="${WebSphereSterlingEarDir}/${WebSphereSterlingEarFile}"/>
+			<arg value="${WebSphereAppNode01}"/>
+			<arg value="${WebSphereAppName}"/>
+			<arg value="${WebSphereAppCell01}"/>
+			<arg value="${WebSphereAppCluster}"/>
+			<arg value="${WebSphereAppServerModule}"/>
+			<arg value="${WebSphereAppNode02}"/>
+		</exec>
+	</target>
+	
+	<target name="restartSMCFSAppServer_singleSrvEnv" depends="No-App-Srv-2" if="app-srv-2-not-available">
+		<echo>Restarting Cluster Members</echo>
+		<exec executable="${WEBSPHERE_HOME}/profiles/omprofile/bin/wsadmin.${ext}" failonerror="true">
+			<arg value="-user"/>
+			<arg value="${WebSphereConsoleUser}"/>
+			<arg value="-password"/>
+			<arg value="${WebSphereConsolePassword}"/>
+			<arg value="-f"/>
+			<arg value="${WebSphereRestartScript}"/>
+			<arg value="${WebSphereSterlingAppName}"/>
+			<arg value="${WebSphereSterlingEarDir}/${WebSphereSterlingEarFile}"/>
+			<arg value="${WebSphereAppNode01}"/>
+			<arg value="${WebSphereAppName}"/>
+			<arg value="${WebSphereAppCell01}"/>
+			<arg value="${WebSphereAppCluster}"/>
+			<arg value="${WebSphereAppServerModule}"/>
+		</exec>
+	</target>
+</project>

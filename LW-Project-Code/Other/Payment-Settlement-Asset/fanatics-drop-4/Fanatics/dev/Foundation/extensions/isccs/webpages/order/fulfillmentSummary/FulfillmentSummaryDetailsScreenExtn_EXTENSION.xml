@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionMetaData>
+    <ScreenExtension extnClassName="FulfillmentSummaryDetailsScreenExtn"
+        extnPackage="extn.order.fulfillmentSummary"
+        originalScreen="isccs.order.fulfillmentSummary.FulfillmentSummaryDetailsScreen"
+        originalScreenPackage="isccs.order.fulfillmentSummary" type="diffrential">
+        <Items>
+            <DataLabel _sc_extensibility_moveOrder="1"
+                _sc_extensibility_operation="remove"
+                _sc_extensibility_position="first"
+                _sc_extensibility_referenceUId="_extensibilityHiddenWidgetsHolder" uId="shipping_option"/>
+            <RadioButtonSet _sc_extensibility_operation="change"
+                _sc_extensibility_referenceUId="radOptType" renderHidden="true"/>
+        </Items>
+        <MashupRefs>
+            <Init>
+                <MashupRef
+                    mashupId="fulfillmentSummary_getFulfillmentSummaryDetails"
+                    mashupRefId="getFulfillmentSummaryDetails" sourceNamespace="getFulfillmentSummaryDetails_output"/>
+            </Init>
+        </MashupRefs>
+    </ScreenExtension>
+</ExtensionMetaData>

@@ -1,0 +1,16 @@
+<!-- Copyright 2006, Sterling Commerce, Inc. All rights reserved. -->
+<Config title="Yantra_Dev_Deploy_WorkBench">
+    <ResourcesDir>/opt/apps/projects/USFS/Yantra77/Runtime/resources/ydkresources/</ResourcesDir>
+    <Skin locale="en_US_EST" bundlefile="ydkbundle" theme="sapphire"/>
+    <CurrentAppServer id="bea"/>
+    <bea>
+        <ListTemplate>ydk_bea.jsp</ListTemplate>
+        <MetaDataXml>ydk_bea.xml</MetaDataXml>
+        <RendererClass>com.yantra.tools.ydk.portlet.renderer.YDKbeaRenderer</RendererClass>
+    </bea>
+    <ibm>
+        <ListTemplate>ydk_ibm.jsp</ListTemplate>
+        <MetaDataXml>ydk_ibm.xml</MetaDataXml>
+        <RendererClass>com.yantra.tools.ydk.portlet.renderer.YDKibmRenderer</RendererClass>
+    </ibm>
+</Config>

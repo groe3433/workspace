@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<project name="9.1 Automated Migration" default="all" basedir=".">
+    <property file="AutomatedMigration.properties" />
+	<property environment="env"/>
+	<target name="all" description="Executes All Migration Targets">
+			<!--echo>Delete .done and .restart and .log files</echo>
+			<antcall target="DeleteSterlingDoneAndRestartFiles"/-->
+			<!--echo>Copying Files</echo>
+			<antcall target="CopyMigrationFiles"/-->
+	</target>		
+	
+	<target name="DeleteSterlingDoneAndRestartFiles" description="If a previous Migration has been attempted, find and delete any/all .done and .restart files. ">
+		<echo>@@@@@ Delete .done and .restart files from a prior migration attempt...</echo>		 
+		<delete>
+			<fileset dir="${env.YFS_HOME}">
+				<include name="**/*.done"/>
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="${env.YFS_HOME}">
+				<include name="**/*.restart"/>
+			</fileset>
+		</delete>
+		<delete>
+			<fileset dir="${env.YFS_HOME}">
+				<include name="**/*.log"/>
+			</fileset>
+		</delete>
+	</target>	
+	
+	<target name="Migration-Files-Check">
+		<condition property="CheckFiles">
+			<and>
+				<available file="${env.YFS_HOME}/extensions/global/datatypes/datatypes.xml"/>
+				<available file="${env.YFS_HOME}/extensions/global/etc/datatypes.xml"/>	
+				<available file="${env.YFS_HOME}/extensions/global/entities/AnAMessages.xml"/>
+				<available file="${env.YFS_HOME}/extensions/global/entities/CustomEntities.xml"/>
+				<available file="${env.YFS_HOME}/extensions/global/entities/Extensions.xml"/>
+				<available file="${env.YFS_HOME}/repository/xapi/template/merged/api/extn/changeNWCGIncidentOrder.xml"/>
+			</and>
+		</condition>
+	</target>
+	
+	<target name="Modify-JVM-Settings">
+		<echo>@@@@@ Change buildmigration.properties...</echo>
+		<propertyfile file="${env.YFS_HOME}/Migration/9.0/buildmigration.properties">
+			<entry key="mem_java_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_java_args_non_sun" value="-Xms128m -Xmx1408m"/>
+			<entry key="mem_ant_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_ant_args_non_sun" value="-Xms128m -Xmx1408m"/>
+		</propertyfile>
+		<echo>@@@@@ Change ynwmigration.properties...</echo>
+		<propertyfile file="${env.YFS_HOME}/WMS/Migration/WMS/8.0/ynwmigration.properties">
+			<entry key="mem_java_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_java_args_non_sun" value="-Xms128m -Xmx1408m"/>
+			<entry key="mem_ant_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_ant_args_non_sun" value="-Xms128m -Xmx1408m"/>
+		</propertyfile>
+		<echo>@@@@@ Change ynwmigration.properties...</echo>
+		<propertyfile file="${env.YFS_HOME}/WMS/Migration/WMS/8.5/ynwmigration.properties">
+			<entry key="mem_java_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_java_args_non_sun" value="-Xms128m -Xmx1408m"/>
+			<entry key="mem_ant_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_ant_args_non_sun" value="-Xms128m -Xmx1408m"/>
+		</propertyfile>
+		<echo>@@@@@ Change ynwmigration.properties...</echo>
+		<propertyfile file="${env.YFS_HOME}/WMS/Migration/WMS_Add-in/8.0/ynwmigration.properties">
+			<entry key="mem_java_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_java_args_non_sun" value="-Xms128m -Xmx1408m"/>
+			<entry key="mem_ant_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_ant_args_non_sun" value="-Xms128m -Xmx1408m"/>
+		</propertyfile>
+		<echo>@@@@@ Change ynwmigration.properties...</echo>
+		<propertyfile file="${env.YFS_HOME}/WMS/Migration/WMS_Add-in/8.5/ynwmigration.properties">
+			<entry key="mem_java_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_java_args_non_sun" value="-Xms128m -Xmx1408m"/>
+			<entry key="mem_ant_args_sun" value="-Xms128m -Xmx1408m -XX:MaxPermSize=512m"/>
+			<entry key="mem_ant_args_non_sun" value="-Xms128m -Xmx1408m"/>
+		</propertyfile>
+	</target>	
+		
+	<!-- Copy the Modified Files Below -->
+	<target name="CopyMigrationFiles" description="Copies Migration Files that will otherwise cause Errors" depends="Migration-Files-Check,Modify-JVM-Settings" if="CheckFiles">
+		<echo>@@@@@ Copy YFS_OrganizationList.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/migration-82-changed/YFS_OrganizationList.xml" todir="${env.YFS_HOME}/Migration/8.2/database/FactorySetup/XMLS/changed" overwrite="Yes" />
+		<echo>@@@@@ Copy YFS_SubFlowList.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/migration-82-changed/YFS_SubFlowList.xml" todir="${env.YFS_HOME}/Migration/8.2/database/FactorySetup/XMLS/changed" overwrite="Yes"/>	
+		<echo>@@@@@ Copy YFS_SubFlowList.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/migration-90-changed/YFS_SubFlowList.xml" todir="${env.YFS_HOME}/Migration/9.0/database/FactorySetup/XMLS/changed" overwrite ="Yes"/>
+		<echo>@@@@@ Copy YNW_YFS_PIPELINE_CONDITION.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/WMS-80-changed/YNW_YFS_PIPELINE_CONDITION.xml" todir="${env.YFS_HOME}/WMS/Migration/WMS/8.0/database/FactorySetup/XMLS/ynw/changed" overwrite ="Yes"/>
+		<echo>@@@@@ Copy YNW_YFS_GRAPH_UI.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/WMS-85-changed/YNW_YFS_GRAPH_UI.xml" todir="${env.YFS_HOME}/WMS/Migration/WMS/8.5/database/FactorySetup/XMLS/ynw/changed" overwrite ="Yes" />	
+		<echo>@@@@@ Copy YNW_YFS_PIPELINE_CONDITION.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/WMS-85-changed/YNW_YFS_PIPELINE_CONDITION.xml" todir="${env.YFS_HOME}/WMS/Migration/WMS/8.5/database/FactorySetup/XMLS/ynw/changed" overwrite ="Yes"/>
+		<echo>@@@@@ Copy YNW_YFS_TRANSACTION.xml...</echo>
+		<copy file="${env.MIGRATE}/FilesToCopy/WMS-Addin-80-changed/YNW_YFS_TRANSACTION.xml" todir="${env.YFS_HOME}/WMS/Migration/WMS_Add-in/8.0/database/FactorySetup/XMLS/ynw/changed" overwrite ="Yes"/>
+    </target>
+
+		<target name="PreMigrationSQLs" description="Pre Migration SQLs...">
+			<echo>@@@@@ Pre Migration SQLs...</echo>	
+			<sql classpath="${env.JDBC_DRIVER}/${oracleClasspath}" driver="${oracleDriver}" url="${oracleDBUrl}" userid="${oracleUser}" password="${oraclePassword}" onerror="continue" src="${env.MIGRATE}/FilesToCopy/PreMigrationSQL/PreMigrationSQLs.sql"/>			 	  	
+		</target>	
+
+		<target name="PostMigrationSQLs" description="Post Migration SQLs...">
+			<echo>@@@@@ Post Migration SQLs...</echo>	
+			<sql classpath="${env.JDBC_DRIVER}/${oracleClasspath}" driver="${oracleDriver}" url="${oracleDBUrl}" userid="${oracleUser}" password="${oraclePassword}" onerror="continue" src="${env.MIGRATE}/FilesToCopy/PostMigrationSQL/PostMigrationSQLs.sql"/>			 	  	
+		</target>
+</project>

@@ -1,0 +1,329 @@
+<div class="sc-platform-screen-default reviseShipDate">
+<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="
+						
+		spanLabel: true,'class' : 'isccsScreen',
+		colspan : 1,
+		layoutAlign: 'top',
+		uId : 'extn_ReviseShipDate' 
+	 					">
+		 	
+   <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+ <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="'class' : 'singlecolumntable',	spanLabel : true ,
+		uId : 'pnlInner', style : 'padding-left: 10px;'
+ ">
+ <div data-dojo-type="idx/form/DateTextBox" data-dojo-props="		selectOnClick : true , 
+		uId : 'txt_revisedShipDate'   , 
+		required : true  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getBundleString('extn_Revised_Ship_Date')
+,	
+			 	bindingData : 	{ 
+				sourceBinding : 	{
+		 path : 			'RevisedShipDate'
+,
+		 namespace : 			'resetModel'
+	},
+		 targetBinding : 	[
+	 		{
+		 path : 			'OrderLine.RevisedShipDate'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+	}
+			}
+		}
+"></div>
+<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="
+		uId : 'extn_reviseship_reason' , 
+		required : true  
+		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : this.getBundleString('Reason_code'),
+				bindingData : 	{
+		 optionsBinding : 	{
+		 valueField : 			'CodeValue'
+,
+		 path : 			'CommonCodeList.CommonCode'
+,
+		 descriptionField : 			'CodeShortDescription',
+		 addEmptyOption : 			true
+,
+		 namespace : 			'extn_getReviseShipDateReasonCode_output'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'OrderLine.RevisedShipDateReason'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	],
+	sourceBinding : 	{
+		 path : 			'RevisedShipDateReason'
+,
+		 namespace : 			'resetModel'
+	}
+	}
+			}
+		}">
+		 	</div>
+<div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSpecialButton saveButtonAlign' , 
+		showLabel : true ,
+		uId : 'updateReviseShipDate'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Action_Save')
+			}
+		}
+"></div>
+</div>
+ <div data-dojo-type="sc/plat/dojo/layout/AdvancedTableLayout" data-dojo-props="	'class' : 'orderpricingsummarylines',	showLabels : false , 
+		cols : 2 , 
+		customClass : 'returnReviewLines'  
+ ">
+ <div data-dojo-type="gridx/Grid" data-dojo-props="		spanLabel : true , 
+		'class' : '' , 
+		selectRowTriggerOnCell : true , 
+		autoWidth : false , 
+		uId : 'OLST_listGrid' , 
+		autoHeight : true , 
+		cacheClass : 'gridx/core/model/cache/Async'  
+ 			 , modules : 	[
+	 		{
+		 moduleClass : 			'gridx/modules/IndirectSelect'
+,
+		 single : 			false
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/RowHeader'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/select/Row'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/Edit'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/CellWidget'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/CellWidget'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/NavigableCell'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/extendedSelect/Row'
+	}
+,
+	 		{
+		 moduleClass : 			'sc/plat/dojo/plugins/gridx/PaginationBar'
+	}
+,
+	 		{
+		 moduleClass : 			'sc/plat/dojo/plugins/gridx/Pagination'
+	}
+	]
+		,scParamDataFn :
+		 function() { 
+			return { 
+			 	toolBar : 	[
+	]
+,	
+			 	structure : 	[
+	 		{
+		 field : 			'PrimeLineNo_FS'
+,
+		 uId : 			'PrimeLineNo_FS'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'PrimeLineNo'
+,
+		 dynamicBindingFunc : 			'getPrimeLineNoFSHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+,
+		 tFieldBinding : 	{
+		 path : 			'PrimeLineNo'
+	}
+	}
+,
+		 width : 			'5%'
+,
+		 name : 			this.getSimpleBundleString('PrimeLineNo')
+	}
+,
+	 		{
+		 field : 			'Product_AddItems'
+,
+		 uId : 			'tblColProductAddItems'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+,
+		 dynamicBindingFunc : 			'getProductHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 width : 			'32%'
+,
+		 name : 			this.getSimpleBundleString('Label_Product')
+	}
+,
+	 		{
+		 field : 			'Quantity_FS'
+,
+		 uId : 			'tblColQuantityFS'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'AvailableQty'
+,
+		 dynamicBindingFunc : 			'getOrderLineQtyBindingForFulfillment'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'UOMUtils'
+	}
+	}
+,
+		 width : 			'8%'
+,
+		 name : 			this.getSimpleBundleString('Quantity_FS')
+	}
+,
+	 		{
+		 field : 			'UnitPrice'
+,
+		 uId : 			'tblColUnitPrice'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'LineOverallTotals.DisplayUnitPrice'
+,
+		 dynamicBindingFunc : 			'getHTMLForAddItemsUnitPrice'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 width : 			'9%'
+,
+		 name : 			this.getSimpleBundleString('UnitPrice')
+	}
+,
+	 		{
+		 field : 			'RevisedShipDate'
+,
+		 uId : 			'tblFSStatusCol'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'REVISED_SHIP_DATE'
+,
+		 dynamicBindingFunc : 			'getDateFromOrderDate'
+,
+		 dynamicBindingPackage : 			'extn.utils'
+,
+		 dynamicBindingClassName : 			'CustomUtils'
+	}
+	}
+,
+		 width : 			'9%'
+,
+		 name : 			this.getSimpleBundleString('extn_Revised_Ship_Date_Reason1')
+	}
+,
+	 		{
+		 field : 			'ReasonCode'
+,
+		 uId : 			'tblColReasonCode'
+,
+		 hidden : 			true
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'CustomAttributes.RevisedShipDateReason'
+	}
+	}
+,
+		 width : 			'17%'
+,
+		 name : 			this.getSimpleBundleString('Reason_code')
+	}
+	]
+,	
+			 	bindingData : 	{
+		 disableFieldBinding : 	{
+		 field : 			'disabledRow'
+,
+		 disableFieldBindingFunc : 			'isGridRowDisabled'
+,
+		 sFieldBinding : 	{
+		 path : 			'rowDisabled'
+	}
+	}
+,
+		 pagination : 	{
+		 pageSizesClassName : 			'UIUtils'
+,
+		 pageSizePackage : 			'isccs.utils'
+,
+		 paginationActionsCustomImpl : 			true
+,
+		 pageSizesFunc : 			'getPageSizes'
+,
+		 strategy : 			'NEXTPAGE'
+,
+		 pageSizeFunc : 			'getPageSize'
+,
+		 pageSizeClassName : 			'UIUtils'
+,
+		 pageSizesPackage : 			'isccs.utils'
+	}
+,
+		 sourceBinding : 	{
+		 path : 			'OrderLines.OrderLine'
+,
+		 namespace : 			'extn_getCompleteOrderLineList_output'
+	}
+	}
+,	
+			 	bodyLoadingInfo : 			this.getSimpleBundleString('Loading')
+,	
+			 	bodyEmptyInfo : 			this.getSimpleBundleString('NoSearchResults')
+			}
+		}
+"></div>
+</div>
+</div>
+			

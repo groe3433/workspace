@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Mike Roadifer (LOCKHEED MARTIN INFO TECH) -->
+<xs:schema xmlns="http://nwcg.gov/services/ross/organization/1.1" xmlns:org="http://nwcg.gov/services/ross/organization/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://nwcg.gov/services/ross/organization/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>****************  Release 2.6 Organization Message Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="GetDispatchOrgReq">
+		<xs:annotation>
+			<xs:documentation>Used to get information about a dispatch organization</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UnitID" type="nwcg:UnitIDType">
+					<xs:annotation>
+						<xs:documentation>Unit-ID of the dispatch organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetDispatchOrgResp">
+		<xs:annotation>
+			<xs:documentation>Response when getting a dispatch organization</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Organization" type="nwcg:OrganizationReturnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Information about the organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetProviderOrgReq">
+		<xs:annotation>
+			<xs:documentation>Used to get information about a provider organization</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UnitID" type="nwcg:UnitIDType">
+					<xs:annotation>
+						<xs:documentation>Unit-ID of the provider organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetProviderOrgResp">
+		<xs:annotation>
+			<xs:documentation>Response when getting a provider organization</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Organization" type="nwcg:OrganizationReturnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Information about the organization</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetOrganizationsReq">
+		<xs:annotation>
+			<xs:documentation>Used to get information about one or more organizations</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UnitID" type="nwcg:UnitIDType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Unit-IDs of one or more organizations</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetOrganizationsResp">
+		<xs:annotation>
+			<xs:documentation>Response when getting organizations</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Organization" type="nwcg:OrganizationReturnType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Information about the organizations</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

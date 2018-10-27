@@ -1,0 +1,22 @@
+<CreateCatalogItemReq xmlns="http://nwcg.gov/services/ross/catalog/1.1" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nwcg.gov/services/ross/catalog/1.1
+C:\Eclipse_USFS\eclipse\Workspace\USFS\USFS-Trunk\Projectdocs\Miscellaneous\STREAM~1\XSD\29Aug2007\Catalog.xsd">
+	<MessageOriginator>
+		<SystemOfOrigin>
+			<SystemType>ROSS</SystemType>
+			<SystemID>String</SystemID>
+		</SystemOfOrigin>
+		<DispatchUnitID>
+			<UnitIDPrefix>St</UnitIDPrefix>
+			<UnitIDSuffix>Stri</UnitIDSuffix>
+		</DispatchUnitID>
+	</MessageOriginator>
+	<CatalogItem>
+		<CatalogType>NWCG</CatalogType>
+		<CatalogItemName>String</CatalogItemName>
+		<CatalogItemCode>String</CatalogItemCode>
+		<TrackingRequiredInd>1</TrackingRequiredInd>
+		<OrderableWithQuantityInd>1</OrderableWithQuantityInd>
+		<UnitOfIssue>String</UnitOfIssue>
+		<StandardPack>String</StandardPack>
+	</CatalogItem>
+</CreateCatalogItemReq>

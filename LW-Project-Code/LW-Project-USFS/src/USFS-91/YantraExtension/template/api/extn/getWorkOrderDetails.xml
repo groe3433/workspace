@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkOrder ApptStatus="" ApptStatusDescription="" CaseId=""
+    DocumentType="" EnterpriseCode="" ExecutionBy=""
+    ExecutionDuration="" ExecutionStartTime="" FinishNoLaterThan=""
+    InvUpdateActivityCode="" ItemID="" LastExecutionSuccess=""
+    NextAlertTs="" NodeKey="" NumOfAttempts="" OpenWorkOrderFlag=""
+    OrderLineKey="" PalletId="" PipeLineKey="" PreCallStatus=""
+    PreCallStatusDescription="" Priority="" ProductClass=""
+    PromisedApptEndDate="" PromisedApptStartDate="" Purpose=""
+    QuantityAllocated="" QuantityCompleted="" QuantityReleased=""
+    QuantityRemoved="" QuantityRequested="" ReasonCode=""
+    ReasonCodeDescription="" ReasonText="" ReleaseAllowed="" Segment=""
+    SegmentType="" SerialNo="" ServiceItemDescription=""
+    ServiceItemGroupCode="" ServiceItemID="" ServiceUom="" ShipByDate=""
+    ShipmentKey="" ShipmentNo="" StartNoEarlierThan="" Status=""
+    StatusDate="" StatusDescription="" Uom="" WorkOrderKey="" WorkOrderNo=""
+	SellerOrganizationCode="" IsMultiApptRequired="" PreferredResourcePoolId="" 
+	PreferredResourceID="" CurrentApptSeq="" ServiceSupervisorId="" Createuserid="" Modifyuserid="">
+    <OrderLine OrderLineKey="" OrderedQty="" Timezone=""/>
+	<Order DocumentType="" EnterpriseCode="" OrderHeaderKey="" OrderNo=""/>
+    <Item GlobalItemID="" ItemGroupCode="" ItemID="" ItemKey=""
+        OrganizationCode="" UnitOfMeasure="">
+        <PrimaryInformation Description="" ExtendedDescription=""
+            InvolvesSegmentChange="" ItemType="" KitCode=""
+            ProductLine="" RunQuantity="" SerializedFlag="" ShortDescription=""/>
+    </Item>
+    <WorkOrderComponents>
+        <WorkOrderComponent ComponentQuantity="" ItemID=""
+            ProductClass="" Segment="" SegmentType="" SerialNo=""
+            ShipByDate="" Uom="" WorkOrderComponentKey="" WorkOrderKey="">
+            <Item GlobalItemID="" ItemGroupCode="" ItemID="" ItemKey=""
+                OrganizationCode="" UnitOfMeasure="">
+                <PrimaryInformation Description=""
+                    ExtendedDescription="" InvolvesSegmentChange=""
+                    ItemType="" KitCode="" ProductLine="" RunQuantity=""
+                    SerializedFlag="" ShortDescription=""/>
+            </Item>
+            <WorkOrderComponentTag BatchNo="" LotAttribute1=""
+                LotAttribute2="" LotAttribute3="" LotKeyReference=""
+                LotNumber="" ManufacturingDate="" RevisionNo=""
+                WorkOrderComponentKey="" WorkOrderComponentTagKey=""/>
+        </WorkOrderComponent>
+    </WorkOrderComponents>
+    <WorkOrderActivities>
+        <WorkOrderActivity ActivityCode="" ActivitySeqNo=""
+            IsComplete="" QuantityComplete="" WorkOrderActivityKey="" WorkOrderKey="">
+            <WorkOrderActivityDtls>
+                <WorkOrderActivityDtl ActivityCode=""
+                    ActivityLocationId="" CaseId="" PalletId=""
+                    QuantityCompleted="" QuantityReleased=""
+                    QuantityRequested="" SerialNo=""
+                    WorkOrderActivityDtlKey="" WorkOrderKey=""/>
+            </WorkOrderActivityDtls>
+            <WorkOrderActivityInstructions>
+                <Instruction InstructionDetailKey="" InstructionText=""
+                    InstructionType="" InstructionURL=""
+                    InstructionUsage="" SequenceNo=""/>
+            </WorkOrderActivityInstructions>
+        </WorkOrderActivity>
+    </WorkOrderActivities>
+    <WorkOrderStatusAudits>
+        <WorkOrderStatusAudit AuditTransactionId="" AuditUserId=""
+            Comments="" NewStatus="" NewStatusDate="" OldStatus=""
+            OldStatusDate="" ReasonCode="" ReasonCodeDescription=""
+            Tranname="" TransactionId="" WorkOrderKey="" WorkOrderStatusAuditKey="">
+            <OldStatus Description=""/>
+            <NewStatus Description=""/>
+        </WorkOrderStatusAudit>
+    </WorkOrderStatusAudits>
+    <PersonInfo AddressLine1="" AddressLine2="" AddressLine3=""
+        AddressLine4="" AddressLine5="" AddressLine6=""
+        AlternateEmailID="" Beeper="" City="" Company="" Country=""
+        DayFaxNo="" DayPhone="" Department="" EMailID="" EveningFaxNo=""
+        EveningPhone="" FirstName="" JobTitle="" LastName=""
+        MiddleName="" MobilePhone="" OtherPhone="" PersonID=""
+        PersonInfoKey="" State="" Suffix="" Title="" ZipCode=""/>
+    <Status Description="" OwnerKey="" ProcessTypeKey=""
+        RequiresCollaboration="" Status="" StatusKey="" StatusName="" StatusType=""/>
+    <WorkOrderTag BatchNo="" LotAttribute1="" LotAttribute2=""
+        LotAttribute3="" LotKeyReference="" LotNumber=""
+        ManufacturingDate="" RevisionNo="" WorkOrderKey="" WorkOrderTagKey=""/>
+	<WorkOrderServiceLines >
+		<WorkOrderServiceLine LineNo="" WorkOrderServiceLineKey="" ItemGroupCode="" 
+			QuantityRequired="" ServiceItemID="" ServiceUOM=""  PercentageComplete="" 
+			CompletedByApptSeq="" ItemDescription="" ItemShortDescription=""> 
+			<OrderLine OrderLineKey="" PrimeLineNo="" SubLineNo="" />
+		</WorkOrderServiceLine>
+	</WorkOrderServiceLines>
+	<WorkOrderProdDeliveries>
+		<WorkOrderProdDelivery LineNo="" WorkOrderProdDeliveryKey="" ItemID="" UOM="" 
+			ProductClass="" QuantityRequired="" QuantityDelivered="" ItemDescription="" ItemShortDescription="">
+			<OrderLine OrderLineKey="" PrimeLineNo="" SubLineNo="" />
+		</WorkOrderProdDelivery>
+	</WorkOrderProdDeliveries>
+	<WorkOrderAppointments>
+		<WorkOrderAppointment  AllocatedCapacity="" RequestedCapacity="" 
+			ExecutionBy="" ExecutionComments="" ExecutionDuration="" ExecutionStartTime="" ExecutionEndTime=""
+			WorkOrderApptKey="" ApptSeq="" ApptStatus="" AppointmentOverridden="" 
+			CapacityReference="" PromisedApptEndDate="" PromisedApptStartDate="" 
+			RequiresConfirmation="" ResourcePoolID="" ResourceID="" IsSlotBased="">  
+			<ResPoolConsmptnDtls Capacity="" ResourcePoolID="" ResourceID=""/>
+			<WorkOrderAppointmentUsers>
+				<WorkOrderAppointmentUser UserId="" Username=""/>
+			</WorkOrderAppointmentUsers>
+		</WorkOrderAppointment>
+	</WorkOrderAppointments>
+	<Instructions>
+		<Instruction InstructionText="" InstructionType="" InstructionURL="" SequenceNo=""/> 
+	</Instructions>
+	<WorkOrderServiceTools>
+		<WorkOrderServiceTool Comments="" ItemID="" QuantityRequired="" UnitOfMeasure="" WorkOrderKey="" WorkOrderServiceToolKey="" ItemDescription="" /> 
+	</WorkOrderServiceTools>
+    <Extn />
+</WorkOrder>

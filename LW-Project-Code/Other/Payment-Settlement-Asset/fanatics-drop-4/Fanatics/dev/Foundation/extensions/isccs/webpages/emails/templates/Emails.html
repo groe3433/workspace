@@ -1,0 +1,398 @@
+<div class="sc-platform-screen-default emails">
+<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="
+						
+		spanLabel: true,'class' : 'isccsScreen',
+		layoutAlign: 'top',
+		uId : 'extn_Emails' 
+	 					">
+		 	
+   <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'systemMessagePanelPopup' , 
+		renderHidden : true  
+ "></div>
+ <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="spanLabel : true , cols:2,
+		uId : 'pnlInner'
+ ">
+ <div data-dojo-type="idx/form/CheckBox" data-dojo-props="uId : 'chkGiftRecipient',
+ 		scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Order_Confirmation_Email')
+,	
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 path : 			'IsOrderConfirmationEmailChecked'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+,
+		 checkedValue : 	{
+		 value : 			'Y'
+	}
+,
+		 uncheckedValue : 	{
+		 value : 			'N'
+	}
+	}
+			}
+		}
+"></div>
+
+<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="uId : 'txt_customer_email' 
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Customer_Email')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'EXTNFanEmail.EmailID'
+,
+		 namespace : 			'extn_getCompleteEXTNFanEmail_confirmation_output'
+	},
+			 targetBinding : 	[
+	 		{
+		 path : 			'OrderconfirmationEmailID'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+	}
+			}
+		}
+	 					">
+		 	</div>  
+			
+ <div data-dojo-type="idx/form/CheckBox" data-dojo-props="uId : 'chkGiftRecipient1',
+ 		scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Shipment_Confirmation_Email')
+,	
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 path : 			'IsShipmentConfirmationEmailChecked'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+,
+		 checkedValue : 	{
+		 value : 			'Y'
+	}
+,
+		 uncheckedValue : 	{
+		 value : 			'N'
+	}
+	}
+			}
+		}
+"></div>
+
+<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="uId : 'txt_customer_email' 
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_Customer_Email')
+,	
+			 	bindingData : 	{
+		 sourceBinding : 	{
+		 path : 			'EXTNFanEmail.EmailID'
+,
+		 namespace : 			'extn_getCompleteEXTNFanEmail_shipment_output'
+	},
+			 targetBinding : 	[
+	 		{
+		 path : 			'ShipmentconfirmationEmailID'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+	}
+			}
+		}
+	 					">
+		 	</div>  
+
+</div>
+
+<div data-dojo-type="sc/plat/dojo/widgets/DataLabel" data-dojo-props="		spanLabel : true , 
+		'class' : '' , 
+		showLabel : true ,
+		uId : 'extn_gift_msg'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('extn_gift_certificate_email')
+			}
+		}
+"></div>
+			
+    <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		'class' : 'listScreen' , 
+		uId : 'LST_ListScreenContent'  
+ ">
+        <div data-dojo-type="idx/layout/ContentPane" data-dojo-props="		spanLabel : true , 
+		uId : 'orderlineGridContainer'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	'aria-label' : 			this.getSimpleBundleString('Region_grid_orderlines')
+			}
+		}
+" role='region'>
+            <div data-dojo-type="gridx/Grid" data-dojo-props="		spanLabel : true , 
+		selectRowTriggerOnCell : false , 
+		autoWidth : false , 
+		uId : 'OLST_listGrid' , 
+		autoHeight : true , 
+		cacheClass : 'gridx/core/model/cache/Async'  
+ 			 , modules : 	[
+	 		{
+		 moduleClass : 			'gridx/modules/IndirectSelect'
+,
+		 single : 			false
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/RowHeader'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/select/Row'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/Edit'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/CellWidget'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/CellWidget'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/NavigableCell'
+	}
+,
+	 		{
+		 moduleClass : 			'gridx/modules/extendedSelect/Row'
+	}
+,
+	 		{
+		 moduleClass : 			'sc/plat/dojo/plugins/gridx/PaginationBar'
+	}
+,
+	 		{
+		 moduleClass : 			'sc/plat/dojo/plugins/gridx/Pagination'
+	}
+	]
+		,scParamDataFn :
+		 function() { 
+			return { 
+			 	toolBar : 	[
+	]
+,	
+			 	structure : 	[
+	 		{
+		 field : 			'Product_AddItems'
+,
+		 uId : 			'tblColProductAddItems'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+,
+		 dynamicBindingFunc : 			'getProductHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	,
+		 tFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+	}
+	}
+,
+		 width : 			'32%'
+,
+		 name : 			this.getSimpleBundleString('Label_Product')
+	}
+,
+	 		{
+		 field : 			'UnitPrice'
+,
+		 uId : 			'tblColUnitPrice'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'LineOverallTotals.DisplayUnitPrice'
+	}
+	,
+	currencyBinding : 	{
+		 path : 			'Item.CostCurrency'
+	}
+	}
+,
+		 width : 			'9%'
+,
+		 name : 			this.getSimpleBundleString('UnitPrice')
+	}
+,
+	 		{
+		 field : 			'OrderHeaderKey'
+,
+		 uId : 			'tblColOrderHeader'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'OrderHeaderKey'
+	}
+	,
+		 tFieldBinding : 	{
+		 path : 			'OrderHeaderKey'
+	}
+	}
+,
+		 width : 			'9%'
+,
+		hidden : 			true
+,
+		 name : 			this.getSimpleBundleString('UnitPrice')
+	}
+,
+	 		{
+		 field : 			'EmailKey'
+,
+		 uId : 			'tblColEmailKey'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'CustomElement.EmailKey'
+	}
+	,
+		 tFieldBinding : 	{
+		 path : 			'CustomElement.EmailKey'
+	}
+	}
+,
+		 width : 			'9%'
+,
+		hidden : 			true
+,
+		 name : 			this.getSimpleBundleString('UnitPrice')
+	}
+,
+	 		{
+		 field : 			'CancelQuantity'
+,
+		 editor : 				 					'idx.form.TextBox'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'CustomElement.EmailID'
+,
+		 dynamicBindingFunc : 			'getHTMLForAddItemsLineNo'
+,
+		 dynamicBindingPackage : 			'extn.utils'
+,
+		 dynamicBindingClassName : 			'CustomUtils'
+	}
+,
+		 tFieldBinding : 	{
+		 path : 			'CustomElement.EmailID'
+	}
+	}
+,
+		 width : 			'15%'
+,
+		 name : 			this.getSimpleBundleString('extn_Customer_Email')
+,
+		 uId : 			'tblCancelQuantity'
+,
+		 editable : 			'true'
+	}
+	]
+,	
+			 	bindingData : 	{
+		 disableFieldBinding : 	{
+		 field : 			'disabledRow'
+,
+		 disableFieldBindingFunc : 			'isGridRowDisabled'
+,
+		 sFieldBinding : 	{
+		 path : 			'rowDisabled'
+	}
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'OrderLineList.OrderLine'
+,
+		 namespace : 			'getCompleteOrderLineList_input'
+	}
+	]
+,
+		 pagination : 	{
+		 pageSizesClassName : 			'UIUtils'
+,
+		 pageSizePackage : 			'isccs.utils'
+,
+		 paginationActionsCustomImpl : 			true
+,
+		 pageSizesFunc : 			'getPageSizes'
+,
+		 strategy : 			'NEXTPAGE'
+,
+		 pageSizeFunc : 			'getPageSize'
+,
+		 pageSizeClassName : 			'UIUtils'
+,
+		 pageSizesPackage : 			'isccs.utils'
+	}
+,
+		 targetBinding : 	[
+	 		{
+		 path : 			'Order'
+,
+		 namespace : 			'extn_TargetReasonCode'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 path : 			'OrderLines.OrderLine'
+,
+		 namespace : 			'extn_chargetransaction_getEXTNFanEmail_output'
+	}
+	}
+,	
+			 	bodyLoadingInfo : 			this.getSimpleBundleString('Loading')
+,	
+			 	bodyEmptyInfo : 			this.getSimpleBundleString('NoSearchResults')
+			}
+		}
+"></div>
+</div>
+</div>
+<div data-dojo-type="dijit/form/Button" data-dojo-props="		spanLabel : true , 
+		'class' : 'idxSpecialButton saveButtonAlign' , 
+		showLabel : true ,
+		uId : 'updateEmails'  
+ 		,scParamDataFn :
+		 function() { 
+			return { 
+			 	label : 			this.getSimpleBundleString('Action_Save')
+			}
+		}
+"></div>
+ </div>
+			

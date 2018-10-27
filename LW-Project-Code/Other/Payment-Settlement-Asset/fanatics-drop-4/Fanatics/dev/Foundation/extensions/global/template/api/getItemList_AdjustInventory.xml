@@ -1,0 +1,11 @@
+<ItemList TotalItemList="">
+	<Item ItemID="" OrganizationCode="" UnitOfMeasure="">
+		<PrimaryInformation KitCode="" />
+		<Components>
+			<Component ComponentDescription="" ComponentItemGroupCode=""
+				ComponentItemID="" ComponentItemKey="" ComponentKitCode=""
+				ComponentOrganizationCode="" ComponentUnitOfMeasure="" ItemKey=""
+				KitQuantity="" />
+		</Components>
+	</Item>
+</ItemList>

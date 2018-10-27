@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM
+     IBM Sterling Selling and Fulfillment Suite
+     (C) Copyright IBM Corp. 2001, 2013 All Rights Reserved.
+     US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<UserList TotalNumberOfRecords="">
+    <User Activateflag="" BillingaddressKey="" BusinessKey=""
+        ContactaddressKey="" CreatorOrganizationKey=""
+        DataSecurityGroupId="" DepartmentCode="" DisplayUserID=""
+        EnterpriseCode="" Imagefile="" IsCustomer="" Localecode=""
+        LoginStatus="" Loginid="" Longdesc="" MenuId="" NoteKey=""
+        OrganizationKey="" ParentUserKey="" PasswordPolicyId=""
+        PreferenceKey="" Pwdlastchangedon="" Salt="" UserKey=""
+        UsergroupKey="" Username="" Usertype="">
+    </User>
+</UserList>

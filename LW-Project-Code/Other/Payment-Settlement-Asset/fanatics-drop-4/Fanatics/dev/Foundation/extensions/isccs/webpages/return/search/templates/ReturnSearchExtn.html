@@ -1,0 +1,69 @@
+		<div>
+		 	<div data-dojo-type="idx/layout/ContentPane" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		colspan : 1 , 
+		_sc_extensibility_referenceUId : 'SST_GenericContentContainer'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/FilteringSelect" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		style : 'padding-right:380px;' , 
+		_sc_extensibility_referenceUId : 'cb_orderEnterprise'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'insert' , 
+		style : 'padding-right:20px;' , 
+		_sc_extensibility_moveOrder : '1' , 
+		_sc_extensibility_referenceUId : 'cb_orderEnterprise' , 
+		selectOnClick : true , 
+		uId : 'extn_customer_order_no' , 
+		_sc_extensibility_position : 'after'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	bindingData : 	{
+		 targetBinding : 	[
+	 		{
+		 scExtensibilityArrayItemId : 			'extn_TargetBindings_0'
+,
+		 path : 			'Order.CustomAttributes.CustomerOrderNo'
+,
+		 namespace : 			'getAdvancedOrderList_input'
+	}
+	]
+,
+		 sourceBinding : 	{
+		 path : 			'Order.CustomAttributes.CustomerOrderNo'
+,
+		 namespace : 			'screenInput'
+	}
+	}
+,	
+			 	label : 			this.getBundleString('extn_Customer_Order_Number')
+			}
+		}
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '2' , 
+		_sc_extensibility_referenceUId : 'SST_GenericContentContainer' , 
+		uId : 'extn_customer_order_no' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="idx/form/TextBox" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'move' , 
+		_sc_extensibility_moveOrder : '3' , 
+		_sc_extensibility_referenceUId : 'cb_orderEnterprise' , 
+		uId : 'extn_customer_order_no' , 
+		_sc_extensibility_position : 'after'  
+	 					}">
+		 	</div>  
+		</div>

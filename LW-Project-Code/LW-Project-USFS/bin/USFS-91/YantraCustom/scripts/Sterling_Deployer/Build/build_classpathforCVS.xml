@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<project name="9.1 Build Script For ICBSClassPath" default="all" basedir=".">
+	<property environment="env"/>
+	
+	<path id="yantra.class.path">
+		<pathelement location="${env.JAVA_HOME}/lib/dt.jar" />
+		<pathelement location="${env.YFS_HOME}" />
+		<fileset dir="${env.YFS_HOME}/lib">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+	
+	<path id="implementation.class.path">
+		<fileset dir="${env.YFS_HOME}/jar/comm/2_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_beanutils/1_7_0">
+			<include name="**/*.jar"/>	
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_betwixt/0_8">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_collections/3_2">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_digester/1_8">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_fileupload/1_2">
+			<include name="**/*.jar"/>	
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_io/1_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_lang/2_1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_logging/1_0_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_net/1_4_1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/commons_pool/1_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/concurrent/1_3_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/dom4j/1_5_2">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/ehcache/2_0_1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/esapi/1_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/ezmorph/1_0_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/geronimo/2_2">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/jakarta_oro/2_0_8">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/javamail/1_4">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/jsonlib/2_3">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/log4j/1_2_15">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform_afc/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform_afc_ui_impl/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform_sma_app/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform_uifwk/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/platform_uifwk_ide/6_0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/rhino/1_7R1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/sbc/9.0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/scecore/9.1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/sic/9.0">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/slf4j/1_5_6">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/smcfs/9.1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/soap/2_3_1">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/jar/struts/2_0_11_1">
+			<include name="**/*.jar"/>
+		</fileset>
+	    <fileset dir="${env.YFS_HOME}/jar/WMS_Add-in/9.1_9.1">
+			<include name="**/*.jar"/>
+		</fileset>
+    	<fileset dir="${env.YFS_HOME}/jar/WMS/9.1">
+			<include name="**/*.jar"/>
+		</fileset>
+    	<fileset dir="${env.YFS_HOME}/jar/xerces/2_8_1">
+			<include name="**/*.jar"/>
+		</fileset>
+    	<fileset dir="${env.YFS_HOME}/jar/xslt4j/2_7_19">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/repository/eardata/platform/war/yfscommon">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/repository/eardata/smcfs/war/yfscommon">
+			<include name="**/checkstyle-all-4.4.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/repository/eardata/config/war/yfscommon">
+			<include name="**/ycmui.jar"/>
+		</fileset>
+		<fileset dir="${env.YFS_HOME}/repository/eardata/config/war/yfscommon">
+			<include name="**/platform_baseutils.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/runtimes">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/lib">
+			<include name="**/j2ee.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WAS70-MQ-Jars">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${cvs.fetch.dir}/${cvs.project.name}/YantraCustom/WS-ROSS80-Jar">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${env.WEBSPHERE_HOME}/java/jre/lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+
+	<path id="project.class.path">
+		<path refid="implementation.class.path" />
+	</path>
+
+	<target name="test" description="Variable Test">
+		<echo message="${env.YFS_HOME}" />
+		<echo message="${env.WEBSPHERE_HOME}"/>
+	</target>
+	</project>

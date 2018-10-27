@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed Materials - Property of IBM IBM Sterling Selling and Fulfillment 
+	Suite (C) Copyright IBM Corp. 2001, 2013 All Rights Reserved. US Government 
+	Users Restricted Rights - Use, duplication or disclosure restricted by GSA 
+	ADP Schedule Contract with IBM Corp. -->
+<preferences>
+	<configsynch>
+		<Settings ReportsDir="">
+			<AuditDeployment ValidateLockid="Y"
+				ValidateOldValues="Y" ValidateRecordExistsBeforeDelete="Y" />
+		</Settings>	
+		<SourceDatabases>
+			<Database Name="PROD_DB" className="com.ibm.db2.jcc.DB2Driver"
+				dbType="db2" folder=""
+				jdbcURL="jdbc:db2://pudal09togdomdbs01.dal09.caas.local:50000/omdb"
+				schema="OMCTMETA" user="db2inst1" />
+			<Database Name="PROD_XML" className="" dbType="xml"
+				folder="/home/wasuser/mc_cdt_xml" jdbcURL="" schema="" user="" />
+		</SourceDatabases>
+		<TargetDatabases>
+			<Database Name="PROD_XML" className="" dbType="xml"
+				folder="/home/wasuser/mc_cdt_xml" jdbcURL="" schema="" user="" />
+			<Database Name="PROD_DB" className="com.ibm.db2.jcc.DB2Driver"
+				dbType="db2" folder=""
+				jdbcURL="jdbc:db2://pudal09togdomdbs01.dal09.caas.local:50000/omdb"
+				schema="OMCTMETA" user="db2inst1" />
+		</TargetDatabases>
+		<SourceTargetPrefs>
+			<SourceTargetPrefs>
+				<!-- IMPORT XML to DB2 -->			
+				<SourceTargetPair SourceDatabase="PROD_XML" TargetDatabase="PROD_DB">
+					<Transformations />
+					<Ignore>
+						<Table Name="PLT_DB_POOL"/>
+						<Table Name="PLT_DB_COLONY"/>
+						<Table Name="PLT_DB_COLONY_POOL"/>
+						<Table Name="YFS_USER"/>
+						<Table Name="YFS_QUEUE_SUBSCRIPTION"/>
+						<Table Name="YFS_ZIP_CODE_LOCATION"/>
+					</Ignore>
+				</SourceTargetPair>
+				<!-- EXPORT DB2 to XML -->
+				<SourceTargetPair SourceDatabase="PROD_DB" TargetDatabase="PROD_XML">
+					<Transformations />
+					<Ignore/>
+				</SourceTargetPair>
+			</SourceTargetPrefs>
+		</SourceTargetPrefs>
+	</configsynch>
+</preferences>
+

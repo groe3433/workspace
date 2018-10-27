@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_OrganizationList>
+    <Organization OrganizationCode="DEFAULT" OrganizationKey="DEFAULT" PricingOrganizationCode="DEFAULT"/>
+    <Organization OrganizationCode="FEDX" OrganizationKey="FEDX" PricingOrganizationCode="DEFAULT"/>
+    <!--Organization OrganizationCode="UPSA" OrganizationKey="UPSA" PricingOrganizationCode="DEFAULT"/-->
+    <!--Organization OrganizationCode="UPSC" OrganizationKey="UPSC" PricingOrganizationCode="DEFAULT"/-->
+    <!--Organization OrganizationCode="UPSE" OrganizationKey="UPSE" PricingOrganizationCode="DEFAULT"/-->
+    <!--Organization OrganizationCode="UPSL" OrganizationKey="UPSL" PricingOrganizationCode="DEFAULT"/-->
+    <Organization OrganizationCode="UPSN" OrganizationKey="UPSN" PricingOrganizationCode="DEFAULT"/>
+    <Organization OrganizationCode="USPS" OrganizationKey="USPS" PricingOrganizationCode="DEFAULT"/>
+</YFS_OrganizationList>

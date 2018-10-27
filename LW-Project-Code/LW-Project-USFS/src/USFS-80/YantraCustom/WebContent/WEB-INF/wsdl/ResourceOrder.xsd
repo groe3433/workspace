@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Todd Pepin (LOCKHEED MARTIN INFO & TECH SERVICES) -->
+<xs:schema xmlns="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:ro="http://nwcg.gov/services/ross/resource_order/1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nwcg="http://nwcg.gov/services/ross/common_types/1.1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" targetNamespace="http://nwcg.gov/services/ross/resource_order/1.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.1">
+	<xs:import namespace="http://nwcg.gov/services/ross/common_types/1.1" schemaLocation="RossCommon.xsd"/>
+	<xs:annotation>
+		<xs:documentation>****************  Common Response Structure Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Common response structure for resource order operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Structure containing Key information referring to a specific resource request across the ROSS Services Interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CombinationResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Common response structdure for combination resource order operations</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CreateIncidentResponseData" type="CreateIncidentOperationResponseType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Standard response data when an incident is created</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceRequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Structure containing Key information referring to a specific resource request across the ROSS Services Interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CreateIncidentOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Common response structure for incident creation operation responses</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ExistingIncidentSystemOfRecord" type="nwcg:ApplicationSystemType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If the incident already exists in ROSS, this value indicates the system that is the system of record for the incident.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Key information needed in order to refer to a specific incident across the ROSS Services Interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentEntityKeys" type="nwcg:IncidentEntityKeysReturnType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Composite Keys for any incident entities created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IncidentOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Structure containing incident data provided to an external system due to an incident level operation</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Key information needed in order to refer to a specific incident across the ROSS Services Interface.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResourcesOperationResponseType">
+		<xs:annotation>
+			<xs:documentation>Common response structure for "get xx resources" operations (returns multiple resources)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+				<xs:annotation>
+					<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ResourceKey" type="nwcg:CompositeResourceKeyType" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Structure containing Key information referring to a specific resource across the ROSS Services Interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>****************  Release 2.6 Message Definitions  **************</xs:documentation>
+	</xs:annotation>
+	<xs:element name="AuthenticateUserReq">
+		<xs:annotation>
+			<xs:documentation>Request message used to authenticate a user prior to subsequent requests</xs:documentation>
+		</xs:annotation>
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="AuthenticateUserResp">
+		<xs:annotation>
+			<xs:documentation>Request message used to authenticate a user prior to subsequent requests</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userAuthenticated" type="xs:boolean"/>
+				<xs:element name="authenticationTimestamp" type="xs:dateTime"/>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddIncidentDocumentationReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Add Incident Documentation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Identifies the Incident to add the documentation to</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DocumentationText" type="nwcg:DocumentationTextSimpleType">
+					<xs:annotation>
+						<xs:documentation>The text of the documentation entry to be added to the incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AddIncidentDocumentationResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Add Incident Documentation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information needed in order to refer to a specific incident across the ROSS Services Interface.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Create Incident Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentCreateType">
+					<xs:annotation>
+						<xs:documentation>Information needed to create the incident</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Create Incident Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CreateIncidentResponseData" type="CreateIncidentOperationResponseType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Structure containing incident data provided to an external system when an incident is created </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Create Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to create a request on</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType">
+					<xs:annotation>
+						<xs:documentation>Information needed in order to create a resource request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Create Resource Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CreateRequestAndFillReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Create Request and Fill Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to create a request on.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType"/>
+				<xs:element name="FillRequestInfo" type="nwcg:ResourceRequestFillOperationType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateRequestAndFillResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Create Request and Fill Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="FillResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Fill Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to fill.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="FillRequestInfo" type="nwcg:ResourceRequestFillOperationType">
+					<xs:annotation>
+						<xs:documentation>Resource and Assignment data to be used when filling the resource request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="FillResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Fill Resource Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetOperationResultsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Operation Results operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SystemOfOrigin" type="nwcg:ApplicationSystemType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="DistributionID" type="nwcg:DistributionIDSimpleType">
+					<xs:annotation>
+						<xs:documentation>Value of DistriubtionID returned in MessageAcknowledgement reponse to initial request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetOperationResultsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Operation Results operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:choice minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>If results were found will contain either a single ResourceOrder response document or a single Resource response document</xs:documentation>
+					</xs:annotation>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_order/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from a Resource Order operation.  Will not be present if results are not yet available for retieval.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from a Resource operation.  Will not be present if results are not yet available for retieval.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/catalog/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from a Catalog operation.  Will not be present if results are not yet available for retieval.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_clearinghouse/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from a Catalog operation.  Will not be present if results are not yet available for retieval.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverOperationResultsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Deliver Operation Results operation - This request message is sent to CAD systems to attempt delivery of results of a previously requested operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DistributionID" type="nwcg:DistributionIDSimpleType"/>
+				<xs:choice>
+					<xs:annotation>
+						<xs:documentation>Will always contain either a single ResourceOrder response document or a single Resource response document</xs:documentation>
+					</xs:annotation>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_order/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource Order namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Resource namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/catalog/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from the Catalog namespace.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+					<xs:any namespace="http://nwcg.gov/services/ross/resource_clearinghouse/1.1" processContents="lax">
+						<xs:annotation>
+							<xs:documentation>Any valid response message from a Catalog operation.  Will not be present if results are not yet available for retieval.</xs:documentation>
+						</xs:annotation>
+					</xs:any>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DeliverOperationResultsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Deliver Operation Results operation - retunred by CAD system to indicate successful receipt of operation results</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>ReturnCode of 0 indicates CAD system successfully received posted results</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CancelResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Cancel Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to cancel</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CancelResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Cancel Resource Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CreateIncidentAndRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request fo Create Incident And Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentCreateType"/>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentAndRequestResp" type="CombinationResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response fo Create Incident And Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CreateIncidentRequestAndFillReq">
+		<xs:annotation>
+			<xs:documentation>Message Request to Create Incident Request And Fill Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType"/>
+				<xs:element name="Incident" type="nwcg:IncidentCreateType">
+					<xs:annotation>
+						<xs:documentation>If incident is to be created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType"/>
+				<xs:element name="FillRequestInformation" type="nwcg:ResourceRequestFillOperationType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentRequestAndFillResp" type="CombinationResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response to Create Incident Request And Fill Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CreateIncidentRequestAndPlaceReq">
+		<xs:annotation>
+			<xs:documentation>Message Request to Create Incident Request And Place Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType"/>
+				<xs:element name="Incident" type="nwcg:IncidentCreateType"/>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType"/>
+				<xs:element name="PlaceToUnitID" type="nwcg:UnitIDType">
+					<xs:annotation>
+						<xs:documentation>Dispatch to Place Rqeuest To</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateIncidentRequestAndPlaceResp" type="CombinationResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response to Create Incident Request And Place Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="CreateRequestAndPlaceReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Create Request and Place Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to create the request on</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType" maxOccurs="unbounded"/>
+				<xs:element name="PlaceToUnitID" type="nwcg:UnitIDType"/>
+				<xs:element name="CacheIssue" type="nwcg:CacheIssueCreateType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Cache issue information, used only for requests created by a cache (such as ICBS)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CreateRequestAndPlaceResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Create Request and Place Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific resource request across the ROSS Services Interface</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incident Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to return</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incident Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentAndRequestsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incident and Requests Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to get</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentAndRequestsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incident and Requests Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAndRequests" type="nwcg:IncidentResourceRequestsReturnType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentAviationHazardsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incident Aviation Hazards Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident's aviation hazards to get</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentAviationHazardsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incident Aviation Hazards Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="AviationHazard" type="nwcg:IncidentAviationHazardReturnType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Structure containing Incident Aviation Hazard data</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentDocumentationReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incident Documentation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident's user documentation to return</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentDocumentationResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incident Documentation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident user documentation was obtained for</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Documentation" type="nwcg:DocumentationReturnType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>User Documentation Entries</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentRadioFrequenciesReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incident Radio Frequencies Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident's radio frequencies to get</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentRadioFrequenciesResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incident Radio Frequencies Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequencies" type="nwcg:IncidentRadioFrequencyReturnType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Structure containing incident radio frequency information</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentsRequestsByStatusReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Incidents Requests By Status Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentStatus" type="nwcg:IncidentStatusSimpleType">
+					<xs:annotation>
+						<xs:documentation>Only status of Open supported for 2.6</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetIncidentsRequestsByStatusResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Incidents Requests By Status Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentsAndRequests" type="nwcg:IncidentResourceRequestsReturnType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Structure containing incident and request information</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Get Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to retrieve</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GetResourceRequestResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Get Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Structure containing Key information referring to a specific resource request across the ROSS Services Interface; Returned when resource request is not found, or if the operation failed.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:choice minOccurs="0">
+					<xs:element name="PendingRequest" type="nwcg:ResourceRequestPendingReturnType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Information returned if the resource request is pending</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="FilledRequest" type="nwcg:ResourceRequestFilledReturnType" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Information returned if the resource request is filled</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NotifyResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Notify Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to mark in progress</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NotificationType" type="nwcg:NotifyTypeSimpleType">
+					<xs:annotation>
+						<xs:documentation>Indifcates the type of ROSS internal notification to send to the requesting dispatch</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NotifyResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Notify Resource Request Operation </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="PlaceResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Place Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to place</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PlaceToUnitID" type="nwcg:UnitIDType">
+					<xs:annotation>
+						<xs:documentation>Unit ID of the dispatch unit in ROSS to place the resource request to.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PlaceResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for Place Resource Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ReplaceIncidentAviationHazardsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Replace Incident Aviation Hazards Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident's aviation hazards are to be replaced</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAviationHazard" type="nwcg:IncidentAviationHazardCreateType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReplaceIncidentAviationHazardsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Replace Incident Aviation Hazards Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentAviationHazardKey" type="nwcg:CompositeIncidentAviationHazardKeyType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Key for each Aviation Hazard created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReplaceIncidentRadioFrequenciesReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Replace Incident Radio Frequency Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to add the radio frequency to</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequency" type="nwcg:IncidentRadioFrequencyCreateType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>The radio frequencies to be added</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ReplaceIncidentRadioFrequenciesResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Replace Incident Radio Frequency Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentRadioFrequencyKey" type="nwcg:CompositeIncidentRadioFrequencyKeyType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Structure containing keys referring to the new incident radio frequencies created</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentDetailsReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Update Incident Details Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to update</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentUpdateDetails" type="nwcg:IncidentDetailsUpdateType">
+					<xs:annotation>
+						<xs:documentation>Structure containing incident attribute data to be modified</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentDetailsResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Update Incident Details Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information needed in order to refer to a specific incident across the ROSS Services Interface.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentNumberReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Update Incident Number Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident to update</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewSequenceNumber" type="nwcg:IncidentSequenceNumberSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>1 to 6 digit number that is used in forming the last portion of the incident number – Example: If Incident number is ‘AB-LD1-000012’, then the Sequence Number is 12.  Only supply this value if the sequence number is being modified.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewHostUnitID" type="nwcg:UnitIDType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Unit ID of the new incident host organization </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentNumberResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Update Incident Number Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key representing the incident.  If the incident number is successfully changed, this will contain the updated key.  If the incident number is not successfully updated, this will contain the original incident key value.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NextAvailableSequenceNumber" type="nwcg:IncidentSequenceNumberSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The next available sequence number that may be used in numbering an incident based upon the incident host and year the incident was initiated.  Only provided in Failure Case</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentSystemOfRecord" type="nwcg:ApplicationSystemType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>System of Record for the incident.  This value is only provided in Failure Case</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UtfResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for UTF Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to UTF</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="UserDocumentation" type="nwcg:DocumentationTextSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Text to be added to the UTF'd request as a user documentation entry.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UtfResourceRequestResp" type="ResourceOrderResponseType">
+		<xs:annotation>
+			<xs:documentation>Message Response for UTF Resource Request Operation</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>Release 2.8 Message Definitions</xs:documentation>
+	</xs:annotation>
+	<xs:element name="SetIncidentActivationReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Set Incident Activation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which incident's activation is to be set</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ActiveInExtSystemInd" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>True to mark the incident active, false to mark the inactive.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SetIncidentActivationResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Set Incident Activation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Key information needed in order to refer to a specific incident across the ROSS Services Interface.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RegisterIncidentInterestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Register Incident Interest Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>Key indicating which incident to register/deregister interest in.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RegisterInterestInd" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>True to register interest, false to deregister interest</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RegisterIncidentInterestResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Register Incident Interest Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>If registering interest in the incident, the full incident is provided in the response.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PlaceResourceRequestExternalReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Place Resource Request External Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Incident" type="nwcg:IncidentReturnType">
+					<xs:annotation>
+						<xs:documentation>Detailed information about the incident associated with the request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Request" type="nwcg:ResourceRequestCreateType" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Detailed information about the request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="PlaceToUnitID" type="nwcg:UnitIDType">
+					<xs:annotation>
+						<xs:documentation>The Unit ID of the dispatch or cache organization the requests are being placed to.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PlaceResourceRequestExternalResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Place Resource Request External Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RegisterInterestInd" type="xs:boolean" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>True if the external system wants to register interest in the incident of the request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="CacheIssueInfo" type="nwcg:PlaceCacheIssueCreateType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Cache issue information, returned for requests placed to a cache (such as ICBS)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Message Request for Retrieve Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>Identifies the system originating this request message</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType">
+					<xs:annotation>
+						<xs:documentation>Key information identifying which resource request to retrieve</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RetrieveResourceRequestResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Retrieve Resource Request Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RetrieveAcceptedInd" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>Indicates if the retrieval is accepted by the external system</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentStatusReq">
+		<xs:annotation>
+			<xs:documentation>Allows an external system to close an incident in ROSS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType">
+					<xs:annotation>
+						<xs:documentation>This is the type of system originating this notification.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType">
+					<xs:annotation>
+						<xs:documentation>The key information of the incident whose status is to be updated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="NewStatus" type="nwcg:IncidentStatusSimpleType">
+					<xs:annotation>
+						<xs:documentation>Status the incident is being set to.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateIncidentStatusResp">
+		<xs:annotation>
+			<xs:documentation>Message Response for Update Incident Status Documentation Operation</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>Indicates the Result of the operation - Structure containing response status data returned to external systems</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="IncidentKey" type="nwcg:CompositeIncidentKeyType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The Incident Key of the incident whose status was updated.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:annotation>
+		<xs:documentation>ICBS Incr 4 Message Definitions</xs:documentation>
+	</xs:annotation>
+	<xs:element name="UpdateNFESResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Updates requests placed to external cache by ROSS. Implements UC-921 and UC-924</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType"/>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType"/>
+				<xs:choice minOccurs="0">
+					<xs:element name="FillDetail" type="nwcg:FillDetailType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ConsolidationDetail" type="nwcg:ConsolidationDetailType" minOccurs="0"/>
+				</xs:choice>
+				<xs:choice minOccurs="0">
+					<xs:element name="ShippingAddress" type="nwcg:AddressType">
+						<xs:annotation>
+							<xs:documentation>The address to which the requested item should be shipped</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShippingInstructions" type="nwcg:ShippingInstructionsCreateType">
+						<xs:annotation>
+							<xs:documentation>Shipping instructions for use when a specific address is not available</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WillPickUpInfo" type="nwcg:WillPickUpInformationType">
+						<xs:annotation>
+							<xs:documentation>Contains the information needed if the requested item will be picked up at the cache</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="ShippingContactName" type="nwcg:ShippingContactNameSimpleType">
+					<xs:annotation>
+						<xs:documentation>The name of the person to contact about shipping information for this resource request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShippingContactPhone" type="nwcg:ShippingContactPhoneSimpleType">
+					<xs:annotation>
+						<xs:documentation>The phone number for the person to contact about shipping information for this resource request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SpecialNeeds" type="nwcg:SpecialNeedsSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>special requirements specific to the order.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateNFESResourceRequestResp">
+		<xs:annotation>
+			<xs:documentation>Updates requests placed to external cache by ROSS. Implements UC-921 and UC-924</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType">
+					<xs:annotation>
+						<xs:documentation>0 on success, or error code and message if there was an error processing the request.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Request number to which this response belongs.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StatusNFESResourceRequestReq">
+		<xs:annotation>
+			<xs:documentation>Allows ROSS to request update on latest request status from ICBS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType"/>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StatusNFESResourceRequestResp">
+		<xs:annotation>
+			<xs:documentation>Allows ROSS to request update on latest request status from ICBS</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ResponseStatus" type="nwcg:ResponseStatusType"/>
+				<xs:element name="RequestKey" type="nwcg:CompositeResourceRequestKeyType" minOccurs="0"/>
+				<xs:element name="MessageOriginator" type="nwcg:MessageOriginatorType" minOccurs="0"/>
+				<xs:choice minOccurs="0">
+					<xs:element name="FillDetail" type="nwcg:FillDetailType" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="ConsolidationDetail" type="nwcg:ConsolidationDetailType" minOccurs="0"/>
+				</xs:choice>
+				<xs:choice minOccurs="0">
+					<xs:element name="ShippingAddress" type="nwcg:AddressType">
+						<xs:annotation>
+							<xs:documentation>The address to which the requested item should be shipped</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ShippingInstructions" type="nwcg:ShippingInstructionsCreateType">
+						<xs:annotation>
+							<xs:documentation>Shipping instructions for use when a specific address is not available</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="WillPickUpInfo" type="nwcg:WillPickUpInformationType">
+						<xs:annotation>
+							<xs:documentation>Contains the information needed if the requested item will be picked up at the cache</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+				<xs:element name="ShippingContactName" type="nwcg:ShippingContactNameSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The name of the person to contact about shipping information for this resource request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ShippingContactPhone" type="nwcg:ShippingContactPhoneSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>The phone number for the person to contact about shipping information for this resource request</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="SpecialNeeds" type="nwcg:SpecialNeedsSimpleType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>special requirements specific to the order.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

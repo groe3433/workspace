@@ -1,0 +1,69 @@
+		<div>
+		 	<div data-dojo-type="dijit/form/Button" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'changeToPickup' , 
+		renderHidden : true  
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="dijit/form/Button" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'changeAddress' , 
+		disabled : true  ,
+		renderHidden : true
+	 					}">
+		 	</div>  
+		 	<div data-dojo-type="gridx/Grid" 
+	 					data-dojo-props="data_dojo_props_diff: {
+	 								_sc_extensibility_operation : 'change' , 
+		_sc_extensibility_referenceUId : 'OLST_listGrid'  
+ 		,scExtensionDataFn :
+		 function() { 
+			return { 
+			 	structure : 	[
+	 		{
+		 _sc_extensibility_operation : 			'change'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProductAddItems'
+,
+		 hidden : 			true
+,
+		 uId : 			'tblColProductAddItems'
+	}
+,
+	 		{
+		 field : 			'extn_product'
+,
+		 _sc_extensibility_operation : 			'insert'
+,
+		 bindingData : 	{
+		 sFieldBinding : 	{
+		 path : 			'ItemDetails.PrimaryInformation.ShortDescription'
+,
+		 dynamicBindingFunc : 			'getProductHTML'
+,
+		 dynamicBindingPackage : 			'isccs.utils'
+,
+		 dynamicBindingClassName : 			'OrderLineUtils'
+	}
+	}
+,
+		 _sc_extensibility_moveOrder : 			'1'
+,
+		 _sc_extensibility_referenceUId : 			'tblColProductAddItems'
+,
+		 width : 			'51%'
+,
+		 name : 			this.getSimpleBundleString('extn_Product')
+,
+		 uId : 			'extn_product'
+,
+		 _sc_extensibility_position : 			'after'
+	}
+	]
+			}
+		}
+	 					}">
+		 	</div>  
+		</div>

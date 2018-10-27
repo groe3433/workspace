@@ -1,0 +1,23 @@
+<Component xmlns="http://www.lightwellinc.com/stf-component.xsd"
+	xmlns:p1="http://www.lightwellinc.com/stf-common.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.lightwellinc.com/stf-component.xsd ../../../schemas/SterlingTestFramework-Component.xsd "
+	Name="IKEA_CapacityOverride_setCapacity_Component" Active="Y" Description="IKEA_CapacityOverride_setCapacity_Component.xml">
+	<Steps>
+		<Sequence Number="1">
+			<p1:Api Name="overrideResourcePoolCapacity"></p1:Api>
+			<p1:Documents>
+				<p1:Document Type="INPUT_DOCUMENT" FileName="IKEA_CapacityOverride_setCapacity_Input.xml"
+					Location="resources/xml/input/IKEA/OverrideResourcePoolCapacity/">
+				</p1:Document>
+			</p1:Documents>
+		</Sequence>
+	</Steps>
+<Parameters> 
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" />
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.2.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="1"/>
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.3.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="2"/>
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.4.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="3"/>
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.5.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="4"/>
+		<DateParameter Key="OverrideResourcePoolCapacity.ResourcePools.ResourcePool.ServiceSlots.ServiceSlot.Dates.Date.6.Date" Type = "INPUT" DateFormat="yyyy-MM-dd" DaysOffset="5"/>
+</Parameters>
+</Component>

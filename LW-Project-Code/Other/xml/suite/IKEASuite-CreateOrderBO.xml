@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Suite name="IKEASuite-CreateOrderBO" active="Y" description="Test Suite containing the CreateOrder BO test case for the IKEA Pilot">
+	<Tests>
+
+		<Test testFile="CreateOrder/IKEA_CreateOrder_BackOrdered_IT_Test.xml" />
+
+	</Tests>
+</Suite>

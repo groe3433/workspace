@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Controller
+    className="com.sterlingcommerce.ui.web.platform.controller.SCUIXAPIMashupController"
+    controllerId="extn.order.cancel.CancelOrderBaseScreenExtnInitController"
+    requestMethodSupported="POST" screenId="extn.order.cancel.CancelOrderBaseScreenExtn">
+    <Group isAggregator="Y"/>
+    <MashupRefs>
+        <MashupRef extnType="ADD"
+            mashupId="cancelOrder_getCompleteOrderDetails"
+            mashupRefId="getCompleteOrderDetails" permissionId=""/>
+        <MashupRef extnType="ADD" mashupId="extn_getFanCashReasonCode"
+            mashupRefId="extn_getFanCashReasonCode" permissionId=""/>
+    </MashupRefs>
+</Controller>

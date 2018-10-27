@@ -1,0 +1,159 @@
+###########################################################################
+######## TOG Agent/Integration Server Validation ##########################
+###########################################################################
+
+######## Check Running Agents - Every 5 minutes ########
+######## If it sees an Agent that is DOWN or that is RUNNING with MULTIPLE Instances, it will attempt to start/restart correctly. 
+
+*/5 * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/checkAgentServers.sh
+
+###########################################################################
+######################### TOG Job Scheduler ###############################
+###########################################################################
+
+* * * * * /opt/ssfs/runtime/TOGCommonScripts/TOG-Job-Scheduler.sh
+00 06 * * 6 /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh TOG_JOB_SCHEDULER.log
+
+###########################################################################
+######## New Manual Process Agent Trigger Cron Jobs #######################
+###########################################################################
+
+* * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/TOGTriggerAgent/triggerReleaseAgent.sh
+* * * * * /opt/ssfs/runtime/TOGCustomAgentScripts/TOGTriggerAgent/triggerScheduleAgent.sh
+
+###########################################################################
+######## New Adhoc Report Cron Jobs #######################################
+###########################################################################
+
+######## Agent Server for the report generator ########
+
+#### Open Order
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Scripts/TOG-GenerateOpenOrdersReport.sh
+
+#### Order Reconciliation
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Scripts/TOG-RetrieveAndProcessFile.sh
+
+#### Back Order Summary
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Scripts/TOG-GenerateBackOrderSummaryReport.sh
+
+#### Back Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Scripts/TOG-GenerateBackOrderDetailReport.sh
+
+#### Open Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Scripts/TOG-GenerateOpenOrderDetailReport.sh
+
+#### Item Substitution Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Scripts/TOG-GenerateItemSubstitutionReport.sh
+
+######## Agent Server for the report emailer ########
+
+#### Open Order
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrders/Scripts/TOG-EmailOpenOrderReport.sh
+
+#### Order Reconciliation
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OrderReconciliation/Scripts/TOG-EmailOrderReconciliationReport.sh
+
+#### Back Order Summary
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersSummary/Scripts/TOG-EmailBackOrderSummaryReport.sh
+
+#### Back Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/BackOrdersDetail/Scripts/TOG-EmailBackOrderDetailReport.sh
+
+#### Open Order Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/OpenOrderDetail/Scripts/TOG-EmailOpenOrderDetailReport.sh
+
+#### Item Substitution Detail
+* * * * * /opt/ssfs/runtime/TOGOMSExtracts/ItemSubstitution/Scripts/TOG-EmailItemSubstitutionReport.sh
+
+######## Clean Agent Report Logs - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGOMSExtracts/cleanArchivedReports.sh
+
+###########################################################################
+######## TOG Agent Cron Jobs ##############################################
+###########################################################################
+
+######## Rotate Agent Logs (Agent 1) - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh Agent_Status_Check.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh TOGSystemStats.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_TRIGGER_AGENT.log
+
+######## Rotate Agent Logs (Agent 1) - 1,7,13,19 EST/6,12,18,00 GMT ########
+
+00 00,06,12,18 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_TOGRELEASEAGENT.log
+00 00,06,12,18 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_TOGSCHEDULEAGENT.log
+00 00,06,12,18 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_TOGSCHEDULEBACKORDERAGENT.log
+
+######## Rotate Agent Logs (Agent 2) - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh Agent_Status_Check.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh TOGSystemStats.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh HealthMonitor.log
+
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_INVENTORY_SYNC.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_ADJUST_INV.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_ORDER_STATUS_CHANGE.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_RECEIPT_CONF.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_CONFIRM_SHIPMENT.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_PRODUCT_CATALOG.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_CREATE_ORDER.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_OMS_CLOSE_ORDER.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_OMS_CLOSE_SHIPMENT.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_OMS_INV_PURGE.log
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_TOGRESETINFINV.log
+##### uncomment if needed ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_TOGMIGRATIONAGENT.log
+##### uncomment if needed ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_OMS_MIGRATION_AGENT.log
+##### uncomment if needed ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_TOGEXPORTMIGRATIONORDER.log
+##### RETIRED ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_TOGAGENTSERVER.log
+##### RETIRED ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_SCHEDULE_LTOOS_ORDER.log
+##### RETIRED ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh integration_OMS_MIGRATION_ORDER.log
+##### RETIRED ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_OMS_INV_MONITOR.log
+##### RETIRED ##### 00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/rotateAgentLogs.sh agent_CONS_ADD_INV.log
+
+######## Purge Old Agent Log Folders - 01:00 EST/06:00 GMT ########
+
+00 06 * * * /opt/ssfs/runtime/TOGCustomAgentScripts/purgeOldAgentLogFolders.sh
+
+###########################################################################
+######################### UDC Script Prep #################################
+###########################################################################
+
+######## Fix scripts first time they get copied by UDC process ########
+######## Note: setupScripts.sh/dos2unix4scripts.sh are copied to QA/Preprod/Prod as part of 1 time setup. 
+
+* * * * * /home/wasuser/TOGScripts/setupScripts.sh
+
+###########################################################################
+######## Unpack Script for Lightwell's Build Script (QA/Preprod) ##########
+###########################################################################
+
+######## Check for TOG Zip to unpack ########
+######## Note: Lightwell Build Process for QA and Preprod ONLY. 
+
+#*/2 * * * * /home/wasuser/TOGScripts/unpackTOG.sh all-unpack
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

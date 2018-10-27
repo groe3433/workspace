@@ -1,0 +1,22 @@
+<OrderList>
+	<Order CarrierServiceCode="" CustomerEMailID="" DocumentType=""
+		EnteredBy="" EnterpriseCode="" EntryType="" MaxOrderStatus=""
+		MinOrderStatus="" OrderDate="" OrderNo="" OrderType="" OriginalTax=""
+		OriginalTotalAmount="" OtherCharges="" SellerOrganizationCode="" OrderPurpose="">
+		<PersonInfoBillTo AddressLine1="" AddressLine2=""
+			City="" Country="" EMailID="" FirstName="" LastName="" MiddleName=""
+			MobilePhone="" State="" ZipCode="" />
+		<PersonInfoShipTo AddressLine1="" AddressLine2=""
+			City="" Country="" EMailID="" FirstName="" LastName="" MiddleName=""
+			MobilePhone="" State="" ZipCode="" />
+		<PriceInfo Currency="" TotalAmount="" />
+		<OverallTotals GrandCharges="" GrandDiscount=""
+			GrandTotal="" />
+		<CustomAttributes CustomerOrderNo="" />
+                <ChargeTransactionDetails>
+                  <ChargeTransactionDetail>
+                    <TransferFromOrder/>
+                  </ChargeTransactionDetail>
+                </ChargeTransactionDetails>
+	</Order>
+</OrderList>

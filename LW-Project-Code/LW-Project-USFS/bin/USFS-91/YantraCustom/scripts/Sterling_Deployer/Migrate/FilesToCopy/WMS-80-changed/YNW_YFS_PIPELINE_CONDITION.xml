@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<YFS_Pipeline_ConditionList>
+    <!-- February 7, 2014 - WMS Migration target upgrade-transaction-tables was failing on this Transaction -->
+    <!--PipelineCondition OwnerKey="DEFAULT"
+        PipelineConditionKey="2006101015070018609"
+        PipelineKey="YNW-Blind-Receiptv85" Priority="0.00" ProcessTypeKey="YNW050418305055769"/>
+    <PipelineCondition OwnerKey="DEFAULT"
+        PipelineConditionKey="2006101015090518611"
+        PipelineKey="YNW-Blind-ReturnRcpt85" Priority="0.00" ProcessTypeKey="YNW150418305055769"/>
+    <PipelineCondition OwnerKey="DEFAULT"
+        PipelineConditionKey="2006101015151618645"
+        PipelineKey="YNW-Blnd-IbndShipmnt85" Priority="0.00" ProcessTypeKey="YNW050418304655586"/>
+    <PipelineCondition OwnerKey="DEFAULT"
+        PipelineConditionKey="2006101015153118647"
+        PipelineKey="YNW-Blnd-RtrnShipmnt85" Priority="0.00" ProcessTypeKey="YNW150418304655586"/-->
+</YFS_Pipeline_ConditionList>

@@ -1,0 +1,12 @@
+<DBSchema Name="CustomDBExtensions"> 
+<Entities> 
+        <Entity TableName="YFS_ORDER_RELEASE">
+          <Attributes>
+          <Attribute Description="Unique OMS Reference for a Release for a Ship Alone item" XMLName="ControlNumber" Nullable="True" DataType="Text-40" ColumnName="EXTN_CONTROL_NO" XMLGroup="Extn"/>
+          <Attribute Description="Flag which indicates that the reason for reject is Inventory related" XMLName="RejectDueToInvShortage" Nullable="True" DataType="Text-40" ColumnName="EXTN_REJECT_INV_SHORTAGE" XMLGroup="Extn"/>
+          <Attribute Description="Status" XMLName="Status" Nullable="True" DataType="Flag" ColumnName="EXTN_STATUS" XMLGroup="Extn"/>
+          <Attribute Description="Put Inventory On Hold On Backorder" XMLName="PutInventoryOnHoldOnBackorder" Nullable="True" DataType="Flag" ColumnName="EXTN_HOLD_INV_ON_BCKORDER" XMLGroup="Extn"/>
+          </Attributes>
+        </Entity>
+</Entities>
+</DBSchema>

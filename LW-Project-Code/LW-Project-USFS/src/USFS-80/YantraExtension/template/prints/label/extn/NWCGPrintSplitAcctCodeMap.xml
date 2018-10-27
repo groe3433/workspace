@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelFieldMap>
+    <LabelField DataType="Text"	LabelFieldName="issueNo" 
+		Binding="/Shipment/@OrderNo" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text"	LabelFieldName="date" 
+		Binding="/Shipment/@CurrentDate" RepeatingElement="" Sequence="N"/>
+    <LabelField DataType="Text" LabelFieldName="acct" 
+		Binding="/Shipment/SplitAcctCodes/SplitAcctCode/@AcctCode" RepeatingElement="SplitAcctCode" Sequence="N"/>
+    <LabelField DataType="Text"	LabelFieldName="override" 
+		Binding="/Shipment/SplitAcctCodes/SplitAcctCode/@OverrideCode" RepeatingElement="SplitAcctCode" Sequence="N"/>
+    <LabelField DataType="Text"	LabelFieldName="amount" 
+		Binding="/Shipment/SplitAcctCodes/SplitAcctCode/@Amount" RepeatingElement="SplitAcctCode" Sequence="N"/>
+	<RepeatingFields>
+	    <RepeatingField LabelFieldName="acct" MaxFirstPage="5"/>
+		<RepeatingField LabelFieldName="override" MaxFirstPage="5"/>
+		<RepeatingField LabelFieldName="amount" MaxFirstPage="5"/>
+    </RepeatingFields>
+</LabelFieldMap>
+

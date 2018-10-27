@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScreenBundle screenBundleId="extn.order.search.OrderSearchExtnBundle" screenId="extn.order.search.OrderSearchExtn">
+    <BundleEntries>
+        <BundleEntry bundleEntryId="pnlCustFields_TitlePane_title"
+            bundleKey="extn_Search_By_Customer_Billing_Info"
+            bundleValueFn="_scSimpleBundle" property="title"
+            type="WIDGET" uId="pnlCustFields"/>
+        <BundleEntry bundleEntryId="extn_addressFields_TitlePane_title"
+            bundleKey="extn_Search_By_Address"
+            bundleValueFn="_scSimpleBundle" property="title"
+            type="WIDGET" uId="extn_addressFields"/>
+        <BundleEntry
+            bundleEntryId="extn_isBillingAdd_RadioButtonSet_label"
+            bundleKey="extn_Billing_or_Shipping_Address"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="extn_isBillingAdd"/>
+        <BundleEntry
+            bundleEntryId="extn_isBillingAdd_RadioButtonSet_BindingData_RadioBinding_Y_Option_label"
+            bundleKey="extn_Billing_Address"
+            bundleValueFn="_scSimpleBundle"
+            childPath="RadioButtonSet_BindingData_RadioBinding_Y_Option"
+            property="label" type="WIDGET" uId="extn_isBillingAdd"/>
+        <BundleEntry
+            bundleEntryId="extn_isBillingAdd_RadioButtonSet_BindingData_RadioBinding_N_Option_label"
+            bundleKey="PersonInfoShip" bundleValueFn="_scSimpleBundle"
+            childPath="RadioButtonSet_BindingData_RadioBinding_N_Option"
+            property="label" type="WIDGET" uId="extn_isBillingAdd"/>
+        <BundleEntry bundleEntryId="extn_txt_cusordno_TextField_label"
+            bundleKey="extn_Order_Number"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_txt_cusordno"/>
+        <BundleEntry bundleEntryId="txt_orderNo2_TextField_label"
+            bundleKey="OrderNo" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="txt_orderNo2"/>
+        <BundleEntry bundleEntryId="txt_custEmailId_TextField_label"
+            bundleKey="extn_Billing_Email_address_starts_with"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="txt_custEmailId"/>
+        <BundleEntry bundleEntryId="txt_custPhone_TextField_label"
+            bundleKey="extn_Customer_Billing_telephone"
+            bundleValueFn="_scBundle" property="label" type="WIDGET" uId="txt_custPhone"/>
+        <BundleEntry bundleEntryId="extn_firstName_TextField_label"
+            bundleKey="FirstName" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_firstName"/>
+        <BundleEntry bundleEntryId="extn_lastName_TextField_label"
+            bundleKey="LastName" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_lastName"/>
+        <BundleEntry bundleEntryId="extn_addrsLine1_TextField_label"
+            bundleKey="extn_Address_Line1"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_addrsLine1"/>
+        <BundleEntry bundleEntryId="extn_addrsLine2_TextField_label"
+            bundleKey="AddressLine2" bundleValueFn="_scSimpleBundle"
+            property="label" type="WIDGET" uId="extn_addrsLine2"/>
+        <BundleEntry bundleEntryId="extn_postalCode_TextField_label"
+            bundleKey="ZipCode" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_postalCode"/>
+        <BundleEntry bundleEntryId="extn_txtTelephone_TextField_label"
+            bundleKey="CustomerPhoneNo" bundleValueFn="_scBundle"
+            property="label" type="WIDGET" uId="extn_txtTelephone"/>
+        <BundleEntry bundleEntryId="extn_emailId_TextField_label"
+            bundleKey="CustomerEmailStartsWith"
+            bundleValueFn="_scSimpleBundle" property="label"
+            type="WIDGET" uId="extn_emailId"/>
+    </BundleEntries>
+</ScreenBundle>
