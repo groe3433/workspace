@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+
+	<ui:composition>
+		<p:dialog id="selectCounselDlgId"
+			header="#{detailMB.selectCounselTitle}" modal="true"
+			widgetVar="selectCounselDlgWidget" closable="true" resizable="false"
+			appendTo="@(body)" dynamic="true" width="500" height="550">
+			<p:tabView id="selectCounselTabId" orientation="top"
+				value="#{detailMB.selectCounselModels}" var="selectCounselModel"
+				dynamic="true">
+				<p:tab title="#{selectCounselModel.tabTitle}">
+					<h:form>
+						<p:dataTable widgetVar="counselTable"
+							value="#{selectCounselModel.counselList}" var="counsel"
+							rowKey="#{counsel.prPrid}" scrollable="true" scrollHeight="420"
+							selection="#{selectCounselModel.selectedCounselList}"
+							filteredValue="#{selectCounselModel.filteredSelectedCounselList}"
+							style="width:450" styleClass="noSelectChkbox">
+							<p:ajax event="rowSelectCheckbox" />
+							<p:ajax event="rowUnselectCheckbox" />							
+							<p:ajax event="filter" global="true" />
+							
+							<f:facet name="header">
+								<p:outputPanel>						
+									<p:inputText id="globalFilter" onkeyup="PF('counselTable').filter()" style="width:150px"/>
+									<h:outputText value="#{bundle.search}" />	
+								</p:outputPanel>
+							</f:facet>
+							
+							<p:column headerText="#{bundle.select}" selectionMode="multiple"
+								style="width:35px;text-align:center" />
+								
+							<p:column headerText="#{bundle.name}" style="width:220px"
+								filterBy="#{counsel.fullName}" filterFunction="#{dtFilterView.filterByFullName}"
+								filterStyle="display:none">
+								<h:outputText value="#{counsel.fullName}"/>
+							</p:column>															
+							
+							<p:column headerText="#{bundle.type}" style="width:30px">
+								<h:outputText value="#{counsel.prType}" />
+							</p:column>
+							<p:column headerText="#{bundle.barId}" style="width:40px">
+								<h:outputText value="#{counsel.prRetrieveCode}" />
+							</p:column>
+						</p:dataTable>
+					</h:form>
+				</p:tab>
+			</p:tabView>
+			<h:form>
+				<p:commandLink id="selectCounselCancelId"
+					update="selectCounselDlgId" value="#{bundle.cancel}"
+					styleClass="rightMenuLink"
+					onclick="PF('selectCounselDlgWidget').hide();" />
+				<p:commandButton id="selectCounselOkId" value="#{bundle.ok}"
+					action="#{detailMB.addSelectedCounselList()}"
+					oncomplete="PF('selectCounselDlgWidget').hide();"
+					styleClass="rightMenuButton"
+					update=":messageGrowl2 :dktTab:detailTabForm:movingCounselId :dktTab:detailTabForm:opposingCounselId" />
+			</h:form>
+		</p:dialog>
+	</ui:composition>
+</h:body>
+</html>
+
+
